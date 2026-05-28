@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { connection } from 'next/server'
 import { Playfair_Display, Inter } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import { Navbar } from '@/components/layout/Navbar'
 import { getSiteOrigin } from '@/lib/site-url'
 import './globals.css'
@@ -54,6 +55,7 @@ export default function RootLayout({
       <body className="pt-0">
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   )
