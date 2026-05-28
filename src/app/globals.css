@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────
+   Beach House Moving — Coastal Premium Palette v1
+   ───────────────────────────────────────────── */
+:root {
+  --color-navy:        #1B2B4B;
+  --color-coral:       #E85D3D;
+  --color-coral-dark:  #C94828;
+  --color-sand:        #F5F0E8;
+  --color-teal:        #2A9D8F;
+  --color-gold:        #E9C46A;
+  --color-white:       #FFFFFF;
+  --color-ink:         #1B2B4B;
+  --color-ink-muted:   #4A5568;
+  --color-ink-light:   #718096;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  font-family: var(--font-body), 'Inter', system-ui, sans-serif;
+  color: #1B2B4B;
+  background: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Remove browser-default blue underlines globally */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Prevent browser-default blue underlines on tel/mail links */
+a[href^='tel:'],
+a[href^='mailto:'] {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Force font-heading utility to use the CSS variable */
+.font-heading {
+  font-family: var(--font-heading), 'Playfair Display', Georgia, serif !important;
+}
+
+.font-body {
+  font-family: var(--font-body), 'Inter', system-ui, sans-serif !important;
+}
+
+/* Ken Burns animation for hero */
+@keyframes kenBurns {
+  from { transform: scale(1.07); }
+  to   { transform: scale(1.0); }
+}
+.ken-burns {
+  animation: kenBurns 10s ease-out forwards;
+}
+
+/* Marquee for gallery strip */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  animation: marquee 35s linear infinite;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Location ticker for hero */
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.ticker-locations {
+  display: inline-block;
+  animation: tickerScroll 20s linear infinite;
+}
+
+/* Offset all anchor scroll targets by navbar height */
+[id] {
+  scroll-margin-top: 80px;
+}

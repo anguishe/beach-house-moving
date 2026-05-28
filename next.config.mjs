@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    formats: ["image/avif", "image/webp"],
+    // All assets are local under /public/images/ — no remotePatterns or domains
+    formats: ["image/webp", "image/avif"],
+    minimumCacheTTL: 60,
   },
 };
 
