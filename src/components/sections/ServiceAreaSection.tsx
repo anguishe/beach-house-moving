@@ -7,33 +7,63 @@ import { BUSINESS, SERVICE_AREAS } from '@/lib/content'
 
 export function ServiceAreaSection() {
   return (
-    <section id="areas" className="bg-white py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <div className="mb-12 text-center md:mb-16">
+    <section id="areas" style={{ backgroundColor: '#FFFFFF', padding: '96px 0' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
           <p
-            className="mb-3 font-body text-sm font-semibold uppercase tracking-[0.2em] text-[#2A9D8F]"
-            style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+            style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              color: '#2A9D8F',
+              fontWeight: 600,
+              fontSize: '12px',
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              marginBottom: '12px',
+            }}
           >
             Where We Work
           </p>
           <h2
-            className="font-heading text-3xl font-bold text-brand-navy md:text-4xl"
             style={{
               fontFamily: '"Playfair Display", Georgia, serif',
               color: '#1B2B4B',
               fontWeight: 700,
+              fontSize: 'clamp(2rem, 4vw, 2.75rem)',
+              marginBottom: '16px',
+              lineHeight: 1.15,
             }}
           >
             Serving the Florida Panhandle
           </h2>
-          <div className="mx-auto my-4 h-[2px] w-10 rounded-full bg-[#2A9D8F]" />
-          <p className="mx-auto max-w-2xl font-body text-lg text-ink-muted">
-            From 30A to Panama City, from Fort Walton to Crestview — we know every road, every
-            neighborhood.
+          <div
+            style={{
+              width: '40px',
+              height: '2px',
+              backgroundColor: '#2A9D8F',
+              margin: '0 auto 20px',
+            }}
+          />
+          <p
+            style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              color: '#4A5568',
+              fontSize: '17px',
+              maxWidth: '540px',
+              margin: '0 auto',
+              lineHeight: 1.7,
+            }}
+          >
+            From 30A to Panama City — we know every road, every neighborhood.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
+            gap: '24px',
+          }}
+        >
           {SERVICE_AREAS.map((area, index) => (
             <motion.div
               key={area.slug}
@@ -41,53 +71,91 @@ export function ServiceAreaSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              style={{
+                borderRadius: '14px',
+                overflow: 'hidden',
+                boxShadow: '0 4px 24px rgba(27,43,75,0.07)',
+                border: '1px solid rgba(27,43,75,0.06)',
+                backgroundColor: '#FFFFFF',
+              }}
             >
-              <div className="group overflow-hidden rounded-brand shadow-brand transition-all duration-300 hover:shadow-brand-hover">
+              <div
+                style={{
+                  position: 'relative',
+                  width: '100%',
+                  paddingBottom: '58%',
+                  backgroundColor: '#1B2B4B',
+                  overflow: 'hidden',
+                }}
+              >
+                <Image
+                  src={area.image}
+                  alt={`Beach House Moving serving ${area.county}`}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  style={{ objectFit: 'contain', objectPosition: 'center center' }}
+                />
                 <div
-                  className="relative overflow-hidden bg-[#1B2B4B]"
-                  style={{ aspectRatio: '16/9' }}
+                  style={{
+                    position: 'absolute',
+                    bottom: '12px',
+                    left: '12px',
+                    backgroundColor: '#2A9D8F',
+                    color: '#FFFFFF',
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    fontSize: '11px',
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                    textTransform: 'uppercase',
+                    padding: '5px 12px',
+                    borderRadius: '999px',
+                  }}
                 >
-                  <Image
-                    src={area.image}
-                    fill
-                    style={{ objectFit: 'contain', objectPosition: 'center center', padding: '4px' }}
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    alt={`Beach House Moving serving ${area.county}`}
-                    className="transition-transform duration-500 group-hover:scale-103"
-                  />
-                  <span className="absolute bottom-3 left-3 rounded-full bg-brand-teal px-3 py-1.5 font-body text-xs font-semibold text-white">
-                    {area.county}
-                  </span>
+                  {area.county}
                 </div>
+              </div>
 
-                <div className="bg-white p-6">
-                  <h3
-                    className="mb-2 font-heading text-xl font-bold text-brand-navy"
-                    style={{
-                      fontFamily: '"Playfair Display", Georgia, serif',
-                      color: '#1B2B4B',
-                      fontWeight: 700,
-                    }}
-                  >
-                    {area.county}
-                  </h3>
-                  <p
-                    className="mb-4 font-body text-sm leading-relaxed text-ink-muted"
-                    style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#4A5568' }}
-                  >
-                    {area.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {area.cities.map((city) => (
-                      <span
-                        key={city}
-                        className="rounded-full bg-brand-sand px-2.5 py-1 font-body text-xs font-medium text-brand-navy"
-                      >
-                        {city}
-                      </span>
-                    ))}
-                  </div>
+              <div style={{ padding: '24px' }}>
+                <h3
+                  style={{
+                    fontFamily: '"Playfair Display", Georgia, serif',
+                    color: '#1B2B4B',
+                    fontWeight: 700,
+                    fontSize: '1.3rem',
+                    marginBottom: '8px',
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {area.county}
+                </h3>
+                <p
+                  style={{
+                    fontFamily: 'Inter, system-ui, sans-serif',
+                    color: '#4A5568',
+                    fontSize: '14px',
+                    lineHeight: 1.7,
+                    marginBottom: '16px',
+                  }}
+                >
+                  {area.description}
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                  {area.cities.map((city) => (
+                    <span
+                      key={city}
+                      style={{
+                        fontFamily: 'Inter, system-ui, sans-serif',
+                        color: '#1B2B4B',
+                        fontSize: '12px',
+                        fontWeight: 500,
+                        backgroundColor: '#F5F0E8',
+                        padding: '4px 10px',
+                        borderRadius: '999px',
+                      }}
+                    >
+                      {city}
+                    </span>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -95,24 +163,54 @@ export function ServiceAreaSection() {
         </div>
 
         <div
-          className="mt-14 rounded-brand bg-brand-sand p-8 text-center md:p-12"
-          style={{ backgroundColor: '#F5F0E8', borderRadius: '12px', padding: '48px', textAlign: 'center', marginTop: '56px' }}
+          style={{
+            backgroundColor: '#F5F0E8',
+            borderRadius: '16px',
+            padding: '56px 48px',
+            textAlign: 'center',
+            marginTop: '72px',
+          }}
         >
           <h3
-            className="mb-3 font-heading text-2xl font-bold text-brand-navy md:text-3xl"
-            style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
+            style={{
+              fontFamily: '"Playfair Display", Georgia, serif',
+              color: '#1B2B4B',
+              fontWeight: 700,
+              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
+              marginBottom: '12px',
+            }}
           >
             Not sure if we serve your area?
           </h3>
-          <p className="mb-6 font-body text-base text-ink-muted">
+          <p
+            style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              color: '#4A5568',
+              fontSize: '16px',
+              marginBottom: '28px',
+              lineHeight: 1.6,
+            }}
+          >
             Give us a call — if we can get there, we will.
           </p>
           <a
             href={BUSINESS.phone.href}
-            className="inline-flex items-center gap-2.5 rounded-[12px] bg-[#1B2B4B] px-8 py-4 font-body font-semibold text-white transition-all duration-300 hover:bg-[#2A9D8F] hover:shadow-[0_8px_32px_rgba(42,157,143,0.3)]"
-            style={{ backgroundColor: '#1B2B4B', color: '#FFFFFF', textDecoration: 'none', fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 600, padding: '16px 32px', borderRadius: '12px', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '9px',
+              backgroundColor: '#1B2B4B',
+              color: '#FFFFFF',
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontWeight: 600,
+              fontSize: '16px',
+              padding: '15px 32px',
+              borderRadius: '12px',
+              textDecoration: 'none',
+              boxShadow: '0 4px 20px rgba(27,43,75,0.2)',
+            }}
           >
-            <Phone className="h-4 w-4 text-white" strokeWidth={1.5} />
+            <Phone style={{ width: '17px', height: '17px' }} strokeWidth={1.8} />
             Call {BUSINESS.phone.display}
           </a>
         </div>

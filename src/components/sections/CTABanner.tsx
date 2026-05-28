@@ -1,51 +1,56 @@
+'use client'
+
 import { Phone } from 'lucide-react'
-import { BUSINESS } from '@/lib/content'
 
 export function CTABanner() {
   return (
-    <section
-      className="bg-brand-coral py-16 md:py-20"
-      style={{ backgroundColor: '#E85D3D', padding: '64px 0', textAlign: 'center' }}
-    >
-      <div className="mx-auto max-w-4xl px-4 text-center md:px-8">
-        <p
-          className="mb-4 font-body text-sm font-semibold uppercase tracking-[0.2em] text-[#2A9D8F]"
-          style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
-        >
+    <section style={{ backgroundColor: '#E85D3D', padding: '80px 24px', textAlign: 'center' }}>
+      <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+
+        <p style={{ fontFamily: 'Inter, system-ui, sans-serif', color: 'rgba(255,255,255,0.65)', fontWeight: 600, fontSize: '12px', letterSpacing: '0.22em', textTransform: 'uppercase', marginBottom: '16px' }}>
           Don&apos;t Stress the Move
         </p>
 
-        <h2
-          className="mb-4 font-heading text-4xl font-bold text-white md:text-5xl"
-          style={{ fontFamily: '"Playfair Display", Georgia, serif', color: '#FFFFFF', fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3rem)', marginBottom: '16px' }}
-        >
+        <h2 style={{ fontFamily: '"Playfair Display", Georgia, serif', color: '#FFFFFF', fontWeight: 700, fontSize: 'clamp(2.25rem, 5vw, 3.5rem)', marginBottom: '16px', lineHeight: 1.1 }}>
           Ready to get moving?
         </h2>
 
-        <p className="mx-auto mb-10 max-w-xl font-body text-lg text-white/80">
+        <p style={{ fontFamily: 'Inter, system-ui, sans-serif', color: 'rgba(255,255,255,0.75)', fontSize: '17px', marginBottom: '48px', lineHeight: 1.6 }}>
           Call us today for a free, no-obligation estimate. Available 7 days a week.
         </p>
 
         <a
-          href={BUSINESS.phone.href}
-          className="inline-flex items-center gap-4 rounded-[14px] bg-white px-10 py-6 font-heading text-3xl font-bold text-[#E85D3D] shadow-[0_20px_60px_rgba(27,43,75,0.2)] transition-all duration-200 hover:scale-[1.02] hover:bg-[#F5F0E8] hover:shadow-[0_24px_80px_rgba(27,43,75,0.28)] active:scale-[0.99] md:text-4xl"
-          style={{ backgroundColor: '#FFFFFF', color: '#E85D3D', textDecoration: 'none', fontFamily: '"Playfair Display", Georgia, serif', fontWeight: 700, fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', padding: '24px 40px', borderRadius: '14px', display: 'inline-flex', alignItems: 'center', gap: '16px', boxShadow: '0 20px 60px rgba(27,43,75,0.2)' }}
+          href="tel:+18508421962"
+          style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '16px',
+            backgroundColor: '#FFFFFF',
+            color: '#E85D3D',
+            textDecoration: 'none',
+            padding: '22px 44px',
+            borderRadius: '14px',
+            boxShadow: '0 20px 60px rgba(27,43,75,0.2)',
+            transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+          }}
+          onMouseEnter={(e) => { e.currentTarget.style.transform = 'scale(1.02)'; e.currentTarget.style.boxShadow = '0 28px 80px rgba(27,43,75,0.28)' }}
+          onMouseLeave={(e) => { e.currentTarget.style.transform = 'scale(1)'; e.currentTarget.style.boxShadow = '0 20px 60px rgba(27,43,75,0.2)' }}
         >
-          <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[#E85D3D]">
-            <Phone className="h-6 w-6 text-white" strokeWidth={1.5} />
+          <div style={{ width: '48px', height: '48px', borderRadius: '50%', backgroundColor: '#E85D3D', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+            <Phone style={{ width: '22px', height: '22px', color: '#FFFFFF' }} strokeWidth={1.8} />
           </div>
-          {BUSINESS.phone.display}
+          <span style={{ fontFamily: '"Playfair Display", Georgia, serif', fontWeight: 700, fontSize: 'clamp(1.75rem, 3.5vw, 2.5rem)', lineHeight: 1 }}>
+            (850) 842-1962
+          </span>
         </a>
 
-        <div className="mt-6 flex items-center justify-center gap-3">
-          <span className="font-body text-sm text-white/40">or</span>
-          <a
-            href="#quote"
-            className="font-body text-sm font-medium text-white/70 no-underline transition-colors duration-200 hover:text-white"
-          >
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', marginTop: '24px' }}>
+          <span style={{ fontFamily: 'Inter, system-ui, sans-serif', color: 'rgba(255,255,255,0.4)', fontSize: '13px' }}>or</span>
+          <a href="#quote" style={{ fontFamily: 'Inter, system-ui, sans-serif', color: 'rgba(255,255,255,0.6)', fontSize: '13px', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
             Fill out a quote form →
           </a>
         </div>
+
       </div>
     </section>
   )

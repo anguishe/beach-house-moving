@@ -26,43 +26,64 @@ const serviceIconMap: Record<string, React.ElementType> = {
 
 export function ServicesSection() {
   return (
-    <section id="services" className="bg-brand-sand py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <div className="mb-12 text-center md:mb-16">
+    <section id="services" style={{ backgroundColor: '#F5F0E8', padding: '96px 0' }}>
+      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
+        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
           <p
-            className="mb-3 font-body text-sm font-semibold uppercase tracking-[0.2em] text-[#2A9D8F]"
             style={{
               fontFamily: 'Inter, system-ui, sans-serif',
               color: '#2A9D8F',
               fontWeight: 600,
-              letterSpacing: '0.2em',
               fontSize: '12px',
+              letterSpacing: '0.22em',
               textTransform: 'uppercase',
+              marginBottom: '12px',
             }}
           >
             What We Do
           </p>
           <h2
-            className="font-heading text-3xl font-bold text-brand-navy md:text-4xl"
             style={{
               fontFamily: '"Playfair Display", Georgia, serif',
               color: '#1B2B4B',
               fontWeight: 700,
+              fontSize: 'clamp(2rem, 4vw, 2.75rem)',
+              marginBottom: '16px',
+              lineHeight: 1.15,
             }}
           >
             Full-Service Moving, Start to Finish
           </h2>
-          <div className="mx-auto my-4 h-[2px] w-10 rounded-full bg-[#2A9D8F]" />
+          <div
+            style={{
+              width: '40px',
+              height: '2px',
+              backgroundColor: '#2A9D8F',
+              margin: '0 auto 20px',
+            }}
+          />
           <p
-            className="mx-auto max-w-2xl font-body text-lg text-ink-muted"
-            style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#4A5568' }}
+            style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              color: '#4A5568',
+              fontSize: '17px',
+              maxWidth: '520px',
+              margin: '0 auto',
+              lineHeight: 1.7,
+            }}
           >
             From the first box packed to the last item placed — we handle every detail so you
             don&apos;t have to.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gap: '24px',
+          }}
+        >
           {SERVICES.map((service, index) => {
             const ServiceIcon = serviceIconMap[service.icon]
 
@@ -73,49 +94,106 @@ export function ServicesSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
+                style={{
+                  backgroundColor: '#FFFFFF',
+                  borderRadius: '14px',
+                  overflow: 'hidden',
+                  boxShadow: '0 4px 24px rgba(27,43,75,0.07)',
+                  border: '1px solid rgba(27,43,75,0.06)',
+                  transition: 'box-shadow 0.3s ease, transform 0.3s ease',
+                  cursor: 'pointer',
+                }}
+                whileHover={{ y: -4, boxShadow: '0 16px 48px rgba(27,43,75,0.13)' }}
               >
-                <div className="group overflow-hidden rounded-brand bg-white shadow-brand transition-all duration-300 hover:shadow-brand-hover">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-[#F5F0E8]">
-                    <Image
-                      src={service.image}
-                      fill
-                      style={{ objectFit: 'contain', objectPosition: 'center center', padding: '8px' }}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      alt={`Beach House Moving — ${service.title}`}
-                      className="transition-transform duration-500 group-hover:scale-105"
-                    />
+                <div
+                  style={{
+                    position: 'relative',
+                    width: '100%',
+                    paddingBottom: '62%',
+                    backgroundColor: '#F5F0E8',
+                    overflow: 'hidden',
+                  }}
+                >
+                  <Image
+                    src={service.image}
+                    alt={`Beach House Moving — ${service.title}`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    style={{
+                      objectFit: 'contain',
+                      objectPosition: 'center center',
+                      padding: '8px',
+                    }}
+                  />
+                </div>
+
+                <div style={{ padding: '24px' }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '12px',
+                      marginBottom: '10px',
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: '38px',
+                        height: '38px',
+                        borderRadius: '10px',
+                        backgroundColor: 'rgba(42,157,143,0.1)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexShrink: 0,
+                      }}
+                    >
+                      {ServiceIcon && (
+                        <ServiceIcon
+                          style={{ width: '20px', height: '20px', color: '#2A9D8F' }}
+                          strokeWidth={1.6}
+                        />
+                      )}
+                    </div>
+                    <h3
+                      style={{
+                        fontFamily: '"Playfair Display", Georgia, serif',
+                        color: '#1B2B4B',
+                        fontWeight: 600,
+                        fontSize: '1.2rem',
+                        margin: 0,
+                        lineHeight: 1.2,
+                      }}
+                    >
+                      {service.title}
+                    </h3>
                   </div>
 
-                  <div className="flex flex-col gap-3 p-6">
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-[8px] bg-[#2A9D8F]/10">
-                        {ServiceIcon && (
-                          <ServiceIcon className="h-5 w-5 text-[#2A9D8F]" strokeWidth={1.5} />
-                        )}
-                      </div>
-                      <h3
-                        className="font-heading text-xl font-semibold text-brand-navy"
-                        style={{
-                          fontFamily: '"Playfair Display", Georgia, serif',
-                          color: '#1B2B4B',
-                          fontWeight: 600,
-                        }}
-                      >
-                        {service.title}
-                      </h3>
-                    </div>
+                  <p
+                    style={{
+                      fontFamily: 'Inter, system-ui, sans-serif',
+                      color: '#4A5568',
+                      fontSize: '14px',
+                      lineHeight: 1.7,
+                      margin: '0 0 16px',
+                    }}
+                  >
+                    {service.shortDescription}
+                  </p>
 
-                    <p
-                      className="font-body text-sm leading-relaxed text-ink-muted"
-                      style={{ fontFamily: 'Inter, system-ui, sans-serif', color: '#4A5568' }}
-                    >
-                      {service.shortDescription}
-                    </p>
-
-                    <p className="mt-auto flex items-center gap-1.5 pt-2 font-body text-sm font-medium text-[#2A9D8F] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                      Learn more
-                      <ArrowRight className="h-3.5 w-3.5 text-[#2A9D8F]" strokeWidth={1.5} />
-                    </p>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '4px',
+                      color: '#2A9D8F',
+                      fontFamily: 'Inter, system-ui, sans-serif',
+                      fontSize: '13px',
+                      fontWeight: 600,
+                    }}
+                  >
+                    Learn more
+                    <ArrowRight style={{ width: '13px', height: '13px' }} strokeWidth={2} />
                   </div>
                 </div>
               </motion.div>
@@ -124,30 +202,67 @@ export function ServicesSection() {
         </div>
 
         <div
-          className="mt-16 rounded-brand bg-brand-navy px-6 py-12 text-center md:px-12"
-          style={{ backgroundColor: '#1B2B4B', borderRadius: '12px', padding: '48px 48px', textAlign: 'center', marginTop: '64px' }}
+          style={{
+            backgroundColor: '#1B2B4B',
+            borderRadius: '16px',
+            padding: '56px 48px',
+            textAlign: 'center',
+            marginTop: '72px',
+          }}
         >
           <p
-            className="mb-3 font-body text-sm font-semibold uppercase tracking-[0.2em] text-[#2A9D8F]"
-            style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
+            style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              color: '#2A9D8F',
+              fontWeight: 600,
+              fontSize: '12px',
+              letterSpacing: '0.22em',
+              textTransform: 'uppercase',
+              marginBottom: '12px',
+            }}
           >
             Ready When You Are
           </p>
           <h3
-            className="mb-6 font-heading text-3xl font-bold text-white md:text-4xl"
-            style={{ fontFamily: '"Playfair Display", Georgia, serif', color: '#FFFFFF', fontWeight: 700, fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', marginBottom: '24px' }}
+            style={{
+              fontFamily: '"Playfair Display", Georgia, serif',
+              color: '#FFFFFF',
+              fontWeight: 700,
+              fontSize: 'clamp(1.75rem, 3vw, 2.25rem)',
+              marginBottom: '28px',
+              lineHeight: 1.2,
+            }}
           >
             Call us today for a free estimate.
           </h3>
           <a
             href={BUSINESS.phone.href}
-            className="inline-flex items-center gap-3 rounded-[12px] bg-[#E85D3D] px-10 py-5 font-body text-xl font-semibold text-white shadow-[0_12px_48px_rgba(27,43,75,0.18)] transition-all duration-200 hover:scale-[1.02] hover:bg-[#C94828] active:scale-[0.98]"
-            style={{ backgroundColor: '#E85D3D', color: '#FFFFFF', textDecoration: 'none', fontFamily: 'Inter, system-ui, sans-serif', fontWeight: 600, fontSize: '20px', padding: '20px 40px', borderRadius: '12px', display: 'inline-flex', alignItems: 'center', gap: '10px', boxShadow: '0 12px 48px rgba(27,43,75,0.18)' }}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '10px',
+              backgroundColor: '#E85D3D',
+              color: '#FFFFFF',
+              fontFamily: 'Inter, system-ui, sans-serif',
+              fontWeight: 600,
+              fontSize: '19px',
+              padding: '18px 40px',
+              borderRadius: '12px',
+              textDecoration: 'none',
+              boxShadow: '0 8px 32px rgba(232,93,61,0.35)',
+            }}
           >
-            <Phone className="h-5 w-5 text-white" strokeWidth={1.5} />
+            <Phone style={{ width: '20px', height: '20px' }} strokeWidth={1.8} />
             {BUSINESS.phone.display}
           </a>
-          <p className="mt-4 font-body text-xs text-white/35">
+          <p
+            style={{
+              fontFamily: 'Inter, system-ui, sans-serif',
+              color: 'rgba(255,255,255,0.3)',
+              fontSize: '12px',
+              marginTop: '16px',
+            }}
+          >
             Licensed & Insured · Available 7 Days a Week
           </p>
         </div>
