@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { Menu, X, Phone } from 'lucide-react'
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { BUSINESS, NAV_LINKS } from '@/lib/content'
 
 export function Navbar() {
@@ -18,6 +17,23 @@ export function Navbar() {
 
   return (
     <>
+      <style>{`
+        .bhm-nav-desktop { display: none; }
+        .bhm-nav-mobile-only { display: flex; }
+        .bhm-nav-md-show { display: none; }
+        .bhm-nav-md-divider { display: none; }
+        .bhm-sticky-mobile { display: flex; }
+        @media (min-width: 768px) {
+          .bhm-nav-md-show { display: flex; }
+          .bhm-nav-md-divider { display: block; }
+        }
+        @media (min-width: 1024px) {
+          .bhm-nav-desktop { display: flex; }
+          .bhm-nav-mobile-only { display: none !important; }
+          .bhm-sticky-mobile { display: none !important; }
+        }
+      `}</style>
+
       <nav
         style={{
           position: 'fixed',
@@ -63,8 +79,8 @@ export function Navbar() {
             />
           </a>
 
-          {/* Desktop nav links — hidden below lg breakpoint via className */}
-          <div className="hidden lg:flex" style={{ alignItems: 'center', gap: '36px' }}>
+          {/* Desktop nav links */}
+          <div className="bhm-nav-desktop" style={{ alignItems: 'center', gap: '36px' }}>
             {NAV_LINKS.map((link) => (
               <a
                 key={link.href}
@@ -91,7 +107,7 @@ export function Navbar() {
             {/* Phone number — desktop only */}
             <a
               href={BUSINESS.phone.href}
-              className="hidden md:flex"
+              className="bhm-nav-md-show"
               style={{
                 alignItems: 'center',
                 gap: '7px',
@@ -116,14 +132,14 @@ export function Navbar() {
 
             {/* Thin divider — desktop only */}
             <div
-              className="hidden md:block"
+              className="bhm-nav-md-divider"
               style={{ width: '1px', height: '20px', backgroundColor: 'rgba(255,255,255,0.15)' }}
             />
 
             {/* Get a Free Quote CTA — desktop only */}
             <a
               href="#quote"
-              className="hidden md:inline-flex"
+              className="bhm-nav-md-show"
               style={{
                 alignItems: 'center',
                 gap: '6px',
@@ -153,181 +169,169 @@ export function Navbar() {
             </a>
 
             {/* Hamburger — mobile only */}
-            <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
-              <SheetTrigger
-                className="lg:hidden"
-                render={(props) => (
-                  <button
-                    {...props}
-                    style={{
-                      background: 'rgba(255,255,255,0.1)',
-                      border: '1px solid rgba(255,255,255,0.2)',
-                      borderRadius: '8px',
-                      padding: '8px',
-                      cursor: 'pointer',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      color: '#FFFFFF',
-                      transition: 'background 0.2s ease',
-                    }}
-                    aria-label="Open menu"
-                  >
-                    <Menu style={{ width: '20px', height: '20px' }} strokeWidth={1.8} />
-                  </button>
-                )}
-              />
-
-              <SheetContent
-                side="right"
-                showCloseButton={false}
-                style={{
-                  backgroundColor: '#1B2B4B',
-                  border: 'none',
-                  padding: '32px 28px',
-                  width: '300px',
-                }}
-              >
-                {/* Drawer header */}
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    marginBottom: '40px',
-                  }}
-                >
-                  <Image
-                    src="/images/logo-light.png"
-                    alt="Beach House Moving"
-                    width={110}
-                    height={36}
-                    style={{ height: '34px', width: 'auto' }}
-                  />
-                  <button
-                    onClick={() => setMobileOpen(false)}
-                    style={{
-                      background: 'rgba(255,255,255,0.1)',
-                      border: 'none',
-                      borderRadius: '6px',
-                      padding: '6px',
-                      cursor: 'pointer',
-                      color: '#FFFFFF',
-                      display: 'flex',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <X style={{ width: '18px', height: '18px' }} strokeWidth={1.8} />
-                  </button>
-                </div>
-
-                {/* Nav links */}
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: '4px',
-                    marginBottom: '40px',
-                  }}
-                >
-                  {NAV_LINKS.map((link) => (
-                    <a
-                      key={link.href}
-                      href={link.href}
-                      onClick={() => setMobileOpen(false)}
-                      style={{
-                        fontFamily: 'Inter, system-ui, sans-serif',
-                        color: 'rgba(255,255,255,0.80)',
-                        fontSize: '17px',
-                        fontWeight: 500,
-                        textDecoration: 'none',
-                        padding: '14px 0',
-                        borderBottom: '1px solid rgba(255,255,255,0.08)',
-                        display: 'block',
-                        letterSpacing: '0.01em',
-                      }}
-                    >
-                      {link.label}
-                    </a>
-                  ))}
-                </div>
-
-                {/* Tap to call */}
-                <a
-                  href={BUSINESS.phone.href}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '10px',
-                    backgroundColor: '#2A9D8F',
-                    color: '#FFFFFF',
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontWeight: 600,
-                    fontSize: '16px',
-                    padding: '16px',
-                    borderRadius: '10px',
-                    textDecoration: 'none',
-                    marginBottom: '12px',
-                    boxShadow: '0 4px 20px rgba(42,157,143,0.35)',
-                  }}
-                >
-                  <Phone style={{ width: '18px', height: '18px' }} strokeWidth={1.8} />
-                  {BUSINESS.phone.display}
-                </a>
-
-                {/* Get a quote */}
-                <a
-                  href="#quote"
-                  onClick={() => setMobileOpen(false)}
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    backgroundColor: '#E85D3D',
-                    color: '#FFFFFF',
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontWeight: 600,
-                    fontSize: '16px',
-                    padding: '16px',
-                    borderRadius: '10px',
-                    textDecoration: 'none',
-                    boxShadow: '0 4px 20px rgba(232,93,61,0.35)',
-                  }}
-                >
-                  Get a Free Quote
-                </a>
-
-                {/* License badge */}
-                <p
-                  style={{
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    color: 'rgba(255,255,255,0.30)',
-                    fontSize: '11px',
-                    textAlign: 'center',
-                    marginTop: '32px',
-                    lineHeight: '1.6',
-                  }}
-                >
-                  Licensed & Insured · Santa Rosa Beach, FL
-                </p>
-              </SheetContent>
-            </Sheet>
+            <button
+              onClick={() => setMobileOpen(!mobileOpen)}
+              className="bhm-nav-mobile-only"
+              style={{
+                background: 'rgba(255,255,255,0.1)',
+                border: '1px solid rgba(255,255,255,0.2)',
+                borderRadius: '8px',
+                padding: '8px',
+                cursor: 'pointer',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#FFFFFF',
+              }}
+              aria-label="Open menu"
+            >
+              <Menu style={{ width: '20px', height: '20px' }} strokeWidth={1.8} />
+            </button>
           </div>
         </div>
       </nav>
 
+      {/* Backdrop */}
+      {mobileOpen && (
+        <div
+          onClick={() => setMobileOpen(false)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0,0,0,0.5)',
+            zIndex: 99,
+          }}
+        />
+      )}
+
+      {/* Drawer panel */}
+      <div
+        style={{
+          position: 'fixed',
+          top: 0,
+          right: 0,
+          bottom: 0,
+          width: '300px',
+          backgroundColor: '#1B2B4B',
+          zIndex: 100,
+          padding: '32px 28px',
+          display: 'flex',
+          flexDirection: 'column',
+          transform: mobileOpen ? 'translateX(0)' : 'translateX(100%)',
+          transition: 'transform 0.3s ease',
+          overflowY: 'auto',
+        }}
+      >
+        {/* Drawer header */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '40px' }}>
+          <Image
+            src="/images/logo-light.png"
+            alt="Beach House Moving"
+            width={110}
+            height={36}
+            style={{ height: '34px', width: 'auto' }}
+          />
+          <button
+            onClick={() => setMobileOpen(false)}
+            style={{ background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '6px', padding: '6px', cursor: 'pointer', color: '#FFFFFF', display: 'flex', alignItems: 'center' }}
+          >
+            <X style={{ width: '18px', height: '18px' }} strokeWidth={1.8} />
+          </button>
+        </div>
+
+        {/* Nav links */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '40px' }}>
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileOpen(false)}
+              style={{
+                fontFamily: 'Inter, system-ui, sans-serif',
+                color: 'rgba(255,255,255,0.80)',
+                fontSize: '17px',
+                fontWeight: 500,
+                textDecoration: 'none',
+                padding: '14px 0',
+                borderBottom: '1px solid rgba(255,255,255,0.08)',
+                display: 'block',
+                letterSpacing: '0.01em',
+              }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+
+        {/* Tap to call */}
+        <a
+          href={BUSINESS.phone.href}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '10px',
+            backgroundColor: '#2A9D8F',
+            color: '#FFFFFF',
+            fontFamily: 'Inter, system-ui, sans-serif',
+            fontWeight: 600,
+            fontSize: '16px',
+            padding: '16px',
+            borderRadius: '10px',
+            textDecoration: 'none',
+            marginBottom: '12px',
+            boxShadow: '0 4px 20px rgba(42,157,143,0.35)',
+          }}
+        >
+          <Phone style={{ width: '18px', height: '18px' }} strokeWidth={1.8} />
+          {BUSINESS.phone.display}
+        </a>
+
+        {/* Get a quote */}
+        <a
+          href="#quote"
+          onClick={() => setMobileOpen(false)}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: '#E85D3D',
+            color: '#FFFFFF',
+            fontFamily: 'Inter, system-ui, sans-serif',
+            fontWeight: 600,
+            fontSize: '16px',
+            padding: '16px',
+            borderRadius: '10px',
+            textDecoration: 'none',
+            boxShadow: '0 4px 20px rgba(232,93,61,0.35)',
+          }}
+        >
+          Get a Free Quote
+        </a>
+
+        {/* License badge */}
+        <p style={{
+          fontFamily: 'Inter, system-ui, sans-serif',
+          color: 'rgba(255,255,255,0.30)',
+          fontSize: '11px',
+          textAlign: 'center',
+          marginTop: 'auto',
+          paddingTop: '32px',
+          lineHeight: '1.6',
+        }}>
+          Licensed & Insured · Santa Rosa Beach, FL
+        </p>
+      </div>
+
       {/* ── STICKY MOBILE BOTTOM CTA ── */}
       <a
         href={BUSINESS.phone.href}
-        className="md:hidden"
+        className="bhm-sticky-mobile"
         style={{
           position: 'fixed',
           bottom: 0,
           left: 0,
           right: 0,
           zIndex: 50,
-          display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           gap: '10px',
