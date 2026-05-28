@@ -8,13 +8,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Email service not configured' }, { status: 503 })
     }
 
+    if (!process.env.RESEND_FROM_EMAIL || !process.env.RESEND_TO_EMAIL) {
+      return NextResponse.json({ error: 'Email service not configured' }, { status: 503 })
+    }
+
     const resend = new Resend(process.env.RESEND_API_KEY)
     const body = await req.json()
     const data = quoteFormSchema.parse(body)
 
     await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL ?? 'quotes@beachhousemoving.com',
-      to: process.env.RESEND_TO_EMAIL ?? 'beachhousemoving@gmail.com',
+      from: process.env.RESEND_FROM_EMAIL,
+      to: process.env.RESEND_TO_EMAIL,
       subject: `New Quote Request — ${data.fullName}`,
       html: `
         <h2>New Quote Request — Beach House Moving</h2>

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next'
+import { connection } from 'next/server'
 import { Playfair_Display, Inter } from 'next/font/google'
 import { Navbar } from '@/components/layout/Navbar'
+import { getSiteOrigin } from '@/lib/site-url'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -17,24 +19,29 @@ const inter = Inter({
   display: 'swap',
 })
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://beachhousemoving.com'),
-  title: 'Beach House Moving | Movers in Santa Rosa Beach, FL',
-  description:
-    'Locally owned & fully licensed movers serving Walton, Okaloosa & Bay Counties. Packing, loading, transportation & storage. Get your free quote — (850) 842-1962.',
-  openGraph: {
-    title: 'Beach House Moving | Santa Rosa Beach, FL',
-    description: "The Florida Panhandle's premier locally owned movers.",
-    url: 'https://beachhousemoving.com',
-    type: 'website',
-    locale: 'en_US',
-    siteName: 'Beach House Moving',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Beach House Moving | Santa Rosa Beach, FL',
-    description: "The Florida Panhandle's premier locally owned movers.",
-  },
+export async function generateMetadata(): Promise<Metadata> {
+  await connection()
+  const metadataBase = await getSiteOrigin()
+
+  return {
+    metadataBase,
+    title: 'Beach House Moving | Movers in Santa Rosa Beach, FL',
+    description:
+      'Locally owned & fully licensed movers serving Walton, Okaloosa & Bay Counties. Packing, loading, transportation & storage. Get your free quote — (850) 842-1962.',
+    openGraph: {
+      title: 'Beach House Moving | Santa Rosa Beach, FL',
+      description: "The Florida Panhandle's premier locally owned movers.",
+      url: metadataBase.origin,
+      type: 'website',
+      locale: 'en_US',
+      siteName: 'Beach House Moving',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'Beach House Moving | Santa Rosa Beach, FL',
+      description: "The Florida Panhandle's premier locally owned movers.",
+    },
+  }
 }
 
 export default function RootLayout({

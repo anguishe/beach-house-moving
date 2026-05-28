@@ -10,7 +10,6 @@ export const BUSINESS = {
     raw: '8508421962',
   },
   email: 'beachhousemoving@gmail.com',
-  website: 'https://beachhousemoving.com',
   address: {
     street: '110 Via Largo',
     city: 'Santa Rosa Beach',
