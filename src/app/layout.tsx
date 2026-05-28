@@ -18,6 +18,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://beachhousemoving.com'),
   title: 'Beach House Moving | Movers in Santa Rosa Beach, FL',
   description:
     'Locally owned & fully licensed movers serving Walton, Okaloosa & Bay Counties. Packing, loading, transportation & storage. Get your free quote — (850) 842-1962.',
@@ -26,6 +27,13 @@ export const metadata: Metadata = {
     description: "The Florida Panhandle's premier locally owned movers.",
     url: 'https://beachhousemoving.com',
     type: 'website',
+    locale: 'en_US',
+    siteName: 'Beach House Moving',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Beach House Moving | Santa Rosa Beach, FL',
+    description: "The Florida Panhandle's premier locally owned movers.",
   },
 }
 
