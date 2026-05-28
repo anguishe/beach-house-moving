@@ -211,4 +211,3 @@ npm run type-check   # Run TypeScript compiler check
 - Package decisions & rationale → `TECH_STACK.md`
 - Agent/AI behavior rules → `AGENTS.md` + `.cursorrules`
 - Third-party integrations → `INTEGRATIONS.md`
-# beach-house-moving

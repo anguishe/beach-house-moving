@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@config "../../tailwind.config.ts";
+
+:root {
+  --brand-navy: #1b2b4b;
+  --brand-coral: #e85d3d;
+  --brand-coral-dark: #c94828;
+  --brand-sand: #f5f0e8;
+  --brand-teal: #2a9d8f;
+  --brand-gold: #e9c46a;
+  --text-primary: #1b2b4b;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+}
+
+body {
+  font-family: var(--font-body), Inter, system-ui, sans-serif;
+  color: var(--brand-navy);
+  background-color: white;
+  line-height: 1.625;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), "Playfair Display", Georgia, serif;
+  line-height: 1.25;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

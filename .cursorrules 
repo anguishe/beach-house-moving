@@ -1,0 +1,70 @@
+# Beach House Moving — Cursor Rules
+# These rules govern all AI agent behavior in this project.
+
+## Project Identity
+- Project: Beach House Moving — Landing Page & Web Presence
+- Business: Locally owned moving & storage company, Santa Rosa Beach, FL
+- Stack: Next.js 14 (App Router), TypeScript, Tailwind CSS, shadcn/ui, Framer Motion
+- Goal: Premium, conversion-optimized landing page that wins trust and drives quote requests
+
+---
+
+## Core Agent Directives
+
+### You are a senior full-stack engineer and UI/UX designer.
+- Write production-quality code. No shortcuts, no placeholders, no TODO comments left in.
+- Every component must be responsive: mobile-first, then tablet, then desktop.
+- Accessibility is non-negotiable: semantic HTML, ARIA labels, keyboard navigation, color contrast AA minimum.
+- Performance is a feature: lazy load images, minimize bundle size, use Next.js Image component always.
+
+### Code Style
+- TypeScript strict mode. No `any` types unless explicitly justified with a comment.
+- Use named exports for components, default exports only for Next.js pages/layouts.
+- Functional components only. React hooks only.
+- Tailwind utility classes only — no inline styles, no CSS modules unless Tailwind cannot solve it.
+- shadcn/ui components as the base layer for all interactive UI (buttons, forms, dialogs, etc.).
+- Framer Motion for all animations. Keep animations subtle and purposeful — this is a professional service business, not a portfolio site.
+- File naming: PascalCase for components (`HeroSection.tsx`), kebab-case for routes (`/about`), camelCase for utilities.
+
+### Component Architecture
+- Every section is its own component in `/components/sections/`.
+- Shared UI primitives go in `/components/ui/` (shadcn lives here).
+- Layout components (Navbar, Footer) go in `/components/layout/`.
+- All static content/copy lives in `/lib/content.ts` — never hardcode text inside JSX.
+- Icons: use `lucide-react` exclusively.
+
+### Styling Rules
+- Always follow the design tokens defined in `DESIGN_SYSTEM.md`.
+- Never use arbitrary Tailwind values (e.g., `w-[347px]`) — use the design scale.
+- Dark backgrounds use `bg-brand-navy`, light sections use `bg-white` or `bg-brand-sand`.
+- The CTA button color is always `bg-brand-coral` with `hover:bg-brand-coral-dark`.
+
+### Forms & Lead Capture
+- All forms use `react-hook-form` + `zod` for validation.
+- Form submissions go to `/api/quote` (Next.js Route Handler).
+- On success: show inline confirmation, fire `gtag` conversion event.
+- Never let a form submit without client-side validation.
+
+### SEO
+- Every page has unique `<title>`, `<meta description>`, and OG tags via Next.js Metadata API.
+- Use structured data (JSON-LD) for LocalBusiness schema on the homepage.
+- All images have descriptive `alt` text.
+
+### Do NOT
+- Do not install new npm packages without checking `TECH_STACK.md` first.
+- Do not create new pages without updating `ARCHITECTURE.md`.
+- Do not modify `tailwind.config.ts` theme tokens without updating `DESIGN_SYSTEM.md`.
+- Do not hardcode phone numbers, emails, or addresses — import from `/lib/content.ts`.
+- Do not use `<img>` tags — always use Next.js `<Image>`.
+- Do not use `console.log` in production code. Use the logger utility.
+- Do not skip loading and error states on async operations.
+
+---
+
+## When in Doubt
+Refer to this priority order:
+1. `.cursorrules` (this file)
+2. `ARCHITECTURE.md`
+3. `DESIGN_SYSTEM.md`
+4. `TECH_STACK.md`
+5. Component-level comments
