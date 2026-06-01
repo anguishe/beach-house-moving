@@ -18,6 +18,21 @@
   --color-ink-muted: #4a5568;
   --color-ink-light: #718096;
 
+  /* shadcn semantic token bridge — maps to brand palette */
+  --color-primary: #e85d3d;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #2a9d8f;
+  --color-secondary-foreground: #ffffff;
+  --color-background: #ffffff;
+  --color-foreground: #1b2b4b;
+  --color-muted: #f5f0e8;
+  --color-muted-foreground: #4a5568;
+  --color-border: rgb(27 43 75 / 0.15);
+  --color-input: rgb(27 43 75 / 0.08);
+  --color-ring: #2a9d8f;
+  --color-destructive: #e53e3e;
+  --color-destructive-foreground: #ffffff;
+
   /* Typography — next/font variables set on <html> in layout.tsx */
   --font-heading: var(--font-playfair), "Playfair Display", Georgia, serif;
   --font-body: var(--font-inter), Inter, system-ui, sans-serif;

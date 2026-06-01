@@ -61,7 +61,7 @@ export function ContactForm() {
           type="button"
           variant="outline"
           onClick={() => setStatus('idle')}
-          className="mt-2"
+          className="mt-2 border-brand-navy/20 bg-white text-ink hover:bg-brand-sand"
         >
           Send Another Message
         </Button>
@@ -146,7 +146,7 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={status === 'loading'}
-        className="h-11 w-full bg-brand-coral font-semibold hover:bg-brand-coral-dark"
+        className="h-11 w-full bg-brand-coral font-semibold text-white hover:bg-brand-coral-dark"
       >
         {status === 'loading' ? (
           <>

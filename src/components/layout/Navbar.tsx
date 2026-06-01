@@ -25,8 +25,12 @@ const drawerLinkClass = (active: boolean) =>
 
 export function Navbar() {
   const pathname = usePathname()
+  const isHomePage = pathname === '/'
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  // Transparent navbar only on homepage over the dark hero; solid everywhere else.
+  const isTransparent = isHomePage && !scrolled
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60)
@@ -55,9 +59,9 @@ export function Navbar() {
         aria-label="Primary"
         className={cn(
           'fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300',
-          scrolled
-            ? 'border-b border-white/8 bg-brand-navy/96 backdrop-blur-md'
-            : 'border-b border-transparent bg-brand-navy/15',
+          isTransparent
+            ? 'border-b border-transparent bg-brand-navy/15'
+            : 'border-b border-white/8 bg-brand-navy/96 backdrop-blur-md',
         )}
       >
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-8 px-6">

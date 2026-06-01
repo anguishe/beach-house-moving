@@ -29,7 +29,7 @@ Send quote request notifications to the business owner and confirmation emails t
 4. Add to `.env.local`:
    ```
    RESEND_API_KEY=re_xxxxxxxxxxxxxx
-   RESEND_FROM_EMAIL=quotes@beachhousemoving.com
+   RESEND_FROM_EMAIL=quotes@beachhousemoving.xyz
    RESEND_TO_EMAIL=beachhousemoving@gmail.com
    ```
 5. Add same vars to Vercel dashboard → Settings → Environment Variables
@@ -95,20 +95,20 @@ Monitor search performance, indexing status, and submit sitemap for faster SEO i
 
 ### Setup Steps
 1. Go to [search.google.com/search-console](https://search.google.com/search-console)
-2. Add property → `beachhousemoving.com`
+2. Add property → `beachhousemoving.xyz`
 3. Verify via HTML file method: download the `googleXXXXXXXX.html` file, place in `/public/`
-4. Submit sitemap: `https://beachhousemoving.com/sitemap.xml`
+4. Submit sitemap: `https://beachhousemoving.xyz/sitemap.xml`
 
 ### Sitemap
 Next.js generates a sitemap automatically via `/src/app/sitemap.ts`:
 ```typescript
 export default function sitemap() {
   return [
-    { url: 'https://beachhousemoving.com', lastModified: new Date() },
-    { url: 'https://beachhousemoving.com/services', lastModified: new Date() },
-    { url: 'https://beachhousemoving.com/about', lastModified: new Date() },
-    { url: 'https://beachhousemoving.com/contact', lastModified: new Date() },
-    { url: 'https://beachhousemoving.com/get-a-quote', lastModified: new Date() },
+    { url: 'https://beachhousemoving.xyz', lastModified: new Date() },
+    { url: 'https://beachhousemoving.xyz/services', lastModified: new Date() },
+    { url: 'https://beachhousemoving.xyz/about', lastModified: new Date() },
+    { url: 'https://beachhousemoving.xyz/contact', lastModified: new Date() },
+    { url: 'https://beachhousemoving.xyz/get-a-quote', lastModified: new Date() },
     // + all service and area pages
   ];
 }
@@ -156,12 +156,12 @@ Production hosting, CI/CD, preview deployments, edge network, SSL.
 
 ### Connect Custom Domain
 1. Vercel dashboard → Project → Settings → Domains
-2. Add `beachhousemoving.com` and `www.beachhousemoving.com`
+2. Add `beachhousemoving.xyz` and `www.beachhousemoving.xyz`
 3. Update DNS records at your domain registrar per Vercel's instructions
 4. SSL is automatic
 
 ### Branch Deploys
-- `main` branch → production (`beachhousemoving.com`)
+- `main` branch → production (`beachhousemoving.xyz`)
 - All other branches → preview URLs (safe to test)
 
 ---
@@ -184,7 +184,7 @@ Link to the business's Facebook page for social proof in the footer and potentia
 ### `.env.local` (never commit this file)
 ```env
 # App
-NEXT_PUBLIC_SITE_URL=https://beachhousemoving.com
+NEXT_PUBLIC_SITE_URL=https://beachhousemoving.xyz
 NEXT_PUBLIC_BUSINESS_PHONE=8508421962
 
 # Analytics
@@ -192,7 +192,7 @@ NEXT_PUBLIC_GA_MEASUREMENT_ID=G-6H4SJSCW0G
 
 # Email
 RESEND_API_KEY=re_xxxxxxxxxxxxxx
-RESEND_FROM_EMAIL=quotes@beachhousemoving.com
+RESEND_FROM_EMAIL=quotes@beachhousemoving.xyz
 RESEND_TO_EMAIL=beachhousemoving@gmail.com
 
 # Maps (Optional)

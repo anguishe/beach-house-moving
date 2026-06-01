@@ -159,7 +159,7 @@ export function QuoteForm() {
       <Button
         type="submit"
         disabled={status === 'loading'}
-        className="h-11 w-full bg-brand-coral text-base font-semibold hover:bg-brand-coral-dark"
+        className="h-11 w-full bg-brand-coral text-base font-semibold text-white hover:bg-brand-coral-dark"
       >
         {status === 'loading' ? (
           <>

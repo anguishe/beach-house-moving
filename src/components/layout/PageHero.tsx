@@ -27,7 +27,11 @@ export function PageHero({
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 lg:flex-row lg:items-center lg:gap-16">
         <div className="flex-1">
           {eyebrow && (
-            <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal">
+            <p
+              className={`mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] ${
+                dark ? 'text-brand-gold' : 'text-brand-teal'
+              }`}
+            >
               {eyebrow}
             </p>
           )}

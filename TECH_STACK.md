@@ -6,8 +6,8 @@
 
 ## Core Framework
 
-### Next.js 14 (App Router)
-- **Version:** `14.x` (latest stable)
+### Next.js 16 (App Router)
+- **Version:** `16.x` (latest stable)
 - **Why:** Best-in-class React framework. App Router enables server components, streaming, and layout nesting. Built-in image optimization, font optimization, and metadata API are critical for this project.
 - **Key features used:** App Router, Server Components, Route Handlers (`/api`), `next/image`, `next/font`, Metadata API
 - **Docs:** https://nextjs.org/docs
@@ -18,7 +18,7 @@
 - **Why:** Type safety prevents bugs in form handling and API routes. Essential for a team/AI-assisted project.
 
 ### Tailwind CSS
-- **Version:** `3.x`
+- **Version:** `4.x`
 - **Why:** Utility-first CSS that colocates styles with markup. Faster to build, easier for AI agents to work with, consistent design tokens.
 - **Config file:** `tailwind.config.ts` — extended with brand tokens per `DESIGN_SYSTEM.md`
 - **Docs:** https://tailwindcss.com/docs
@@ -35,7 +35,7 @@
 
 ### Framer Motion
 - **Package:** `framer-motion`
-- **Version:** `^11.x`
+- **Version:** `^12.x`
 - **Why:** Best-in-class React animation library. Scroll-triggered animations, smooth page transitions, stagger effects for card grids.
 - **Usage:** Section reveals, card hovers, mobile menu transitions
 - **Docs:** https://www.framer.com/motion/
@@ -114,7 +114,7 @@
 ### Vercel
 - **Why:** Zero-config Next.js deployment. Edge network, automatic HTTPS, branch previews, instant rollbacks.
 - **Plan:** Hobby (free) is sufficient; upgrade to Pro if traffic warrants it
-- **Domain:** Connect `beachhousemoving.com` via Vercel dashboard → Domains
+- **Domain:** Connect `beachhousemoving.xyz` via Vercel dashboard → Domains
 - **Environment Variables:** Set all `.env.local` vars in Vercel dashboard → Settings → Environment Variables
 
 ---

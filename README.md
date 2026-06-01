@@ -2,10 +2,9 @@
 
 A premium, conversion-optimized marketing website for **Beach House Moving**, a locally owned and fully licensed moving & storage company serving the Florida Panhandle.
 
-**Live Domain:** [beachhousemoving.com](https://beachhousemoving.com)  
+**Live Domain:** [beachhousemoving.xyz](https://beachhousemoving.xyz)  
 **Business Phone:** (850) 842-1962  
 **Business Email:** beachhousemoving@gmail.com  
-**Address:** 110 Via Largo, Santa Rosa Beach, FL 32459  
 **Service Area:** Walton County · Okaloosa County · Bay County · Local & Long Distance
 
 ---
@@ -24,9 +23,9 @@ Build a world-class landing page that:
 
 | Layer | Technology |
 |---|---|
-| Framework | Next.js 14 (App Router) |
+| Framework | Next.js 16 (App Router) |
 | Language | TypeScript (strict) |
-| Styling | Tailwind CSS v3 |
+| Styling | Tailwind CSS v4 |
 | UI Components | shadcn/ui |
 | Animations | Framer Motion |
 | Forms | react-hook-form + zod |
