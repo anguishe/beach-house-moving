@@ -60,11 +60,11 @@ Track visitor behavior, traffic sources, and conversion events (quote form submi
 
 ### Setup Steps
 1. Go to [analytics.google.com](https://analytics.google.com)
-2. Create a new GA4 property for `beachhousemoving.com`
-3. Copy the Measurement ID (format: `G-XXXXXXXXXX`)
+2. Create a new GA4 property for `beachhousemoving.xyz`
+3. Measurement ID: `G-6H4SJSCW0G`
 4. Add to `.env.local`:
    ```
-   NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+   NEXT_PUBLIC_GA_MEASUREMENT_ID=G-6H4SJSCW0G
    ```
 5. Add same var to Vercel
 
@@ -188,7 +188,7 @@ NEXT_PUBLIC_SITE_URL=https://beachhousemoving.com
 NEXT_PUBLIC_BUSINESS_PHONE=8508421962
 
 # Analytics
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-6H4SJSCW0G
 
 # Email
 RESEND_API_KEY=re_xxxxxxxxxxxxxx

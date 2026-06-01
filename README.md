@@ -110,7 +110,7 @@ cp .env.example .env.local
 |---|---|---|
 | `NEXT_PUBLIC_SITE_URL` | Yes | Canonical site origin (e.g. `https://beachhousemoving.xyz`; use `http://localhost:3000` locally) |
 | `NEXT_PUBLIC_BUSINESS_PHONE` | Yes | Raw phone digits for click-to-call analytics (e.g. `8508421962`) |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Yes | Google Analytics 4 measurement ID (e.g. `G-XXXXXXXXXX`) |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Yes | Google Analytics 4 measurement ID (`G-6H4SJSCW0G`) |
 | `RESEND_API_KEY` | Yes | Resend API key for quote form emails |
 | `RESEND_FROM_EMAIL` | Yes | Verified Resend sender (e.g. `quotes@beachhousemoving.xyz`) |
 | `RESEND_TO_EMAIL` | Yes | Inbox for quote notifications (e.g. `beachhousemoving@gmail.com`) |
@@ -121,7 +121,7 @@ Example `.env.local` for local development:
 ```env
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_BUSINESS_PHONE=8508421962
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-6H4SJSCW0G
 RESEND_API_KEY=re_xxxxxxxxxxxxxx
 RESEND_FROM_EMAIL=quotes@beachhousemoving.xyz
 RESEND_TO_EMAIL=beachhousemoving@gmail.com
