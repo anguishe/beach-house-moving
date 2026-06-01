@@ -1,8 +1,5 @@
-'use client'
-
 import type React from 'react'
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import {
   ArrowRight,
   Home,
@@ -13,7 +10,18 @@ import {
   Truck,
   Warehouse,
 } from 'lucide-react'
-import { BUSINESS, SERVICES } from '@/lib/content'
+
+import { MotionReveal } from '@/components/ui/MotionReveal'
+import { BUSINESS, IMAGES, SERVICES } from '@/lib/content'
+
+const serviceImageMap: Record<string, { src: string; alt: string }> = {
+  'residential-moving': IMAGES.truckLoading,
+  'local-moving': IMAGES.dolly,
+  'long-distance-moving': IMAGES.fleet,
+  'packing-unpacking': IMAGES.dresserPack,
+  storage: IMAGES.collage,
+  delivery: IMAGES.fridge,
+}
 
 const serviceIconMap: Record<string, React.ElementType> = {
   Package,
@@ -26,243 +34,87 @@ const serviceIconMap: Record<string, React.ElementType> = {
 
 export function ServicesSection() {
   return (
-    <section id="services" style={{ backgroundColor: '#F5F0E8', padding: '96px 0' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-          <p
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              color: '#2A9D8F',
-              fontWeight: 600,
-              fontSize: '12px',
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              marginBottom: '12px',
-            }}
-          >
+    <section id="services" className="bg-brand-sand py-24">
+      <div className="mx-auto max-w-7xl px-8">
+        <div className="mb-16 text-center">
+          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal">
             What We Do
           </p>
-          <h2
-            style={{
-              fontFamily: '"Playfair Display", Georgia, serif',
-              color: '#1B2B4B',
-              fontWeight: 700,
-              fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-              marginBottom: '16px',
-              lineHeight: 1.15,
-            }}
-          >
+          <h2 className="mb-4 font-heading text-[clamp(2rem,4vw,2.75rem)] font-bold leading-snug text-brand-navy">
             Full-Service Moving, Start to Finish
           </h2>
-          <div
-            style={{
-              width: '40px',
-              height: '2px',
-              backgroundColor: '#2A9D8F',
-              margin: '0 auto 20px',
-            }}
-          />
-          <p
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              color: '#4A5568',
-              fontSize: '17px',
-              maxWidth: '520px',
-              margin: '0 auto',
-              lineHeight: 1.7,
-            }}
-          >
+          <div className="mx-auto mb-5 h-0.5 w-10 bg-brand-teal" />
+          <p className="mx-auto max-w-lg font-body text-[17px] leading-relaxed text-ink-muted">
             From the first box packed to the last item placed — we handle every detail so you
             don&apos;t have to.
           </p>
         </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: '24px',
-          }}
-        >
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
           {SERVICES.map((service, index) => {
             const ServiceIcon = serviceIconMap[service.icon]
+            const serviceImage = serviceImageMap[service.slug]
 
             return (
-              <motion.div
+              <MotionReveal
                 key={service.slug}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: '14px',
-                  overflow: 'hidden',
-                  boxShadow: '0 4px 24px rgba(27,43,75,0.07)',
-                  border: '1px solid rgba(27,43,75,0.06)',
-                  transition: 'box-shadow 0.3s ease, transform 0.3s ease',
-                  cursor: 'pointer',
-                }}
-                whileHover={{ y: -4, boxShadow: '0 16px 48px rgba(27,43,75,0.13)' }}
+                index={index}
+                className="cursor-pointer overflow-hidden rounded-[14px] border border-brand-navy/6 bg-white shadow-brand transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-brand-hover"
               >
-                <div
-                  style={{
-                    position: 'relative',
-                    width: '100%',
-                    paddingBottom: '62%',
-                    backgroundColor: '#F5F0E8',
-                    overflow: 'hidden',
-                  }}
-                >
-                  <Image
-                    src={service.image}
-                    alt={`Beach House Moving — ${service.title}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    style={{
-                      objectFit: 'contain',
-                      objectPosition: 'center center',
-                      padding: '8px',
-                    }}
-                  />
+                <div className="relative w-full pb-[62%] overflow-hidden bg-brand-sand">
+                  {serviceImage && (
+                    <Image
+                      src={serviceImage.src}
+                      alt={serviceImage.alt}
+                      fill
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      className="object-contain p-2"
+                    />
+                  )}
                 </div>
 
-                <div style={{ padding: '24px' }}>
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '12px',
-                      marginBottom: '10px',
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: '38px',
-                        height: '38px',
-                        borderRadius: '10px',
-                        backgroundColor: 'rgba(42,157,143,0.1)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                      }}
-                    >
+                <div className="p-6">
+                  <div className="mb-2.5 flex items-center gap-3">
+                    <div className="flex size-[38px] shrink-0 items-center justify-center rounded-[10px] bg-brand-teal/10">
                       {ServiceIcon && (
-                        <ServiceIcon
-                          style={{ width: '20px', height: '20px', color: '#2A9D8F' }}
-                          strokeWidth={1.6}
-                        />
+                        <ServiceIcon className="size-5 text-brand-teal" strokeWidth={1.6} aria-hidden />
                       )}
                     </div>
-                    <h3
-                      style={{
-                        fontFamily: '"Playfair Display", Georgia, serif',
-                        color: '#1B2B4B',
-                        fontWeight: 600,
-                        fontSize: '1.2rem',
-                        margin: 0,
-                        lineHeight: 1.2,
-                      }}
-                    >
+                    <h3 className="m-0 font-heading text-[1.2rem] font-semibold leading-snug text-brand-navy">
                       {service.title}
                     </h3>
                   </div>
 
-                  <p
-                    style={{
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      color: '#4A5568',
-                      fontSize: '14px',
-                      lineHeight: 1.7,
-                      margin: '0 0 16px',
-                    }}
-                  >
+                  <p className="mb-4 font-body text-sm leading-relaxed text-ink-muted">
                     {service.shortDescription}
                   </p>
 
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '4px',
-                      color: '#2A9D8F',
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      fontSize: '13px',
-                      fontWeight: 600,
-                    }}
-                  >
+                  <div className="flex items-center gap-1 font-body text-[13px] font-semibold text-brand-teal">
                     Learn more
-                    <ArrowRight style={{ width: '13px', height: '13px' }} strokeWidth={2} />
+                    <ArrowRight className="size-3.5" strokeWidth={2} aria-hidden />
                   </div>
                 </div>
-              </motion.div>
+              </MotionReveal>
             )
           })}
         </div>
 
-        <div
-          style={{
-            backgroundColor: '#1B2B4B',
-            borderRadius: '16px',
-            padding: '56px 48px',
-            textAlign: 'center',
-            marginTop: '72px',
-          }}
-        >
-          <p
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              color: '#2A9D8F',
-              fontWeight: 600,
-              fontSize: '12px',
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              marginBottom: '12px',
-            }}
-          >
+        <div className="mt-[72px] rounded-2xl bg-brand-navy px-12 py-14 text-center">
+          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal">
             Ready When You Are
           </p>
-          <h3
-            style={{
-              fontFamily: '"Playfair Display", Georgia, serif',
-              color: '#FFFFFF',
-              fontWeight: 700,
-              fontSize: 'clamp(1.75rem, 3vw, 2.25rem)',
-              marginBottom: '28px',
-              lineHeight: 1.2,
-            }}
-          >
+          <h3 className="mb-7 font-heading text-[clamp(1.75rem,3vw,2.25rem)] font-bold leading-snug text-white">
             Call us today for a free estimate.
           </h3>
           <a
             href={BUSINESS.phone.href}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '10px',
-              backgroundColor: '#E85D3D',
-              color: '#FFFFFF',
-              fontFamily: 'Inter, system-ui, sans-serif',
-              fontWeight: 600,
-              fontSize: '19px',
-              padding: '18px 40px',
-              borderRadius: '12px',
-              textDecoration: 'none',
-              boxShadow: '0 8px 32px rgba(232,93,61,0.35)',
-            }}
+            className="inline-flex items-center gap-2.5 rounded-brand-lg bg-brand-coral px-10 py-[18px] font-body text-[19px] font-semibold text-white no-underline shadow-brand-lg"
           >
-            <Phone style={{ width: '20px', height: '20px' }} strokeWidth={1.8} />
+            <Phone className="size-5" strokeWidth={1.8} aria-hidden />
             {BUSINESS.phone.display}
           </a>
-          <p
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              color: 'rgba(255,255,255,0.3)',
-              fontSize: '12px',
-              marginTop: '16px',
-            }}
-          >
+          <p className="mt-4 font-body text-xs text-white/30">
             Licensed & Insured · Available 7 Days a Week
           </p>
         </div>

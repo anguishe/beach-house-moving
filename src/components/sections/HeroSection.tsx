@@ -4,7 +4,8 @@ import { useRef } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { Phone, ChevronDown, ShieldCheck, Heart, Star } from 'lucide-react'
-import { BUSINESS, TRUST_BADGES } from '@/lib/content'
+import { BUSINESS, LICENSE_DISPLAY, TRUST_BADGES } from '@/lib/content'
+import { fadeUpVariants } from '@/lib/motion'
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLElement>(null)
@@ -13,11 +14,7 @@ export default function HeroSection() {
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
   const bgY = useTransform(scrollY, [0, 700], [0, prefersReducedMotion ? 0 : 180])
 
-  const fadeUp = (delay: number) => ({
-    initial: { opacity: 0, y: 28 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const, delay },
-  })
+  const fadeUp = (delay: number) => fadeUpVariants(prefersReducedMotion, { delay })
 
   return (
     <section
@@ -52,11 +49,9 @@ export default function HeroSection() {
             alt="Beach House Moving branded van at a beachfront home on the Florida Panhandle"
             fill
             priority
-            sizes="(max-width: 640px) 100vw, (max-width: 1280px) 100vw, 100vw"
-            style={{
-              objectFit: 'cover',
-              objectPosition: '75% center',
-            }}
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover object-[75%_center]"
           />
         </div>
       </motion.div>
@@ -105,10 +100,19 @@ export default function HeroSection() {
           }}
         >
 
+          {/* License trust badge — above the fold */}
+          <motion.p
+            {...fadeUp(0.05)}
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/12 px-3.5 py-1.5 font-body text-xs font-semibold text-white/95 backdrop-blur-sm"
+          >
+            <ShieldCheck className="size-3.5 shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
+            {LICENSE_DISPLAY.heroTrustBadge}
+          </motion.p>
+
           {/* Eyebrow */}
           <motion.p
             {...fadeUp(0.1)}
-            className="font-body text-[#2A9D8F] font-semibold text-sm uppercase tracking-[0.22em] mb-4"
+            className="mb-4 font-body text-sm font-semibold uppercase tracking-[0.22em] text-brand-teal"
           >
             Walton · Okaloosa · Bay Counties
           </motion.p>
@@ -198,6 +202,7 @@ export default function HeroSection() {
           >
             <a
               href={BUSINESS.phone.href}
+              className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
               style={{
                 backgroundColor: '#E85D3D',
                 color: '#FFFFFF',
@@ -221,6 +226,7 @@ export default function HeroSection() {
 
             <a
               href="#quote"
+              className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
               style={{
                 border: '2px solid rgba(255,255,255,0.65)',
                 color: '#FFFFFF',
@@ -278,18 +284,20 @@ export default function HeroSection() {
 
       {/* ── GLASSMORPHISM BADGE — bottom right, desktop only ── */}
       <motion.div
-        initial={{ opacity: 0, x: 40 }}
+        initial={prefersReducedMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1.5, duration: 0.5, ease: 'easeOut' }}
-        className="hidden lg:flex absolute bottom-28 right-12 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-[12px] items-center gap-3.5 z-20"
+        transition={prefersReducedMotion ? { duration: 0 } : { delay: 1.5, duration: 0.5, ease: 'easeOut' }}
+        className="absolute bottom-28 right-12 z-20 hidden items-center gap-3.5 rounded-brand border border-white/20 bg-white/10 p-4 backdrop-blur-md lg:flex"
       >
         <div className="w-14 h-14 rounded-[8px] overflow-hidden flex-shrink-0 relative">
           <Image
             src="/images/hero-van.jpg"
-            alt="Beach House Moving branded van"
+            alt=""
             fill
+            loading="lazy"
             sizes="56px"
-            style={{ objectFit: 'cover' }}
+            className="object-cover"
+            aria-hidden
           />
         </div>
         <div>
@@ -300,15 +308,15 @@ export default function HeroSection() {
 
       {/* ── WHY US CARD — bottom left, desktop only ── */}
       <motion.div
-        initial={{ opacity: 0, x: -40 }}
+        initial={prefersReducedMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ delay: 1.7, duration: 0.5, ease: 'easeOut' }}
-        className="hidden lg:block absolute bottom-28 left-12 bg-white/8 backdrop-blur-md border border-white/15 p-4 rounded-[12px] z-20"
+        transition={prefersReducedMotion ? { duration: 0 } : { delay: 1.7, duration: 0.5, ease: 'easeOut' }}
+        className="absolute bottom-28 left-12 z-20 hidden rounded-brand border border-white/15 bg-white/8 p-4 backdrop-blur-md lg:block"
       >
         {[
-          { icon: ShieldCheck, color: '#2A9D8F',  label: 'Licensed & Insured' },
-          { icon: Heart,       color: '#E85D3D',  label: 'Locally Owned & Operated' },
-          { icon: Star,        color: '#E9C46A',  label: '5-Star Rated Service' },
+          { icon: ShieldCheck, color: '#2A9D8F', label: 'Licensed & Insured' },
+          { icon: Heart, color: '#E85D3D', label: 'Locally Owned & Operated' },
+          { icon: Star, color: '#E9C46A', label: 'Free Estimates' },
         ].map((item, i) => (
           <div
             key={item.label}
@@ -350,8 +358,12 @@ export default function HeroSection() {
           Scroll
         </p>
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+          animate={prefersReducedMotion ? { y: 0 } : { y: [0, 8, 0] }}
+          transition={
+            prefersReducedMotion
+              ? { duration: 0 }
+              : { repeat: Infinity, duration: 1.6, ease: 'easeInOut' }
+          }
         >
           <ChevronDown className="w-4 h-4 text-white/35" strokeWidth={1.5} />
         </motion.div>

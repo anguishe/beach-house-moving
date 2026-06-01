@@ -12,3 +12,12 @@ export const quoteFormSchema = z.object({
 })
 
 export type QuoteFormData = z.infer<typeof quoteFormSchema>
+
+export const contactFormSchema = z.object({
+  fullName: z.string().min(2, 'Name is required'),
+  phone: z.string().min(10, 'Valid phone number required'),
+  email: z.string().email('Valid email required'),
+  message: z.string().min(10, 'Please include a brief message'),
+})
+
+export type ContactFormData = z.infer<typeof contactFormSchema>

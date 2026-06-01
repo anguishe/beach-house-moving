@@ -1,5 +1,17 @@
 import Image from 'next/image'
-import { GALLERY_PHOTOS } from '@/lib/content'
+import { IMAGES } from '@/lib/content'
+
+const GALLERY_PHOTOS = [
+  IMAGES.truckLoading,
+  IMAGES.dolly,
+  IMAGES.fridge,
+  IMAGES.washerDryer,
+  IMAGES.dresserPack,
+  IMAGES.stairs,
+  IMAGES.cleanEntry,
+  IMAGES.boxTruck,
+  IMAGES.fleet,
+] as const
 
 const galleryPhotos = [...GALLERY_PHOTOS, ...GALLERY_PHOTOS]
 
@@ -32,10 +44,10 @@ export function GalleryStrip() {
               <Image
                 src={photo.src}
                 fill
-                style={{ objectFit: 'cover' }}
-                sizes="384px"
+                loading="lazy"
+                sizes="(max-width: 768px) 288px, 384px"
                 alt={photo.alt}
-                className="transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-brand-navy/20 transition-colors duration-300 group-hover:bg-transparent" />
             </div>

@@ -1,4 +1,5 @@
 import { CTABanner } from '@/components/sections/CTABanner'
+import { FAQSection } from '@/components/sections/FAQSection'
 import { GalleryStrip } from '@/components/sections/GalleryStrip'
 import HeroSection from '@/components/sections/HeroSection'
 import { QuoteFormSection } from '@/components/sections/QuoteFormSection'
@@ -11,7 +12,7 @@ import { Footer } from '@/components/layout/Footer'
 export default function HomePage() {
   return (
     <>
-      <main className="pb-[64px] md:pb-0">
+      <main id="main-content" tabIndex={-1} className="pb-[64px] outline-none md:pb-0">
         <HeroSection />
         <TrustSection />
         <ServicesSection />
@@ -19,6 +20,7 @@ export default function HomePage() {
         <GalleryStrip />
         <TestimonialsSection />
         <QuoteFormSection />
+        <FAQSection />
         <CTABanner />
       </main>
       <Footer />

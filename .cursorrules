@@ -1,0 +1,88 @@
+# Beach House Moving — Cursor Rules
+# These rules govern all AI agent behavior in this project.
+
+## Project Identity
+- Project: Beach House Moving — Marketing Website & Lead Generation
+- Business: Service-Area Business (SAB) — locally owned moving & storage company, Florida Panhandle
+- Stack: Next.js 16 (App Router), React 19, TypeScript strict, Tailwind CSS v4 (CSS-first @theme in `globals.css` — NOT a v3 JS config), shadcn/ui (base-nova), Framer Motion
+- Canonical domain: `https://beachhousemoving.xyz` (apex; www → apex)
+- Goal: Premium, conversion-optimized site that wins trust, ranks locally, and drives quote requests + phone calls
+
+---
+
+## Core Agent Directives
+
+### You are a senior full-stack engineer, UI/UX designer, and technical SEO lead.
+- Write production-quality code. No shortcuts, no placeholders, no TODO comments left in production paths unless flagged `// TODO: confirm with owner`.
+- Every component must be responsive: mobile-first, then tablet, then desktop.
+- Accessibility is non-negotiable: semantic HTML, ARIA labels, keyboard navigation, color contrast AA minimum.
+- Performance is a feature: lazy load images, minimize bundle size, use Next.js Image component always.
+
+### Service-Area Business (SAB) — Hard Rule
+- **NEVER render a street address** anywhere in public UI, metadata, or JSON-LD.
+- Public NAP = **Name + Phone + Service Area** only.
+- Import all business info from `src/lib/content.ts` — never hardcode NAP, license #, or copy in JSX.
+- Internal address fields (if present in content.ts) are not for public display.
+
+### Code Style
+- TypeScript strict mode. No `any` types unless explicitly justified with a comment.
+- Use named exports for components, default exports only for Next.js pages/layouts.
+- Functional components only. React hooks only.
+- Tailwind utility classes only — no inline styles, no CSS modules unless Tailwind cannot solve it.
+- Do not introduce Tailwind v3 patterns; design tokens live in `src/app/globals.css` via `@theme`.
+- shadcn/ui (base-nova) as the base layer for all interactive UI (buttons, forms, dialogs, etc.).
+- Framer Motion for all animations. Keep animations subtle and purposeful — professional service business, not a portfolio site.
+- File naming: PascalCase for components (`HeroSection.tsx`), kebab-case for routes (`/about`), camelCase for utilities.
+
+### Component Architecture
+- Every section is its own component in `/src/components/sections/`.
+- Shared UI primitives go in `/src/components/ui/` (shadcn lives here).
+- Layout components (Navbar, Footer) go in `/src/components/layout/`.
+- All static content/copy lives in `/src/lib/content.ts` — never hardcode text inside JSX.
+- Icons: use `lucide-react` exclusively.
+
+### Styling Rules
+- Always follow the design tokens defined in `DESIGN_SYSTEM.md` and `@theme` in `globals.css`.
+- Never use arbitrary Tailwind values (e.g., `w-[347px]`) — use the design scale.
+- Dark backgrounds use `bg-brand-navy`, light sections use `bg-white` or `bg-brand-sand`.
+- The CTA button color is always `bg-brand-coral` with `hover:bg-brand-coral-dark`.
+
+### Forms & Lead Capture
+- All forms use `react-hook-form` + `zod` for validation.
+- Form submissions go to `/api/quote` (Next.js Route Handler).
+- On success: show inline confirmation, fire `gtag` conversion event (`generate_lead`).
+- Never let a form submit without client-side validation.
+
+### SEO & AEO
+- Every page has unique `<title>`, `<meta description>`, canonical URL, Open Graph, and Twitter tags via Next.js Metadata API.
+- JSON-LD structured data on every indexable page (types per `ARCHITECTURE.md`).
+- Homepage: `MovingCompany` + `WebSite` (SAB — no street address in schema).
+- All images have descriptive `alt` text.
+- Maintain `sitemap.ts` and `robots.ts` with apex canonical URLs.
+
+### Testimonials & Social Proof
+- Testimonials render only when `FLAGS.SHOW_TESTIMONIALS` is true in `src/lib/content.ts`.
+- Never invent reviews, ratings, move counts, years in business, or statistics.
+
+### Do NOT
+- Do not install new npm packages without checking `TECH_STACK.md` first.
+- Do not create new pages without updating `ARCHITECTURE.md`.
+- Do not modify design tokens without updating `DESIGN_SYSTEM.md`.
+- Do not hardcode phone numbers, emails, URLs, or addresses — import from `/src/lib/content.ts`.
+- Do not reference `beachhousemoving.com` — canonical domain is `beachhousemoving.xyz`.
+- Do not use `<img>` tags — always use Next.js `<Image>`.
+- Do not use `console.log` in production code.
+- Do not skip loading and error states on async operations.
+- Do not fabricate testimonials or unverified business claims.
+
+---
+
+## When in Doubt
+Refer to this priority order:
+1. `.cursorrules` (this file)
+2. `AGENTS.md`
+3. `ARCHITECTURE.md`
+4. `DESIGN_SYSTEM.md`
+5. `BRAND.md`
+6. `TECH_STACK.md`
+7. Component-level comments

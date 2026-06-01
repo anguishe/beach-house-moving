@@ -1,21 +1,35 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
 
-/* ─────────────────────────────────────────────
-   Beach House Moving — Coastal Premium Palette v1
-   ───────────────────────────────────────────── */
-:root {
-  --color-navy:        #1B2B4B;
-  --color-coral:       #E85D3D;
-  --color-coral-dark:  #C94828;
-  --color-sand:        #F5F0E8;
-  --color-teal:        #2A9D8F;
-  --color-gold:        #E9C46A;
-  --color-white:       #FFFFFF;
-  --color-ink:         #1B2B4B;
-  --color-ink-muted:   #4A5568;
-  --color-ink-light:   #718096;
+@source "../components/**/*.{js,ts,jsx,tsx}";
+@source "../app/**/*.{js,ts,jsx,tsx}";
+
+@theme {
+  /* Brand colors — DESIGN_SYSTEM.md */
+  --color-brand-navy: #1b2b4b;
+  --color-brand-coral: #e85d3d;
+  --color-brand-coral-dark: #c94828;
+  --color-brand-sand: #f5f0e8;
+  --color-brand-teal: #2a9d8f;
+  --color-brand-gold: #e9c46a;
+
+  /* Ink / text */
+  --color-ink: #1b2b4b;
+  --color-ink-muted: #4a5568;
+  --color-ink-light: #718096;
+
+  /* Typography — next/font variables set on <html> in layout.tsx */
+  --font-heading: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-body: var(--font-inter), Inter, system-ui, sans-serif;
+
+  /* Border radius */
+  --radius-brand: 12px;
+  --radius-brand-lg: 20px;
+
+  /* Shadows */
+  --shadow-brand: 0 4px 24px rgb(27 43 75 / 0.08);
+  --shadow-brand-lg: 0 8px 40px rgb(27 43 75 / 0.12);
+  --shadow-brand-hover: 0 12px 48px rgb(27 43 75 / 0.18);
 }
 
 html {
@@ -23,9 +37,20 @@ html {
   overflow-x: hidden;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .ken-burns,
+  .marquee-track,
+  .ticker-locations {
+    animation: none !important;
+  }
+}
+
 body {
-  font-family: var(--font-body), 'Inter', system-ui, sans-serif;
-  color: #1B2B4B;
+  color: var(--color-ink);
   background: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -45,19 +70,25 @@ a[href^='mailto:'] {
   text-decoration: none;
 }
 
-/* Force font-heading utility to use the CSS variable */
-.font-heading {
-  font-family: var(--font-heading), 'Playfair Display', Georgia, serif !important;
-}
-
-.font-body {
-  font-family: var(--font-body), 'Inter', system-ui, sans-serif !important;
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
 }
 
 /* Ken Burns animation for hero */
 @keyframes kenBurns {
-  from { transform: scale(1.07); }
-  to   { transform: scale(1.0); }
+  from {
+    transform: scale(1.07);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 .ken-burns {
   animation: kenBurns 10s ease-out forwards;
@@ -65,8 +96,12 @@ a[href^='mailto:'] {
 
 /* Marquee for gallery strip */
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 .marquee-track {
   animation: marquee 35s linear infinite;
@@ -77,8 +112,12 @@ a[href^='mailto:'] {
 
 /* Location ticker for hero */
 @keyframes tickerScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 .ticker-locations {
   display: inline-block;
@@ -88,4 +127,41 @@ a[href^='mailto:'] {
 /* Offset all anchor scroll targets by navbar height */
 [id] {
   scroll-margin-top: 80px;
+}
+
+/* Visible keyboard focus — AA-friendly ring on interactive elements */
+:focus-visible {
+  outline: 2px solid var(--color-brand-teal);
+  outline-offset: 2px;
+}
+
+@layer utilities {
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
 }

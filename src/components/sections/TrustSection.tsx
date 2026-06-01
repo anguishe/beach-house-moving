@@ -1,9 +1,8 @@
-'use client'
-
 import type React from 'react'
-import { motion } from 'framer-motion'
 import { Clock, DollarSign, Heart, ShieldCheck } from 'lucide-react'
-import { TRUST_BADGES } from '@/lib/content'
+
+import { MotionReveal } from '@/components/ui/MotionReveal'
+import { LICENSE_DISPLAY, TRUST_BADGES } from '@/lib/content'
 
 const iconMap: Record<string, React.ElementType> = {
   ShieldCheck,
@@ -15,90 +14,38 @@ const iconMap: Record<string, React.ElementType> = {
 export function TrustSection() {
   return (
     <>
-      <section
-        style={{
-          backgroundColor: '#1B2B4B',
-          paddingTop: '56px',
-          paddingBottom: '80px',
-          width: '100%',
-        }}
-      >
-        <div style={{ maxWidth: '1152px', margin: '0 auto', padding: '0 32px' }}>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(2, 1fr)',
-              gap: '40px',
-            }}
-            className="md:grid-cols-4"
-          >
+      <section className="w-full bg-brand-navy pb-20 pt-14">
+        <div className="mx-auto max-w-6xl px-8">
+          <p className="mb-10 text-center font-body text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal">
+            {LICENSE_DISPLAY.heroTrustBadge}
+          </p>
+          <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
             {TRUST_BADGES.map((badge, index) => {
               const IconComponent = iconMap[badge.icon as keyof typeof iconMap]
               return (
-                <motion.div
+                <MotionReveal
                   key={badge.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    gap: '12px',
-                  }}
+                  index={index}
+                  className="flex flex-col items-center gap-3 text-center"
                 >
-                  <div
-                    style={{
-                      width: '56px',
-                      height: '56px',
-                      borderRadius: '50%',
-                      backgroundColor: 'rgba(42, 157, 143, 0.15)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                    }}
-                  >
+                  <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-brand-teal/15">
                     {IconComponent && (
-                      <IconComponent
-                        style={{ width: '24px', height: '24px', color: '#2A9D8F' }}
-                        strokeWidth={1.5}
-                      />
+                      <IconComponent className="size-6 text-brand-teal" strokeWidth={1.5} aria-hidden />
                     )}
                   </div>
-                  <p
-                    style={{
-                      fontFamily: '"Playfair Display", Georgia, serif',
-                      color: '#FFFFFF',
-                      fontWeight: 600,
-                      fontSize: '1.125rem',
-                      lineHeight: '1.3',
-                      margin: 0,
-                    }}
-                  >
+                  <p className="m-0 font-heading text-lg font-semibold leading-snug text-white">
                     {badge.label}
                   </p>
-                  <p
-                    style={{
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      color: 'rgba(255, 255, 255, 0.55)',
-                      fontSize: '0.875rem',
-                      lineHeight: '1.6',
-                      maxWidth: '160px',
-                      margin: 0,
-                    }}
-                  >
+                  <p className="m-0 max-w-[160px] font-body text-sm leading-relaxed text-white/55">
                     {badge.description}
                   </p>
-                </motion.div>
+                </MotionReveal>
               )
             })}
           </div>
         </div>
       </section>
-      <div className="h-[2px] bg-gradient-to-r from-transparent via-brand-teal/25 to-transparent" />
+      <div className="h-0.5 bg-gradient-to-r from-transparent via-brand-teal/25 to-transparent" />
     </>
   )
 }

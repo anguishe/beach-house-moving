@@ -100,24 +100,35 @@ npx shadcn@latest add button card dialog form input label select textarea badge 
 
 ### 5. Configure Environment Variables
 
-Create `.env.local` in the project root:
+Copy the committed template and fill in your values:
+
+```bash
+cp .env.example .env.local
+```
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_SITE_URL` | Yes | Canonical site origin (e.g. `https://beachhousemoving.xyz`; use `http://localhost:3000` locally) |
+| `NEXT_PUBLIC_BUSINESS_PHONE` | Yes | Raw phone digits for click-to-call analytics (e.g. `8508421962`) |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Yes | Google Analytics 4 measurement ID (e.g. `G-XXXXXXXXXX`) |
+| `RESEND_API_KEY` | Yes | Resend API key for quote form emails |
+| `RESEND_FROM_EMAIL` | Yes | Verified Resend sender (e.g. `quotes@beachhousemoving.xyz`) |
+| `RESEND_TO_EMAIL` | Yes | Inbox for quote notifications (e.g. `beachhousemoving@gmail.com`) |
+| `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` | No | Google Maps embed on contact/service-area pages (free iframe embed works without this) |
+
+Example `.env.local` for local development:
 
 ```env
-# App
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_BUSINESS_PHONE=8508421962
 NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-
-# Email (Resend)
 RESEND_API_KEY=re_xxxxxxxxxxxxxx
-RESEND_FROM_EMAIL=quotes@beachhousemoving.com
+RESEND_FROM_EMAIL=quotes@beachhousemoving.xyz
 RESEND_TO_EMAIL=beachhousemoving@gmail.com
-
-# Optional: Google Maps Embed API
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIza_xxxxxxxxxxxxxx
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=
 ```
 
-> ⚠️ Never commit `.env.local` — it is already in `.gitignore`.
+> ⚠️ Never commit `.env.local` — it is gitignored. Commit only `.env.example` (no secrets).
 
 ### 6. Update Tailwind Config
 

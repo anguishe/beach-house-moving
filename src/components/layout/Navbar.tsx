@@ -1,11 +1,29 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { Menu, X, Phone } from 'lucide-react'
-import { BUSINESS, NAV_LINKS } from '@/lib/content'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { Menu, Phone, X } from 'lucide-react'
+
+import { cn } from '@/lib/utils'
+import { BUSINESS, LICENSE_DISPLAY, NAV_LINKS } from '@/lib/content'
+import { isNavLinkActive } from '@/lib/nav'
+
+const navLinkClass = (active: boolean) =>
+  cn(
+    'font-body text-sm font-medium tracking-wide whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded-sm',
+    active ? 'text-white' : 'text-white/78 hover:text-white',
+  )
+
+const drawerLinkClass = (active: boolean) =>
+  cn(
+    'block border-b border-white/8 py-3.5 font-body text-[17px] font-medium tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal',
+    active ? 'text-white' : 'text-white/80 hover:text-white',
+  )
 
 export function Navbar() {
+  const pathname = usePathname()
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -15,59 +33,36 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileOpen])
+
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileOpen(false)
+    }
+    if (mobileOpen) window.addEventListener('keydown', onKeyDown)
+    return () => window.removeEventListener('keydown', onKeyDown)
+  }, [mobileOpen])
+
   return (
     <>
-      <style>{`
-        .bhm-nav-desktop { display: none; }
-        .bhm-nav-mobile-only { display: flex; }
-        .bhm-nav-md-show { display: none; }
-        .bhm-nav-md-divider { display: none; }
-        .bhm-sticky-mobile { display: flex; }
-        @media (min-width: 768px) {
-          .bhm-nav-md-show { display: flex; }
-          .bhm-nav-md-divider { display: block; }
-        }
-        @media (min-width: 1024px) {
-          .bhm-nav-desktop { display: flex; }
-          .bhm-nav-mobile-only { display: none !important; }
-          .bhm-sticky-mobile { display: none !important; }
-        }
-      `}</style>
-
       <nav
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 50,
-          transition: 'background-color 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease',
-          backgroundColor: scrolled ? 'rgba(27, 43, 75, 0.96)' : 'rgba(27, 43, 75, 0.15)',
-          backdropFilter: scrolled ? 'blur(12px)' : 'blur(0px)',
-          borderBottom: scrolled ? '1px solid rgba(255,255,255,0.08)' : '1px solid transparent',
-        }}
+        aria-label="Primary"
+        className={cn(
+          'fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300',
+          scrolled
+            ? 'border-b border-white/8 bg-brand-navy/96 backdrop-blur-md'
+            : 'border-b border-transparent bg-brand-navy/15',
+        )}
       >
-        <div
-          style={{
-            maxWidth: '1280px',
-            margin: '0 auto',
-            padding: '0 24px',
-            height: '72px',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: '32px',
-          }}
-        >
-          {/* Logo */}
-          <a
+        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-8 px-6">
+          <Link
             href="/"
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              flexShrink: 0,
-              textDecoration: 'none',
-            }}
+            className="flex shrink-0 items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
           >
             <Image
               src="/images/logo-light.png"
@@ -75,280 +70,154 @@ export function Navbar() {
               width={120}
               height={40}
               priority
-              style={{ height: '38px', width: 'auto', display: 'block' }}
+              className="block h-[38px] w-auto"
             />
-          </a>
+          </Link>
 
-          {/* Desktop nav links */}
-          <div className="bhm-nav-desktop" style={{ alignItems: 'center', gap: '36px' }}>
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                style={{
-                  fontFamily: 'Inter, system-ui, sans-serif',
-                  color: 'rgba(255,255,255,0.78)',
-                  fontSize: '14px',
-                  fontWeight: 500,
-                  letterSpacing: '0.02em',
-                  textDecoration: 'none',
-                  transition: 'color 0.2s ease',
-                  whiteSpace: 'nowrap',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.78)')}
-              >
-                {link.label}
-              </a>
-            ))}
+          <div className="hidden items-center gap-9 lg:flex">
+            {NAV_LINKS.map((link) => {
+              const active = isNavLinkActive(pathname, link.href)
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? 'page' : undefined}
+                  className={cn(
+                    navLinkClass(active),
+                    active && 'border-b-2 border-brand-teal pb-0.5',
+                  )}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexShrink: 0 }}>
-            {/* Phone number — desktop only */}
+          <div className="flex shrink-0 items-center gap-4">
             <a
               href={BUSINESS.phone.href}
-              className="bhm-nav-md-show"
-              style={{
-                alignItems: 'center',
-                gap: '7px',
-                fontFamily: 'Inter, system-ui, sans-serif',
-                color: 'rgba(255,255,255,0.90)',
-                fontSize: '14px',
-                fontWeight: 500,
-                textDecoration: 'none',
-                letterSpacing: '0.01em',
-                whiteSpace: 'nowrap',
-                transition: 'color 0.2s ease',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = '#FFFFFF')}
-              onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(255,255,255,0.90)')}
+              className={cn(
+                'hidden items-center gap-1.5 font-body text-sm font-medium tracking-wide text-white/90 transition-colors hover:text-white md:inline-flex',
+                'rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy',
+              )}
             >
-              <Phone
-                style={{ width: '14px', height: '14px', color: '#2A9D8F', flexShrink: 0 }}
-                strokeWidth={1.8}
-              />
+              <Phone className="size-3.5 shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
               {BUSINESS.phone.display}
             </a>
 
-            {/* Thin divider — desktop only */}
-            <div
-              className="bhm-nav-md-divider"
-              style={{ width: '1px', height: '20px', backgroundColor: 'rgba(255,255,255,0.15)' }}
-            />
+            <span className="hidden h-5 w-px bg-white/15 md:block" aria-hidden />
 
-            {/* Get a Free Quote CTA — desktop only */}
-            <a
-              href="#quote"
-              className="bhm-nav-md-show"
-              style={{
-                alignItems: 'center',
-                gap: '6px',
-                backgroundColor: '#E85D3D',
-                color: '#FFFFFF',
-                fontFamily: 'Inter, system-ui, sans-serif',
-                fontWeight: 600,
-                fontSize: '13px',
-                letterSpacing: '0.03em',
-                padding: '9px 18px',
-                borderRadius: '8px',
-                textDecoration: 'none',
-                whiteSpace: 'nowrap',
-                transition: 'background-color 0.2s ease, box-shadow 0.2s ease',
-                boxShadow: '0 2px 12px rgba(232,93,61,0.35)',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#C94828'
-                e.currentTarget.style.boxShadow = '0 4px 20px rgba(232,93,61,0.5)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#E85D3D'
-                e.currentTarget.style.boxShadow = '0 2px 12px rgba(232,93,61,0.35)'
-              }}
+            <Link
+              href="/get-a-quote"
+              className={cn(
+                'hidden items-center rounded-lg bg-brand-coral px-4 py-2 font-body text-[13px] font-semibold tracking-wide text-white shadow-[0_2px_12px_rgba(232,93,61,0.35)] transition-colors hover:bg-brand-coral-dark md:inline-flex',
+                'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy',
+              )}
             >
-              Get a Free Quote
-            </a>
+              Get a Quote
+            </Link>
 
-            {/* Hamburger — mobile only */}
             <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="bhm-nav-mobile-only"
-              style={{
-                background: 'rgba(255,255,255,0.1)',
-                border: '1px solid rgba(255,255,255,0.2)',
-                borderRadius: '8px',
-                padding: '8px',
-                cursor: 'pointer',
-                alignItems: 'center',
-                justifyContent: 'center',
-                color: '#FFFFFF',
-              }}
-              aria-label="Open menu"
+              type="button"
+              onClick={() => setMobileOpen((open) => !open)}
+              className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 p-2 text-white lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav-drawer"
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             >
-              <Menu style={{ width: '20px', height: '20px' }} strokeWidth={1.8} />
+              <Menu className="size-5" strokeWidth={1.8} aria-hidden />
             </button>
           </div>
         </div>
       </nav>
 
-      {/* Backdrop */}
       {mobileOpen && (
-        <div
+        <button
+          type="button"
+          className="fixed inset-0 z-[99] bg-black/50 lg:hidden"
+          aria-label="Close menu"
           onClick={() => setMobileOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            backgroundColor: 'rgba(0,0,0,0.5)',
-            zIndex: 99,
-          }}
         />
       )}
 
-      {/* Drawer panel */}
       <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          right: 0,
-          bottom: 0,
-          width: '300px',
-          backgroundColor: '#1B2B4B',
-          zIndex: 100,
-          padding: '32px 28px',
-          display: 'flex',
-          flexDirection: 'column',
-          transform: mobileOpen ? 'translateX(0)' : 'translateX(100%)',
-          transition: 'transform 0.3s ease',
-          overflowY: 'auto',
-        }}
+        id="mobile-nav-drawer"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        className={cn(
+          'fixed inset-y-0 right-0 z-[100] flex w-[300px] flex-col overflow-y-auto bg-brand-navy px-7 py-8 transition-transform duration-300 lg:hidden',
+          mobileOpen ? 'translate-x-0' : 'translate-x-full',
+        )}
       >
-        {/* Drawer header */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '40px' }}>
+        <div className="mb-10 flex items-center justify-between">
           <Image
             src="/images/logo-light.png"
-            alt="Beach House Moving"
+            alt=""
             width={110}
             height={36}
-            style={{ height: '34px', width: 'auto' }}
+            loading="lazy"
+            className="h-[34px] w-auto"
+            aria-hidden
           />
           <button
+            type="button"
             onClick={() => setMobileOpen(false)}
-            style={{ background: 'rgba(255,255,255,0.1)', border: 'none', borderRadius: '6px', padding: '6px', cursor: 'pointer', color: '#FFFFFF', display: 'flex', alignItems: 'center' }}
+            className="flex items-center rounded-md bg-white/10 p-1.5 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
+            aria-label="Close menu"
           >
-            <X style={{ width: '18px', height: '18px' }} strokeWidth={1.8} />
+            <X className="size-[18px]" strokeWidth={1.8} aria-hidden />
           </button>
         </div>
 
-        {/* Nav links */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '40px' }}>
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              style={{
-                fontFamily: 'Inter, system-ui, sans-serif',
-                color: 'rgba(255,255,255,0.80)',
-                fontSize: '17px',
-                fontWeight: 500,
-                textDecoration: 'none',
-                padding: '14px 0',
-                borderBottom: '1px solid rgba(255,255,255,0.08)',
-                display: 'block',
-                letterSpacing: '0.01em',
-              }}
-            >
-              {link.label}
-            </a>
-          ))}
+        <div className="mb-10 flex flex-col gap-1">
+          {NAV_LINKS.map((link) => {
+            const active = isNavLinkActive(pathname, link.href)
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileOpen(false)}
+                aria-current={active ? 'page' : undefined}
+                className={drawerLinkClass(active)}
+              >
+                {link.label}
+              </Link>
+            )
+          })}
         </div>
 
-        {/* Tap to call */}
         <a
           href={BUSINESS.phone.href}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '10px',
-            backgroundColor: '#2A9D8F',
-            color: '#FFFFFF',
-            fontFamily: 'Inter, system-ui, sans-serif',
-            fontWeight: 600,
-            fontSize: '16px',
-            padding: '16px',
-            borderRadius: '10px',
-            textDecoration: 'none',
-            marginBottom: '12px',
-            boxShadow: '0 4px 20px rgba(42,157,143,0.35)',
-          }}
+          className="mb-3 flex items-center justify-center gap-2.5 rounded-[10px] bg-brand-teal px-4 py-4 font-body text-base font-semibold text-white shadow-[0_4px_20px_rgba(42,157,143,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
         >
-          <Phone style={{ width: '18px', height: '18px' }} strokeWidth={1.8} />
+          <Phone className="size-[18px]" strokeWidth={1.8} aria-hidden />
           {BUSINESS.phone.display}
         </a>
 
-        {/* Get a quote */}
-        <a
-          href="#quote"
+        <Link
+          href="/get-a-quote"
           onClick={() => setMobileOpen(false)}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#E85D3D',
-            color: '#FFFFFF',
-            fontFamily: 'Inter, system-ui, sans-serif',
-            fontWeight: 600,
-            fontSize: '16px',
-            padding: '16px',
-            borderRadius: '10px',
-            textDecoration: 'none',
-            boxShadow: '0 4px 20px rgba(232,93,61,0.35)',
-          }}
+          className="flex items-center justify-center rounded-[10px] bg-brand-coral px-4 py-4 font-body text-base font-semibold text-white shadow-[0_4px_20px_rgba(232,93,61,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
         >
-          Get a Free Quote
-        </a>
+          Get a Quote
+        </Link>
 
-        {/* License badge */}
-        <p style={{
-          fontFamily: 'Inter, system-ui, sans-serif',
-          color: 'rgba(255,255,255,0.30)',
-          fontSize: '11px',
-          textAlign: 'center',
-          marginTop: 'auto',
-          paddingTop: '32px',
-          lineHeight: '1.6',
-        }}>
-          Licensed & Insured · Santa Rosa Beach, FL
+        <p className="mt-auto pt-8 text-center font-body text-[11px] leading-relaxed text-white/30">
+          {LICENSE_DISPLAY.heroTrustBadge}
         </p>
       </div>
 
-      {/* ── STICKY MOBILE BOTTOM CTA ── */}
       <a
         href={BUSINESS.phone.href}
-        className="bhm-sticky-mobile"
-        style={{
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          zIndex: 50,
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '10px',
-          backgroundColor: '#2A9D8F',
-          color: '#FFFFFF',
-          fontFamily: 'Inter, system-ui, sans-serif',
-          fontWeight: 600,
-          fontSize: '16px',
-          paddingTop: '16px',
-          paddingLeft: '16px',
-          paddingRight: '16px',
-          paddingBottom: 'calc(16px + env(safe-area-inset-bottom))',
-          textDecoration: 'none',
-        }}
+        className={cn(
+          'fixed inset-x-0 bottom-0 z-50 flex items-center justify-center gap-2.5 bg-brand-teal px-4 py-4 font-body text-base font-semibold text-white lg:hidden',
+          'pb-[calc(1rem+env(safe-area-inset-bottom))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-inset',
+        )}
+        aria-label={`Call ${BUSINESS.phone.display}`}
       >
-        <Phone style={{ width: '18px', height: '18px' }} strokeWidth={1.8} />
-        Call Now — {BUSINESS.phone.display}
+        <Phone className="size-[18px]" strokeWidth={1.8} aria-hidden />
+        {LICENSE_DISPLAY.mobileCallBar}
       </a>
     </>
   )

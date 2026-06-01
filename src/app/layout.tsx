@@ -1,7 +1,14 @@
 import type { Metadata } from 'next'
-import { connection } from 'next/server'
+import Script from 'next/script'
 import { Playfair_Display, Inter } from 'next/font/google'
+
+import { TelClickTracker } from '@/components/analytics/TelClickTracker'
 import { Navbar } from '@/components/layout/Navbar'
+import { SkipToContent } from '@/components/layout/SkipToContent'
+import { JsonLd } from '@/components/seo/JsonLd'
+import { GA_MEASUREMENT_ID } from '@/lib/gtag'
+import { buildMetadata, HOME_METADATA } from '@/lib/seo'
+import { movingCompanySchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 import './globals.css'
 
@@ -10,6 +17,8 @@ const playfair = Playfair_Display({
   weight: ['400', '600', '700'],
   variable: '--font-playfair',
   display: 'swap',
+  preload: true,
+  adjustFontFallback: true,
 })
 
 const inter = Inter({
@@ -17,41 +26,44 @@ const inter = Inter({
   weight: ['400', '500', '600'],
   variable: '--font-inter',
   display: 'swap',
+  preload: true,
+  adjustFontFallback: true,
 })
 
 export async function generateMetadata(): Promise<Metadata> {
-  await connection()
-  const metadataBase = await getSiteOrigin()
-
-  return {
-    metadataBase,
-    title: 'Beach House Moving | Movers in Santa Rosa Beach, FL',
-    description:
-      'Locally owned & fully licensed movers serving Walton, Okaloosa & Bay Counties. Packing, loading, transportation & storage. Get your free quote — (850) 842-1962.',
-    openGraph: {
-      title: 'Beach House Moving | Santa Rosa Beach, FL',
-      description: "The Florida Panhandle's premier locally owned movers.",
-      url: metadataBase.origin,
-      type: 'website',
-      locale: 'en_US',
-      siteName: 'Beach House Moving',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: 'Beach House Moving | Santa Rosa Beach, FL',
-      description: "The Florida Panhandle's premier locally owned movers.",
-    },
-  }
+  return buildMetadata(HOME_METADATA)
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const origin = await getSiteOrigin()
+
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="pt-0">
+      <body className={`${playfair.variable} ${inter.variable} font-body antialiased pt-0`}>
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="ga4-init" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                window.gtag = gtag;
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}');
+              `}
+            </Script>
+          </>
+        )}
+        <JsonLd data={movingCompanySchema(origin.origin)} />
+        <SkipToContent />
+        <TelClickTracker />
         <Navbar />
         {children}
       </body>

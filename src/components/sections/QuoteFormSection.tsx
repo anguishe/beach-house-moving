@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { AlertCircle, CheckCircle2, Loader2, Phone } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { BUSINESS, QUOTE_FORM_MOVE_TYPES } from '@/lib/content'
+import { trackGenerateLead } from '@/lib/gtag'
 import { quoteFormSchema, type QuoteFormData } from '@/lib/schema'
 
 const trustItems = [
@@ -110,6 +111,7 @@ export function QuoteFormSection() {
       })
 
       if (res.ok) {
+        trackGenerateLead()
         setStatus('success')
       } else {
         setStatus('error')
@@ -321,12 +323,9 @@ export function QuoteFormSection() {
                       src={photo.src}
                       alt={photo.alt}
                       fill
-                      sizes="400px"
-                      style={{
-                        objectFit: 'contain',
-                        objectPosition: 'center',
-                        padding: '4px',
-                      }}
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, 400px"
+                      className="object-contain object-center p-1"
                     />
                   </div>
                 ))}
@@ -341,7 +340,7 @@ export function QuoteFormSection() {
                   marginTop: '4px',
                 }}
               >
-                Licensed & Insured · {BUSINESS.address.city}, {BUSINESS.address.state}
+                {BUSINESS.licenseStatement}
               </p>
             </div>
 

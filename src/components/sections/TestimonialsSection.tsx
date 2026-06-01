@@ -2,9 +2,22 @@
 
 import { motion } from 'framer-motion'
 import { Phone, Star } from 'lucide-react'
-import { TESTIMONIALS_PLACEHOLDER } from '@/lib/content'
+import { BUSINESS, FLAGS, TESTIMONIALS_PLACEHOLDER } from '@/lib/content'
+
+type TestimonialItem = {
+  name: string
+  text: string
+  location: string
+  source: string
+}
 
 export function TestimonialsSection() {
+  if (!FLAGS.SHOW_TESTIMONIALS) {
+    return null
+  }
+
+  const testimonials = TESTIMONIALS_PLACEHOLDER as readonly TestimonialItem[]
+
   return (
     <section id="about" style={{ backgroundColor: '#F5F0E8', padding: '96px 0' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 32px' }}>
@@ -101,9 +114,9 @@ export function TestimonialsSection() {
             gap: '24px',
           }}
         >
-          {TESTIMONIALS_PLACEHOLDER.map((t, index) => (
+          {testimonials.map((t, index) => (
             <motion.div
-              key={t.name}
+              key={`${t.name}-${index}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -228,7 +241,7 @@ export function TestimonialsSection() {
             Join your neighbors across the Florida Panhandle.
           </p>
           <a
-            href="tel:+18508421962"
+            href={BUSINESS.phone.href}
             style={{
               display: 'inline-flex',
               alignItems: 'center',

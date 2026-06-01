@@ -1,216 +1,81 @@
-'use client'
-
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import { Phone } from 'lucide-react'
+
+import { MotionReveal } from '@/components/ui/MotionReveal'
 import { BUSINESS, SERVICE_AREAS } from '@/lib/content'
 
 export function ServiceAreaSection() {
   return (
-    <section id="areas" style={{ backgroundColor: '#FFFFFF', padding: '96px 0' }}>
-      <div style={{ maxWidth: '1280px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
-          <p
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              color: '#2A9D8F',
-              fontWeight: 600,
-              fontSize: '12px',
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              marginBottom: '12px',
-            }}
-          >
+    <section id="areas" className="bg-white py-24">
+      <div className="mx-auto max-w-7xl px-8">
+        <div className="mb-16 text-center">
+          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal">
             Where We Work
           </p>
-          <h2
-            style={{
-              fontFamily: '"Playfair Display", Georgia, serif',
-              color: '#1B2B4B',
-              fontWeight: 700,
-              fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-              marginBottom: '16px',
-              lineHeight: 1.15,
-            }}
-          >
+          <h2 className="mb-4 font-heading text-[clamp(2rem,4vw,2.75rem)] font-bold leading-snug text-brand-navy">
             Serving the Florida Panhandle
           </h2>
-          <div
-            style={{
-              width: '40px',
-              height: '2px',
-              backgroundColor: '#2A9D8F',
-              margin: '0 auto 20px',
-            }}
-          />
-          <p
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              color: '#4A5568',
-              fontSize: '17px',
-              maxWidth: '540px',
-              margin: '0 auto',
-              lineHeight: 1.7,
-            }}
-          >
+          <div className="mx-auto mb-5 h-0.5 w-10 bg-brand-teal" />
+          <p className="mx-auto max-w-xl font-body text-[17px] leading-relaxed text-ink-muted">
             From 30A to Panama City — we know every road, every neighborhood.
           </p>
         </div>
 
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))',
-            gap: '24px',
-          }}
-        >
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(340px,1fr))] gap-6">
           {SERVICE_AREAS.map((area, index) => (
-            <motion.div
+            <MotionReveal
               key={area.slug}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              style={{
-                borderRadius: '14px',
-                overflow: 'hidden',
-                boxShadow: '0 4px 24px rgba(27,43,75,0.07)',
-                border: '1px solid rgba(27,43,75,0.06)',
-                backgroundColor: '#FFFFFF',
-              }}
+              index={index}
+              className="overflow-hidden rounded-[14px] border border-brand-navy/6 bg-white shadow-brand"
             >
-              <div
-                style={{
-                  position: 'relative',
-                  width: '100%',
-                  paddingBottom: '58%',
-                  backgroundColor: '#1B2B4B',
-                  overflow: 'hidden',
-                }}
-              >
+              <div className="relative w-full overflow-hidden bg-brand-navy pb-[58%]">
                 <Image
                   src={area.image}
                   alt={`Beach House Moving serving ${area.county}`}
                   fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  style={{ objectFit: 'contain', objectPosition: 'center center' }}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  className="object-contain object-center"
                 />
-                <div
-                  style={{
-                    position: 'absolute',
-                    bottom: '12px',
-                    left: '12px',
-                    backgroundColor: '#2A9D8F',
-                    color: '#FFFFFF',
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    fontSize: '11px',
-                    fontWeight: 700,
-                    letterSpacing: '0.08em',
-                    textTransform: 'uppercase',
-                    padding: '5px 12px',
-                    borderRadius: '999px',
-                  }}
-                >
+                <div className="absolute bottom-3 left-3 rounded-full bg-brand-teal px-3 py-1.5 font-body text-[11px] font-bold uppercase tracking-wide text-white">
                   {area.county}
                 </div>
               </div>
 
-              <div style={{ padding: '24px' }}>
-                <h3
-                  style={{
-                    fontFamily: '"Playfair Display", Georgia, serif',
-                    color: '#1B2B4B',
-                    fontWeight: 700,
-                    fontSize: '1.3rem',
-                    marginBottom: '8px',
-                    lineHeight: 1.2,
-                  }}
-                >
+              <div className="p-6">
+                <h3 className="mb-2 font-heading text-[1.3rem] font-bold leading-snug text-brand-navy">
                   {area.county}
                 </h3>
-                <p
-                  style={{
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    color: '#4A5568',
-                    fontSize: '14px',
-                    lineHeight: 1.7,
-                    marginBottom: '16px',
-                  }}
-                >
+                <p className="mb-4 font-body text-sm leading-relaxed text-ink-muted">
                   {area.description}
                 </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                <div className="flex flex-wrap gap-1.5">
                   {area.cities.map((city) => (
                     <span
                       key={city}
-                      style={{
-                        fontFamily: 'Inter, system-ui, sans-serif',
-                        color: '#1B2B4B',
-                        fontSize: '12px',
-                        fontWeight: 500,
-                        backgroundColor: '#F5F0E8',
-                        padding: '4px 10px',
-                        borderRadius: '999px',
-                      }}
+                      className="rounded-full bg-brand-sand px-2.5 py-1 font-body text-xs font-medium text-brand-navy"
                     >
                       {city}
                     </span>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </MotionReveal>
           ))}
         </div>
 
-        <div
-          style={{
-            backgroundColor: '#F5F0E8',
-            borderRadius: '16px',
-            padding: '56px 48px',
-            textAlign: 'center',
-            marginTop: '72px',
-          }}
-        >
-          <h3
-            style={{
-              fontFamily: '"Playfair Display", Georgia, serif',
-              color: '#1B2B4B',
-              fontWeight: 700,
-              fontSize: 'clamp(1.5rem, 3vw, 2rem)',
-              marginBottom: '12px',
-            }}
-          >
+        <div className="mt-[72px] rounded-2xl bg-brand-sand px-12 py-14 text-center">
+          <h3 className="mb-3 font-heading text-[clamp(1.5rem,3vw,2rem)] font-bold text-brand-navy">
             Not sure if we serve your area?
           </h3>
-          <p
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              color: '#4A5568',
-              fontSize: '16px',
-              marginBottom: '28px',
-              lineHeight: 1.6,
-            }}
-          >
+          <p className="mb-7 font-body text-base leading-relaxed text-ink-muted">
             Give us a call — if we can get there, we will.
           </p>
           <a
             href={BUSINESS.phone.href}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '9px',
-              backgroundColor: '#1B2B4B',
-              color: '#FFFFFF',
-              fontFamily: 'Inter, system-ui, sans-serif',
-              fontWeight: 600,
-              fontSize: '16px',
-              padding: '15px 32px',
-              borderRadius: '12px',
-              textDecoration: 'none',
-              boxShadow: '0 4px 20px rgba(27,43,75,0.2)',
-            }}
+            className="inline-flex items-center gap-2 rounded-brand-lg bg-brand-navy px-8 py-4 font-body text-base font-semibold text-white no-underline shadow-brand"
           >
-            <Phone style={{ width: '17px', height: '17px' }} strokeWidth={1.8} />
+            <Phone className="size-[17px]" strokeWidth={1.8} aria-hidden />
             Call {BUSINESS.phone.display}
           </a>
         </div>
