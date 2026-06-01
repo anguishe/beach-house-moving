@@ -185,8 +185,12 @@ beach-house-moving/
 │   └── styles/
 │       └── globals.css             # Tailwind base + CSS variables
 ├── public/
-│   ├── images/
+│   ├── images/                     # Page photos, logos, PWA icons
+│   │   ├── icon-512.png            # Brand favicon (512×512)
+│   │   └── apple-touch-icon.png    # iOS home screen (180×180)
 │   └── favicon.ico
+│   # App Router metadata images (src/app/):
+│   # icon.png, apple-icon.png, favicon.ico, opengraph-image.png, twitter-image.png
 ├── .cursorrules
 ├── .env.local                      # Not committed
 ├── .env.example                    # Committed — template

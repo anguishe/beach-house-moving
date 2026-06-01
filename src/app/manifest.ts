@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-import { BUSINESS, IMAGES } from '@/lib/content'
+import { BUSINESS } from '@/lib/content'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
@@ -13,13 +13,13 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: '#1B2B4B',
     icons: [
       {
-        src: IMAGES.logoOnLight.src,
+        src: '/images/icon-512.png',
         sizes: '512x512',
         type: 'image/png',
         purpose: 'any',
       },
       {
-        src: IMAGES.logo.src,
+        src: '/images/icon-512.png',
         sizes: '512x512',
         type: 'image/png',
         purpose: 'maskable',
