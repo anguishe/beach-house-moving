@@ -1,11 +1,17 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, Phone, X } from 'lucide-react'
 
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTitle,
+} from '@/components/ui/sheet'
 import { cn } from '@/lib/utils'
 import { BUSINESS, IMAGES, LICENSE_DISPLAY, NAV_LINKS } from '@/lib/content'
 import { trackPhoneClick } from '@/lib/gtag'
@@ -25,44 +31,13 @@ const drawerLinkClass = (active: boolean) =>
 
 export function Navbar() {
   const pathname = usePathname()
-  const isHomePage = pathname === '/'
-  const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
-
-  // Transparent navbar only on homepage over the dark hero; solid everywhere else.
-  const isTransparent = isHomePage && !scrolled
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : ''
-    return () => {
-      document.body.style.overflow = ''
-    }
-  }, [mobileOpen])
-
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setMobileOpen(false)
-    }
-    if (mobileOpen) window.addEventListener('keydown', onKeyDown)
-    return () => window.removeEventListener('keydown', onKeyDown)
-  }, [mobileOpen])
 
   return (
     <>
       <nav
         aria-label="Primary"
-        className={cn(
-          'fixed inset-x-0 top-0 z-50 transition-[background-color,backdrop-filter,border-color] duration-300',
-          isTransparent
-            ? 'border-b border-transparent bg-brand-navy/15'
-            : 'border-b border-white/8 bg-brand-navy/96 backdrop-blur-md',
-        )}
+        className="fixed inset-x-0 top-0 z-50 border-b border-white/8 bg-brand-navy text-on-dark"
       >
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-8 px-6">
           <Link
@@ -137,83 +112,72 @@ export function Navbar() {
         </div>
       </nav>
 
-      {mobileOpen && (
-        <button
-          type="button"
-          className="fixed inset-0 z-[99] bg-black/50 lg:hidden"
-          aria-label="Close menu"
-          onClick={() => setMobileOpen(false)}
-        />
-      )}
+      <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
+        <SheetContent
+          id="mobile-nav-drawer"
+          side="right"
+          showCloseButton={false}
+          className="z-100 flex w-[300px] max-w-[300px] flex-col overflow-y-auto border-0 bg-brand-navy px-7 py-8 text-white sm:max-w-[300px] lg:hidden"
+        >
+          <SheetTitle className="sr-only">Navigation menu</SheetTitle>
 
-      <div
-        id="mobile-nav-drawer"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Navigation menu"
-        className={cn(
-          'fixed inset-y-0 right-0 z-[100] flex w-[300px] flex-col overflow-y-auto bg-brand-navy px-7 py-8 transition-transform duration-300 lg:hidden',
-          mobileOpen ? 'translate-x-0' : 'translate-x-full',
-        )}
-      >
-        <div className="mb-10 flex items-center justify-between">
-          <Image
-            src="/images/logo-light.png"
-            alt=""
-            width={110}
-            height={36}
-            loading="lazy"
-            className="h-[34px] w-auto"
-            aria-hidden
-          />
-          <button
-            type="button"
-            onClick={() => setMobileOpen(false)}
-            className="flex items-center rounded-md bg-white/10 p-1.5 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
-            aria-label="Close menu"
+          <div className="mb-10 flex items-center justify-between">
+            <Image
+              src="/images/logo-light.png"
+              alt=""
+              width={110}
+              height={36}
+              loading="lazy"
+              className="h-[34px] w-auto"
+              aria-hidden
+            />
+            <SheetClose
+              className="flex items-center rounded-md bg-white/10 p-1.5 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
+              aria-label="Close menu"
+            >
+              <X className="size-[18px]" strokeWidth={1.8} aria-hidden />
+            </SheetClose>
+          </div>
+
+          <div className="mb-10 flex flex-col gap-1">
+            {NAV_LINKS.map((link) => {
+              const active = isNavLinkActive(pathname, link.href)
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setMobileOpen(false)}
+                  aria-current={active ? 'page' : undefined}
+                  className={drawerLinkClass(active)}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
+          </div>
+
+          <a
+            href={BUSINESS.phone.href}
+            onClick={() => trackPhoneClick('navbar-mobile')}
+            className="mb-3 flex items-center justify-center gap-2.5 rounded-[10px] bg-brand-teal px-4 py-4 font-body text-base font-semibold text-white shadow-[0_4px_20px_rgba(42,157,143,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
           >
-            <X className="size-[18px]" strokeWidth={1.8} aria-hidden />
-          </button>
-        </div>
+            <Phone className="size-[18px]" strokeWidth={1.8} aria-hidden />
+            {BUSINESS.phone.display}
+          </a>
 
-        <div className="mb-10 flex flex-col gap-1">
-          {NAV_LINKS.map((link) => {
-            const active = isNavLinkActive(pathname, link.href)
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMobileOpen(false)}
-                aria-current={active ? 'page' : undefined}
-                className={drawerLinkClass(active)}
-              >
-                {link.label}
-              </Link>
-            )
-          })}
-        </div>
+          <Link
+            href="/get-a-quote"
+            onClick={() => setMobileOpen(false)}
+            className="flex items-center justify-center rounded-[10px] bg-brand-coral px-4 py-4 font-body text-base font-semibold text-white shadow-[0_4px_20px_rgba(232,93,61,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
+          >
+            Get a Quote
+          </Link>
 
-        <a
-          href={BUSINESS.phone.href}
-          onClick={() => trackPhoneClick('navbar-mobile')}
-          className="mb-3 flex items-center justify-center gap-2.5 rounded-[10px] bg-brand-teal px-4 py-4 font-body text-base font-semibold text-white shadow-[0_4px_20px_rgba(42,157,143,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
-        >
-          <Phone className="size-[18px]" strokeWidth={1.8} aria-hidden />
-          {BUSINESS.phone.display}
-        </a>
-
-        <Link
-          href="/get-a-quote"
-          onClick={() => setMobileOpen(false)}
-          className="flex items-center justify-center rounded-[10px] bg-brand-coral px-4 py-4 font-body text-base font-semibold text-white shadow-[0_4px_20px_rgba(232,93,61,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
-        >
-          Get a Quote
-        </Link>
-
-        <p className="mt-auto pt-8 text-center font-body text-[11px] leading-relaxed text-white/30">
-          {LICENSE_DISPLAY.heroTrustBadge}
-        </p>
-      </div>
+          <p className="mt-auto pt-8 text-center font-body text-[11px] leading-relaxed text-on-dark-muted">
+            {LICENSE_DISPLAY.heroTrustBadge}
+          </p>
+        </SheetContent>
+      </Sheet>
 
       <a
         href={BUSINESS.phone.href}

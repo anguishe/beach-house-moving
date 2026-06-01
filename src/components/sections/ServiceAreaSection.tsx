@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Phone } from 'lucide-react'
 
 import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
@@ -29,38 +30,43 @@ export function ServiceAreaSection() {
               index={index}
               className="overflow-hidden rounded-[14px] border border-brand-navy/6 bg-white shadow-brand"
             >
-              <div className="relative w-full overflow-hidden bg-brand-navy pb-[58%]">
-                <Image
-                  src={area.image}
-                  alt={`Beach House Moving serving ${area.county}`}
-                  fill
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                  className="object-contain object-center"
-                />
-                <div className="absolute bottom-3 left-3 rounded-full bg-brand-teal px-3 py-1.5 font-body text-[11px] font-bold uppercase tracking-wide text-white">
-                  {area.county}
+              <Link
+                href={`/service-areas/${area.slug}`}
+                className="block text-inherit no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+              >
+                <div className="relative w-full overflow-hidden bg-brand-navy pb-[58%]">
+                  <Image
+                    src={area.image}
+                    alt={`Beach House Moving serving ${area.county}`}
+                    fill
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                    className="object-contain object-center"
+                  />
+                  <div className="absolute bottom-3 left-3 rounded-full bg-brand-teal px-3 py-1.5 font-body text-[11px] font-bold uppercase tracking-wide text-white">
+                    {area.county}
+                  </div>
                 </div>
-              </div>
 
-              <div className="p-6">
-                <h3 className="mb-2 font-heading text-[1.3rem] font-bold leading-snug text-brand-navy">
-                  {area.county}
-                </h3>
-                <p className="mb-4 font-body text-sm leading-relaxed text-ink-muted">
-                  {area.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5">
-                  {area.cities.map((city) => (
-                    <span
-                      key={city}
-                      className="rounded-full bg-brand-sand px-2.5 py-1 font-body text-xs font-medium text-brand-navy"
-                    >
-                      {city}
-                    </span>
-                  ))}
+                <div className="p-6">
+                  <h3 className="mb-2 font-heading text-[1.3rem] font-bold leading-snug text-brand-navy">
+                    {area.county}
+                  </h3>
+                  <p className="mb-4 font-body text-sm leading-relaxed text-ink-muted">
+                    {area.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {area.cities.map((city) => (
+                      <span
+                        key={city}
+                        className="rounded-full bg-brand-sand px-2.5 py-1 font-body text-xs font-medium text-brand-navy"
+                      >
+                        {city}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </Link>
             </MotionReveal>
           ))}
         </div>

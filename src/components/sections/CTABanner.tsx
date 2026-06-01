@@ -7,7 +7,7 @@ export function CTABanner() {
   return (
     <section className="bg-brand-coral px-6 py-20 text-center">
       <div className="mx-auto max-w-[800px]">
-        <p className="mb-4 font-body text-xs font-semibold uppercase tracking-[0.22em] text-white/65">
+        <p className="mb-4 font-body text-xs font-semibold uppercase tracking-[0.22em] text-white">
           Don&apos;t Stress the Move
         </p>
 
@@ -21,7 +21,7 @@ export function CTABanner() {
 
         <TrackedPhoneLink
           location="cta-banner"
-          className="inline-flex items-center gap-4 rounded-[14px] bg-white px-11 py-[22px] text-brand-coral shadow-brand-lg transition-[transform,box-shadow] duration-200 ease-out hover:scale-[1.02] hover:shadow-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
+          className="inline-flex items-center gap-4 rounded-[14px] bg-white px-11 py-[22px] text-brand-navy shadow-brand-lg transition-[transform,box-shadow] duration-200 ease-out hover:scale-[1.02] hover:shadow-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
         >
           <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-brand-coral">
             <Phone className="size-[22px] text-white" strokeWidth={1.8} aria-hidden />
@@ -32,10 +32,10 @@ export function CTABanner() {
         </TrackedPhoneLink>
 
         <div className="mt-6 flex items-center justify-center gap-3">
-          <span className="font-body text-[13px] text-white/40">or</span>
+          <span className="font-body text-[13px] text-white/90">or</span>
           <a
             href="#quote"
-            className="font-body text-[13px] text-white/60 underline underline-offset-[3px]"
+            className="font-body text-[13px] text-white/90 underline underline-offset-[3px]"
           >
             Fill out a quote form →
           </a>

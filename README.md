@@ -1,19 +1,20 @@
-# 🏖️ Beach House Moving — Landing Page
+# 🏖️ Beach House Moving — Marketing Website
 
 A premium, conversion-optimized marketing website for **Beach House Moving**, a locally owned and fully licensed moving & storage company serving the Florida Panhandle.
 
 **Live Domain:** [beachhousemoving.xyz](https://beachhousemoving.xyz)  
 **Business Phone:** (850) 842-1962  
 **Business Email:** beachhousemoving@gmail.com  
-**Service Area:** Walton County · Okaloosa County · Bay County · Local & Long Distance
+**Service Area:** Walton County · Okaloosa County · Bay County · Local & Long Distance  
+**Address:** Not displayed (Service-Area Business — SAB)
 
 ---
 
 ## 🎯 Project Goal
 
-Build a world-class landing page that:
-- Wins trust immediately (licensed, insured, local, family-owned)
-- Drives quote requests (primary CTA) and phone calls (secondary CTA)
+Build a multi-page marketing site that:
+- Wins trust immediately (licensed #IM4125, insured, local, 24/7)
+- Drives quote requests (primary CTA: "Get a Free Quote") and phone calls (secondary CTA)
 - Outranks competitors in local SEO for "movers Santa Rosa Beach FL" and adjacent queries
 - Loads fast, looks stunning on mobile, and converts visitors into customers
 
@@ -23,16 +24,17 @@ Build a world-class landing page that:
 
 | Layer | Technology |
 |---|---|
-| Framework | Next.js 16 (App Router) |
+| Framework | Next.js 16.2.6 (App Router) |
 | Language | TypeScript (strict) |
-| Styling | Tailwind CSS v4 |
-| UI Components | shadcn/ui |
-| Animations | Framer Motion |
-| Forms | react-hook-form + zod |
+| Styling | Tailwind CSS v4 (`@theme` in `globals.css`) |
+| UI Components | shadcn/ui (base-nova / `@base-ui/react`) |
+| Animations | Framer Motion 12 |
+| Forms | react-hook-form + zod 4 |
 | Icons | lucide-react |
-| Analytics | Google Analytics 4 |
+| Analytics | Google Analytics 4 (env-driven) |
 | Hosting | Vercel |
-| Email | Resend (transactional) |
+| Email | Resend (owner notification only in v1.1) |
+| Runtime | Node.js 20+ |
 
 Full details → `TECH_STACK.md`
 
@@ -41,63 +43,24 @@ Full details → `TECH_STACK.md`
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18.17 or later
+- Node.js 20 or later
 - npm 9+ or pnpm 8+
 - Git
 - A Vercel account (for deployment)
 
 ### 1. Clone / Open in Cursor
 
-You already have the `beach-house-moving` directory open. If starting fresh:
-
 ```bash
 cd beach-house-moving
 ```
 
-### 2. Initialize Next.js Project
+### 2. Install Dependencies
 
 ```bash
-npx create-next-app@latest . \
-  --typescript \
-  --tailwind \
-  --eslint \
-  --app \
-  --src-dir \
-  --import-alias "@/*"
+npm install
 ```
 
-When prompted:
-- ✅ TypeScript → Yes
-- ✅ ESLint → Yes
-- ✅ Tailwind CSS → Yes
-- ✅ `src/` directory → Yes
-- ✅ App Router → Yes
-- ✅ Import alias `@/*` → Yes
-
-### 3. Install Core Dependencies
-
-```bash
-npm install framer-motion react-hook-form zod @hookform/resolvers lucide-react resend
-```
-
-### 4. Install & Initialize shadcn/ui
-
-```bash
-npx shadcn@latest init
-```
-
-When prompted:
-- Style: **Default**
-- Base color: **Slate**
-- CSS variables: **Yes**
-
-Then install the components you'll use:
-
-```bash
-npx shadcn@latest add button card dialog form input label select textarea badge accordion navigation-menu sheet
-```
-
-### 5. Configure Environment Variables
+### 3. Configure Environment Variables
 
 Copy the committed template and fill in your values:
 
@@ -107,20 +70,20 @@ cp .env.example .env.local
 
 | Variable | Required | Purpose |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | Yes | Canonical site origin (e.g. `https://beachhousemoving.xyz`; use `http://localhost:3000` locally) |
+| `NEXT_PUBLIC_SITE_URL` | Yes | Canonical site origin (`https://beachhousemoving.xyz`; use `http://localhost:3000` locally) |
 | `NEXT_PUBLIC_BUSINESS_PHONE` | Yes | Raw phone digits for click-to-call analytics (e.g. `8508421962`) |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Yes | Google Analytics 4 measurement ID (`G-6H4SJSCW0G`) |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Yes | Google Analytics 4 measurement ID (from GA4 property) |
 | `RESEND_API_KEY` | Yes | Resend API key for quote form emails |
 | `RESEND_FROM_EMAIL` | Yes | Verified Resend sender (e.g. `quotes@beachhousemoving.xyz`) |
 | `RESEND_TO_EMAIL` | Yes | Inbox for quote notifications (e.g. `beachhousemoving@gmail.com`) |
-| `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` | No | Google Maps embed on contact/service-area pages (free iframe embed works without this) |
+| `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` | No | Google Maps embed (free iframe embed works without this) |
 
 Example `.env.local` for local development:
 
 ```env
 NEXT_PUBLIC_SITE_URL=http://localhost:3000
 NEXT_PUBLIC_BUSINESS_PHONE=8508421962
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-6H4SJSCW0G
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 RESEND_API_KEY=re_xxxxxxxxxxxxxx
 RESEND_FROM_EMAIL=quotes@beachhousemoving.xyz
 RESEND_TO_EMAIL=beachhousemoving@gmail.com
@@ -129,11 +92,7 @@ NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=
 
 > ⚠️ Never commit `.env.local` — it is gitignored. Commit only `.env.example` (no secrets).
 
-### 6. Update Tailwind Config
-
-Replace the `tailwind.config.ts` theme with the tokens from `DESIGN_SYSTEM.md`. A pre-built config is in `/config/tailwind.config.ts`.
-
-### 7. Run Development Server
+### 4. Run Development Server
 
 ```bash
 npm run dev
@@ -141,13 +100,9 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-### 8. Deploy to Vercel
+### 5. Deploy to Vercel
 
-```bash
-npx vercel
-```
-
-Follow prompts to link to your Vercel project. Set all `.env.local` values as Environment Variables in the Vercel dashboard.
+Push to GitHub and import in Vercel, or use the Vercel CLI. Set all `.env.local` values as Environment Variables in the Vercel dashboard.
 
 ---
 
@@ -157,43 +112,55 @@ Follow prompts to link to your Vercel project. Set all `.env.local` values as En
 beach-house-moving/
 ├── src/
 │   ├── app/
-│   │   ├── layout.tsx              # Root layout, fonts, metadata
+│   │   ├── layout.tsx              # Root layout, fonts, GA4, MovingCompany JSON-LD
+│   │   ├── globals.css             # Tailwind v4 @theme design tokens
 │   │   ├── page.tsx                # Homepage
-│   │   ├── about/page.tsx          # About page
-│   │   ├── services/page.tsx       # Services page
-│   │   ├── contact/page.tsx        # Contact / quote page
+│   │   ├── about/page.tsx
+│   │   ├── contact/page.tsx
+│   │   ├── get-a-quote/page.tsx
+│   │   ├── thank-you/page.tsx      # Post-submission (noindex)
+│   │   ├── services/page.tsx
+│   │   ├── services/[slug]/page.tsx
+│   │   ├── service-areas/page.tsx
+│   │   ├── service-areas/[county]/page.tsx
+│   │   ├── not-found.tsx           # Branded 404
+│   │   ├── sitemap.ts
+│   │   ├── robots.ts
 │   │   └── api/
-│   │       └── quote/route.ts      # Quote form submission handler
+│   │       └── quote/route.ts      # Quote form → Resend owner email
 │   ├── components/
 │   │   ├── layout/
 │   │   │   ├── Navbar.tsx
-│   │   │   └── Footer.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── PageShell.tsx
+│   │   │   └── SkipToContent.tsx
 │   │   ├── sections/
 │   │   │   ├── HeroSection.tsx
-│   │   │   ├── ServicesSection.tsx
 │   │   │   ├── TrustSection.tsx
+│   │   │   ├── ServicesSection.tsx
 │   │   │   ├── ServiceAreaSection.tsx
-│   │   │   ├── TestimonialsSection.tsx
+│   │   │   ├── GalleryStrip.tsx
+│   │   │   ├── TestimonialsSection.tsx  # Gated by FLAGS.SHOW_TESTIMONIALS
 │   │   │   ├── QuoteFormSection.tsx
-│   │   │   └── CTABannerSection.tsx
-│   │   └── ui/                     # shadcn/ui components live here
-│   ├── lib/
-│   │   ├── content.ts              # All site copy, contact info, services
-│   │   ├── schema.ts               # Zod validation schemas
-│   │   └── utils.ts                # shadcn utils + custom helpers
-│   └── styles/
-│       └── globals.css             # Tailwind base + CSS variables
+│   │   │   ├── FAQSection.tsx
+│   │   │   ├── CTABanner.tsx
+│   │   │   └── ServiceCTA.tsx
+│   │   ├── forms/
+│   │   │   └── QuoteForm.tsx
+│   │   ├── seo/
+│   │   │   └── JsonLd.tsx
+│   │   └── ui/                     # shadcn/ui components
+│   └── lib/
+│       ├── content.ts              # All site copy, NAP, services, flags
+│       ├── schema.ts               # Zod validation schemas
+│       ├── seo.ts                  # Metadata builders
+│       ├── structured-data.ts      # JSON-LD builders
+│       ├── gtag.ts                 # GA4 event helpers
+│       └── utils.ts
 ├── public/
-│   ├── images/                     # Page photos, logos, PWA icons
-│   │   ├── icon-512.png            # Brand favicon (512×512)
-│   │   └── apple-touch-icon.png    # iOS home screen (180×180)
-│   └── favicon.ico
-│   # App Router metadata images (src/app/):
-│   # icon.png, apple-icon.png, favicon.ico, opengraph-image.png, twitter-image.png
-├── .cursorrules
-├── .env.local                      # Not committed
-├── .env.example                    # Committed — template
+│   └── images/
 ├── ARCHITECTURE.md
+├── PRD.md
 ├── BRAND.md
 ├── DESIGN_SYSTEM.md
 ├── TECH_STACK.md
@@ -212,7 +179,6 @@ npm run dev          # Start development server
 npm run build        # Production build
 npm run start        # Start production server locally
 npm run lint         # Run ESLint
-npm run type-check   # Run TypeScript compiler check
 ```
 
 ---

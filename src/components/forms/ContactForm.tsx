@@ -95,6 +95,7 @@ export function ContactForm() {
         <Label htmlFor="contact-fullName">Full Name</Label>
         <Input
           id="contact-fullName"
+          size="form"
           {...form.register('fullName')}
           aria-invalid={!!form.formState.errors.fullName}
         />
@@ -109,6 +110,7 @@ export function ContactForm() {
           <Input
             id="contact-phone"
             type="tel"
+            size="form"
             {...form.register('phone')}
             aria-invalid={!!form.formState.errors.phone}
           />
@@ -121,6 +123,7 @@ export function ContactForm() {
           <Input
             id="contact-email"
             type="email"
+            size="form"
             {...form.register('email')}
             aria-invalid={!!form.formState.errors.email}
           />
@@ -135,6 +138,7 @@ export function ContactForm() {
         <Textarea
           id="contact-message"
           rows={5}
+          size="form"
           {...form.register('message')}
           aria-invalid={!!form.formState.errors.message}
         />

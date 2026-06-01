@@ -2,29 +2,32 @@
 
 > Documents every third-party service connected to this project — setup steps, environment variables, and how each is used. Update this file whenever an integration is added or modified.
 
+**Canonical domain:** `https://beachhousemoving.xyz`
+
 ---
 
 ## Integration Overview
 
 | Service | Purpose | Status | Env Var |
 |---|---|---|---|
-| Resend | Transactional email (quote notifications) | Required | `RESEND_API_KEY` |
-| Google Analytics 4 | Traffic analytics, conversion tracking | Required | `NEXT_PUBLIC_GA_MEASUREMENT_ID` |
+| Resend | Owner notification email (quote submissions) | Required | `RESEND_API_KEY` |
+| Google Analytics 4 | Traffic analytics, conversion tracking | Live (env-driven) | `NEXT_PUBLIC_GA_MEASUREMENT_ID` |
 | Google Search Console | SEO monitoring, indexing | Setup manually | N/A (file verification) |
-| Google Maps Embed | Service area map on contact page | Optional | `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` |
-| Vercel | Hosting, deployment, edge functions | Required | Vercel dashboard |
-| Facebook Page | Social proof link in footer | No setup needed | N/A |
+| Google Maps Embed | Service area map on contact page | Optional | `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` (or free iframe) |
+| Google Business Profile | Local SEO / NAP consistency | Verified (service-area business) | N/A — link in `SOCIAL_LINKS.google` |
+| Vercel | Hosting, deployment | Required | Vercel dashboard |
+| Facebook Page | Social proof link in footer | Active | N/A |
 
 ---
 
 ## 1. Resend (Email)
 
-### Purpose
-Send quote request notifications to the business owner and confirmation emails to customers when the quote form is submitted.
+### Purpose (v1.1)
+Send **owner notification emails only** when the quote form is submitted. The business owner receives the lead details at `RESEND_TO_EMAIL` (default: `beachhousemoving@gmail.com`).
 
 ### Setup Steps
 1. Go to [resend.com](https://resend.com) → Create account
-2. Add and verify your sending domain (or use `onboarding@resend.dev` for testing)
+2. Add and verify sending domain `beachhousemoving.xyz`
 3. Create an API key → copy it
 4. Add to `.env.local`:
    ```
@@ -34,19 +37,18 @@ Send quote request notifications to the business owner and confirmation emails t
    ```
 5. Add same vars to Vercel dashboard → Settings → Environment Variables
 
-### How It's Used
+### How It's Used (v1.1)
 - **Route:** `/src/app/api/quote/route.ts`
 - **Flow:**
   1. Customer submits quote form
   2. Route Handler validates input with zod
   3. Resend sends notification email to `RESEND_TO_EMAIL` with all form data
-  4. Resend sends confirmation email to customer's email address
-  5. Return `200` → form shows success state
+  4. Return `200` → client fires `generate_lead` → redirect to `/thank-you`
 
-### Email Templates
-Email templates are defined as React components in `/src/emails/`:
-- `QuoteNotificationEmail.tsx` — notification to business owner
-- `QuoteConfirmationEmail.tsx` — confirmation to customer
+### v2 / future
+- Customer confirmation email to the submitter's address
+- React email templates in `/src/emails/` (e.g. `QuoteNotificationEmail.tsx`, `QuoteConfirmationEmail.tsx`)
+- **Not built in v1.1** — do not document or implement customer confirmation until v2
 
 ### Free Tier
 3,000 emails/month — more than sufficient for a local moving company.
@@ -60,26 +62,28 @@ Track visitor behavior, traffic sources, and conversion events (quote form submi
 
 ### Setup Steps
 1. Go to [analytics.google.com](https://analytics.google.com)
-2. Create a new GA4 property for `beachhousemoving.xyz`
-3. Measurement ID: `G-6H4SJSCW0G`
+2. Create a GA4 property for `beachhousemoving.xyz`
+3. Copy the Measurement ID (format `G-XXXXXXXXXX`)
 4. Add to `.env.local`:
    ```
-   NEXT_PUBLIC_GA_MEASUREMENT_ID=G-6H4SJSCW0G
+   NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
    ```
-5. Add same var to Vercel
+5. Add same var to Vercel Environment Variables
+
+> The Measurement ID is **env-driven** — never hardcode it in source files.
 
 ### Implementation
-GA4 script is loaded in `/src/app/layout.tsx`:
+GA4 script is loaded in `/src/app/layout.tsx` when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set:
 ```typescript
 // Uses next/script with strategy="afterInteractive"
-// gtag.ts utility in /src/lib/gtag.ts
+// gtag helpers in /src/lib/gtag.ts
 ```
 
 ### Key Events to Track
 
 | Event Name | Trigger | Where |
 |---|---|---|
-| `generate_lead` | Quote form submitted | `/src/app/api/quote/route.ts` + form success |
+| `generate_lead` | Quote form submitted successfully | `QuoteForm.tsx` (before redirect to `/thank-you`) |
 | `contact` | Phone number clicked | Navbar, Hero, Footer phone links |
 | `page_view` | Route change | Automatic via GA4 |
 
@@ -95,57 +99,52 @@ Monitor search performance, indexing status, and submit sitemap for faster SEO i
 
 ### Setup Steps
 1. Go to [search.google.com/search-console](https://search.google.com/search-console)
-2. Add property → `beachhousemoving.xyz`
+2. Add property → `https://beachhousemoving.xyz`
 3. Verify via HTML file method: download the `googleXXXXXXXX.html` file, place in `/public/`
 4. Submit sitemap: `https://beachhousemoving.xyz/sitemap.xml`
 
 ### Sitemap
-Next.js generates a sitemap automatically via `/src/app/sitemap.ts`:
-```typescript
-export default function sitemap() {
-  return [
-    { url: 'https://beachhousemoving.xyz', lastModified: new Date() },
-    { url: 'https://beachhousemoving.xyz/services', lastModified: new Date() },
-    { url: 'https://beachhousemoving.xyz/about', lastModified: new Date() },
-    { url: 'https://beachhousemoving.xyz/contact', lastModified: new Date() },
-    { url: 'https://beachhousemoving.xyz/get-a-quote', lastModified: new Date() },
-    // + all service and area pages
-  ];
-}
-```
+Next.js generates a sitemap automatically via `/src/app/sitemap.ts` — includes homepage, services (hub + 6 slugs), service areas (hub + 3 counties), about, contact, and get-a-quote. `/thank-you` is excluded (noindex).
 
 ---
 
 ## 4. Google Maps Embed
 
 ### Purpose
-Show a service area map on the `/contact` and `/service-areas` pages to reinforce local credibility.
+Show a **region-centered** service area map on the `/contact` and `/service-areas` pages — reinforces local credibility without pinning an exact home address (SAB).
 
 ### Setup (Optional — can use free embed URL instead)
-**Option A (Free — no API key):** Use the iframe embed URL from Google Maps directly
-```html
-<iframe
-  src="https://www.google.com/maps/embed?pb=..."
-  width="100%"
-  height="400"
-  loading="lazy"
-/>
-```
+**Option A (Free — no API key):** Use the iframe embed URL from Google Maps directly, centered on the service region (Emerald Coast / Panhandle), not a residential street address.
 
 **Option B (API key — for dynamic maps):**
 1. Go to [console.cloud.google.com](https://console.cloud.google.com)
 2. Enable Maps JavaScript API
-3. Create an API key, restrict to your domain
+3. Create an API key, restrict to `beachhousemoving.xyz`
 4. Add to `.env.local`: `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIza_xxxxxx`
 
-**Recommendation:** Use Option A (free embed) initially. Only upgrade to Option B if interactive map features are needed.
+**Recommendation:** Use Option A (free embed) initially. Map must be region-centered — no exact home pin.
 
 ---
 
-## 5. Vercel (Hosting)
+## 5. Google Business Profile (GBP)
 
 ### Purpose
-Production hosting, CI/CD, preview deployments, edge network, SSL.
+Local SEO presence as a verified **service-area business**. NAP on the site must match GBP (name, phone, service area — no public street address).
+
+### Status
+GBP is verified as a service-area business.
+
+### Action items
+1. Confirm site NAP matches GBP listing (import from `content.ts`)
+2. Add verified GBP profile URL to `SOCIAL_LINKS.google` in `/src/lib/content.ts`
+   - **TODO:** Paste verified GBP profile URL here once confirmed — do not invent a URL
+
+---
+
+## 6. Vercel (Hosting)
+
+### Purpose
+Production hosting, CI/CD, preview deployments, SSL.
 
 ### Setup Steps
 1. Push project to GitHub: `git push origin main`
@@ -156,26 +155,25 @@ Production hosting, CI/CD, preview deployments, edge network, SSL.
 
 ### Connect Custom Domain
 1. Vercel dashboard → Project → Settings → Domains
-2. Add `beachhousemoving.xyz` and `www.beachhousemoving.xyz`
+2. Add `beachhousemoving.xyz` (apex) and `www.beachhousemoving.xyz` (redirect to apex)
 3. Update DNS records at your domain registrar per Vercel's instructions
 4. SSL is automatic
 
 ### Branch Deploys
-- `main` branch → production (`beachhousemoving.xyz`)
+- `main` branch → production (`https://beachhousemoving.xyz`)
 - All other branches → preview URLs (safe to test)
 
 ---
 
-## 6. Facebook Page (Social Proof)
+## 7. Facebook Page (Social Proof)
 
 ### Purpose
-Link to the business's Facebook page for social proof in the footer and potentially an embedded review widget.
+Link to the business's Facebook page for social proof in the footer.
 
 ### Details
 - **URL:** `https://www.facebook.com/profile.php?id=61578080548022`
 - **No API key needed** — just a link
-- Add to `/src/lib/content.ts` under `socialLinks`
-- Consider: once Facebook username is set, update to a cleaner URL
+- Defined in `/src/lib/content.ts` under `SOCIAL_LINKS.facebook`
 
 ---
 
@@ -187,16 +185,16 @@ Link to the business's Facebook page for social proof in the footer and potentia
 NEXT_PUBLIC_SITE_URL=https://beachhousemoving.xyz
 NEXT_PUBLIC_BUSINESS_PHONE=8508421962
 
-# Analytics
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-6H4SJSCW0G
+# Analytics (set your GA4 Measurement ID — not hardcoded in repo)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=
 
 # Email
-RESEND_API_KEY=re_xxxxxxxxxxxxxx
+RESEND_API_KEY=
 RESEND_FROM_EMAIL=quotes@beachhousemoving.xyz
 RESEND_TO_EMAIL=beachhousemoving@gmail.com
 
 # Maps (Optional)
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIza_xxxxxxxxxxxxxx
+NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=
 ```
 
 ### `.env.example` (commit this — no real values)

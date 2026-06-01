@@ -1,7 +1,9 @@
 import Link from 'next/link'
+import { Phone } from 'lucide-react'
 
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { PageShell } from '@/components/layout/PageShell'
-import { NOT_FOUND_CONTENT } from '@/lib/content'
+import { BUSINESS, NOT_FOUND_CONTENT } from '@/lib/content'
 
 export default function NotFound() {
   return (
@@ -14,6 +16,23 @@ export default function NotFound() {
         <p className="mx-auto mt-4 max-w-md font-body text-base text-ink-muted">
           {NOT_FOUND_CONTENT.description}
         </p>
+
+        <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <TrackedPhoneLink
+            location="404"
+            className="inline-flex items-center gap-2 rounded-brand bg-brand-teal px-6 py-3 font-body text-sm font-semibold text-white transition-colors hover:bg-brand-teal/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+          >
+            <Phone className="size-4" strokeWidth={1.8} aria-hidden />
+            {BUSINESS.phone.display}
+          </TrackedPhoneLink>
+          <Link
+            href="/get-a-quote"
+            className="inline-flex items-center justify-center rounded-brand bg-brand-coral px-6 py-3 font-body text-sm font-semibold text-white transition-colors hover:bg-brand-coral-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-coral focus-visible:ring-offset-2"
+          >
+            Get a Quote
+          </Link>
+        </div>
+
         <nav aria-label="Helpful links" className="mt-10 flex flex-col gap-3 sm:flex-row">
           {NOT_FOUND_CONTENT.links.map((link) => (
             <Link

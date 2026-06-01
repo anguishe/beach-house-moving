@@ -75,7 +75,7 @@ export function QuoteForm() {
 
       <div className="space-y-2">
         <Label htmlFor="fullName">Full Name</Label>
-        <Input id="fullName" {...form.register('fullName')} aria-invalid={!!form.formState.errors.fullName} />
+        <Input id="fullName" size="form" {...form.register('fullName')} aria-invalid={!!form.formState.errors.fullName} />
         {form.formState.errors.fullName && (
           <p className="font-body text-xs text-red-600">{form.formState.errors.fullName.message}</p>
         )}
@@ -84,14 +84,14 @@ export function QuoteForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="phone">Phone</Label>
-          <Input id="phone" type="tel" {...form.register('phone')} aria-invalid={!!form.formState.errors.phone} />
+          <Input id="phone" type="tel" size="form" {...form.register('phone')} aria-invalid={!!form.formState.errors.phone} />
           {form.formState.errors.phone && (
             <p className="font-body text-xs text-red-600">{form.formState.errors.phone.message}</p>
           )}
         </div>
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" {...form.register('email')} aria-invalid={!!form.formState.errors.email} />
+          <Input id="email" type="email" size="form" {...form.register('email')} aria-invalid={!!form.formState.errors.email} />
           {form.formState.errors.email && (
             <p className="font-body text-xs text-red-600">{form.formState.errors.email.message}</p>
           )}
@@ -111,7 +111,7 @@ export function QuoteForm() {
                   if (value) field.onChange(value)
                 }}
               >
-                <SelectTrigger id="moveType" className="w-full" aria-invalid={!!form.formState.errors.moveType}>
+                <SelectTrigger id="moveType" size="form" className="w-full" aria-invalid={!!form.formState.errors.moveType}>
                   <SelectValue placeholder="Select move type..." />
                 </SelectTrigger>
                 <SelectContent>
@@ -130,21 +130,21 @@ export function QuoteForm() {
         </div>
         <div className="space-y-2">
           <Label htmlFor="moveDate">Move Date</Label>
-          <Input id="moveDate" type="date" {...form.register('moveDate')} />
+          <Input id="moveDate" type="date" size="form" {...form.register('moveDate')} />
         </div>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="moveFrom">Moving From</Label>
-          <Input id="moveFrom" {...form.register('moveFrom')} aria-invalid={!!form.formState.errors.moveFrom} />
+          <Input id="moveFrom" size="form" {...form.register('moveFrom')} aria-invalid={!!form.formState.errors.moveFrom} />
           {form.formState.errors.moveFrom && (
             <p className="font-body text-xs text-red-600">{form.formState.errors.moveFrom.message}</p>
           )}
         </div>
         <div className="space-y-2">
           <Label htmlFor="moveTo">Moving To</Label>
-          <Input id="moveTo" {...form.register('moveTo')} aria-invalid={!!form.formState.errors.moveTo} />
+          <Input id="moveTo" size="form" {...form.register('moveTo')} aria-invalid={!!form.formState.errors.moveTo} />
           {form.formState.errors.moveTo && (
             <p className="font-body text-xs text-red-600">{form.formState.errors.moveTo.message}</p>
           )}
@@ -153,7 +153,7 @@ export function QuoteForm() {
 
       <div className="space-y-2">
         <Label htmlFor="notes">Additional Notes</Label>
-        <Textarea id="notes" rows={4} {...form.register('notes')} />
+        <Textarea id="notes" rows={4} size="form" {...form.register('notes')} />
       </div>
 
       <Button

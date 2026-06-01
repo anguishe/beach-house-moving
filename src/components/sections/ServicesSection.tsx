@@ -1,5 +1,6 @@
 import type React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import {
   ArrowRight,
   Home,
@@ -60,42 +61,47 @@ export function ServicesSection() {
               <MotionReveal
                 key={service.slug}
                 index={index}
-                className="cursor-pointer overflow-hidden rounded-[14px] border border-brand-navy/6 bg-white shadow-brand transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-brand-hover"
+                className="overflow-hidden rounded-[14px] border border-brand-navy/6 bg-white shadow-brand transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-brand-hover"
               >
-                <div className="relative w-full pb-[62%] overflow-hidden bg-brand-sand">
-                  {serviceImage && (
-                    <Image
-                      src={serviceImage.src}
-                      alt={serviceImage.alt}
-                      fill
-                      loading="lazy"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                      className="object-contain p-2"
-                    />
-                  )}
-                </div>
+                <Link
+                  href={`/services/${service.slug}`}
+                  className="block text-inherit no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2"
+                >
+                  <div className="relative w-full pb-[62%] overflow-hidden bg-brand-sand">
+                    {serviceImage && (
+                      <Image
+                        src={serviceImage.src}
+                        alt={serviceImage.alt}
+                        fill
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                        className="object-contain p-2"
+                      />
+                    )}
+                  </div>
 
-                <div className="p-6">
-                  <div className="mb-2.5 flex items-center gap-3">
-                    <div className="flex size-[38px] shrink-0 items-center justify-center rounded-[10px] bg-brand-teal/10">
-                      {ServiceIcon && (
-                        <ServiceIcon className="size-5 text-brand-teal" strokeWidth={1.6} aria-hidden />
-                      )}
+                  <div className="p-6">
+                    <div className="mb-2.5 flex items-center gap-3">
+                      <div className="flex size-[38px] shrink-0 items-center justify-center rounded-[10px] bg-brand-teal/10">
+                        {ServiceIcon && (
+                          <ServiceIcon className="size-5 text-brand-teal" strokeWidth={1.6} aria-hidden />
+                        )}
+                      </div>
+                      <h3 className="m-0 font-heading text-[1.2rem] font-semibold leading-snug text-brand-navy">
+                        {service.title}
+                      </h3>
                     </div>
-                    <h3 className="m-0 font-heading text-[1.2rem] font-semibold leading-snug text-brand-navy">
-                      {service.title}
-                    </h3>
-                  </div>
 
-                  <p className="mb-4 font-body text-sm leading-relaxed text-ink-muted">
-                    {service.shortDescription}
-                  </p>
+                    <p className="mb-4 font-body text-sm leading-relaxed text-ink-muted">
+                      {service.shortDescription}
+                    </p>
 
-                  <div className="flex items-center gap-1 font-body text-[13px] font-semibold text-brand-teal">
-                    Learn more
-                    <ArrowRight className="size-3.5" strokeWidth={2} aria-hidden />
+                    <div className="flex items-center gap-1 font-body text-[13px] font-semibold text-brand-teal">
+                      Learn more
+                      <ArrowRight className="size-3.5" strokeWidth={2} aria-hidden />
+                    </div>
                   </div>
-                </div>
+                </Link>
               </MotionReveal>
             )
           })}
@@ -115,7 +121,7 @@ export function ServicesSection() {
             <Phone className="size-5" strokeWidth={1.8} aria-hidden />
             {BUSINESS.phone.display}
           </TrackedPhoneLink>
-          <p className="mt-4 font-body text-xs text-white/30">
+          <p className="mt-4 font-body text-xs text-on-dark-muted">
             Licensed & Insured · Available 7 Days a Week
           </p>
         </div>

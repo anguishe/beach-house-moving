@@ -1,12 +1,15 @@
 # BRAND.md — Beach House Moving
 
-> The single source of truth for brand voice, messaging, positioning, and identity. All copy written by AI agents must adhere to these guidelines.
+> The single source of truth for brand voice, messaging, positioning, and identity. All copy written by AI agents must adhere to these guidelines. (No duplicate `BRAND (1).md` exists in this repo — this file is canonical.)
+
+**Canonical domain:** `https://beachhousemoving.xyz`  
+**Service-Area Business (SAB):** Public NAP = Name + Phone + Service Area only. The street address in `content.ts` is internal (schema locality / GBP consistency) and is **never displayed** on the site.
 
 ---
 
 ## Brand Essence
 
-**Who we are:** A locally owned, fully licensed and insured moving & storage company rooted in the Florida Panhandle. We treat every move like it's our own.
+**Who we are:** A locally owned, fully licensed and insured moving & storage company rooted in the Florida Panhandle. Established 2025. Three-truck fleet. We treat every move like it's our own.
 
 **What we do:** Full-service moving — packing, loading, transportation, unloading, unpacking — for homes and businesses across Walton, Okaloosa, and Bay Counties and beyond.
 
@@ -89,14 +92,16 @@
 
 ## Copy Rules
 
-1. **Lead with trust signals** — "licensed and insured" appears above the fold always
+1. **Lead with trust signals** — "Licensed & Insured" and **Florida Mover Reg. #IM4125** appear above the fold on every page
 2. **Use "you" and "your"** — customer-first language, not company-first
 3. **Be specific about geography** — mention county and city names; it builds local credibility
 4. **Avoid moving clichés** — do not write "we treat your belongings like our own" (overused). Find fresh ways to say it.
-5. **Numbers build trust** — if we have review counts, years in business, or moves completed, use them
-6. **CTA copy is action-oriented** — "Get Your Free Quote", "Call Us Now", "Book Your Move"
-7. **Keep paragraphs short** — max 3 sentences. Panhandle customers are reading on mobile.
-8. **No exclamation points** — calm, confident tone. Periods only.
+5. **Never fabricate numbers** — do not invent review counts, years in business, move counts, or awards. Use only verified facts (established 2025, 3-truck fleet, 24/7 availability).
+6. **Primary CTA is quote-first** — "Get a Free Quote" (coral button) is the primary above-the-fold action sitewide; phone is secondary
+7. **CTA copy is action-oriented** — "Get a Free Quote", "Call Us Now"
+8. **Keep paragraphs short** — max 3 sentences. Panhandle customers are reading on mobile.
+9. **No exclamation points** — calm, confident tone. Periods only.
+10. **Testimonials are gated** — never render testimonials while `FLAGS.SHOW_TESTIMONIALS` is `false`; wait for verified Google/Facebook reviews
 
 ---
 
@@ -124,12 +129,15 @@
 
 ## What to Always Include on the Site
 
-- ✅ "Licensed & Insured" — every page, above the fold
-- ✅ Phone number `(850) 842-1962` — sticky, clickable, visible
+- ✅ "Licensed & Insured" + **Florida Mover Reg. #IM4125** — every page, above the fold
+- ✅ Primary CTA **"Get a Free Quote"** — coral button, above the fold sitewide
+- ✅ Phone number `(850) 842-1962` — clickable, visible (secondary to quote CTA)
 - ✅ "Locally Owned & Operated" — trust signal
-- ✅ Service area counties (Walton, Okaloosa, Bay)
+- ✅ Service area counties (Walton, Okaloosa, Bay) + long-distance
 - ✅ Free estimate offer
-- ✅ "Always Available" (24/7 availability is a differentiator)
+- ✅ "Available 24/7" — open seven days a week
+- ❌ Street address — never displayed (SAB)
+- ❌ Unverified testimonials — hidden until `FLAGS.SHOW_TESTIMONIALS` is enabled
 
 ---
 

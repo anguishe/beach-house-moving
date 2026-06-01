@@ -2,6 +2,7 @@
 
 import { useRef, type ElementType } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { Phone, ChevronDown, ShieldCheck, Heart, DollarSign, Clock } from 'lucide-react'
 import { BUSINESS, HERO_CONTENT, IMAGES, LICENSE_DISPLAY, TRUST_BADGES } from '@/lib/content'
@@ -15,11 +16,11 @@ const trustBadgeIconMap: Record<string, ElementType> = {
   Clock,
 }
 
-const trustBadgeIconColors: Record<string, string> = {
-  ShieldCheck: '#2A9D8F',
-  Heart: '#E85D3D',
-  DollarSign: '#E9C46A',
-  Clock: '#2A9D8F',
+const trustBadgeIconClass: Record<string, string> = {
+  ShieldCheck: 'text-brand-teal',
+  Heart: 'text-brand-coral',
+  DollarSign: 'text-brand-gold',
+  Clock: 'text-brand-teal',
 }
 
 const floatingTrustBadges = TRUST_BADGES.slice(0, 3)
@@ -34,33 +35,9 @@ export default function HeroSection() {
   const fadeUp = (delay: number) => fadeUpVariants(prefersReducedMotion, { delay })
 
   return (
-    <section
-      ref={heroRef}
-      className="relative overflow-hidden flex items-center"
-      style={{
-        minHeight: '100vh',
-        width: '100%',
-        position: 'relative',
-      }}
-    >
-
-      {/* ── BACKGROUND IMAGE ── */}
-      <motion.div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          y: bgY,
-        }}
-      >
-        <div
-          className={prefersReducedMotion ? '' : 'ken-burns'}
-          style={{
-            position: 'absolute',
-            inset: 0,
-            width: '100%',
-            height: '100%',
-          }}
-        >
+    <section ref={heroRef} className="relative flex min-h-screen w-full items-center overflow-hidden">
+      <motion.div className="absolute inset-0" style={{ y: bgY }}>
+        <div className={`absolute inset-0 size-full ${prefersReducedMotion ? '' : 'ken-burns'}`}>
           <Image
             src="/images/hero-van.jpg"
             alt={IMAGES.hero.alt}
@@ -68,246 +45,94 @@ export default function HeroSection() {
             priority
             fetchPriority="high"
             sizes="100vw"
-            className="object-cover object-[75%_center]"
+            className="object-cover object-center"
           />
         </div>
       </motion.div>
 
-      {/* ── GRADIENT OVERLAY — Layer 1: left-side darkening panel ── */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to right, rgba(27,43,75,0.92) 0%, rgba(27,43,75,0.75) 45%, rgba(27,43,75,0.15) 75%, rgba(27,43,75,0.0) 100%)',
-          pointerEvents: 'none',
-          zIndex: 1,
-        }}
-      />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-brand-navy/92 via-brand-navy/75 via-45% to-transparent" />
+      <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-brand-navy/55 from-0% via-transparent via-30% to-brand-navy/65 to-100%" />
 
-      {/* ── GRADIENT OVERLAY — Layer 2: top-to-bottom dark band ── */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to bottom, rgba(27,43,75,0.55) 0%, rgba(27,43,75,0.0) 30%, rgba(27,43,75,0.0) 60%, rgba(27,43,75,0.65) 100%)',
-          pointerEvents: 'none',
-          zIndex: 1,
-        }}
-      />
-
-      {/* ── SCROLL PROGRESS LINE ── */}
       <motion.div
-        className="absolute left-0 top-0 bottom-0 w-[3px] origin-top z-20"
-        style={{ scaleY: scrollYProgress, backgroundColor: '#2A9D8F' }}
+        className="absolute bottom-0 left-0 top-0 z-20 w-1 origin-top bg-brand-teal"
+        style={{ scaleY: scrollYProgress }}
       />
 
-      {/* ── MAIN CONTENT ── */}
-      <div
-        style={{
-          position: 'relative',
-          zIndex: 2,
-          width: '100%',
-          padding: '112px 24px 96px 24px',
-        }}
-      >
-        <div
-          style={{
-            maxWidth: '600px',
-            width: '100%',
-          }}
-        >
-
-          {/* License trust badge — above the fold */}
+      <div className="relative z-20 w-full px-6 pb-24 pt-28">
+        <div className="w-full max-w-xl">
           <motion.p
             {...fadeUp(0.05)}
-            className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/12 px-3.5 py-1.5 font-body text-xs font-semibold text-white/95 backdrop-blur-sm"
+            className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/12 px-3.5 py-1.5 font-body text-xs font-semibold text-on-dark backdrop-blur-sm"
           >
             <ShieldCheck className="size-3.5 shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
             {LICENSE_DISPLAY.heroTrustBadge}
           </motion.p>
 
-          {/* Eyebrow */}
           <motion.p
             {...fadeUp(0.1)}
-            className="mb-4 font-body text-sm font-semibold uppercase tracking-[0.22em] text-brand-teal"
+            className="mb-4 font-body text-sm font-semibold uppercase tracking-[0.22em] text-brand-gold"
           >
             {HERO_CONTENT.eyebrow}
           </motion.p>
 
-          {/* Location ticker */}
-          <motion.div
-            {...fadeUp(0.2)}
-            style={{
-              overflow: 'hidden',
-              width: '100%',
-              maxWidth: '520px',
-              marginBottom: '16px',
-              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-              maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-            }}
-          >
+          <motion.div {...fadeUp(0.2)} className="ticker-mask mb-4 max-w-lg">
             <div className="ticker-locations">
-              <span
-                className="font-body text-xs uppercase tracking-[0.15em]"
-                style={{ whiteSpace: 'nowrap', color: '#E9C46A' }}
-              >
+              <span className="whitespace-nowrap font-body text-xs uppercase tracking-widest text-brand-gold">
                 {HERO_CONTENT.locationTicker.join('\u00a0·\u00a0')}{'\u00a0·\u00a0\u00a0'}
               </span>
             </div>
           </motion.div>
 
-          {/* H1 */}
-          <motion.h1
-            {...fadeUp(0.3)}
-            style={{
-              textShadow: '0 2px 12px rgba(0,0,0,0.5), 0 4px 32px rgba(27,43,75,0.6)',
-              lineHeight: '1.05',
-              marginBottom: '24px',
-            }}
-          >
-            <span
-              style={{
-                display: 'block',
-                fontFamily: '"Playfair Display", Georgia, serif',
-                color: '#FFFFFF',
-                fontWeight: 700,
-                fontSize: 'clamp(2.75rem, 6vw, 5rem)',
-              }}
-            >
-              Your Move,
-            </span>
-            <span
-              style={{
-                display: 'block',
-                fontFamily: '"Playfair Display", Georgia, serif',
-                color: '#E9C46A',
-                fontWeight: 700,
-                fontStyle: 'italic',
-                fontSize: 'clamp(2.75rem, 6vw, 5rem)',
-              }}
-            >
-              Our Mission.
-            </span>
+          <motion.h1 {...fadeUp(0.3)} className="mb-6 font-heading text-5xl font-bold leading-tight md:text-7xl">
+            <span className="block text-on-dark">Your Move,</span>
+            <span className="block text-brand-gold italic">Our Mission.</span>
           </motion.h1>
 
-          {/* Subheadline */}
           <motion.p
             {...fadeUp(0.45)}
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              color: 'rgba(255,255,255,0.82)',
-              fontSize: 'clamp(15px, 1.8vw, 18px)',
-              lineHeight: '1.7',
-              maxWidth: '480px',
-              marginBottom: '32px',
-              textShadow: '0 1px 8px rgba(0,0,0,0.3)',
-            }}
+            className="mb-8 max-w-xl font-body text-lg leading-relaxed text-on-dark/90"
           >
             {BUSINESS.subheadline}
           </motion.p>
 
-          {/* CTA BUTTONS */}
-          <motion.div
-            {...fadeUp(0.6)}
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              flexWrap: 'wrap',
-              gap: '12px',
-              marginBottom: '28px',
-            }}
-          >
+          <motion.div {...fadeUp(0.6)} className="mb-7 flex flex-row flex-wrap gap-3">
+            <Link
+              href="/get-a-quote"
+              className="inline-flex shrink-0 items-center justify-center whitespace-nowrap rounded-brand bg-brand-coral px-8 py-4 font-body text-base font-semibold tracking-wide text-white shadow-brand transition-colors duration-200 hover:bg-brand-coral-dark hover:shadow-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+            >
+              Get a Free Quote
+            </Link>
+
             <a
               href={BUSINESS.phone.href}
               onClick={() => trackPhoneClick('hero')}
-              className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
-              style={{
-                backgroundColor: '#E85D3D',
-                color: '#FFFFFF',
-                textDecoration: 'none',
-                fontFamily: 'Inter, system-ui, sans-serif',
-                fontWeight: 600,
-                fontSize: '17px',
-                padding: '15px 28px',
-                borderRadius: '10px',
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '9px',
-                boxShadow: '0 8px 32px rgba(232,93,61,0.4)',
-                whiteSpace: 'nowrap',
-                flexShrink: 0,
-              }}
+              className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-brand border-2 border-brand-teal px-8 py-4 font-body text-base font-semibold text-white backdrop-blur-sm transition-colors duration-200 hover:bg-brand-teal/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
             >
-              <Phone className="h-5 w-5 flex-shrink-0 text-white" strokeWidth={1.5} />
-              <span>{BUSINESS.phone.display}</span>
-            </a>
-
-            <a
-              href="#quote"
-              className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2"
-              style={{
-                border: '2px solid rgba(255,255,255,0.65)',
-                color: '#FFFFFF',
-                backgroundColor: 'rgba(255,255,255,0.08)',
-                backdropFilter: 'blur(8px)',
-                textDecoration: 'none',
-                fontFamily: 'Inter, system-ui, sans-serif',
-                fontWeight: 600,
-                fontSize: '17px',
-                padding: '15px 28px',
-                borderRadius: '10px',
-                display: 'inline-flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                whiteSpace: 'nowrap',
-                flexShrink: 0,
-              }}
-            >
-              Get a Free Quote
+              <Phone className="size-5 shrink-0 text-brand-teal" strokeWidth={1.5} aria-hidden />
+              {BUSINESS.phone.display}
             </a>
           </motion.div>
 
-          {/* TRUST PILLS */}
-          <motion.div
-            {...fadeUp(0.75)}
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: '8px',
-            }}
-          >
+          <motion.div {...fadeUp(0.75)} className="flex flex-wrap gap-2">
             {TRUST_BADGES.map((badge) => (
               <span
                 key={badge.label}
-                style={{
-                  fontFamily: 'Inter, system-ui, sans-serif',
-                  fontSize: '12px',
-                  fontWeight: 500,
-                  color: 'rgba(255,255,255,0.9)',
-                  backgroundColor: 'rgba(255,255,255,0.12)',
-                  backdropFilter: 'blur(8px)',
-                  border: '1px solid rgba(255,255,255,0.22)',
-                  padding: '6px 14px',
-                  borderRadius: '999px',
-                  whiteSpace: 'nowrap',
-                }}
+                className="whitespace-nowrap rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 font-body text-xs font-medium text-on-dark backdrop-blur-sm"
               >
                 ✓ {badge.label}
               </span>
             ))}
           </motion.div>
-
         </div>
       </div>
 
-      {/* ── GLASSMORPHISM BADGE — bottom right, md+ ── */}
       <motion.div
         initial={prefersReducedMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={prefersReducedMotion ? { duration: 0 } : { delay: 1.5, duration: 0.5, ease: 'easeOut' }}
         className="pointer-events-none absolute bottom-6 right-6 z-20 hidden items-center gap-3.5 rounded-brand border border-white/20 bg-white/10 p-4 backdrop-blur-md md:flex"
       >
-        <div className="w-14 h-14 rounded-[8px] overflow-hidden flex-shrink-0 relative">
+        <div className="relative size-14 shrink-0 overflow-hidden rounded-brand">
           <Image
             src="/images/hero-van.jpg"
             alt=""
@@ -319,12 +144,11 @@ export default function HeroSection() {
           />
         </div>
         <div>
-          <p className="font-body font-semibold text-white text-sm leading-tight">{BUSINESS.name}</p>
-          <p className="font-body text-white/55 text-xs mt-0.5">{HERO_CONTENT.socialProofTagline}</p>
+          <p className="font-body text-sm font-semibold leading-tight text-on-dark">{BUSINESS.name}</p>
+          <p className="mt-0.5 font-body text-xs text-on-dark-muted">{HERO_CONTENT.socialProofTagline}</p>
         </div>
       </motion.div>
 
-      {/* ── TRUST BADGES CARD — bottom left, md+ (pill strip covers mobile) ── */}
       <motion.div
         initial={prefersReducedMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
@@ -333,19 +157,14 @@ export default function HeroSection() {
       >
         {floatingTrustBadges.map((badge, i) => {
           const IconComponent = trustBadgeIconMap[badge.icon]
-          const iconColor = trustBadgeIconColors[badge.icon] ?? '#2A9D8F'
+          const iconClass = trustBadgeIconClass[badge.icon] ?? 'text-brand-teal'
           return (
             <div
               key={badge.label}
-              className={`flex items-center gap-3 font-body text-white text-sm font-medium ${i > 0 ? 'mt-3 pt-3 border-t border-white/10' : ''}`}
+              className={`flex items-center gap-3 font-body text-sm font-medium text-on-dark ${i > 0 ? 'mt-3 border-t border-white/10 pt-3' : ''}`}
             >
               {IconComponent && (
-                <IconComponent
-                  className="h-4 w-4 flex-shrink-0"
-                  style={{ color: iconColor }}
-                  strokeWidth={1.5}
-                  aria-hidden
-                />
+                <IconComponent className={`size-4 shrink-0 ${iconClass}`} strokeWidth={1.5} aria-hidden />
               )}
               {badge.label}
             </div>
@@ -353,31 +172,8 @@ export default function HeroSection() {
         })}
       </motion.div>
 
-      {/* ── SCROLL INDICATOR ── */}
-      <div
-        style={{
-          position: 'absolute',
-          bottom: '32px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '4px',
-          zIndex: 3,
-        }}
-      >
-        <p
-          style={{
-            fontFamily: 'Inter, system-ui, sans-serif',
-            color: 'rgba(255,255,255,0.4)',
-            fontSize: '10px',
-            letterSpacing: '0.25em',
-            textTransform: 'uppercase',
-          }}
-        >
-          Scroll
-        </p>
+      <div className="absolute bottom-8 left-1/2 z-30 flex -translate-x-1/2 flex-col items-center gap-1">
+        <p className="font-body text-xs uppercase tracking-widest text-on-dark-muted">Scroll</p>
         <motion.div
           animate={prefersReducedMotion ? { y: 0 } : { y: [0, 8, 0] }}
           transition={
@@ -386,10 +182,9 @@ export default function HeroSection() {
               : { repeat: Infinity, duration: 1.6, ease: 'easeInOut' }
           }
         >
-          <ChevronDown className="w-4 h-4 text-white/35" strokeWidth={1.5} />
+          <ChevronDown className="size-4 text-on-dark-muted" strokeWidth={1.5} aria-hidden />
         </motion.div>
       </div>
-
     </section>
   )
 }

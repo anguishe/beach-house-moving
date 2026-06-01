@@ -17,7 +17,7 @@ export function Footer() {
   const year = new Date().getFullYear()
 
   return (
-    <footer id="contact-footer" className="bg-brand-navy pt-16 pb-10">
+    <footer id="contact-footer" className="bg-brand-navy pt-16 pb-10 text-on-dark">
       <div className="mx-auto max-w-7xl px-8">
         <div className="footer-grid mb-12 grid gap-12 md:grid-cols-3">
           <div className="flex flex-col gap-4">
@@ -29,7 +29,7 @@ export function Footer() {
               loading="lazy"
               className="block h-10 w-auto"
             />
-            <p className="max-w-[220px] font-body text-[13px] leading-relaxed text-white/45">
+            <p className="max-w-[220px] font-body text-[13px] leading-relaxed text-on-dark-muted">
               {BUSINESS.name} — {BUSINESS.tagline}
             </p>
             <p className="font-body text-xs font-medium text-brand-teal/90">
@@ -39,7 +39,7 @@ export function Footer() {
               href={SOCIAL_LINKS.facebook}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-white/40 transition-colors hover:text-white/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+              className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
             >
               <FacebookIcon className="size-[15px]" />
               Facebook
@@ -55,7 +55,7 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-body text-sm text-white/45 transition-colors hover:text-white/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm w-fit"
+                  className="font-body text-sm text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm w-fit"
                 >
                   {link.label}
                 </Link>
@@ -78,7 +78,7 @@ export function Footer() {
               </TrackedPhoneLink>
               <a
                 href={`mailto:${BUSINESS.email}`}
-                className="inline-flex w-fit items-center gap-2.5 font-body text-[13px] text-white/45 transition-colors hover:text-white/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+                className="inline-flex w-fit items-center gap-2.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
               >
                 <Mail className="size-[15px] shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
                 {BUSINESS.email}
@@ -89,15 +89,15 @@ export function Footer() {
                   strokeWidth={1.8}
                   aria-hidden
                 />
-                <span className="font-body text-[13px] leading-relaxed text-white/45">
+                <span className="font-body text-[13px] leading-relaxed text-on-dark-muted">
                   {BUSINESS.serviceAreaLabel}
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Clock className="size-[15px] shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
-                <span className="font-body text-[13px] text-white/45">{BUSINESS.hours}</span>
+                <span className="font-body text-[13px] text-on-dark-muted">{BUSINESS.hours}</span>
               </div>
-              <p className="font-body text-xs text-white/35">{LICENSE_DISPLAY.footerRegistration}</p>
+              <p className="font-body text-xs text-on-dark-muted">{LICENSE_DISPLAY.footerRegistration}</p>
             </div>
           </div>
         </div>
@@ -105,10 +105,10 @@ export function Footer() {
         <div className="mb-7 h-px bg-white/8" />
 
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <p className="m-0 font-body text-xs text-white/25">
+          <p className="m-0 font-body text-xs text-on-dark-muted">
             © {year} {BUSINESS.name}. All rights reserved.
           </p>
-          <p className="m-0 font-body text-xs text-white/25">{BUSINESS.licenseStatement}</p>
+          <p className="m-0 font-body text-xs text-on-dark-muted">{BUSINESS.licenseStatement}</p>
         </div>
       </div>
     </footer>

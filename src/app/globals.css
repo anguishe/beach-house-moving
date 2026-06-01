@@ -17,6 +17,8 @@
   --color-ink: #1b2b4b;
   --color-ink-muted: #4a5568;
   --color-ink-light: #718096;
+  --color-on-dark: #ffffff;
+  --color-on-dark-muted: #cbd5e0;
 
   /* shadcn semantic token bridge — maps to brand palette */
   --color-primary: #e85d3d;
@@ -72,20 +74,13 @@ body {
   overflow-x: hidden;
 }
 
-/* Remove browser-default blue underlines globally */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Prevent browser-default blue underlines on tel/mail links */
-a[href^='tel:'],
-a[href^='mailto:'] {
-  color: inherit;
-  text-decoration: none;
-}
-
 @layer base {
+  a,
+  a[href^='tel:'],
+  a[href^='mailto:'] {
+    text-decoration: none;
+  }
+
   h1,
   h2,
   h3,
@@ -137,6 +132,12 @@ a[href^='mailto:'] {
 .ticker-locations {
   display: inline-block;
   animation: tickerScroll 20s linear infinite;
+}
+
+.ticker-mask {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
 /* Offset all anchor scroll targets by navbar height */

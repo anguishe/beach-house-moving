@@ -20,101 +20,38 @@ export function TestimonialsSection() {
   const testimonials = TESTIMONIALS_PLACEHOLDER as readonly TestimonialItem[]
 
   return (
-    <section id="about" style={{ backgroundColor: '#F5F0E8', padding: '96px 0' }}>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 32px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <p
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              color: '#2A9D8F',
-              fontWeight: 600,
-              fontSize: '12px',
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              marginBottom: '12px',
-            }}
-          >
+    <section id="about" className="bg-brand-sand py-24">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mb-12 text-center">
+          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal">
             What Our Customers Say
           </p>
-          <h2
-            style={{
-              fontFamily: '"Playfair Display", Georgia, serif',
-              color: '#1B2B4B',
-              fontWeight: 700,
-              fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-              marginBottom: '16px',
-              lineHeight: 1.15,
-            }}
-          >
+          <h2 className="mb-4 font-heading text-3xl font-bold leading-tight text-brand-navy md:text-4xl">
             The Panhandle Trusts Beach House Moving
           </h2>
-          <div
-            style={{
-              width: '40px',
-              height: '2px',
-              backgroundColor: '#2A9D8F',
-              margin: '0 auto 20px',
-            }}
-          />
-          <p
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              color: '#4A5568',
-              fontSize: '16px',
-              lineHeight: 1.7,
-            }}
-          >
+          <div className="mx-auto mb-5 h-0.5 w-10 bg-brand-teal" />
+          <p className="font-body text-base leading-relaxed text-ink-muted">
             Real reviews from real neighbors.
           </p>
         </div>
 
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '10px',
-            marginBottom: '56px',
-          }}
-        >
-          <div style={{ display: 'flex', gap: '3px' }}>
+        <div className="mb-14 flex items-center justify-center gap-2.5">
+          <div className="flex gap-0.5">
             {[1, 2, 3, 4, 5].map((i) => (
               <Star
                 key={i}
-                style={{ width: '20px', height: '20px', color: '#E9C46A', fill: '#E9C46A' }}
+                className="size-5 fill-brand-gold text-brand-gold"
                 strokeWidth={0}
+                aria-hidden
               />
             ))}
           </div>
-          <span
-            style={{
-              fontFamily: '"Playfair Display", Georgia, serif',
-              color: '#1B2B4B',
-              fontWeight: 700,
-              fontSize: '1.25rem',
-            }}
-          >
-            5.0
-          </span>
-          <span
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              color: '#718096',
-              fontSize: '14px',
-            }}
-          >
-            on Google
-          </span>
+          <span className="font-heading text-xl font-bold text-brand-navy">5.0</span>
+          <span className="font-body text-sm text-ink-light">on Google</span>
         </div>
 
         {/* TODO: Replace TESTIMONIALS_PLACEHOLDER with verified Google/Facebook reviews before launch */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: '24px',
-          }}
-        >
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
           {testimonials.map((t, index) => (
             <motion.div
               key={`${t.name}-${index}`}
@@ -122,107 +59,34 @@ export function TestimonialsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '14px',
-                padding: '28px',
-                boxShadow: '0 4px 24px rgba(27,43,75,0.07)',
-                border: '1px solid rgba(27,43,75,0.06)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '16px',
-              }}
+              className="flex flex-col gap-4 rounded-brand border border-brand-navy/6 bg-white p-6 shadow-brand md:p-7"
             >
-              <div style={{ display: 'flex', gap: '3px' }}>
+              <div className="flex gap-0.5">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star
                     key={i}
-                    style={{ width: '16px', height: '16px', color: '#E9C46A', fill: '#E9C46A' }}
+                    className="size-4 fill-brand-gold text-brand-gold"
                     strokeWidth={0}
+                    aria-hidden
                   />
                 ))}
               </div>
 
-              <p
-                style={{
-                  fontFamily: 'Inter, system-ui, sans-serif',
-                  color: '#4A5568',
-                  fontSize: '15px',
-                  lineHeight: 1.75,
-                  fontStyle: 'italic',
-                  flex: 1,
-                  margin: 0,
-                }}
-              >
+              <p className="m-0 flex-1 font-body text-base italic leading-relaxed text-ink-muted">
                 &ldquo;{t.text}&rdquo;
               </p>
 
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  paddingTop: '16px',
-                  borderTop: '1px solid rgba(27,43,75,0.07)',
-                }}
-              >
-                <div
-                  style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '50%',
-                    backgroundColor: '#2A9D8F',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      color: '#FFFFFF',
-                      fontWeight: 700,
-                      fontSize: '15px',
-                    }}
-                  >
+              <div className="flex items-center gap-3 border-t border-brand-navy/8 pt-4">
+                <div className="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-teal">
+                  <span className="font-body text-base font-bold text-white">
                     {t.name.charAt(0)}
                   </span>
                 </div>
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <p
-                    style={{
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      color: '#1B2B4B',
-                      fontWeight: 600,
-                      fontSize: '14px',
-                      margin: 0,
-                    }}
-                  >
-                    {t.name}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      color: '#718096',
-                      fontSize: '12px',
-                      margin: 0,
-                    }}
-                  >
-                    {t.location}
-                  </p>
+                <div className="min-w-0 flex-1">
+                  <p className="m-0 font-body text-sm font-semibold text-brand-navy">{t.name}</p>
+                  <p className="m-0 font-body text-xs text-ink-light">{t.location}</p>
                 </div>
-                <span
-                  style={{
-                    fontFamily: 'Inter, system-ui, sans-serif',
-                    color: '#718096',
-                    fontSize: '11px',
-                    border: '1px solid rgba(27,43,75,0.12)',
-                    borderRadius: '4px',
-                    padding: '2px 8px',
-                    flexShrink: 0,
-                  }}
-                >
+                <span className="shrink-0 rounded-sm border border-brand-navy/12 px-2 py-0.5 font-body text-xs text-ink-light">
                   {t.source}
                 </span>
               </div>
@@ -230,36 +94,16 @@ export function TestimonialsSection() {
           ))}
         </div>
 
-        <div style={{ textAlign: 'center', marginTop: '56px' }}>
-          <p
-            style={{
-              fontFamily: 'Inter, system-ui, sans-serif',
-              color: '#4A5568',
-              fontSize: '16px',
-              marginBottom: '20px',
-            }}
-          >
+        <div className="mt-14 text-center">
+          <p className="mb-5 font-body text-base text-ink-muted">
             Join your neighbors across the Florida Panhandle.
           </p>
           <a
             href={BUSINESS.phone.href}
             onClick={() => trackPhoneClick('testimonials-section')}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              backgroundColor: '#E85D3D',
-              color: '#FFFFFF',
-              fontFamily: 'Inter, system-ui, sans-serif',
-              fontWeight: 600,
-              fontSize: '16px',
-              padding: '15px 32px',
-              borderRadius: '12px',
-              textDecoration: 'none',
-              boxShadow: '0 4px 20px rgba(232,93,61,0.3)',
-            }}
+            className="inline-flex items-center gap-2 rounded-brand bg-brand-coral px-8 py-4 font-body text-base font-semibold text-white no-underline shadow-brand transition-colors duration-200 hover:bg-brand-coral-dark hover:shadow-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
           >
-            <Phone style={{ width: '17px', height: '17px' }} strokeWidth={1.8} />
+            <Phone className="size-4" strokeWidth={1.8} aria-hidden />
             Call for Your Free Quote
           </a>
         </div>

@@ -19,7 +19,7 @@
 - Follow `DESIGN_SYSTEM.md` without exception
 - Follow `BRAND.md` for all copy and visual decisions
 - All components must be responsive (mobile-first)
-- Check `DESIGN_SYSTEM.md` before using any color, font, or spacing value
+- Brand tokens live in `src/app/globals.css` via Tailwind v4 `@theme` — check `DESIGN_SYSTEM.md` before using any color, font, or spacing value
 
 ### 💻 Dev Agent
 **When active:** Writing code, fixing bugs, implementing features
@@ -76,10 +76,12 @@
 
 ### Copy & Content Rules
 - All text content lives in `/src/lib/content.ts`
+- **SAB:** No street address anywhere in public UI. The address in `content.ts` exists for schema locality / GBP consistency only (`displayAddress: false`).
 - Phone number format in display: `(850) 842-1962`
 - Phone number in `href`: `tel:+18508421962`
 - Email: `beachhousemoving@gmail.com`
-- Address: `110 Via Largo, Santa Rosa Beach, FL 32459`
+- Canonical website: `https://beachhousemoving.xyz` — never reference `beachhousemoving.com` (not owned)
+- Never render testimonials while `FLAGS.SHOW_TESTIMONIALS` is `false`
 - Never fabricate testimonials, review counts, years in business, or move counts
 
 ### What Agents Must NEVER Do
@@ -115,7 +117,7 @@ Before marking any task complete, verify:
 - [ ] Code passes lint (`npm run lint`)
 - [ ] Component is responsive on mobile, tablet, desktop
 - [ ] All text content is sourced from `/src/lib/content.ts`
-- [ ] No hardcoded phone numbers, emails, or addresses in JSX
+- [ ] No hardcoded phone numbers, emails, or street addresses in JSX
 - [ ] All images use `next/image` with alt text
 - [ ] Loading and error states exist for async operations
 - [ ] Relevant `.md` files updated if architecture/design/integrations changed

@@ -1,4 +1,9 @@
+'use client'
+
 import Image from 'next/image'
+import { useReducedMotion } from 'framer-motion'
+
+import { cn } from '@/lib/utils'
 import { IMAGES } from '@/lib/content'
 
 const GALLERY_PHOTOS = [
@@ -16,30 +21,20 @@ const GALLERY_PHOTOS = [
 const galleryPhotos = [...GALLERY_PHOTOS, ...GALLERY_PHOTOS]
 
 export function GalleryStrip() {
+  const prefersReducedMotion = useReducedMotion()
+
   return (
     <section className="relative overflow-hidden bg-brand-navy py-12 md:py-16">
-      <p
-        className="mb-8 px-4 text-center font-body text-sm font-semibold uppercase tracking-widest text-brand-teal"
-        style={{
-          fontFamily: 'Inter, system-ui, sans-serif',
-          color: '#2A9D8F',
-          fontWeight: 600,
-          letterSpacing: '0.2em',
-          fontSize: '12px',
-          textTransform: 'uppercase',
-          textAlign: 'center',
-          marginBottom: '32px',
-        }}
-      >
+      <p className="mb-8 px-4 text-center font-body text-xs font-semibold uppercase tracking-widest text-brand-teal">
         Real Moves · Real People · Real Results
       </p>
 
       <div className="relative">
-        <div className="marquee-track flex" style={{ width: 'max-content' }}>
+        <div className={cn('flex w-max', !prefersReducedMotion && 'marquee-track')}>
           {galleryPhotos.map((photo, index) => (
             <div
               key={index}
-              className="group relative mx-3 h-52 w-72 flex-shrink-0 overflow-hidden rounded-brand md:h-64 md:w-96"
+              className="group relative mx-3 h-52 w-72 shrink-0 overflow-hidden rounded-brand md:h-64 md:w-96"
             >
               <Image
                 src={photo.src}

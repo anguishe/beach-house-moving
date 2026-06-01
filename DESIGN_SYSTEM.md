@@ -1,6 +1,6 @@
 # DESIGN_SYSTEM.md — Beach House Moving
 
-> Defines every design token, typographic rule, spacing system, and component pattern used across the site. Tailwind config must mirror this file. Agents must not deviate from these tokens.
+> Defines every design token, typographic rule, spacing system, and component pattern used across the site. **Tailwind CSS v4 `@theme` in `src/app/globals.css` is the single source of truth.** `tailwind.config.ts` is intentionally neutralized — do not add v3 `theme.extend` blocks. Agents must not deviate from these tokens.
 
 ---
 
@@ -32,13 +32,17 @@ Inspiration: think luxury Florida real estate meets modern service business. Not
 
 ### Text Colors
 
-| Token | Hex | Usage |
-|---|---|---|
-| `text-primary` | `#1B2B4B` | Body copy, headings on light backgrounds |
-| `text-secondary` | `#4A5568` | Subtext, descriptions, captions |
-| `text-muted` | `#718096` | Placeholders, fine print |
-| `text-on-dark` | `#FFFFFF` | Text on navy/dark backgrounds |
-| `text-on-dark-muted` | `#CBD5E0` | Secondary text on dark backgrounds |
+| Token | Hex | Tailwind class | Usage |
+|---|---|---|---|
+| `ink` | `#1B2B4B` | `text-ink` | Body copy, headings on light backgrounds |
+| `ink-muted` | `#4A5568` | `text-ink-muted` | Subtext, descriptions, captions |
+| `ink-light` | `#718096` | `text-ink-light` | Placeholders, fine print |
+| `on-dark` | `#FFFFFF` | `text-on-dark` | Primary text on navy/coral backgrounds |
+| `on-dark-muted` | `#CBD5E0` | `text-on-dark-muted` | Secondary/muted text on navy/coral backgrounds |
+
+> `on-dark` and `on-dark-muted` are real `@theme` tokens in `globals.css` (`text-on-dark`, `text-on-dark-muted`) and are the required choice for muted text on navy/coral.
+
+> **WCAG rule:** Muted text on dark backgrounds (`bg-brand-navy`, `bg-brand-coral`) must use `text-on-dark-muted` — not opacity hacks like `text-white/75`. The `on-dark-muted` token is calibrated for ≥ AA contrast on navy/coral.
 
 ### Semantic Colors
 
@@ -55,9 +59,15 @@ Inspiration: think luxury Florida real estate meets modern service business. Not
 
 ### Font Stack
 
-- **Headings:** `Playfair Display` (Google Fonts) — elegant, coastal, trustworthy
-- **Body:** `Inter` (Google Fonts) — clean, readable, professional
-- **Mono (code/labels):** `JetBrains Mono` (only if needed for technical content)
+Fonts are loaded via `next/font/google` in `layout.tsx` and mapped in `@theme`:
+
+| Role | CSS variable (layout) | `@theme` token | Tailwind class |
+|---|---|---|---|
+| Headings | `--font-playfair` | `--font-heading` | `font-heading` |
+| Body | `--font-inter` | `--font-body` | `font-body` |
+
+- **Headings:** Playfair Display — elegant, coastal, trustworthy
+- **Body:** Inter — clean, readable, professional
 
 ### Font Sizes (Tailwind Scale)
 
@@ -106,39 +116,43 @@ Use Tailwind's default 4px base scale. Key spacings:
 
 ---
 
-## Tailwind Config Extension
+## Tailwind v4 `@theme` (globals.css)
 
-Add to `tailwind.config.ts`:
+All design tokens live in `src/app/globals.css` inside the `@theme` block. To add or change a token, edit `@theme` and update this file to match.
 
-```typescript
-theme: {
-  extend: {
-    colors: {
-      brand: {
-        navy:       '#1B2B4B',
-        coral:      '#E85D3D',
-        'coral-dark': '#C94828',
-        sand:       '#F5F0E8',
-        teal:       '#2A9D8F',
-        gold:       '#E9C46A',
-      },
-    },
-    fontFamily: {
-      heading: ['Playfair Display', 'Georgia', 'serif'],
-      body:    ['Inter', 'system-ui', 'sans-serif'],
-    },
-    borderRadius: {
-      'brand': '12px',    // Standard card radius
-      'brand-lg': '20px', // Hero elements
-    },
-    boxShadow: {
-      'brand':    '0 4px 24px rgba(27, 43, 75, 0.08)',
-      'brand-lg': '0 8px 40px rgba(27, 43, 75, 0.12)',
-      'brand-hover': '0 12px 48px rgba(27, 43, 75, 0.18)',
-    },
-  },
-},
+```css
+@theme {
+  /* Brand colors */
+  --color-brand-navy: #1b2b4b;
+  --color-brand-coral: #e85d3d;
+  --color-brand-coral-dark: #c94828;
+  --color-brand-sand: #f5f0e8;
+  --color-brand-teal: #2a9d8f;
+  --color-brand-gold: #e9c46a;
+
+  /* Ink / text */
+  --color-ink: #1b2b4b;
+  --color-ink-muted: #4a5568;
+  --color-ink-light: #718096;
+  --color-on-dark: #ffffff;
+  --color-on-dark-muted: #cbd5e0;
+
+  /* Typography */
+  --font-heading: var(--font-playfair), "Playfair Display", Georgia, serif;
+  --font-body: var(--font-inter), Inter, system-ui, sans-serif;
+
+  /* Border radius */
+  --radius-brand: 12px;
+  --radius-brand-lg: 20px;
+
+  /* Shadows */
+  --shadow-brand: 0 4px 24px rgb(27 43 75 / 0.08);
+  --shadow-brand-lg: 0 8px 40px rgb(27 43 75 / 0.12);
+  --shadow-brand-hover: 0 12px 48px rgb(27 43 75 / 0.18);
+}
 ```
+
+**Do not** reintroduce v3 `theme.extend` in `tailwind.config.ts` — that file exports an empty config by design.
 
 ---
 
@@ -196,7 +210,7 @@ label: text-sm font-semibold
   <h2 className="font-heading text-3xl md:text-4xl text-brand-navy font-bold mb-4">
     [Section Headline]
   </h2>
-  <p className="text-secondary text-lg max-w-2xl mx-auto">
+  <p className="text-ink-muted text-lg max-w-2xl mx-auto">
     [Supporting description]
   </p>
 </div>

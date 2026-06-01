@@ -1,13 +1,11 @@
 'use client'
 
-import { useState, type CSSProperties, type FocusEvent } from 'react'
 import Image from 'next/image'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { AlertCircle, CheckCircle2, Loader2, Phone } from 'lucide-react'
-import { useForm } from 'react-hook-form'
-import { BUSINESS, QUOTE_FORM_MOVE_TYPES } from '@/lib/content'
-import { trackQuoteLead, trackPhoneClick } from '@/lib/gtag'
-import { quoteFormSchema, type QuoteFormData } from '@/lib/schema'
+import { CheckCircle2, Phone } from 'lucide-react'
+
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
+import { QuoteForm } from '@/components/forms/QuoteForm'
+import { BUSINESS } from '@/lib/content'
 
 const trustItems = [
   'No robots. No hold music. A real person answers.',
@@ -33,292 +31,66 @@ const quotePhotos = [
   },
 ] as const
 
-const labelStyle: CSSProperties = {
-  fontFamily: 'Inter, system-ui, sans-serif',
-  color: '#1B2B4B',
-  fontSize: '13px',
-  fontWeight: 600,
-  display: 'block',
-  marginBottom: '6px',
-}
-
-const inputStyle: CSSProperties = {
-  width: '100%',
-  fontFamily: 'Inter, system-ui, sans-serif',
-  fontSize: '14px',
-  color: '#1B2B4B',
-  backgroundColor: '#FAFAFA',
-  border: '1.5px solid rgba(27,43,75,0.12)',
-  borderRadius: '10px',
-  padding: '12px 14px',
-  outline: 'none',
-  boxSizing: 'border-box',
-  transition: 'border-color 0.2s, box-shadow 0.2s',
-}
-
-const errorTextStyle: CSSProperties = {
-  color: '#E53E3E',
-  fontSize: '12px',
-  marginTop: '4px',
-  fontFamily: 'Inter, system-ui, sans-serif',
-}
-
-function handleFieldFocus(
-  e: FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-) {
-  e.currentTarget.style.borderColor = '#2A9D8F'
-  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(42,157,143,0.12)'
-}
-
-function handleFieldBlur(
-  e: FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-) {
-  e.currentTarget.style.borderColor = 'rgba(27,43,75,0.12)'
-  e.currentTarget.style.boxShadow = 'none'
-}
-
 export function QuoteFormSection() {
-  const form = useForm<QuoteFormData>({
-    resolver: zodResolver(quoteFormSchema),
-    defaultValues: {
-      moveType: '',
-    },
-  })
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-
-  const fieldProps = (name: keyof QuoteFormData) => {
-    const { ref, onChange, onBlur, name: fieldName } = form.register(name)
-    return {
-      name: fieldName,
-      ref,
-      onChange,
-      onFocus: handleFieldFocus,
-      onBlur: (e: FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-        void onBlur(e)
-        handleFieldBlur(e)
-      },
-    }
-  }
-
-  const onSubmit = async (data: QuoteFormData) => {
-    setStatus('loading')
-
-    try {
-      const res = await fetch('/api/quote', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      })
-
-      if (res.ok) {
-        trackQuoteLead()
-        setStatus('success')
-      } else {
-        setStatus('error')
-      }
-    } catch {
-      setStatus('error')
-    }
-  }
-
   return (
     <>
-      <style>{`
-        @keyframes quote-form-spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @media (max-width: 1024px) {
-          .quote-grid { grid-template-columns: 1fr !important; }
-        }
-        @media (max-width: 640px) {
-          .quote-form-row { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
-      <div id="contact" style={{ position: 'relative', top: '-80px' }} aria-hidden="true" />
+      <div id="contact" className="sr-only" aria-hidden="true" />
       <section
         id="quote"
-        style={{
-          background: 'linear-gradient(to bottom, rgba(245,240,232,0.6), #FFFFFF)',
-          padding: '96px 0',
-        }}
+        className="bg-gradient-to-b from-brand-sand/60 to-white py-24"
       >
-        <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 32px' }}>
-          <div
-            className="quote-grid"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: '64px',
-              alignItems: 'start',
-            }}
-          >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <p
-                style={{
-                  fontFamily: 'Inter, system-ui, sans-serif',
-                  color: '#2A9D8F',
-                  fontWeight: 600,
-                  fontSize: '12px',
-                  letterSpacing: '0.22em',
-                  textTransform: 'uppercase',
-                  margin: 0,
-                }}
-              >
+        <div className="mx-auto max-w-7xl px-4 md:px-8">
+          <div className="grid items-start gap-16 lg:grid-cols-2">
+            <div className="flex flex-col gap-5">
+              <p className="m-0 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal">
                 Free Estimates · No Obligation
               </p>
 
               <div>
-                <span
-                  style={{
-                    display: 'block',
-                    fontFamily: '"Playfair Display", Georgia, serif',
-                    color: '#1B2B4B',
-                    fontWeight: 700,
-                    fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
-                    lineHeight: 1.1,
-                  }}
-                >
+                <span className="block font-heading text-3xl font-bold leading-tight text-brand-navy md:text-4xl">
                   The fastest way
                 </span>
-                <span
-                  style={{
-                    display: 'block',
-                    fontFamily: '"Playfair Display", Georgia, serif',
-                    color: '#E85D3D',
-                    fontWeight: 700,
-                    fontStyle: 'italic',
-                    fontSize: 'clamp(2rem, 3.5vw, 2.75rem)',
-                    lineHeight: 1.1,
-                  }}
-                >
+                <span className="block font-heading text-3xl font-bold italic leading-tight text-brand-coral md:text-4xl">
                   to get moving?
                 </span>
-                <span
-                  style={{
-                    display: 'block',
-                    fontFamily: '"Playfair Display", Georgia, serif',
-                    color: '#1B2B4B',
-                    fontWeight: 600,
-                    fontSize: 'clamp(1.5rem, 2.5vw, 2rem)',
-                    lineHeight: 1.3,
-                    marginTop: '8px',
-                  }}
-                >
+                <span className="mt-2 block font-heading text-xl font-semibold leading-snug text-brand-navy md:text-2xl">
                   Just call us.
                 </span>
               </div>
 
-              <a
-                href={BUSINESS.phone.href}
-                onClick={() => trackPhoneClick('quote-form-section')}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '20px',
-                  padding: '20px 24px',
-                  borderRadius: '14px',
-                  border: '1.5px solid rgba(42,157,143,0.25)',
-                  background: 'linear-gradient(to right, #F5F0E8, #FFFFFF)',
-                  textDecoration: 'none',
-                  transition: 'border-color 0.2s, box-shadow 0.2s',
-                  boxShadow: '0 2px 12px rgba(27,43,75,0.06)',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(42,157,143,0.6)'
-                  e.currentTarget.style.boxShadow = '0 8px 32px rgba(27,43,75,0.1)'
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(42,157,143,0.25)'
-                  e.currentTarget.style.boxShadow = '0 2px 12px rgba(27,43,75,0.06)'
-                }}
+              <TrackedPhoneLink
+                location="quote-form-section"
+                className="flex items-center gap-5 rounded-brand-lg border border-brand-teal/25 bg-brand-sand p-6 no-underline shadow-brand transition-shadow hover:border-brand-teal/60 hover:shadow-brand-lg"
               >
-                <div
-                  style={{
-                    width: '60px',
-                    height: '60px',
-                    borderRadius: '50%',
-                    backgroundColor: '#2A9D8F',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                    boxShadow: '0 4px 16px rgba(42,157,143,0.3)',
-                  }}
-                >
-                  <Phone style={{ width: '26px', height: '26px', color: '#FFFFFF' }} strokeWidth={1.6} />
+                <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-brand-teal shadow-md">
+                  <Phone className="size-6 text-white" strokeWidth={1.6} aria-hidden />
                 </div>
                 <div>
-                  <p
-                    style={{
-                      fontFamily: '"Playfair Display", Georgia, serif',
-                      color: '#1B2B4B',
-                      fontWeight: 700,
-                      fontSize: 'clamp(1.75rem, 3vw, 2.25rem)',
-                      margin: 0,
-                      lineHeight: 1,
-                    }}
-                  >
+                  <p className="m-0 font-heading text-3xl font-bold leading-none text-brand-navy">
                     {BUSINESS.phone.display}
                   </p>
-                  <p
-                    style={{
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      color: '#718096',
-                      fontSize: '13px',
-                      margin: '6px 0 0',
-                    }}
-                  >
+                  <p className="mt-1.5 font-body text-sm text-ink-light">
                     Tap to call · Available 7 days a week
                   </p>
                 </div>
-              </a>
+              </TrackedPhoneLink>
 
               {trustItems.map((item) => (
-                <div key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
+                <div key={item} className="flex items-start gap-2.5">
                   <CheckCircle2
-                    style={{
-                      width: '17px',
-                      height: '17px',
-                      color: '#2A9D8F',
-                      marginTop: '2px',
-                      flexShrink: 0,
-                    }}
+                    className="mt-0.5 size-4 shrink-0 text-brand-teal"
                     strokeWidth={1.8}
+                    aria-hidden
                   />
-                  <p
-                    style={{
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      color: '#4A5568',
-                      fontSize: '15px',
-                      margin: 0,
-                      lineHeight: 1.6,
-                    }}
-                  >
-                    {item}
-                  </p>
+                  <p className="m-0 font-body text-base leading-relaxed text-ink-muted">{item}</p>
                 </div>
               ))}
 
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
-                  gap: '10px',
-                  marginTop: '8px',
-                }}
-              >
+              <div className="mt-2 grid grid-cols-2 gap-2.5">
                 {quotePhotos.map((photo) => (
                   <div
                     key={photo.src}
-                    style={{
-                      position: 'relative',
-                      gridColumn: photo.span ? '1 / -1' : 'auto',
-                      paddingBottom: photo.span ? '52%' : '100%',
-                      borderRadius: '10px',
-                      overflow: 'hidden',
-                      backgroundColor: '#F5F0E8',
-                    }}
+                    className={`relative overflow-hidden rounded-brand bg-brand-sand ${photo.span ? 'col-span-2 aspect-video' : 'aspect-square'}`}
                   >
                     <Image
                       src={photo.src}
@@ -332,324 +104,20 @@ export function QuoteFormSection() {
                 ))}
               </div>
 
-              <p
-                style={{
-                  fontFamily: 'Inter, system-ui, sans-serif',
-                  color: '#718096',
-                  fontSize: '12px',
-                  textAlign: 'center',
-                  marginTop: '4px',
-                }}
-              >
+              <p className="mt-1 text-center font-body text-xs text-ink-light">
                 {BUSINESS.licenseStatement}
               </p>
             </div>
 
-            <div
-              style={{
-                backgroundColor: '#FFFFFF',
-                borderRadius: '16px',
-                padding: '40px',
-                boxShadow: '0 8px 40px rgba(27,43,75,0.09)',
-                border: '1px solid rgba(27,43,75,0.06)',
-              }}
-            >
-              {status === 'success' ? (
-                <div
-                  style={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    gap: '16px',
-                    padding: '32px 0',
-                    textAlign: 'center',
-                  }}
-                >
-                  <CheckCircle2
-                    style={{ width: '64px', height: '64px', color: '#22C55E' }}
-                    strokeWidth={1.5}
-                  />
-                  <h3
-                    style={{
-                      fontFamily: '"Playfair Display", Georgia, serif',
-                      color: '#1B2B4B',
-                      fontWeight: 700,
-                      fontSize: '1.5rem',
-                      margin: 0,
-                    }}
-                  >
-                    Request Sent!
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      color: '#718096',
-                      fontSize: '15px',
-                      margin: 0,
-                    }}
-                  >
-                    We&apos;ll call you back shortly. Questions in the meantime?
-                  </p>
-                  <a
-                    href={BUSINESS.phone.href}
-                    onClick={() => trackPhoneClick('quote-form-section-success')}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '10px',
-                      backgroundColor: '#E85D3D',
-                      color: '#FFFFFF',
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      fontWeight: 600,
-                      fontSize: '15px',
-                      padding: '14px 28px',
-                      borderRadius: '12px',
-                      textDecoration: 'none',
-                      boxShadow: '0 4px 20px rgba(232,93,61,0.3)',
-                    }}
-                  >
-                    <Phone style={{ width: '16px', height: '16px' }} strokeWidth={1.6} />
-                    Call {BUSINESS.phone.display}
-                  </a>
-                </div>
-              ) : (
-                <>
-                  <h3
-                    style={{
-                      fontFamily: '"Playfair Display", Georgia, serif',
-                      color: '#1B2B4B',
-                      fontWeight: 700,
-                      fontSize: '1.4rem',
-                      marginBottom: '4px',
-                      marginTop: 0,
-                    }}
-                  >
-                    Prefer a form?
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: 'Inter, system-ui, sans-serif',
-                      color: '#718096',
-                      fontSize: '14px',
-                      marginBottom: '28px',
-                      marginTop: 0,
-                    }}
-                  >
-                    Fill this out and we&apos;ll call you back.
-                  </p>
+            <div className="rounded-brand-lg border border-brand-navy/6 bg-white p-8 shadow-brand-lg md:p-10">
+              <h3 className="mt-0 mb-1 font-heading text-xl font-bold text-brand-navy md:text-2xl">
+                Prefer a form?
+              </h3>
+              <p className="mt-0 mb-7 font-body text-sm text-ink-light">
+                Fill this out and we&apos;ll call you back.
+              </p>
 
-                  {status === 'error' && (
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'flex-start',
-                        gap: '12px',
-                        marginBottom: '20px',
-                        padding: '14px 16px',
-                        borderRadius: '10px',
-                        border: '1px solid #FECACA',
-                        backgroundColor: '#FEF2F2',
-                      }}
-                    >
-                      <AlertCircle
-                        style={{
-                          width: '16px',
-                          height: '16px',
-                          color: '#E53E3E',
-                          marginTop: '2px',
-                          flexShrink: 0,
-                        }}
-                        strokeWidth={1.6}
-                      />
-                      <p
-                        style={{
-                          fontFamily: 'Inter, system-ui, sans-serif',
-                          color: '#991B1B',
-                          fontSize: '14px',
-                          margin: 0,
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        Something went wrong. Please call us directly at{' '}
-                        <a
-                          href={BUSINESS.phone.href}
-                          onClick={() => trackPhoneClick('quote-form-section-error')}
-                          style={{ color: '#1B2B4B', fontWeight: 600, textDecoration: 'none' }}
-                        >
-                          {BUSINESS.phone.display}
-                        </a>
-                        .
-                      </p>
-                    </div>
-                  )}
-
-                  <form onSubmit={form.handleSubmit(onSubmit)}>
-                    <div style={{ marginBottom: '16px' }}>
-                      <label htmlFor="fullName" style={labelStyle}>
-                        Full Name
-                      </label>
-                      <input id="fullName" style={inputStyle} {...fieldProps('fullName')} />
-                      {form.formState.errors.fullName && (
-                        <p style={errorTextStyle}>{form.formState.errors.fullName.message}</p>
-                      )}
-                    </div>
-
-                    <div
-                      className="quote-form-row"
-                      style={{
-                        display: 'grid',
-                        gridTemplateColumns: '1fr 1fr',
-                        gap: '12px',
-                      }}
-                    >
-                      <div style={{ marginBottom: '16px' }}>
-                        <label htmlFor="phone" style={labelStyle}>
-                          Phone
-                        </label>
-                        <input id="phone" type="tel" style={inputStyle} {...fieldProps('phone')} />
-                        {form.formState.errors.phone && (
-                          <p style={errorTextStyle}>{form.formState.errors.phone.message}</p>
-                        )}
-                      </div>
-
-                      <div style={{ marginBottom: '16px' }}>
-                        <label htmlFor="email" style={labelStyle}>
-                          Email
-                        </label>
-                        <input id="email" type="email" style={inputStyle} {...fieldProps('email')} />
-                        {form.formState.errors.email && (
-                          <p style={errorTextStyle}>{form.formState.errors.email.message}</p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div
-                      className="quote-form-row"
-                      style={{
-                        display: 'grid',
-                        gridTemplateColumns: '1fr 1fr',
-                        gap: '12px',
-                      }}
-                    >
-                      <div style={{ marginBottom: '16px' }}>
-                        <label htmlFor="moveType" style={labelStyle}>
-                          Move Type
-                        </label>
-                        <select id="moveType" style={inputStyle} {...fieldProps('moveType')}>
-                          <option value="" disabled>
-                            Select move type...
-                          </option>
-                          {QUOTE_FORM_MOVE_TYPES.map((type) => (
-                            <option key={type} value={type}>
-                              {type}
-                            </option>
-                          ))}
-                        </select>
-                        {form.formState.errors.moveType && (
-                          <p style={errorTextStyle}>{form.formState.errors.moveType.message}</p>
-                        )}
-                      </div>
-
-                      <div style={{ marginBottom: '16px' }}>
-                        <label htmlFor="moveDate" style={labelStyle}>
-                          Move Date
-                        </label>
-                        <input id="moveDate" type="date" style={inputStyle} {...fieldProps('moveDate')} />
-                      </div>
-                    </div>
-
-                    <div
-                      className="quote-form-row"
-                      style={{
-                        display: 'grid',
-                        gridTemplateColumns: '1fr 1fr',
-                        gap: '12px',
-                      }}
-                    >
-                      <div style={{ marginBottom: '16px' }}>
-                        <label htmlFor="moveFrom" style={labelStyle}>
-                          Moving From
-                        </label>
-                        <input id="moveFrom" style={inputStyle} {...fieldProps('moveFrom')} />
-                        {form.formState.errors.moveFrom && (
-                          <p style={errorTextStyle}>{form.formState.errors.moveFrom.message}</p>
-                        )}
-                      </div>
-
-                      <div style={{ marginBottom: '16px' }}>
-                        <label htmlFor="moveTo" style={labelStyle}>
-                          Moving To
-                        </label>
-                        <input id="moveTo" style={inputStyle} {...fieldProps('moveTo')} />
-                        {form.formState.errors.moveTo && (
-                          <p style={errorTextStyle}>{form.formState.errors.moveTo.message}</p>
-                        )}
-                      </div>
-                    </div>
-
-                    <div style={{ marginBottom: '16px' }}>
-                      <label htmlFor="notes" style={labelStyle}>
-                        Additional Notes
-                      </label>
-                      <textarea
-                        id="notes"
-                        rows={3}
-                        style={{ ...inputStyle, resize: 'none' }}
-                        {...fieldProps('notes')}
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      disabled={status === 'loading'}
-                      style={{
-                        width: '100%',
-                        backgroundColor: status === 'loading' ? '#E85D3D' : '#E85D3D',
-                        color: '#FFFFFF',
-                        fontFamily: 'Inter, system-ui, sans-serif',
-                        fontWeight: 600,
-                        fontSize: '15px',
-                        padding: '15px',
-                        borderRadius: '12px',
-                        border: 'none',
-                        cursor: status === 'loading' ? 'wait' : 'pointer',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '8px',
-                        marginTop: '8px',
-                        boxShadow: '0 4px 20px rgba(232,93,61,0.3)',
-                        transition: 'background-color 0.2s, box-shadow 0.2s',
-                        opacity: status === 'loading' ? 0.85 : 1,
-                      }}
-                      onMouseEnter={(e) => {
-                        if (status !== 'loading') {
-                          e.currentTarget.style.backgroundColor = '#C94828'
-                        }
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = '#E85D3D'
-                      }}
-                    >
-                      {status === 'loading' ? (
-                        <>
-                          <Loader2
-                            style={{
-                              width: '16px',
-                              height: '16px',
-                              animation: 'quote-form-spin 1s linear infinite',
-                            }}
-                            strokeWidth={1.6}
-                          />
-                          Sending...
-                        </>
-                      ) : (
-                        'Request My Free Quote →'
-                      )}
-                    </button>
-                  </form>
-                </>
-              )}
+              <QuoteForm />
             </div>
           </div>
         </div>
