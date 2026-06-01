@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { Phone, ChevronDown, ShieldCheck, Heart, DollarSign, Clock } from 'lucide-react'
 import { BUSINESS, HERO_CONTENT, IMAGES, LICENSE_DISPLAY, TRUST_BADGES } from '@/lib/content'
+import { trackPhoneClick } from '@/lib/gtag'
 import { fadeUpVariants } from '@/lib/motion'
 
 const trustBadgeIconMap: Record<string, ElementType> = {
@@ -218,6 +219,7 @@ export default function HeroSection() {
           >
             <a
               href={BUSINESS.phone.href}
+              onClick={() => trackPhoneClick('hero')}
               className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
               style={{
                 backgroundColor: '#E85D3D',

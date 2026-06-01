@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { AlertCircle, CheckCircle2, Loader2, Phone } from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { BUSINESS, QUOTE_FORM_MOVE_TYPES } from '@/lib/content'
-import { trackGenerateLead } from '@/lib/gtag'
+import { trackQuoteLead, trackPhoneClick } from '@/lib/gtag'
 import { quoteFormSchema, type QuoteFormData } from '@/lib/schema'
 
 const trustItems = [
@@ -111,7 +111,7 @@ export function QuoteFormSection() {
       })
 
       if (res.ok) {
-        trackGenerateLead()
+        trackQuoteLead()
         setStatus('success')
       } else {
         setStatus('error')
@@ -211,6 +211,7 @@ export function QuoteFormSection() {
 
               <a
                 href={BUSINESS.phone.href}
+                onClick={() => trackPhoneClick('quote-form-section')}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -391,6 +392,7 @@ export function QuoteFormSection() {
                   </p>
                   <a
                     href={BUSINESS.phone.href}
+                    onClick={() => trackPhoneClick('quote-form-section-success')}
                     style={{
                       display: 'inline-flex',
                       alignItems: 'center',
@@ -471,6 +473,7 @@ export function QuoteFormSection() {
                         Something went wrong. Please call us directly at{' '}
                         <a
                           href={BUSINESS.phone.href}
+                          onClick={() => trackPhoneClick('quote-form-section-error')}
                           style={{ color: '#1B2B4B', fontWeight: 600, textDecoration: 'none' }}
                         >
                           {BUSINESS.phone.display}

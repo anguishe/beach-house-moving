@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Phone } from 'lucide-react'
 
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { BUSINESS } from '@/lib/content'
 
 type ServiceCTAProps = {
@@ -27,13 +28,13 @@ export function ServiceCTA({ serviceTitle }: ServiceCTAProps) {
           >
             Get a Free Quote
           </Link>
-          <a
-            href={BUSINESS.phone.href}
+          <TrackedPhoneLink
+            location="service-cta"
             className="inline-flex h-11 items-center justify-center gap-2 rounded-brand border border-white/30 px-8 font-body text-base font-semibold text-white hover:bg-white/10"
           >
             <Phone className="size-4" aria-hidden />
             Call {BUSINESS.phone.display}
-          </a>
+          </TrackedPhoneLink>
         </div>
       </div>
     </section>

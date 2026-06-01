@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
 
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { BUSINESS, IMAGES, LICENSE_DISPLAY, NAV_LINKS, SOCIAL_LINKS } from '@/lib/content'
 
 function FacebookIcon({ className }: { className?: string }) {
@@ -68,13 +69,13 @@ export function Footer() {
             </p>
             <div className="flex flex-col gap-3.5">
               <p className="font-body text-sm font-semibold text-white">{BUSINESS.name}</p>
-              <a
-                href={BUSINESS.phone.href}
+              <TrackedPhoneLink
+                location="footer"
                 className="inline-flex w-fit items-center gap-2.5 font-body text-[15px] font-semibold text-white transition-colors hover:text-brand-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
               >
                 <Phone className="size-[15px] shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
                 {BUSINESS.phone.display}
-              </a>
+              </TrackedPhoneLink>
               <a
                 href={`mailto:${BUSINESS.email}`}
                 className="inline-flex w-fit items-center gap-2.5 font-body text-[13px] text-white/45 transition-colors hover:text-white/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"

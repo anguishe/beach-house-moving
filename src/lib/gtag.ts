@@ -4,20 +4,36 @@ declare global {
   }
 }
 
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+export const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? ''
 
-/** Fire a GA4 event (no-op when gtag or measurement ID is unavailable). */
-export function trackEvent(eventName: string, params?: Record<string, string | number>) {
-  if (typeof window === 'undefined' || !window.gtag || !GA_MEASUREMENT_ID) return
-  window.gtag('event', eventName, params)
+export function pageview(url: string) {
+  if (!GA_ID || typeof window === 'undefined' || !window.gtag) return
+  window.gtag('config', GA_ID, { page_path: url })
 }
 
-/** Conversion event for successful quote form submission. */
-export function trackGenerateLead() {
-  trackEvent('generate_lead', { event_category: 'engagement' })
+export function event({
+  action,
+  category,
+  label,
+  value,
+}: {
+  action: string
+  category: string
+  label?: string
+  value?: number
+}) {
+  if (!GA_ID || typeof window === 'undefined' || !window.gtag) return
+  window.gtag('event', action, {
+    event_category: category,
+    ...(label !== undefined && { event_label: label }),
+    ...(value !== undefined && { value }),
+  })
 }
 
-/** Engagement event for tel: link clicks (Navbar, hero, footer, CTAs, mobile call bar). */
-export function trackContact() {
-  trackEvent('contact', { event_category: 'engagement', method: 'phone' })
+export function trackQuoteLead() {
+  event({ action: 'generate_lead', category: 'conversion' })
+}
+
+export function trackPhoneClick(location: string) {
+  event({ action: 'contact', category: 'engagement', label: location })
 }

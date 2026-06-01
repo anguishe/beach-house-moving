@@ -1,5 +1,6 @@
 import { Phone } from 'lucide-react'
 
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { BUSINESS } from '@/lib/content'
 
 export function CTABanner() {
@@ -18,8 +19,8 @@ export function CTABanner() {
           Call us today for a free, no-obligation estimate. Available 7 days a week.
         </p>
 
-        <a
-          href={BUSINESS.phone.href}
+        <TrackedPhoneLink
+          location="cta-banner"
           className="inline-flex items-center gap-4 rounded-[14px] bg-white px-11 py-[22px] text-brand-coral shadow-brand-lg transition-[transform,box-shadow] duration-200 ease-out hover:scale-[1.02] hover:shadow-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-navy focus-visible:ring-offset-2"
         >
           <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-brand-coral">
@@ -28,7 +29,7 @@ export function CTABanner() {
           <span className="font-heading text-[clamp(1.75rem,3.5vw,2.5rem)] font-bold leading-none">
             {BUSINESS.phone.display}
           </span>
-        </a>
+        </TrackedPhoneLink>
 
         <div className="mt-6 flex items-center justify-center gap-3">
           <span className="font-body text-[13px] text-white/40">or</span>

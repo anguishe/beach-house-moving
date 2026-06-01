@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { CheckCircle2, Phone } from 'lucide-react'
 
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { PageShell } from '@/components/layout/PageShell'
 import { BUSINESS, PAGE_META, THANK_YOU_CONTENT } from '@/lib/content'
 import { buildNoIndexMetadata } from '@/lib/seo'
@@ -38,13 +39,13 @@ export default function ThankYouPage() {
             ))}
           </ol>
 
-          <a
-            href={BUSINESS.phone.href}
+          <TrackedPhoneLink
+            location="thank-you-page"
             className="mt-10 inline-flex items-center gap-2 rounded-brand bg-brand-coral px-8 py-3.5 font-body text-base font-semibold text-white shadow-brand hover:bg-brand-coral-dark"
           >
             <Phone className="size-4" aria-hidden />
             {THANK_YOU_CONTENT.ctaLabel} — {BUSINESS.phone.display}
-          </a>
+          </TrackedPhoneLink>
 
           <p className="mt-6 font-body text-sm text-ink-light">
             <Link href="/" className="font-semibold text-brand-teal hover:underline">

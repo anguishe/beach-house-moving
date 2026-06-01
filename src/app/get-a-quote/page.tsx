@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Phone } from 'lucide-react'
 
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageHero } from '@/components/layout/PageHero'
 import { PageShell } from '@/components/layout/PageShell'
@@ -47,8 +48,8 @@ export default async function GetAQuotePage() {
 
           <div className="mt-8 grid gap-12 lg:grid-cols-2">
             <div className="space-y-6">
-              <a
-                href={BUSINESS.phone.href}
+              <TrackedPhoneLink
+                location="get-a-quote-page"
                 className="flex items-center gap-4 rounded-brand-lg border border-brand-teal/25 bg-brand-sand p-6 transition-shadow hover:shadow-brand"
               >
                 <div className="flex size-14 items-center justify-center rounded-full bg-brand-teal shadow-md">
@@ -63,7 +64,7 @@ export default async function GetAQuotePage() {
                   </p>
                   <p className="font-body text-sm text-ink-light">Tap to call · Available 7 days a week</p>
                 </div>
-              </a>
+              </TrackedPhoneLink>
 
               <ul className="space-y-3 font-body text-sm text-ink-muted">
                 <li>No robots. No hold music. A real person answers.</li>

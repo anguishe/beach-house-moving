@@ -12,6 +12,7 @@ import {
   Warehouse,
 } from 'lucide-react'
 
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageHero } from '@/components/layout/PageHero'
 import { PageShell } from '@/components/layout/PageShell'
@@ -154,13 +155,13 @@ export default async function CountyPage({ params }: PageProps) {
             >
               Get a Free Quote
             </Link>
-            <a
-              href={BUSINESS.phone.href}
+            <TrackedPhoneLink
+              location="service-area-county-page"
               className="inline-flex h-11 items-center justify-center gap-2 rounded-brand border border-white/30 px-8 font-body text-base font-semibold text-white hover:bg-white/10"
             >
               <Phone className="size-4" aria-hidden />
               Call {BUSINESS.phone.display}
-            </a>
+            </TrackedPhoneLink>
           </div>
         </div>
       </section>

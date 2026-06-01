@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight, Phone } from 'lucide-react'
 
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageHero } from '@/components/layout/PageHero'
 import { PageShell } from '@/components/layout/PageShell'
@@ -114,13 +115,13 @@ export default async function ServiceAreasPage() {
             <p className="mx-auto mt-3 max-w-md font-body text-base text-ink-muted">
               Give us a call — if we can get there, we will.
             </p>
-            <a
-              href={BUSINESS.phone.href}
+            <TrackedPhoneLink
+              location="service-areas-page"
               className="mt-6 inline-flex items-center gap-2 rounded-brand bg-brand-navy px-8 py-3.5 font-body text-base font-semibold text-white shadow-brand transition-colors hover:bg-brand-navy/90"
             >
               <Phone className="size-4" aria-hidden />
               Call {BUSINESS.phone.display}
-            </a>
+            </TrackedPhoneLink>
           </div>
         </div>
       </section>

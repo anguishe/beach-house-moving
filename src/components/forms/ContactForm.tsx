@@ -10,6 +10,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { BUSINESS } from '@/lib/content'
+import { trackPhoneClick } from '@/lib/gtag'
 import { contactFormSchema, type ContactFormData } from '@/lib/schema'
 
 export function ContactForm() {
@@ -47,7 +48,11 @@ export function ContactForm() {
         <h3 className="font-heading text-xl font-bold text-brand-navy">Message Sent</h3>
         <p className="font-body text-sm text-ink-muted">
           We&apos;ll get back to you shortly. Need a faster response? Call{' '}
-          <a href={BUSINESS.phone.href} className="font-semibold text-brand-navy">
+          <a
+            href={BUSINESS.phone.href}
+            onClick={() => trackPhoneClick('contact-form-success')}
+            className="font-semibold text-brand-navy"
+          >
             {BUSINESS.phone.display}
           </a>
           .
@@ -74,7 +79,11 @@ export function ContactForm() {
           <AlertCircle className="mt-0.5 size-4 shrink-0 text-red-600" aria-hidden />
           <p className="font-body text-sm text-red-800">
             Something went wrong. Please call us at{' '}
-            <a href={BUSINESS.phone.href} className="font-semibold text-brand-navy">
+            <a
+              href={BUSINESS.phone.href}
+              onClick={() => trackPhoneClick('contact-form-error')}
+              className="font-semibold text-brand-navy"
+            >
               {BUSINESS.phone.display}
             </a>
             .

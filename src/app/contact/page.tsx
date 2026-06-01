@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
 
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageHero } from '@/components/layout/PageHero'
 import { PageShell } from '@/components/layout/PageShell'
@@ -51,8 +52,8 @@ export default async function ContactPage() {
           <div className="mt-8 grid gap-12 lg:grid-cols-2">
             <div className="space-y-8">
               <div className="space-y-5">
-                <a
-                  href={BUSINESS.phone.href}
+                <TrackedPhoneLink
+                  location="contact-page"
                   className="flex items-center gap-4 rounded-brand-lg border border-brand-teal/25 bg-brand-sand p-5 transition-shadow hover:shadow-brand"
                 >
                   <div className="flex size-12 items-center justify-center rounded-full bg-brand-teal shadow-md">
@@ -67,7 +68,7 @@ export default async function ContactPage() {
                     </p>
                     <p className="font-body text-xs text-ink-light">Tap to call · Available 24/7</p>
                   </div>
-                </a>
+                </TrackedPhoneLink>
 
                 <div className="flex items-center gap-3 font-body text-base text-ink-muted">
                   <Mail className="size-5 shrink-0 text-brand-teal" strokeWidth={1.6} aria-hidden />

@@ -18,7 +18,7 @@ import {
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
 import { BUSINESS, QUOTE_FORM_MOVE_TYPES } from '@/lib/content'
-import { trackGenerateLead } from '@/lib/gtag'
+import { trackQuoteLead, trackPhoneClick } from '@/lib/gtag'
 import { quoteFormSchema, type QuoteFormData } from '@/lib/schema'
 
 export function QuoteForm() {
@@ -40,7 +40,7 @@ export function QuoteForm() {
       })
 
       if (res.ok) {
-        trackGenerateLead()
+        trackQuoteLead()
         router.push('/thank-you')
         return
       }
@@ -61,7 +61,11 @@ export function QuoteForm() {
           <AlertCircle className="mt-0.5 size-4 shrink-0 text-red-600" aria-hidden />
           <p className="font-body text-sm text-red-800">
             Something went wrong. Please call us directly at{' '}
-            <a href={BUSINESS.phone.href} className="font-semibold text-brand-navy">
+            <a
+              href={BUSINESS.phone.href}
+              onClick={() => trackPhoneClick('quote-form')}
+              className="font-semibold text-brand-navy"
+            >
               {BUSINESS.phone.display}
             </a>
             .

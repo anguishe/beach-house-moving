@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { Phone } from 'lucide-react'
 
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { MotionReveal } from '@/components/ui/MotionReveal'
 import { BUSINESS, SERVICE_AREAS } from '@/lib/content'
 
@@ -71,13 +72,13 @@ export function ServiceAreaSection() {
           <p className="mb-7 font-body text-base leading-relaxed text-ink-muted">
             Give us a call — if we can get there, we will.
           </p>
-          <a
-            href={BUSINESS.phone.href}
+          <TrackedPhoneLink
+            location="service-area-section"
             className="inline-flex items-center gap-2 rounded-brand-lg bg-brand-navy px-8 py-4 font-body text-base font-semibold text-white no-underline shadow-brand"
           >
             <Phone className="size-[17px]" strokeWidth={1.8} aria-hidden />
             Call {BUSINESS.phone.display}
-          </a>
+          </TrackedPhoneLink>
         </div>
       </div>
     </section>

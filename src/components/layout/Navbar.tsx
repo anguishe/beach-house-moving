@@ -8,6 +8,7 @@ import { Menu, Phone, X } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { BUSINESS, IMAGES, LICENSE_DISPLAY, NAV_LINKS } from '@/lib/content'
+import { trackPhoneClick } from '@/lib/gtag'
 import { isNavLinkActive } from '@/lib/nav'
 
 const navLinkClass = (active: boolean) =>
@@ -96,6 +97,7 @@ export function Navbar() {
           <div className="flex shrink-0 items-center gap-4">
             <a
               href={BUSINESS.phone.href}
+              onClick={() => trackPhoneClick('navbar')}
               className={cn(
                 'hidden items-center gap-1.5 font-body text-sm font-medium tracking-wide text-white/90 transition-colors hover:text-white md:inline-flex',
                 'rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy',
@@ -189,6 +191,7 @@ export function Navbar() {
 
         <a
           href={BUSINESS.phone.href}
+          onClick={() => trackPhoneClick('navbar-mobile')}
           className="mb-3 flex items-center justify-center gap-2.5 rounded-[10px] bg-brand-teal px-4 py-4 font-body text-base font-semibold text-white shadow-[0_4px_20px_rgba(42,157,143,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
         >
           <Phone className="size-[18px]" strokeWidth={1.8} aria-hidden />
@@ -210,6 +213,7 @@ export function Navbar() {
 
       <a
         href={BUSINESS.phone.href}
+        onClick={() => trackPhoneClick('mobile-call-bar')}
         className={cn(
           'fixed inset-x-0 bottom-0 z-50 flex items-center justify-center gap-2.5 bg-brand-teal px-4 py-4 font-body text-base font-semibold text-white lg:hidden',
           'pb-[calc(1rem+env(safe-area-inset-bottom))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-inset',

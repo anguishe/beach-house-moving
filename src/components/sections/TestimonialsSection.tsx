@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Phone, Star } from 'lucide-react'
 import { BUSINESS, FLAGS, TESTIMONIALS_PLACEHOLDER } from '@/lib/content'
+import { trackPhoneClick } from '@/lib/gtag'
 
 type TestimonialItem = {
   name: string
@@ -242,6 +243,7 @@ export function TestimonialsSection() {
           </p>
           <a
             href={BUSINESS.phone.href}
+            onClick={() => trackPhoneClick('testimonials-section')}
             style={{
               display: 'inline-flex',
               alignItems: 'center',

@@ -11,6 +11,7 @@ import {
   Warehouse,
 } from 'lucide-react'
 
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { MotionReveal } from '@/components/ui/MotionReveal'
 import { BUSINESS, IMAGES, SERVICES } from '@/lib/content'
 
@@ -107,13 +108,13 @@ export function ServicesSection() {
           <h3 className="mb-7 font-heading text-[clamp(1.75rem,3vw,2.25rem)] font-bold leading-snug text-white">
             Call us today for a free estimate.
           </h3>
-          <a
-            href={BUSINESS.phone.href}
+          <TrackedPhoneLink
+            location="services-section"
             className="inline-flex items-center gap-2.5 rounded-brand-lg bg-brand-coral px-10 py-[18px] font-body text-[19px] font-semibold text-white no-underline shadow-brand-lg"
           >
             <Phone className="size-5" strokeWidth={1.8} aria-hidden />
             {BUSINESS.phone.display}
-          </a>
+          </TrackedPhoneLink>
           <p className="mt-4 font-body text-xs text-white/30">
             Licensed & Insured · Available 7 Days a Week
           </p>
