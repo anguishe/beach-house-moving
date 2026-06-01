@@ -1,11 +1,27 @@
 'use client'
 
-import { useRef } from 'react'
+import { useRef, type ElementType } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
-import { Phone, ChevronDown, ShieldCheck, Heart, Star } from 'lucide-react'
-import { BUSINESS, LICENSE_DISPLAY, TRUST_BADGES } from '@/lib/content'
+import { Phone, ChevronDown, ShieldCheck, Heart, DollarSign, Clock } from 'lucide-react'
+import { BUSINESS, HERO_CONTENT, IMAGES, LICENSE_DISPLAY, TRUST_BADGES } from '@/lib/content'
 import { fadeUpVariants } from '@/lib/motion'
+
+const trustBadgeIconMap: Record<string, ElementType> = {
+  ShieldCheck,
+  Heart,
+  DollarSign,
+  Clock,
+}
+
+const trustBadgeIconColors: Record<string, string> = {
+  ShieldCheck: '#2A9D8F',
+  Heart: '#E85D3D',
+  DollarSign: '#E9C46A',
+  Clock: '#2A9D8F',
+}
+
+const floatingTrustBadges = TRUST_BADGES.slice(0, 3)
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLElement>(null)
@@ -46,7 +62,7 @@ export default function HeroSection() {
         >
           <Image
             src="/images/hero-van.jpg"
-            alt="Beach House Moving branded van at a beachfront home on the Florida Panhandle"
+            alt={IMAGES.hero.alt}
             fill
             priority
             fetchPriority="high"
@@ -114,7 +130,7 @@ export default function HeroSection() {
             {...fadeUp(0.1)}
             className="mb-4 font-body text-sm font-semibold uppercase tracking-[0.22em] text-brand-teal"
           >
-            Walton · Okaloosa · Bay Counties
+            {HERO_CONTENT.eyebrow}
           </motion.p>
 
           {/* Location ticker */}
@@ -134,7 +150,7 @@ export default function HeroSection() {
                 className="font-body text-xs uppercase tracking-[0.15em]"
                 style={{ whiteSpace: 'nowrap', color: '#E9C46A' }}
               >
-                Inlet Beach, FL &nbsp;·&nbsp; Miramar Beach, FL &nbsp;·&nbsp; Santa Rosa Beach, FL &nbsp;·&nbsp; PCB, FL &nbsp;·&nbsp; Niceville, FL &nbsp;·&nbsp; Destin, FL &nbsp;·&nbsp; Fort Walton Beach, FL &nbsp;·&nbsp;&nbsp;
+                {HERO_CONTENT.locationTicker.join('\u00a0·\u00a0')}{'\u00a0·\u00a0\u00a0'}
               </span>
             </div>
           </motion.div>
@@ -282,12 +298,12 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ── GLASSMORPHISM BADGE — bottom right, desktop only ── */}
+      {/* ── GLASSMORPHISM BADGE — bottom right, md+ ── */}
       <motion.div
         initial={prefersReducedMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: 40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={prefersReducedMotion ? { duration: 0 } : { delay: 1.5, duration: 0.5, ease: 'easeOut' }}
-        className="absolute bottom-28 right-12 z-20 hidden items-center gap-3.5 rounded-brand border border-white/20 bg-white/10 p-4 backdrop-blur-md lg:flex"
+        className="pointer-events-none absolute bottom-6 right-6 z-20 hidden items-center gap-3.5 rounded-brand border border-white/20 bg-white/10 p-4 backdrop-blur-md md:flex"
       >
         <div className="w-14 h-14 rounded-[8px] overflow-hidden flex-shrink-0 relative">
           <Image
@@ -301,35 +317,38 @@ export default function HeroSection() {
           />
         </div>
         <div>
-          <p className="font-body font-semibold text-white text-sm leading-tight">Beach House Moving</p>
-          <p className="font-body text-white/55 text-xs mt-0.5">Florida Panhandle&apos;s Premier Movers</p>
+          <p className="font-body font-semibold text-white text-sm leading-tight">{BUSINESS.name}</p>
+          <p className="font-body text-white/55 text-xs mt-0.5">{HERO_CONTENT.socialProofTagline}</p>
         </div>
       </motion.div>
 
-      {/* ── WHY US CARD — bottom left, desktop only ── */}
+      {/* ── TRUST BADGES CARD — bottom left, md+ (pill strip covers mobile) ── */}
       <motion.div
         initial={prefersReducedMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={prefersReducedMotion ? { duration: 0 } : { delay: 1.7, duration: 0.5, ease: 'easeOut' }}
-        className="absolute bottom-28 left-12 z-20 hidden rounded-brand border border-white/15 bg-white/8 p-4 backdrop-blur-md lg:block"
+        transition={prefersReducedMotion ? { duration: 0 } : { delay: 1.5, duration: 0.5, ease: 'easeOut' }}
+        className="pointer-events-none absolute bottom-6 left-6 z-20 hidden rounded-brand border border-white/15 bg-white/8 p-4 backdrop-blur-md md:block"
       >
-        {[
-          { icon: ShieldCheck, color: '#2A9D8F', label: 'Licensed & Insured' },
-          { icon: Heart, color: '#E85D3D', label: 'Locally Owned & Operated' },
-          { icon: Star, color: '#E9C46A', label: 'Free Estimates' },
-        ].map((item, i) => (
-          <div
-            key={item.label}
-            className={`flex items-center gap-3 font-body text-white text-sm font-medium ${i > 0 ? 'mt-3 pt-3 border-t border-white/10' : ''}`}
-          >
-            <item.icon
-              className="h-4 w-4 flex-shrink-0"
-              style={{ color: item.color }}
-              strokeWidth={1.5}
-            />
-            {item.label}
-          </div>
-        ))}
+        {floatingTrustBadges.map((badge, i) => {
+          const IconComponent = trustBadgeIconMap[badge.icon]
+          const iconColor = trustBadgeIconColors[badge.icon] ?? '#2A9D8F'
+          return (
+            <div
+              key={badge.label}
+              className={`flex items-center gap-3 font-body text-white text-sm font-medium ${i > 0 ? 'mt-3 pt-3 border-t border-white/10' : ''}`}
+            >
+              {IconComponent && (
+                <IconComponent
+                  className="h-4 w-4 flex-shrink-0"
+                  style={{ color: iconColor }}
+                  strokeWidth={1.5}
+                  aria-hidden
+                />
+              )}
+              {badge.label}
+            </div>
+          )
+        })}
       </motion.div>
 
       {/* ── SCROLL INDICATOR ── */}

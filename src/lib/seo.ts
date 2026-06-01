@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { BUSINESS } from '@/lib/content'
+import { BUSINESS, PAGE_META } from '@/lib/content'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export type BuildMetadataOptions = {
@@ -91,9 +91,4 @@ export async function buildNoIndexMetadata(
 }
 
 /** Homepage defaults — used by root layout generateMetadata. */
-export const HOME_METADATA = {
-  title: 'Beach House Moving | Movers in Santa Rosa Beach, FL',
-  description:
-    'Locally owned & fully licensed movers serving Walton, Okaloosa & Bay Counties. Packing, loading, transportation & storage. Get your free quote — (850) 842-1962.',
-  path: '/',
-} as const
+export const HOME_METADATA = PAGE_META.home

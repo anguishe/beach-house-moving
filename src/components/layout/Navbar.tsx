@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation'
 import { Menu, Phone, X } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
-import { BUSINESS, LICENSE_DISPLAY, NAV_LINKS } from '@/lib/content'
+import { BUSINESS, IMAGES, LICENSE_DISPLAY, NAV_LINKS } from '@/lib/content'
 import { isNavLinkActive } from '@/lib/nav'
 
 const navLinkClass = (active: boolean) =>
@@ -66,7 +66,7 @@ export function Navbar() {
           >
             <Image
               src="/images/logo-light.png"
-              alt="Beach House Moving"
+              alt={IMAGES.logo.alt}
               width={120}
               height={40}
               priority

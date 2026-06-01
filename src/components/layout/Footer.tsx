@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
 
-import { BUSINESS, LICENSE_DISPLAY, NAV_LINKS, SOCIAL_LINKS } from '@/lib/content'
+import { BUSINESS, IMAGES, LICENSE_DISPLAY, NAV_LINKS, SOCIAL_LINKS } from '@/lib/content'
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -22,7 +22,7 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <Image
               src="/images/logo-light.png"
-              alt="Beach House Moving"
+              alt={IMAGES.logo.alt}
               width={140}
               height={46}
               loading="lazy"

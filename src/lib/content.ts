@@ -59,6 +59,25 @@ export const SOCIAL_LINKS = {
   // google: '',   // Add Google Business Profile URL once verified
 } as const
 
+/** Resend fallbacks when env vars are unset (local dev). */
+export const EMAIL = {
+  quotesFrom: `quotes@${new URL(BUSINESS.website).hostname}`,
+} as const
+
+export const HERO_CONTENT = {
+  eyebrow: 'Walton · Okaloosa · Bay Counties',
+  locationTicker: [
+    'Inlet Beach, FL',
+    'Miramar Beach, FL',
+    'Santa Rosa Beach, FL',
+    'PCB, FL',
+    'Niceville, FL',
+    'Destin, FL',
+    'Fort Walton Beach, FL',
+  ] as const,
+  socialProofTagline: 'Florida Panhandle\u2019s Premier Movers',
+} as const
+
 export const SERVICE_AREAS = [
   {
     county: 'Walton County',
@@ -297,6 +316,11 @@ export const TESTIMONIALS_PLACEHOLDER = [] as const
 
 /** Static page metadata — used with buildMetadata(). */
 export const PAGE_META = {
+  home: {
+    title: `Beach House Moving | Movers in ${BUSINESS.address.city}, FL`,
+    description: `Locally owned & fully licensed movers serving Walton, Okaloosa & Bay Counties. Packing, loading, transportation & storage. Get your free quote — ${BUSINESS.phone.display}.`,
+    path: '/',
+  },
   services: {
     title: 'Moving Services | Beach House Moving — Santa Rosa Beach, FL',
     description:

@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
 import { contactFormSchema } from '@/lib/schema'
+import { BUSINESS, EMAIL } from '@/lib/content'
 
 export async function POST(req: NextRequest) {
   try {
@@ -14,11 +15,11 @@ export async function POST(req: NextRequest) {
     const data = contactFormSchema.parse(body)
 
     await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL ?? 'quotes@beachhousemoving.xyz',
-      to: process.env.RESEND_TO_EMAIL ?? 'beachhousemoving@gmail.com',
+      from: process.env.RESEND_FROM_EMAIL ?? EMAIL.quotesFrom,
+      to: process.env.RESEND_TO_EMAIL ?? BUSINESS.email,
       subject: `Contact Form — ${data.fullName}`,
       html: `
-        <h2>New Contact Message — Beach House Moving</h2>
+        <h2>New Contact Message — ${BUSINESS.name}</h2>
         <table cellpadding="8" style="border-collapse:collapse;width:100%;max-width:600px">
           <tr><td><strong>Name</strong></td><td>${data.fullName}</td></tr>
           <tr><td><strong>Phone</strong></td><td>${data.phone}</td></tr>
