@@ -40,10 +40,11 @@ export function Footer() {
                 href={SOCIAL_LINKS.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${BUSINESS.name} on Facebook (${SOCIAL_LINKS.facebookHandle})`}
                 className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
               >
                 <FacebookIcon className="size-[15px]" />
-                Facebook
+                {SOCIAL_LINKS.facebookHandle}
               </a>
               {SOCIAL_LINKS.google ? (
                 <a

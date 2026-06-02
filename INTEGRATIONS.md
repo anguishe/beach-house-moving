@@ -171,9 +171,10 @@ Production hosting, CI/CD, preview deployments, SSL.
 Link to the business's Facebook page for social proof in the footer.
 
 ### Details
-- **URL:** `https://www.facebook.com/profile.php?id=61578080548022`
+- **URL:** `https://www.facebook.com/beachhousemovingfl/`
+- **Handle:** `@beachhousemovingfl`
 - **No API key needed** — just a link
-- Defined in `/src/lib/content.ts` under `SOCIAL_LINKS.facebook`
+- Defined in `/src/lib/content.ts` under `SOCIAL_LINKS.facebook` and `SOCIAL_LINKS.facebookHandle`
 
 ---
 
