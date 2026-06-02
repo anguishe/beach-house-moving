@@ -7,7 +7,7 @@ import { SkipToContent } from '@/components/layout/SkipToContent'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { GA_ID } from '@/lib/gtag'
 import { buildMetadata, HOME_METADATA } from '@/lib/seo'
-import { movingCompanySchema } from '@/lib/structured-data'
+import { movingCompanySchema, webSiteSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 import './globals.css'
 
@@ -61,6 +61,7 @@ export default async function RootLayout({
           </>
         )}
         <JsonLd data={movingCompanySchema(origin.origin)} />
+        <JsonLd data={webSiteSchema(origin.origin)} />
         <SkipToContent />
         <Navbar />
         {children}

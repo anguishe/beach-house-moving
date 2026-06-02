@@ -1,9 +1,15 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Phone } from 'lucide-react'
 
 import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { PageShell } from '@/components/layout/PageShell'
 import { BUSINESS, NOT_FOUND_CONTENT } from '@/lib/content'
+
+export const metadata: Metadata = {
+  title: 'Page Not Found | Beach House Moving',
+  robots: { index: false, follow: true },
+}
 
 export default function NotFound() {
   return (

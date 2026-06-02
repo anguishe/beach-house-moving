@@ -56,7 +56,7 @@ export const LICENSE_DISPLAY = {
 
 export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/profile.php?id=61578080548022',
-  // google: '',   // Add Google Business Profile URL once verified
+  google: 'https://share.google/IDGDHjZnsKihpWaCu',
 } as const
 
 /** Resend fallbacks when env vars are unset (local dev). */
@@ -85,7 +85,9 @@ export const SERVICE_AREAS = [
     cities: ['Santa Rosa Beach', '30A', 'Miramar Beach', 'Freeport', 'DeFuniak Springs'],
     image: '/images/move-inlet-beach.jpg',
     description:
-      'Our home turf. We know every neighborhood, road, and beach access along 30A and greater Walton County — from Santa Rosa Beach and Miramar Beach to Freeport and DeFuniak Springs.',
+      'Walton County is home base. We run 30A end to end — Inlet Beach, Rosemary Beach, Alys Beach, Seacrest, Seagrove, WaterColor, WaterSound, Seaside, Grayton Beach, Blue Mountain Beach and Dune Allen — plus Santa Rosa Beach, Miramar Beach, Freeport and DeFuniak Springs. We know which gulf-front rentals only have boardwalk access, which gated communities hold you at the gate until your name\u2019s on the list, and which stilted driveways a box truck can\u2019t fit so we bring the Sprinter van instead. It\u2019s the kind of thing you only learn by doing it every week.',
+    whatWeMoveIntro:
+      'Beach rentals, gated communities, and full-home moves from 30A to DeFuniak Springs — we match the truck to the driveway.',
     metaTitle: 'Walton County Movers | Beach House Moving — 30A & Santa Rosa Beach',
     metaDescription:
       'Licensed local movers serving Walton County, 30A, Santa Rosa Beach, Miramar Beach, Freeport, and DeFuniak Springs. Free estimates — call (850) 842-1962.',
@@ -96,7 +98,9 @@ export const SERVICE_AREAS = [
     cities: ['Destin', 'Fort Walton Beach', 'Niceville', 'Crestview', 'Shalimar', 'Eglin AFB', 'Hurlburt Field'],
     image: '/images/move-niceville.jpg',
     description:
-      'We serve Destin, Fort Walton Beach, Niceville, Crestview, and the surrounding Okaloosa County area, including military families relocating near Eglin AFB and Hurlburt Field.',
+      'In Okaloosa we cover Destin, Fort Walton Beach, Niceville, Crestview, Shalimar and the bases. We move a lot of military families in and out near Eglin AFB and Hurlburt Field, so we work around PCS timelines and short-notice report dates. From a Destin Pointe condo to a Niceville ranch house with a long stair carry, we bring the dollies, ramps and blankets to do it right.',
+    whatWeMoveIntro:
+      'Condos, ranch houses, and PCS moves near Eglin and Hurlburt — we bring the right equipment for stair carries and tight timelines.',
     metaTitle: 'Okaloosa County Movers | Beach House Moving — Destin & Fort Walton Beach',
     metaDescription:
       'Professional movers in Okaloosa County — Destin, Fort Walton Beach, Niceville, Crestview, and Eglin AFB. Licensed & insured. Free quote: (850) 842-1962.',
@@ -107,7 +111,9 @@ export const SERVICE_AREAS = [
     cities: ['Panama City', 'Panama City Beach', 'Lynn Haven', 'Callaway', 'Springfield'],
     image: '/images/move-pcb.jpg',
     description:
-      'Moving to or from Panama City or Panama City Beach? Our crews handle your Bay County move with the same care and professionalism we bring to every job.',
+      'Bay County means Panama City and Panama City Beach, plus Lynn Haven, Callaway and Springfield. PCB is mostly elevated beach homes and condos — liftgate trucks, ramps and careful stair work are the norm, not the exception. Whether it\u2019s a full house or a single oversized item, we handle your Bay County move with the same crew and the same care we bring to every job on the coast.',
+    whatWeMoveIntro:
+      'Elevated beach homes, PCB condos, and inland houses — liftgates and stair carries are routine here.',
     metaTitle: 'Bay County Movers | Beach House Moving — Panama City & PCB',
     metaDescription:
       'Licensed movers serving Bay County — Panama City, Panama City Beach, Lynn Haven, Callaway, and Springfield. Get your free estimate: (850) 842-1962.',
@@ -118,9 +124,9 @@ export const SERVICES = [
   {
     slug: 'residential-moving',
     title: 'Residential Moving',
-    shortDescription: 'Full-service home moves handled with care, speed, and zero drama.',
+    shortDescription: 'Full home moves, done with care and no drama.',
     fullDescription:
-      'Whether you are moving across the street or across the county, we manage every detail of your residential move with care, speed, and zero drama. We handle furniture disassembly, loading, transportation, and reassembly at your new home.',
+      'Across the street or across the county, we handle the whole move — wrap and pad the furniture, protect your floors and door frames, load it tight, and set it back up at the new place. Licensed, insured, and used to coastal homes with stairs and tight access.',
     icon: 'Home',
     featured: true,
     metaTitle: 'Residential Moving | Beach House Moving — Santa Rosa Beach, FL',
@@ -130,9 +136,9 @@ export const SERVICES = [
   {
     slug: 'local-moving',
     title: 'Local Moving',
-    shortDescription: 'Expert local movers who know the Emerald Coast inside and out.',
+    shortDescription: 'Local crews who actually know these roads.',
     fullDescription:
-      'Serving the greater 30A and Emerald Coast area, our local crews know these roads and neighborhoods and how to get your belongings there safely and efficiently. Local moves are billed by the hour with no hidden fees.',
+      'We run the 30A corridor and the greater Emerald Coast every day, so we know the beach-access routes, the gated-community rules, and which driveways need the van instead of the truck. Billed by the hour, no hidden fees, fuel included in the quote.',
     icon: 'MapPin',
     featured: true,
     metaTitle: 'Local Movers 30A & Emerald Coast | Beach House Moving',
@@ -142,9 +148,9 @@ export const SERVICES = [
   {
     slug: 'long-distance-moving',
     title: 'Long-Distance Moving',
-    shortDescription: 'Moving beyond the Panhandle? Same professionalism, longer journey.',
+    shortDescription: 'Leaving the Panhandle? We\'ll get you there.',
     fullDescription:
-      'Moving beyond the Panhandle? We offer long-distance moving with the same professionalism and care you would expect for a local job. Our team coordinates every detail so your belongings arrive safely and on time, wherever you are headed.',
+      'Moving out of the area takes coordination — we plan the timeline, load it to travel safely, and keep you posted along the way. Same crew, same care you\'d get on a local job, just a longer drive.',
     icon: 'Truck',
     featured: true,
     metaTitle: 'Long-Distance Moving | Beach House Moving — Florida Panhandle',
@@ -154,9 +160,10 @@ export const SERVICES = [
   {
     slug: 'packing-unpacking',
     title: 'Packing & Unpacking',
-    shortDescription: 'We handle the boxes, the bubble wrap, and the breakables.',
+    shortDescription:
+      'Boxes, bubble wrap, breakables — packed right and unpacked just as carefully.',
     fullDescription:
-      'We handle the boxes, the bubble wrap, and the breakables. Our team packs your home carefully and efficiently and unpacks it just as thoughtfully on the other end. From delicate glassware to flat-screen TVs, we have the materials and expertise to protect everything.',
+      'We bring the boxes, paper, and bubble wrap, and we pack room by room so nothing rattles in the truck. Fragile stuff gets wrapped properly, not just tossed in a box. On the other end, we unpack and place it where you want it and haul the empty boxes away.',
     icon: 'Package',
     featured: true,
     metaTitle: 'Packing & Unpacking Services | Beach House Moving',
@@ -166,9 +173,9 @@ export const SERVICES = [
   {
     slug: 'storage',
     title: 'Storage Solutions',
-    shortDescription: 'Secure storage between moves or during renovations.',
+    shortDescription: 'A safe place to park your stuff between moves.',
     fullDescription:
-      'Need a safe place for your belongings between moves or during renovations? We offer secure storage to fit your timeline and budget — short-term or long-term — and keep your items safe until you are ready.',
+      'Between closings, mid-renovation, or waiting on a rental to turn over — we\'ve got secure storage on flexible terms. We document what goes in and get it back to you when you\'re ready.',
     icon: 'Warehouse',
     featured: false,
     metaTitle: 'Moving Storage Solutions | Beach House Moving',
@@ -178,9 +185,9 @@ export const SERVICES = [
   {
     slug: 'delivery',
     title: 'Delivery Services',
-    shortDescription: 'Furniture delivery, appliance placement, single-item transport.',
+    shortDescription: 'Furniture and appliance delivery, single items included.',
     fullDescription:
-      'Furniture delivery, appliance placement, single-item transport — we handle it all with the same professionalism as a full move. Ideal for vacation-rental owners, new homeowners, and anyone who needs careful, professional delivery.',
+      'New sofa, a fridge swap, a washer-dryer set, or one oversized piece up three flights — we deliver and place it, and we\'ll help with the hookup. Same care as a full move, scaled to one item.',
     icon: 'PackageCheck',
     featured: false,
     metaTitle: 'Furniture & Appliance Delivery | Beach House Moving',
@@ -233,31 +240,39 @@ export const QUOTE_FORM_MOVE_TYPES = [
 export const FAQS = [
   {
     q: 'What areas does Beach House Moving serve?',
-    a: 'We serve Walton, Okaloosa, and Bay Counties along Florida\u2019s Emerald Coast, including Santa Rosa Beach, 30A, Miramar Beach, Destin, Fort Walton Beach, Niceville, Freeport, DeFuniak Springs, Panama City, and Panama City Beach. We also handle long-distance moves beyond the Panhandle.',
+    a: `We cover Walton, Okaloosa, and Bay Counties — Santa Rosa Beach, 30A, Destin, Miramar Beach, Fort Walton Beach, Niceville, Crestview, Panama City, and Panama City Beach — and we do long-distance moves out of the area too. Not sure if you\u2019re in range? Call ${BUSINESS.phone.display} and ask.`,
   },
   {
     q: 'Is Beach House Moving licensed and insured?',
-    a: 'Yes. Beach House Moving is fully licensed and insured in the State of Florida, so your belongings are protected throughout your move.',
+    a: `Yes. We\u2019re fully licensed and insured in Florida under Mover Registration #${BUSINESS.registration.number}.`,
   },
   {
     q: 'How much does a move cost?',
-    a: 'Local moves are billed by the hour with no hidden fees. Every quote is free and based on your home size, distance, and the services you need. Call (850) 842-1962 or request a free quote online for an honest estimate.',
+    a: `Local moves are billed by the hour with no hidden fees and fuel included in the quote. Long-distance and large jobs are quoted up front. Estimates are always free — call ${BUSINESS.phone.display} and we\u2019ll walk through it.`,
   },
   {
     q: 'Do you offer packing and unpacking?',
-    a: 'Yes. We can pack your entire home or just the fragile items, supply the materials, and unpack on the other end so you can settle in faster.',
+    a: 'We do — full pack, partial pack (say, just the kitchen and the fragile stuff), or unpack-only on the other end. We bring the materials and haul the empty boxes away.',
   },
   {
     q: 'Can you store my belongings between moves?',
-    a: 'Yes. We offer secure short-term and long-term storage for moves that don\u2019t line up perfectly or during renovations.',
+    a: 'Yes. We offer secure storage on flexible terms for closings that don\u2019t line up, renovations, or rental turnovers. We document what goes in and get it back when you\u2019re ready.',
   },
   {
     q: 'How quickly can you schedule my move?',
-    a: 'We\u2019re available seven days a week and work around your schedule. Reach out at (850) 842-1962 and we\u2019ll find a time that fits, including short-notice moves when our crews are available.',
+    a: `We\u2019re available 24/7, so it depends on the week — but we move fast on scheduling. Call ${BUSINESS.phone.display} and we\u2019ll find a window that works, including short-notice jobs.`,
   },
   {
     q: 'Do you move large or specialty items like appliances and TVs?',
-    a: 'Yes. Our crews handle appliances, flat-screen TVs, and bulky furniture with the right equipment and protective materials, and we can disassemble and reassemble furniture as needed.',
+    a: 'All the time — refrigerators, washer-dryer sets, oversized furniture, and items that have to go up two or three flights. We bring the dollies, ramps, blankets, and the crew to do it safely.',
+  },
+  {
+    q: 'Do you handle beach-house and vacation-rental moves?',
+    a: 'That\u2019s most of what we do. Third-story gulf-front rentals, boardwalk-only access, gated communities, stilted driveways — those are normal jobs for us on 30A and the coast.',
+  },
+  {
+    q: 'Do you move military families near Eglin AFB or Hurlburt Field?',
+    a: 'Yes. We move a lot of military families around Okaloosa County and work around PCS timelines and short-notice report dates.',
   },
 ] as const
 
@@ -424,9 +439,13 @@ export const ABOUT_CONTENT = {
   eyebrow: 'Our Story',
   headline: 'Rooted on the Emerald Coast',
   intro:
-    'Beach House Moving is a locally owned, fully licensed moving company built for the Florida Panhandle. We live here, we work here, and we treat every move like it matters — because in a community this tight-knit, reputation is everything.',
-  whyLocal:
-    'When you hire a local crew, you get people who know 30A traffic patterns, beach-access rules, and the quirks of Panhandle neighborhoods. No national call center. No subcontracting. Just your neighbors showing up on time, in uniform, ready to work.',
+    'Locally owned movers on the Florida Panhandle — licensed, insured, and built for how moves actually work out here.',
+  storyParagraphs: [
+    'Beach House Moving started in 2025 with one truck and one rule: treat the house like it\u2019s ours and treat what\u2019s inside it like it matters.',
+    'Out here, a move is rarely just a truck and a ramp. It\u2019s a third-story rental on 30A with a boardwalk between the driveway and the front door. It\u2019s a gated community with a delivery window and a guard checking names. It\u2019s a washer and dryer that has to come out before the new set goes in, on a Sunday, because that\u2019s when the rental turns over.',
+    `We grew into a three-truck fleet because that\u2019s what the coast needs \u2014 a Sprinter van for the tight stilted driveways a box truck can\u2019t reach, and box trucks with liftgates for full houses. We\u2019re licensed and insured in Florida under Mover Registration #${BUSINESS.registration.number}, and a real person answers the phone, day or night.`,
+    'We live here. We move here. When we say we know these roads, we mean we\u2019ve backed a truck down most of them.',
+  ],
   values: [
     {
       title: 'Local Pride',

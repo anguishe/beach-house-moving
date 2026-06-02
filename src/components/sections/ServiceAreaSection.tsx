@@ -71,6 +71,13 @@ export function ServiceAreaSection() {
           ))}
         </div>
 
+        <p className="mx-auto mt-12 max-w-3xl text-center font-body text-[17px] leading-relaxed text-ink-muted">
+          Beach House Moving is based in Santa Rosa Beach and runs the whole Panhandle — 30A,
+          Destin, Miramar Beach, Fort Walton Beach, Niceville, Crestview, Panama City and Panama
+          City Beach. If you&apos;re nearby and don&apos;t see your town, call{' '}
+          {BUSINESS.phone.display} and ask. If we can get there, we will.
+        </p>
+
         <div className="mt-[72px] rounded-2xl bg-brand-sand px-12 py-14 text-center">
           <h3 className="mb-3 font-heading text-[clamp(1.5rem,3vw,2rem)] font-bold text-brand-navy">
             Not sure if we serve your area?

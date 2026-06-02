@@ -129,7 +129,7 @@ export function QuoteForm() {
           )}
         </div>
         <div className="space-y-2">
-          <Label htmlFor="moveDate">Move Date</Label>
+          <Label htmlFor="moveDate">Move Date (if known)</Label>
           <Input id="moveDate" type="date" size="form" {...form.register('moveDate')} />
         </div>
       </div>

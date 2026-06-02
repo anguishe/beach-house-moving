@@ -16,7 +16,7 @@ export function CTABanner() {
         </h2>
 
         <p className="mb-12 font-body text-[17px] leading-relaxed text-white/75">
-          Call us today for a free, no-obligation estimate. Available 7 days a week.
+          Call for a free estimate. A real person picks up, day or night.
         </p>
 
         <TrackedPhoneLink

@@ -35,15 +35,28 @@ export function Footer() {
             <p className="font-body text-xs font-medium text-brand-teal/90">
               {LICENSE_DISPLAY.heroTrustBadge}
             </p>
-            <a
-              href={SOCIAL_LINKS.facebook}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
-            >
-              <FacebookIcon className="size-[15px]" />
-              Facebook
-            </a>
+            <div className="flex flex-col gap-2">
+              <a
+                href={SOCIAL_LINKS.facebook}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+              >
+                <FacebookIcon className="size-[15px]" />
+                Facebook
+              </a>
+              {SOCIAL_LINKS.google ? (
+                <a
+                  href={SOCIAL_LINKS.google}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+                >
+                  <MapPin className="size-[15px] shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
+                  Google
+                </a>
+              ) : null}
+            </div>
           </div>
 
           <div>

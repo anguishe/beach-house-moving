@@ -57,7 +57,6 @@ export default async function CountyPage({ params }: PageProps) {
   if (!area) notFound()
 
   const origin = await getSiteOrigin()
-  const cityList = area.cities.join(', ')
 
   const breadcrumbs = breadcrumbSchema(
     [
@@ -89,15 +88,7 @@ export default async function CountyPage({ params }: PageProps) {
             ]}
           />
 
-          <div className="prose prose-neutral max-w-none">
-            <p className="font-body text-base leading-relaxed text-ink-muted md:text-lg">
-              Beach House Moving brings licensed, insured crews directly to your door across{' '}
-              {area.county}. Whether you are in {cityList}, our local teams know the roads,
-              neighborhoods, and logistics that make a Panhandle move smoother.
-            </p>
-          </div>
-
-          <div className="mt-12">
+          <div className="mt-8">
             <h2 className="font-heading text-2xl font-bold text-brand-navy">Cities We Serve</h2>
             <div className="mt-4 flex flex-wrap gap-2">
               {area.cities.map((city) => (
@@ -112,9 +103,10 @@ export default async function CountyPage({ params }: PageProps) {
           </div>
 
           <div className="mt-12">
-            <h2 className="font-heading text-2xl font-bold text-brand-navy">
-              Services Available in {area.county}
-            </h2>
+            <h2 className="font-heading text-2xl font-bold text-brand-navy">What we move</h2>
+            <p className="mt-3 max-w-2xl font-body text-base leading-relaxed text-ink-muted">
+              {area.whatWeMoveIntro}
+            </p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {SERVICES.map((service) => {
                 const ServiceIcon = serviceIconMap[service.icon as keyof typeof serviceIconMap]

@@ -47,8 +47,8 @@ export function ServicesSection() {
           </h2>
           <div className="mx-auto mb-5 h-0.5 w-10 bg-brand-teal" />
           <p className="mx-auto max-w-lg font-body text-[17px] leading-relaxed text-ink-muted">
-            From the first box packed to the last item placed — we handle every detail so you
-            don&apos;t have to.
+            From the first box to the last piece set in place, we handle the parts of moving
+            you&apos;d rather not think about.
           </p>
         </div>
 

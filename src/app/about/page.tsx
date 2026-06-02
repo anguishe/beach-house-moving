@@ -51,12 +51,17 @@ export default async function AboutPage() {
 
           <div className="mt-8 space-y-8">
             <div>
-              <h2 className="font-heading text-2xl font-bold text-brand-navy">
-                Why Local Matters
-              </h2>
-              <p className="mt-4 font-body text-base leading-relaxed text-ink-muted">
-                {ABOUT_CONTENT.whyLocal}
-              </p>
+              <h2 className="font-heading text-2xl font-bold text-brand-navy">Our Story</h2>
+              <div className="mt-4 space-y-4">
+                {ABOUT_CONTENT.storyParagraphs.map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className="font-body text-base leading-relaxed text-ink-muted"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
 
             <div>

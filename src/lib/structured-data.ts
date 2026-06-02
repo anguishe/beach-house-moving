@@ -77,7 +77,29 @@ export function movingCompanySchema(origin: string) {
       addressRegion: BUSINESS.address.state,
       addressCountry: 'US',
     },
-    sameAs: SOCIAL_LINKS.facebook ? [SOCIAL_LINKS.facebook] : [],
+    sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.google].filter(Boolean),
+  }
+}
+
+export function webSiteSchema(origin: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'Beach House Moving',
+    url: origin,
+    publisher: {
+      '@type': 'MovingCompany',
+      name: 'Beach House Moving',
+      telephone: '+18508421962',
+    },
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${origin}/services?q={search_term_string}`,
+      },
+      'query-input': 'required name=search_term_string',
+    },
   }
 }
 

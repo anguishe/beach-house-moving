@@ -33,8 +33,14 @@ export async function POST(req: NextRequest) {
     })
 
     return NextResponse.json({ success: true })
-  } catch (err) {
-    console.error('Quote form error:', err)
-    return NextResponse.json({ error: 'Failed to send' }, { status: 500 })
+  } catch (error) {
+    // Do not log request body or PII. Log a generic failure marker only.
+    const message = error instanceof Error ? error.name : 'UnknownError'
+    // Surface to monitoring without PII:
+    console.error('[quote] submission failed:', message)
+    return NextResponse.json(
+      { ok: false, error: 'Something went wrong. Please call (850) 842-1962.' },
+      { status: 500 }
+    )
   }
 }
