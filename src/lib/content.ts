@@ -6,7 +6,7 @@
 // ============================================================
 
 export const FLAGS = {
-  SHOW_TESTIMONIALS: false,
+  SHOW_TESTIMONIALS: true,
 } as const
 
 export const BUSINESS = {
@@ -15,7 +15,7 @@ export const BUSINESS = {
   tagline: 'Locally owned. Fully licensed. Fully committed.',
   headline: 'Your Move, Our Mission.',
   subheadline:
-    'Beach House Moving serves Walton, Okaloosa, and Bay Counties with professional packing, loading, and transportation. Licensed, insured, and ready when you are.',
+    'Beach House Moving serves Walton, Okaloosa, and Bay Counties with professional moving, packing, and junk removal services. Licensed, insured, and ready when you are.',
   phone: {
     display: '(850) 842-1962',
     href: 'tel:+18508421962',
@@ -58,6 +58,7 @@ export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/beachhousemovingfl/',
   facebookHandle: '@beachhousemovingfl',
   google: 'https://share.google/IDGDHjZnsKihpWaCu',
+  leaveGoogleReviewLabel: '⭐ Leave us a Google review',
 } as const
 
 /** Resend fallbacks when env vars are unset (local dev). */
@@ -86,7 +87,7 @@ export const SERVICE_AREAS = [
     cities: ['Santa Rosa Beach', '30A', 'Miramar Beach', 'Freeport', 'DeFuniak Springs'],
     image: '/images/move-inlet-beach.jpg',
     description:
-      'Walton County is home base. We run 30A end to end — Inlet Beach, Rosemary Beach, Alys Beach, Seacrest, Seagrove, WaterColor, WaterSound, Seaside, Grayton Beach, Blue Mountain Beach and Dune Allen — plus Santa Rosa Beach, Miramar Beach, Freeport and DeFuniak Springs. We know which gulf-front rentals only have boardwalk access, which gated communities hold you at the gate until your name\u2019s on the list, and which stilted driveways a box truck can\u2019t fit so we bring the Sprinter van instead. It\u2019s the kind of thing you only learn by doing it every week.',
+      'Walton County is home base. We run 30A end to end — Inlet Beach, Rosemary Beach, Alys Beach, Seacrest, Seagrove, WaterColor, WaterSound, Seaside, Grayton Beach, Blue Mountain Beach and Dune Allen — plus Santa Rosa Beach, Miramar Beach, Freeport and DeFuniak Springs. We know which gulf-front rentals only have boardwalk access, which gated communities hold you at the gate until your name\u2019s on the list, and which stilted driveways a box truck can\u2019t fit so we bring the Sprinter van instead. It\u2019s the kind of thing you only learn by doing it every week. From 30A home moves to full-property junk removal, we handle it all.',
     whatWeMoveIntro:
       'Beach rentals, gated communities, and full-home moves from 30A to DeFuniak Springs — we match the truck to the driveway.',
     metaTitle: 'Walton County Movers | Beach House Moving — 30A & Santa Rosa Beach',
@@ -195,6 +196,19 @@ export const SERVICES = [
     metaDescription:
       'Professional furniture and appliance delivery across Walton, Okaloosa, and Bay Counties. Single items or full loads. (850) 842-1962.',
   },
+  {
+    slug: 'junk-removal',
+    title: 'Junk Removal',
+    shortDescription: 'Fast, responsible junk removal across the Emerald Coast — no haul too big or too small.',
+    fullDescription:
+      'Clearing out before a move, after a renovation, or just reclaiming your space? Our junk removal crew hauls away furniture, appliances, debris, and more. Fast, affordable, and handled with the same professionalism as every job we take.',
+    icon: 'Trash2',
+    image: '/images/truck-loaded.jpg',
+    featured: false,
+    metaTitle: 'Junk Removal Services | Beach House Moving — Florida Panhandle',
+    metaDescription:
+      'Professional junk removal across Walton, Okaloosa & Bay Counties. Furniture, appliances, debris and more. Free quote — (850) 842-1962.',
+  },
 ] as const
 
 export const TRUST_BADGES = [
@@ -223,6 +237,7 @@ export const TRUST_BADGES = [
 export const NAV_LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'Service Areas', href: '/service-areas' },
+  { label: 'Reviews', href: '/reviews' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ] as const
@@ -234,6 +249,7 @@ export const QUOTE_FORM_MOVE_TYPES = [
   'Packing & Unpacking Only',
   'Storage',
   'Delivery',
+  'Junk Removal',
   'Other',
 ] as const
 
@@ -274,6 +290,18 @@ export const FAQS = [
   {
     q: 'Do you move military families near Eglin AFB or Hurlburt Field?',
     a: 'Yes. We move a lot of military families around Okaloosa County and work around PCS timelines and short-notice report dates.',
+  },
+  {
+    q: 'Does Beach House Moving offer junk removal?',
+    a: `Yes. We offer junk removal services across Walton, Okaloosa, and Bay Counties. Whether you are clearing out before a move or hauling away after a renovation, we handle furniture, appliances, debris, and more. Call ${BUSINESS.phone.display} for a free quote.`,
+  },
+  {
+    q: 'How much does junk removal cost?',
+    a: `We provide free, honest quotes before any work begins. Cost depends on volume and item type. Call ${BUSINESS.phone.display}.`,
+  },
+  {
+    q: 'Do you recycle or donate items?',
+    a: 'Where possible, yes. We make every effort to keep usable items out of landfills.',
   },
 ] as const
 
@@ -327,8 +355,72 @@ export const IMAGES = {
   },
 } as const
 
-// Placeholder testimonials are intentionally unused while FLAGS.SHOW_TESTIMONIALS is false.
-export const TESTIMONIALS_PLACEHOLDER = [] as const
+export const TESTIMONIALS = [
+  {
+    name: 'Neinei',
+    location: null,
+    rating: 5,
+    text: 'Respectful, careful movers, treated me with respect and did a perfect job moving my house.',
+    source: 'Google',
+    date: '2025',
+  },
+  {
+    name: 'Kenzy Bludsworth',
+    location: null,
+    rating: 5,
+    text: null,
+    source: 'Google',
+    date: '2025',
+  },
+  {
+    name: 'Logan Spaziante',
+    location: null,
+    rating: 5,
+    text: 'These guys were honest and up front about all their services and prices. Very helpful and I felt like they provided excellent work effort for the service I hired them for. I can recommend this business if you need extra help moving or with your junk removal needs.',
+    source: 'Google',
+    date: '2025',
+  },
+] as const
+
+export const REVIEWS_PAGE_META = {
+  title: 'Customer Reviews | Beach House Moving — Florida Panhandle',
+  description:
+    `See what customers across Walton, Okaloosa & Bay Counties say about Beach House Moving. Honest, local, fully licensed movers. FL Mover Reg. #${BUSINESS.registration.number}.`,
+  path: '/reviews',
+  aggregateRating: {
+    ratingValue: '5',
+    reviewCount: '3',
+    bestRating: '5',
+    worstRating: '1',
+  },
+  googleReviewLink: 'https://g.page/r/CXl8yvSwTlBcEAI/review',
+} as const
+
+export const REVIEWS_PAGE = {
+  hero: {
+    eyebrow: 'What Our Customers Say',
+    title: 'Trusted by Families Across the Emerald Coast',
+    subtext:
+      'Every review below is a verified Google review from a real customer. We are proud of every single one.',
+    ratingSummary: `${REVIEWS_PAGE_META.aggregateRating.reviewCount} Reviews · ${REVIEWS_PAGE_META.aggregateRating.ratingValue}.0 Average`,
+  },
+  reviewsSection: {
+    heading: 'Google Reviews',
+  },
+  noWrittenReview: '5-star rating — no written review',
+  verifiedBadge: 'Verified Google Review',
+  trustImage: {
+    src: '/images/move-miramar-beach.jpg',
+    alt: 'Beach House Moving Sprinter van at a Miramar Beach home on the Emerald Coast, Florida',
+  },
+  cta: {
+    eyebrow: 'Had a Great Experience?',
+    title: 'Tell Google. It Helps More Neighbors Find Us.',
+    body: 'We are a small local business and every review makes a real difference. If Beach House Moving took care of you, we would be grateful if you shared it.',
+    buttonLabel: 'Leave a Google Review',
+    footerLine: `${BUSINESS.phone.display} · Open 24 Hours · FL Mover Reg. #${BUSINESS.registration.number}`,
+  },
+} as const
 
 /** Static page metadata — used with buildMetadata(). */
 export const PAGE_META = {
@@ -418,6 +510,13 @@ export const SERVICE_INCLUDES: Record<(typeof SERVICES)[number]['slug'], readonl
     'Careful placement in your home or property',
     'Same professional standards as a full move',
   ],
+  'junk-removal': [
+    'Furniture, appliances, and debris haul-away',
+    'Pre-move and post-renovation cleanouts',
+    'Residential and rental property clearing',
+    'Responsible disposal handled by our crew',
+    'Same professional standards as every job we take',
+  ],
 }
 
 /** FAQ indices per service slug — subset of FAQS. */
@@ -428,7 +527,55 @@ export const SERVICE_FAQ_INDICES: Record<(typeof SERVICES)[number]['slug'], read
   'packing-unpacking': [1, 3, 6],
   storage: [1, 4, 5],
   delivery: [0, 6, 2],
+  'junk-removal': [9, 0, 2, 10, 11],
 }
+
+/** Counties for junk removal Service JSON-LD (SAB — no street address). */
+export const JUNK_REMOVAL_AREA_SERVED = [
+  'Walton County, FL',
+  'Okaloosa County, FL',
+  'Bay County, FL',
+] as const
+
+/** Dedicated /services/junk-removal page copy and structure. */
+export const JUNK_REMOVAL_PAGE = {
+  heroCtaLabel: 'Get a Free Quote',
+  whatWeHaul: {
+    eyebrow: 'What We Haul',
+    headline: 'No haul too big or too small',
+    intro:
+      'An honest list of what our crew removes — from a single bulky item to a full-property cleanout.',
+  },
+  howItWorks: {
+    eyebrow: 'How It Works',
+    headline: 'Three simple steps',
+    steps: [
+      {
+        title: 'Call for a free quote',
+        description: `Tell us what you need hauled. Call ${BUSINESS.phone.display} or request a quote online — we\u2019ll give you a clear price before we start.`,
+      },
+      {
+        title: 'We show up on time',
+        description:
+          'Our crew arrives when scheduled, ready to load. Same professionalism and care as every move we handle.',
+      },
+      {
+        title: 'We haul it away',
+        description:
+          'We load, transport, and dispose responsibly — furniture, appliances, debris, and more off your property.',
+      },
+    ],
+  },
+  faqIndices: [9, 0, 2, 10, 11] as const,
+  haulItems: [
+    { icon: 'Sofa', label: 'Furniture & mattresses' },
+    { icon: 'WashingMachine', label: 'Appliances (washers, dryers, refrigerators)' },
+    { icon: 'Box', label: 'Moving debris & boxes' },
+    { icon: 'HardHat', label: 'Renovation waste & construction debris' },
+    { icon: 'Trash2', label: 'Garage & shed cleanouts' },
+    { icon: 'Trash2', label: 'Single items or full-property cleanouts' },
+  ],
+} as const
 
 /** Region-centered map embed — no street-address pin (SAB). */
 export const MAP_EMBED = {

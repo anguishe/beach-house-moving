@@ -128,6 +128,18 @@ Beach House Moving is a new, fully licensed moving company serving the Florida P
 - `generate_lead` event on quote form submission (before redirect to `/thank-you`)
 - `contact` event on phone number click
 
+### FR-12: Junk Removal Service
+- Full service entry in `content.ts`
+- `/services/junk-removal` page with JSON-LD
+- Junk removal added to quote form move types and site-wide FAQs
+- Keyword targets: "junk removal Santa Rosa Beach", "junk removal Emerald Coast", "junk removal Walton County FL"
+
+### FR-13: Reviews Page
+- `/reviews` static page with AggregateRating + Review JSON-LD
+- All verified Google reviews displayed with star ratings
+- Prominent "Leave a Review" CTA linking to `https://g.page/r/CXl8yvSwTlBcEAI/review`
+- Hero image using fleet-at-mansion photo
+
 ---
 
 ## Page Specifications
@@ -195,7 +207,10 @@ See `BRAND.md` for voice & tone guidelines.
 - [ ] Facebook page link in footer
 - [ ] Phone number click-to-call working on mobile
 - [ ] 404 page designed
-- [ ] Testimonials remain hidden (`FLAGS.SHOW_TESTIMONIALS: false`) until verified reviews exist
+- [ ] Junk removal added to services, quote form, FAQs, and sitemap
+- [ ] `/reviews` page live with AggregateRating JSON-LD validating in Rich Results Test
+- [ ] "Leave a Review" CTA linking to correct Google review URL
+- [ ] `SHOW_TESTIMONIALS` flag set to `true` with real verified reviews
 
 ---
 

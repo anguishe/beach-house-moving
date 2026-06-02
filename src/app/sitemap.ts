@@ -44,13 +44,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.85,
     },
+    {
+      url: `${base}/reviews`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
   ]
 
   const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({
     url: `${base}/services/${service.slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
-    priority: 0.9,
+    priority: service.slug === 'junk-removal' ? 0.7 : 0.9,
   }))
 
   const areaRoutes: MetadataRoute.Sitemap = SERVICE_AREAS.map((area) => ({

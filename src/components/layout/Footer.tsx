@@ -3,7 +3,14 @@ import Link from 'next/link'
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
 
 import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
-import { BUSINESS, IMAGES, LICENSE_DISPLAY, NAV_LINKS, SOCIAL_LINKS } from '@/lib/content'
+import {
+  BUSINESS,
+  IMAGES,
+  LICENSE_DISPLAY,
+  NAV_LINKS,
+  REVIEWS_PAGE_META,
+  SOCIAL_LINKS,
+} from '@/lib/content'
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -57,6 +64,14 @@ export function Footer() {
                   Google
                 </a>
               ) : null}
+              <a
+                href={REVIEWS_PAGE_META.googleReviewLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit font-body text-sm text-on-dark-muted transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+              >
+                {SOCIAL_LINKS.leaveGoogleReviewLabel}
+              </a>
             </div>
           </div>
 

@@ -8,11 +8,33 @@
 
 ## Site Map (Routes)
 
+### Route tree (indexable)
+
+```
+/
+├── /services
+│   ├── /services/residential-moving
+│   ├── /services/local-moving
+│   ├── /services/long-distance-moving
+│   ├── /services/packing-unpacking
+│   ├── /services/storage
+│   ├── /services/delivery
+│   └── /services/junk-removal
+├── /service-areas
+│   └── /service-areas/[county]  (walton-county, okaloosa-county, bay-county)
+├── /about
+├── /contact
+├── /get-a-quote
+└── /reviews   ← verified customer reviews + AggregateRating schema + Leave a Review CTA
+```
+
 | Route | Purpose | Indexable |
 |---|---|---|
 | `/` | Homepage — hero, trust, services, areas, gallery, quote form, FAQ, CTA | Yes |
-| `/services` | Services hub — all 6 services | Yes |
-| `/services/[slug]` | Individual service pages (6 slugs) | Yes |
+| `/services` | Services hub — all 7 services | Yes |
+| `/services/[slug]` | Individual service pages (6 slugs via dynamic route) | Yes |
+| `/services/junk-removal` | Dedicated junk removal page (custom sections + JSON-LD) | Yes |
+| `/reviews` | Social proof hub, AggregateRating JSON-LD, Google review funnel | Leave a Review |
 | `/service-areas` | Service areas hub — Walton, Okaloosa, Bay Counties | Yes |
 | `/service-areas/[county]` | County landing pages (3 slugs) | Yes |
 | `/about` | Business story, values, license | Yes |
@@ -23,7 +45,7 @@
 
 ### Service slugs (`/services/[slug]`)
 
-`residential-moving`, `local-moving`, `long-distance-moving`, `packing-unpacking`, `storage`, `delivery`
+`residential-moving`, `local-moving`, `long-distance-moving`, `packing-unpacking`, `storage`, `delivery`, `junk-removal`
 
 ### County slugs (`/service-areas/[county]`)
 
@@ -124,6 +146,9 @@ JSON-LD helpers live in `/src/lib/structured-data.ts`:
 | `BreadcrumbList` | Service and area detail pages | |
 | `FAQPage` | Pages with `FAQSection` | One FAQ block per page — page-scoped Q&A |
 | County `MovingCompany` + `Service` | `/service-areas/[county]` | Local SEO for each county |
+| `AggregateRating` + `Review` | `/reviews` | From `TESTIMONIALS` in `content.ts`. Powers AI-search citability for review-based queries. |
+
+- **Reviews page:** `AggregateRating` + `Review` schema from `TESTIMONIALS` in `content.ts`. Powers AI-search citability for review-based queries.
 
 **Service-Area Business rule:** The street address in `content.ts` exists for schema locality/GBP consistency only (`displayAddress: false`). It is never rendered in public UI or exposed as `streetAddress` in JSON-LD.
 

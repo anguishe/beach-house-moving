@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
     // Surface to monitoring without PII:
     console.error('[quote] submission failed:', message)
     return NextResponse.json(
-      { ok: false, error: 'Something went wrong. Please call (850) 842-1962.' },
+      { ok: false, error: `Something went wrong. Please call ${BUSINESS.phone.display}.` },
       { status: 500 }
     )
   }

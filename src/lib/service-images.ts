@@ -11,4 +11,5 @@ export const SERVICE_IMAGE_MAP: Record<
   'packing-unpacking': IMAGES.dresserPack,
   storage: IMAGES.collage,
   delivery: IMAGES.fridge,
+  'junk-removal': IMAGES.truckLoading,
 }

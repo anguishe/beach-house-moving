@@ -2,9 +2,12 @@ import {
   BUSINESS,
   FAQS,
   IMAGES,
+  JUNK_REMOVAL_AREA_SERVED,
+  REVIEWS_PAGE_META,
   SERVICE_AREAS,
   SERVICES,
   SOCIAL_LINKS,
+  TESTIMONIALS,
 } from '@/lib/content'
 
 type Faq = (typeof FAQS)[number]
@@ -85,12 +88,12 @@ export function webSiteSchema(origin: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Beach House Moving',
+    name: BUSINESS.name,
     url: origin,
     publisher: {
       '@type': 'MovingCompany',
-      name: 'Beach House Moving',
-      telephone: '+18508421962',
+      name: BUSINESS.name,
+      telephone: BUSINESS.phone.e164,
     },
     potentialAction: {
       '@type': 'SearchAction',
@@ -116,6 +119,24 @@ export function breadcrumbSchema(
       name: item.name,
       item: absoluteUrl(origin, item.path),
     })),
+  }
+}
+
+/** Junk removal Service JSON-LD — dedicated page format (SAB — no street address). */
+export function junkRemovalServiceSchema(description: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Junk Removal',
+    provider: {
+      '@type': 'MovingCompany',
+      name: BUSINESS.name,
+      telephone: BUSINESS.phone.e164,
+      url: BUSINESS.website,
+      areaServed: [...JUNK_REMOVAL_AREA_SERVED],
+    },
+    description,
+    areaServed: [...JUNK_REMOVAL_AREA_SERVED],
   }
 }
 
@@ -198,4 +219,46 @@ export function faqSchema(faqs: readonly Faq[] = FAQS) {
       },
     })),
   }
+}
+
+/** MovingCompany + AggregateRating for /reviews (SAB — no street address). */
+export function reviewsAggregateRatingSchema() {
+  const base = BUSINESS.website.replace(/\/$/, '')
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'MovingCompany',
+    name: BUSINESS.name,
+    url: base,
+    telephone: BUSINESS.phone.e164,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: REVIEWS_PAGE_META.aggregateRating.ratingValue,
+      reviewCount: REVIEWS_PAGE_META.aggregateRating.reviewCount,
+      bestRating: REVIEWS_PAGE_META.aggregateRating.bestRating,
+      worstRating: REVIEWS_PAGE_META.aggregateRating.worstRating,
+    },
+  }
+}
+
+/** Individual Review JSON-LD for testimonials with written text. */
+export function reviewsWithTextSchema() {
+  return TESTIMONIALS.filter((t) => t.text !== null).map((t) => ({
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    author: {
+      '@type': 'Person',
+      name: t.name,
+    },
+    reviewRating: {
+      '@type': 'Rating',
+      ratingValue: String(t.rating),
+      bestRating: '5',
+    },
+    reviewBody: t.text,
+    itemReviewed: {
+      '@type': 'MovingCompany',
+      name: BUSINESS.name,
+    },
+  }))
 }
