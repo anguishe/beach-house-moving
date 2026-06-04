@@ -135,7 +135,10 @@ export default async function NeighborhoodPage({ params }: PageProps) {
     name: BUSINESS.name,
     url: base,
     telephone: BUSINESS.phone.e164,
-    areaServed: [`${nb.name}, FL`, `${nb.county}, FL`],
+    areaServed: [
+      { '@type': 'City', name: nb.name, addressRegion: 'FL' },
+      { '@type': 'AdministrativeArea', name: nb.county },
+    ],
     geo: {
       '@type': 'GeoCoordinates',
       latitude: BUSINESS.geo.lat,

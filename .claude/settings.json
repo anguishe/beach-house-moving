@@ -14,7 +14,16 @@
       "WebFetch(domain:www.bingplaces.com)",
       "Bash(python3)",
       "Bash(mkdir -p /home/angsec/Projects/beach-house-moving/src/app/service-areas/\\\\[county\\\\]/\\\\[neighborhood\\\\])",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "WebSearch",
+      "Bash(git -C /home/angsec/Projects/beach-house-moving status --short public/llms.txt src/app/robots.ts)",
+      "Bash(git -C /home/angsec/Projects/beach-house-moving status --short -- public/llms.txt src/app/robots.ts)",
+      "Bash(git -C /home/angsec/Projects/beach-house-moving diff HEAD -- src/app/robots.ts)",
+      "Bash(git -C /home/angsec/Projects/beach-house-moving diff HEAD -- src/lib/content.ts)",
+      "Bash(git -C /home/angsec/Projects/beach-house-moving diff -- src/lib/content.ts)",
+      "Bash(git -C /home/angsec/Projects/beach-house-moving log --oneline -5)",
+      "Bash(git -C /home/angsec/Projects/beach-house-moving diff 7974819 HEAD -- src/lib/content.ts)",
+      "Bash(git -C /home/angsec/Projects/beach-house-moving show 7974819 --stat)"
     ],
     "additionalDirectories": [
       "/home/angsec/Projects/beach-house-moving/src/app/service-areas/[county]"

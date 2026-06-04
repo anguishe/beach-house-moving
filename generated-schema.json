@@ -1,0 +1,120 @@
+{
+  "_notes": "Schema fixes for beachhousemoving.xyz. Apply the fixes described in each block.",
+
+  "fix_1_aggregateRating_numbers": {
+    "_applies_to": "src/lib/content.ts — REVIEWS_PAGE_META.aggregateRating",
+    "_change": "Change string values to numbers",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 5,
+      "reviewCount": 5,
+      "bestRating": 5,
+      "worstRating": 1
+    }
+  },
+
+  "fix_2_movingCompanySchema_add_worstRating": {
+    "_applies_to": "src/lib/structured-data.ts — movingCompanySchema() aggregateRating block",
+    "_change": "Add worstRating to match the reviews page schema",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": 5,
+      "reviewCount": 5,
+      "bestRating": 5,
+      "worstRating": 1
+    }
+  },
+
+  "fix_3_website_schema_remove_searchAction": {
+    "_applies_to": "src/lib/structured-data.ts — webSiteSchema()",
+    "_change": "Remove potentialAction entirely until real site search is implemented",
+    "corrected_webSiteSchema": {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Beach House Moving",
+      "url": "https://beachhousemoving.xyz",
+      "publisher": {
+        "@type": "MovingCompany",
+        "name": "Beach House Moving",
+        "telephone": "+18508421962"
+      }
+    }
+  },
+
+  "fix_4_neighborhood_areaServed": {
+    "_applies_to": "src/app/service-areas/[county]/[neighborhood]/page.tsx — businessSchema.areaServed",
+    "_change": "Replace plain strings with typed Place objects",
+    "corrected_areaServed": [
+      { "@type": "City", "name": "[nb.name]", "addressRegion": "FL" },
+      { "@type": "AdministrativeArea", "name": "[nb.county]" }
+    ]
+  },
+
+  "fix_5_sameAs_google_url": {
+    "_applies_to": "src/lib/content.ts — SOCIAL_LINKS.google",
+    "_change": "Replace share link with canonical GBP URL",
+    "_manual_step": "Find the canonical GBP URL: go to Google Business Profile > Share > Copy link, then expand the redirect to get the stable maps URL. Use https://maps.google.com/?cid=CID or the g.page canonical link.",
+    "current": "https://share.google/IDGDHjZnsKihpWaCu",
+    "recommended_format": "https://g.page/r/CXl8yvSwTlBcEAI"
+  },
+
+  "new_schema_about_page": {
+    "_applies_to": "src/app/about/page.tsx — add to <JsonLd>",
+    "_purpose": "E-E-A-T signal: AboutPage + Organization with founding date",
+    "AboutPage": {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "@id": "https://beachhousemoving.xyz/about",
+      "name": "About Beach House Moving",
+      "url": "https://beachhousemoving.xyz/about",
+      "breadcrumb": { "@id": "https://beachhousemoving.xyz/about#breadcrumb" },
+      "mainEntity": {
+        "@type": "MovingCompany",
+        "@id": "https://beachhousemoving.xyz/#business",
+        "name": "Beach House Moving",
+        "foundingDate": "2025",
+        "numberOfEmployees": {
+          "@type": "QuantitativeValue",
+          "value": 4
+        },
+        "description": "Owner-operated moving company on Florida's Emerald Coast. All four owners are also the movers. Licensed FL Mover Reg. #IM4125, fully insured, available 24/7."
+      }
+    }
+  },
+
+  "new_schema_contact_page": {
+    "_applies_to": "src/app/contact/page.tsx — add to <JsonLd>",
+    "_purpose": "Signals contact intent to search engines",
+    "ContactPage": {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "@id": "https://beachhousemoving.xyz/contact",
+      "name": "Contact Beach House Moving",
+      "url": "https://beachhousemoving.xyz/contact",
+      "mainEntity": {
+        "@type": "MovingCompany",
+        "@id": "https://beachhousemoving.xyz/#business"
+      }
+    }
+  },
+
+  "new_schema_services_itemlist": {
+    "_applies_to": "src/app/services/page.tsx — add to <JsonLd>",
+    "_purpose": "Helps Google understand content hierarchy from the hub page",
+    "ItemList": {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Beach House Moving Services",
+      "url": "https://beachhousemoving.xyz/services",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Residential Moving", "url": "https://beachhousemoving.xyz/services/residential-moving" },
+        { "@type": "ListItem", "position": 2, "name": "Local Moving", "url": "https://beachhousemoving.xyz/services/local-moving" },
+        { "@type": "ListItem", "position": 3, "name": "Long-Distance Moving", "url": "https://beachhousemoving.xyz/services/long-distance-moving" },
+        { "@type": "ListItem", "position": 4, "name": "Packing & Unpacking", "url": "https://beachhousemoving.xyz/services/packing-unpacking" },
+        { "@type": "ListItem", "position": 5, "name": "Storage Solutions", "url": "https://beachhousemoving.xyz/services/storage" },
+        { "@type": "ListItem", "position": 6, "name": "Delivery Services", "url": "https://beachhousemoving.xyz/services/delivery" },
+        { "@type": "ListItem", "position": 7, "name": "Junk Removal", "url": "https://beachhousemoving.xyz/services/junk-removal" }
+      ]
+    }
+  }
+}

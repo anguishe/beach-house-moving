@@ -1,19 +1,21 @@
 # GEO Analysis — beachhousemoving.xyz
-**Date:** 2026-06-04  
-**Framework:** AI Search / Generative Engine Optimization  
+**Date:** 2026-06-04 (v3 — post SEO/GEO audits v2 commit)
+**Framework:** AI Search / Generative Engine Optimization
 **Google's position:** Optimizing for generative AI search is still SEO. AEO/GEO are rebranded labels for the same fundamentals applied to AI-search surfaces.
 
 ---
 
-## GEO Readiness Score: 56/100
+## GEO Readiness Score: 65/100
 
-| Dimension | Score | Weight |
-|-----------|-------|--------|
-| Citability | 14/25 | 25% |
-| Structural Readability | 14/20 | 20% |
-| Multi-Modal Content | 6/15 | 15% |
-| Authority & Brand Signals | 7/20 | 20% |
-| Technical Accessibility | 15/20 | 20% |
+| Dimension | Score | Weight | Change |
+|-----------|-------|--------|--------|
+| Citability | 18/25 | 25% | +4 (FAQ expansions) |
+| Structural Readability | 16/20 | 20% | +2 (neighborhood pages, OwnerOperator section) |
+| Multi-Modal Content | 7/15 | 15% | +1 (fleet image in OwnerOperatorSection) |
+| Authority & Brand Signals | 8/20 | 20% | +1 (stronger About + definition blocks) |
+| Technical Accessibility | 16/20 | 20% | +1 (robots.ts explicit crawlers; llms.txt still 404) |
+
+**Previous score:** 56/100 — **Delta: +9 pts from v2 changes**
 
 ---
 
@@ -21,87 +23,61 @@
 
 | Platform | Score | Key Bottleneck |
 |----------|-------|----------------|
-| Google AI Overviews | 63/100 | No definition blocks, no date metadata |
-| Bing Copilot | 58/100 | Bing verified + IndexNow ✓, missing `dateModified` |
-| Perplexity | 35/100 | No Reddit presence, no community validation |
-| ChatGPT | 28/100 | No Wikipedia, no Reddit, no YouTube citations |
+| Google AI Overviews | 70/100 | Good FAQ depth now; still no `dateModified` metadata |
+| Bing Copilot | 65/100 | Bing verified + IndexNow ✓, missing `dateModified` |
+| Perplexity | 38/100 | No Reddit presence, no community validation |
+| ChatGPT | 30/100 | No Wikipedia, no Reddit, no YouTube citations |
 
-**Only 11% of domains are cited by both ChatGPT and Google AIO.** ChatGPT heavily sources Wikipedia (47.9%) and Reddit (11.3%) — Beach House Moving has zero presence on either, which is the largest single gap.
+**Only 11% of domains are cited by both ChatGPT and Google AIO.** ChatGPT heavily sources Wikipedia (47.9%) and Reddit (11.3%) — Beach House Moving has zero presence on either, which remains the largest single gap.
+
+---
+
+## What Shipped in v2 (✅ Done)
+
+| Item | Status | Notes |
+|------|--------|-------|
+| Explicit AI crawler rules in `robots.ts` | ✅ Live | GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, anthropic-ai, PerplexityBot, Google-Extended |
+| `public/llms.txt` created | ✅ Committed | Returns 404 on live site — **deployment lag** |
+| Military families FAQ expanded | ✅ ~160 words | Optimal citation range (134–167w) |
+| Service area FAQ expanded | ✅ ~165 words | All counties/cities, long-distance offer |
+| Licensing FAQ expanded | ✅ ~130 words | FDACS detail, cargo coverage mention |
+| Hours FAQ expanded | ✅ ~130 words | 24/7 rationale, real-estate context |
+| How-to-get-a-quote FAQ expanded | ✅ ~165 words | Optimal range with booking flow detail |
+| About page definition block | ✅ Added | "Beach House Moving is a locally owned, owner-operated moving company…" |
+| OwnerOperatorSection on homepage | ✅ Deployed | Strong brand differentiation content |
+| Pricing page (`/pricing`) | ✅ Created | New high-citability page format |
+| Neighborhood pages | ✅ Created | `/service-areas/[county]/[neighborhood]/` — density for local queries |
 
 ---
 
 ## AI Crawler Access Status
 
-**robots.ts:** `userAgent: '*', allow: '/'` — wildcard rule allows everything.
+**Status: EXCELLENT**
 
 | Crawler | Owner | Status |
 |---------|-------|--------|
-| GPTBot | OpenAI / ChatGPT | ✅ Allowed (wildcard) |
-| OAI-SearchBot | OpenAI | ✅ Allowed (wildcard) |
-| ChatGPT-User | OpenAI | ✅ Allowed (wildcard) |
-| ClaudeBot | Anthropic | ✅ Allowed (wildcard) |
-| PerplexityBot | Perplexity | ✅ Allowed (wildcard) |
+| GPTBot | OpenAI / ChatGPT | ✅ Explicit Allow |
+| OAI-SearchBot | OpenAI | ✅ Explicit Allow |
+| ChatGPT-User | OpenAI | ✅ Explicit Allow |
+| ClaudeBot | Anthropic | ✅ Explicit Allow |
+| anthropic-ai | Anthropic | ✅ Explicit Allow |
+| PerplexityBot | Perplexity | ✅ Explicit Allow |
+| Google-Extended | Google | ✅ Explicit Allow |
 | CCBot | Common Crawl | ✅ Allowed (wildcard) |
-| anthropic-ai | Anthropic | ✅ Allowed (wildcard) |
-| Bytespider | ByteDance | ✅ Allowed (wildcard) |
 
-**Assessment:** All AI crawlers are currently allowed. The wildcard is functional but provides no nuance. Adding explicit named rules for key crawlers (GPTBot, ClaudeBot, PerplexityBot) is a minor improvement that signals intentionality.
-
-**Optional:** Block `CCBot` (Common Crawl training data) if the owner does not want content used for LLM training datasets. This has no impact on search visibility.
-
-```ts
-// src/app/robots.ts — enhanced version
-return {
-  rules: [
-    { userAgent: '*', allow: '/' },
-    // Explicit AI search crawler allowlist (already allowed above, but signals intent)
-    { userAgent: 'GPTBot', allow: '/' },
-    { userAgent: 'OAI-SearchBot', allow: '/' },
-    { userAgent: 'ClaudeBot', allow: '/' },
-    { userAgent: 'PerplexityBot', allow: '/' },
-  ],
-  sitemap: `${origin.origin}/sitemap.xml`,
-  host: origin.origin,
-}
-```
+All major AI search crawlers are explicitly allowed. Optional: add `{ userAgent: 'Bytespider', allow: '/' }` for ByteDance/TikTok completeness.
 
 ---
 
 ## llms.txt Status
 
-**Status: MISSING** — No `/llms.txt` found at project root or in `/public/`.
+**Status: ⚠️ COMMITTED BUT NOT DEPLOYED — returns 404 on live site**
 
-The evidence base for llms.txt as a citation lever is weak (not used by Google, Bing, or OpenAI for ranking decisions per Mueller/Illyes). However, it is a low-effort signal of AI-readiness and some smaller AI search systems do read it. Recommended for completeness.
+The file exists at `public/llms.txt` in the repository and was committed in v2. However, the live site at `https://beachhousemoving.xyz/llms.txt` returns HTTP 404, indicating the deployment has not propagated or there is a Vercel routing issue blocking static file serving from `/public`.
 
-**Ready-to-use template** (create at `public/llms.txt`):
+**Action required:** Deploy to Vercel. Install the Vercel CLI (`npm i -g vercel`) and run `vercel --prod`, or push to the connected git branch to trigger auto-deploy.
 
-```
-# Beach House Moving
-> Locally owned, fully licensed movers serving Walton, Okaloosa, and Bay Counties on Florida's Emerald Coast. Licensed under Florida FDACS Mover Registration #IM4125. Available 24/7.
-
-## Services
-- [Residential Moving](https://beachhousemoving.xyz/services/residential-moving): Full home moves — wrap, pad, load, and set up at the new location.
-- [Local Moving](https://beachhousemoving.xyz/services/local-moving): Hourly rate, no hidden fees, crew that knows the 30A corridor.
-- [Long-Distance Moving](https://beachhousemoving.xyz/services/long-distance-moving): Moves out of the Panhandle, coordinated door-to-door.
-- [Packing & Unpacking](https://beachhousemoving.xyz/services/packing-unpacking): Materials supplied, fragile items wrapped, boxes hauled away.
-- [Storage Solutions](https://beachhousemoving.xyz/services/storage): Secure storage between closings, renovations, or rental turnovers.
-- [Delivery Services](https://beachhousemoving.xyz/services/delivery): Furniture and appliance delivery, single items to full loads.
-- [Junk Removal](https://beachhousemoving.xyz/services/junk-removal): Furniture, appliances, debris, renovation waste hauled and disposed responsibly.
-
-## Service Areas
-- [Walton County](https://beachhousemoving.xyz/service-areas/walton-county): 30A, Santa Rosa Beach, Miramar Beach, Freeport, DeFuniak Springs
-- [Okaloosa County](https://beachhousemoving.xyz/service-areas/okaloosa-county): Destin, Fort Walton Beach, Niceville, Crestview, Eglin AFB, Hurlburt Field
-- [Bay County](https://beachhousemoving.xyz/service-areas/bay-county): Panama City, Panama City Beach, Lynn Haven, Callaway, Springfield
-
-## Key Facts
-- Phone: (850) 842-1962
-- Email: beachhousemoving@gmail.com
-- Florida Mover Registration: #IM4125 (FDACS)
-- Hours: Available 24/7, seven days a week
-- Fleet: Three fully equipped trucks (box trucks + Sprinter van)
-- Established: 2025
-- Service model: Service-area business — crew comes to you
-```
+**Content quality:** The committed `llms.txt` is well-structured with services, service areas, key facts, phone, license number, and hours. No changes needed to the file itself.
 
 ---
 
@@ -113,13 +89,14 @@ The evidence base for llms.txt as a citation lever is weak (not used by Google, 
 | Facebook | ✅ Active (`@beachhousemovingfl`) | Low for AI citations |
 | Wikipedia | ❌ Not listed | Critical gap for ChatGPT (47.9% of citations) |
 | Reddit | ❌ No presence | Critical gap for Perplexity (46.7%) + ChatGPT |
-| YouTube | ❌ No channel | YouTube mentions correlate ~0.737 with AI citations (strongest signal per Ahrefs 2025) |
+| YouTube | ❌ No channel | YouTube mentions correlate ~0.737 with AI citations (strongest signal, Ahrefs 2025) |
 | LinkedIn | ❌ Not listed | Moderate AI citation impact |
-| Yelp | ❌ Not listed | Moderate — feeds Apple Maps, Bing |
+| Yelp | ❌ Not listed | Moderate — feeds Apple Maps, Bing entity data |
 | BBB | ❌ Not listed | Trust signal |
-| Nextdoor | ❌ Unknown | High local relevance |
+| Nextdoor | ❌ Unknown | High local trust for 30A community |
+| Angi / HomeAdvisor | ❌ Not confirmed | Feeds third-party aggregators |
 
-**Key insight (Ahrefs Dec 2025 study, 75,000 brands):** Brand mentions correlate 3x more strongly with AI visibility than backlinks. YouTube mentions have the highest correlation (~0.737). A short YouTube video (moving tips, 30A tour, before/after move) would materially improve ChatGPT and Perplexity citation rates.
+**Key insight (Ahrefs Dec 2025, 75,000 brands):** Brand mentions correlate 3× more strongly with AI visibility than backlinks. YouTube mentions have the highest correlation (~0.737). A short "what to expect on moving day" video would materially improve ChatGPT and Perplexity citation rates.
 
 ---
 
@@ -127,192 +104,130 @@ The evidence base for llms.txt as a citation lever is weak (not used by Google, 
 
 **Optimal passage length for AI citation: 134–167 words.**
 
-### Best Current Citation Candidates
+### Upgraded since v1 — now at optimal length
 
-**FAQ answers** (strongest candidates — self-contained, factual, in FAQPage JSON-LD):
+| FAQ / passage | Word count | Status |
+|--------------|-----------|--------|
+| Military families / Eglin AFB FAQ | ~160w | ✅ Optimal |
+| Service area FAQ (all counties) | ~165w | ✅ Optimal |
+| Licensing / FDACS FAQ | ~130w | ✅ Near-optimal |
+| Hours / 24/7 rationale FAQ | ~130w | ✅ Near-optimal |
+| How to get a quote FAQ | ~165w | ✅ Optimal |
+| Walton County description | ~195w | ✅ Strong (slightly long) |
+| Okaloosa County description | ~105w | ⚠️ Below optimal |
+| Bay County description | ~80w | ❌ Too short |
 
-> "What areas does Beach House Moving serve?" → Covers all three counties + cities + long-distance offer. **~70 words** — slightly short, could expand.
+### Still missing
 
-> "Do you handle beach-house and vacation-rental moves?" → Specific, local, distinctive. **~45 words** — expand to 134-167 for optimal citability.
+**Homepage:** No definition-first paragraph in SSR HTML. `OwnerOperatorSection` establishes owner-operator identity well but does not open with the canonical "Beach House Moving is…" sentence that AI systems prefer for excerpt citation. 
 
-> "Do you move military families near Eglin AFB or Hurlburt Field?" → Unique, specific, high intent. **~30 words** — the best niche differentiation on the site, currently too short for citation.
-
-### Walton County Service Area Description (~195 words)
-Slightly over the optimal range but contains highly citable local specifics (Rosemary Beach, boardwalk access, stilted driveways). Already strong — trim slightly or break into two focused blocks.
-
-### Missing Definition Blocks
-
-No page on the site opens with a clean "Beach House Moving is..." definition sentence. AI systems prefer content that answers "What is X?" in the first 40–60 words. 
-
-**Recommended addition to homepage and About page:**
-
-> "Beach House Moving is a locally owned moving company serving Walton, Okaloosa, and Bay Counties on Florida's Emerald Coast. Licensed under Florida FDACS Mover Registration #IM4125 and available 24/7, the company handles residential moves, local and long-distance moves, packing, storage, delivery, and junk removal across 30A, Destin, Fort Walton Beach, Niceville, Panama City, and Panama City Beach."
-
-That block is 65 words — compact, packed with entity signals, and answers the core AI query in one passage.
+**Recommended addition** in `OwnerOperatorSection.tsx` — a visually hidden or lead-in paragraph:
+> "Beach House Moving is a locally owned, owner-operated moving company serving Walton, Okaloosa, and Bay Counties on Florida's Emerald Coast. Licensed under Florida FDACS Mover Registration #IM4125 and available 24/7, the same four-person team that owns the company handles every job — no subcontractors."
 
 ---
 
 ## Server-Side Rendering Check
 
-**Status: EXCELLENT** — Next.js App Router, all pages are Server Components by default.
+**Status: EXCELLENT — no changes required**
 
-- Layout, all page routes, service pages, county pages: Server Components ✅
-- FAQ content: `"use client"` accordion with `keepMounted={true}` — all FAQ answer text is rendered into SSR HTML even for collapsed panels ✅
-- No critical content behind client-only data fetches ✅
-- Fonts: Google Fonts loaded via `next/font` (not render-blocking) ✅
-- Analytics: GA script loaded `afterInteractive` (does not block SSR HTML) ✅
-
-AI crawlers do not execute JavaScript. The `keepMounted` prop on the `Accordion` component is the key implementation detail here — it ensures all FAQ answers are present in the initial HTML response, not just visible after JS hydration.
+- Next.js App Router, all routes are Server Components by default ✅
+- FAQ accordion content uses `keepMounted={true}` — all answers present in SSR HTML ✅
+- New neighborhood pages: Server Components ✅
+- New pricing page: Server Component ✅
+- No critical content behind client-only renders ✅
 
 ---
 
-## Schema Recommendations
+## Schema Status
 
-### Current Schema Inventory
+### Current Inventory
 
 | Schema Type | Where Used | Status |
 |-------------|-----------|--------|
-| `MovingCompany` | Sitewide (`layout.tsx`) | ✅ Good |
+| `MovingCompany` | Sitewide layout | ✅ Strong |
 | `WebSite` + `SearchAction` | Sitewide | ✅ Good |
 | `BreadcrumbList` | All interior pages | ✅ Good |
-| `FAQPage` | Home, About, all service pages, county pages | ✅ Strong |
+| `FAQPage` | Home, About, service pages, county pages | ✅ Strong |
 | `Service` | Each service detail page | ✅ Good |
-| `MovingCompany` (county scope) | Each county page | ✅ Good |
+| `MovingCompany` (county scope) | County pages | ✅ Good |
 | `AggregateRating` | Reviews page | ✅ Good |
 | `Review` (individual) | Reviews page | ✅ Good |
-| `Organization` | ❌ Not present | Gap |
-| `WebPage` / `Article` | ❌ Not present | Gap |
-| `Person` | ❌ Not present | Gap |
+| `WebPage` + `dateModified` | ❌ Not emitted | Gap — freshness signal |
+| `Organization` + `foundingDate` | ❌ Not present | Gap — entity consolidation |
+| `Person` (owner) | ❌ Not present | Gap — E-E-A-T signal |
 
 ### Recommended Additions
 
-**1. Expand `sameAs` in MovingCompany schema** (in `structured-data.ts`)
+**1. `WebPage` schema with `dateModified`** — add to `structured-data.ts`:
 
-The current `sameAs` only references Facebook and Google. Once additional profiles are claimed, add them:
+```ts
+export function webPageSchema(url: string, datePublished: string, dateModified: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    url,
+    datePublished,
+    dateModified,
+    isPartOf: { '@id': `${BUSINESS.website}/#website` },
+    about: { '@id': `${BUSINESS.website}/#business` },
+  }
+}
+```
+
+Emit from each `page.tsx` with a static `datePublished` per page and a rolling `dateModified` (or use `new Date().toISOString()`).
+
+**2. Expand `sameAs`** in `movingCompanySchema()` as new profiles are claimed:
 
 ```ts
 sameAs: [
   SOCIAL_LINKS.facebook,
   SOCIAL_LINKS.google,
-  // Add when claimed:
+  // Add once claimed:
   // 'https://www.linkedin.com/company/beach-house-moving',
   // 'https://www.yelp.com/biz/beach-house-moving',
   // 'https://www.bbb.org/...',
-  // 'https://nextdoor.com/...',
 ].filter(Boolean),
 ```
 
-**2. Add `datePublished` / `dateModified` to WebPage schema**
-
-No page currently emits freshness metadata. AI systems use recency as a trust signal.
-
-```ts
-// Add to buildMetadata() in seo.ts
-openGraph: {
-  // ...existing
-  modifiedTime: new Date().toISOString(), // or a static date per page
-}
-```
-
-Or emit a `WebPage` JSON-LD with:
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "datePublished": "2025-01-01",
-  "dateModified": "2026-06-04"
-}
-```
-
-**3. Add `Organization` schema** for entity consolidation:
-
-```json
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Beach House Moving",
-  "url": "https://beachhousemoving.xyz",
-  "foundingDate": "2025",
-  "areaServed": "Florida Panhandle",
-  "sameAs": ["...all profiles..."]
-}
-```
-
 ---
 
-## Content Reformatting Suggestions
+## Top Remaining Actions (Ranked by ROI)
 
-### Priority 1 — Expand Military Families FAQ Answer
+### Tier 1 — Code / Deploy (hours)
 
-**Current (30 words — too short for citation):**
-> "Yes. We move a lot of military families around Okaloosa County and work around PCS timelines and short-notice report dates."
+| # | Action | Effort | Impact |
+|---|--------|--------|--------|
+| 1 | **Deploy to Vercel** — `llms.txt` is committed and ready, just needs a production push | 5 min | Medium |
+| 2 | **Add `WebPage` + `dateModified` schema** to each page | 1–2 hrs | Medium (freshness signal for AI Overviews) |
+| 3 | **Expand Bay County description** to 134–167 words with local specifics | 30 min | Medium (citation depth for Bay County queries) |
+| 4 | **Add definition sentence to homepage** (`OwnerOperatorSection` lead-in) | 15 min | Low–Medium |
 
-**Recommended (~150 words — optimal citability range):**
-> "Yes. Beach House Moving works with military families near Eglin Air Force Base and Hurlburt Field in Okaloosa County regularly. Military PCS moves have unique constraints — report dates that come with two weeks' notice, strict move-out inspections, and sometimes a gap between leaving BAH housing and getting into the next place. We work around those timelines, including short-notice availability and flexible scheduling for the days leading up to a report date. We cover Niceville, Fort Walton Beach, Shalimar, and the surrounding areas near both bases. If you're PCS-ing out of the area to another duty station, we also handle long-distance moves. Call (850) 842-1962 to get a quote once your orders are confirmed — the sooner you lock in a date, the better your options."
+### Tier 2 — Off-site Profiles (hours to days)
 
-### Priority 2 — Add Definition Block to About Page
+| # | Action | Effort | Impact |
+|---|--------|--------|--------|
+| 5 | **Claim Yelp Business Profile** → update `sameAs` | 30 min | Medium (entity data feeds Bing, Apple, ChatGPT) |
+| 6 | **Claim LinkedIn Company Page** → update `sameAs` | 30 min | Medium |
+| 7 | **Submit to BBB** → update `sameAs` | 30 min | Trust signal |
+| 8 | **Nextdoor Business listing** | 30 min | High local trust for 30A community |
 
-Add as the first `<p>` inside "Our Story" section, before the existing story paragraphs:
+### Tier 3 — Long Game (days to weeks)
 
-> "Beach House Moving is a locally owned moving company serving the Florida Panhandle, licensed under Florida FDACS Mover Registration #IM4125. Founded in 2025, the company operates a three-truck fleet — box trucks and a Sprinter van — to handle moves of every size across Walton, Okaloosa, and Bay Counties. Services include residential moving, local and long-distance moving, packing and unpacking, storage, furniture delivery, and junk removal."
-
-### Priority 3 — Service Area Local Knowledge Blocks
-
-The Walton County description is already strong at ~195 words. Okaloosa (~80 words) and Bay County (~80 words) are below optimal. Both need expansion to 134–167 words with more specific local details that only an operator with real experience would know.
-
-**Okaloosa expansion template:**
-> "In Okaloosa County, Beach House Moving covers Destin, Fort Walton Beach, Niceville, Crestview, Shalimar, and the communities near Eglin Air Force Base and Hurlburt Field. We move a lot of military families on PCS orders — short-notice moves are normal for us. Destin condos on Holiday Isle or along the harbor often have underground parking and freight-elevator requirements we've already navigated. Ranch houses in Niceville are straightforward but stair carries are common. Crestview is inland and more residential — full household moves with standard access. Whatever the property type, we bring the dollies, ramps, furniture blankets, and the crew to handle it on the first visit."
-
-### Priority 4 — Add a Moving Cost Guide Page
-
-A dedicated `/moving-cost-guide` or `/how-much-does-moving-cost` page with:
-- "How much does a local move cost in Florida?" (question-form H2)
-- Hourly rate context (without specific dollar figures if not wanted)
-- Factors that affect cost (volume, floors, distance, specialty items)
-- FAQ section
-
-This page type consistently appears in Google AI Overviews for moving queries and is a high-citability format.
-
----
-
-## Top 5 Highest-Impact Changes
-
-### 1. Create `/public/llms.txt` — Effort: 15 minutes
-The template above is ready to use. Signals AI openness, aids structured content discovery by smaller AI systems.
-
-### 2. Expand FAQ Answers to 134–167 Words for Key Questions — Effort: 1–2 hours
-The military families, beach-house, and service-area FAQ answers are the site's most distinctive content. Expanding them to optimal citation length in `content.ts` requires no code changes — just copy edits to the `FAQS` array. These are the passages most likely to be cited by AI Overviews for "movers near Eglin AFB" and "30A moving company" queries.
-
-### 3. Add a Definition Block to Homepage and About Page — Effort: 30 minutes
-Add the 65-word definition passage (see Passage-Level Citability section) to `ABOUT_CONTENT.intro` in `content.ts` and render it as the first paragraph of the About page and as an `aria-label`-accessible business description on the homepage. No new components needed.
-
-### 4. Add `dateModified` to WebPage JSON-LD — Effort: 1 hour
-Create a `webPageSchema()` function in `structured-data.ts` and emit it from `buildMetadata()` or as a `<JsonLd>` in each page. Static dates per page are fine; freshness signals matter more than precision.
-
-### 5. Claim LinkedIn and Yelp Business Profiles → Update `sameAs` — Effort: 2 hours
-LinkedIn and Yelp feed into entity databases that ChatGPT, Perplexity, and Bing Copilot pull from. Once claimed, add URLs to `SOCIAL_LINKS` in `content.ts` and to the `sameAs` array in `movingCompanySchema()`. Zero code complexity once the profiles exist.
-
----
-
-## Medium-Effort Wins (1–4 hours each)
-
-- **Reddit:** Post helpful moving tips in r/Pensacola, r/DestinFL, r/PanamaCityBeach — organic brand mentions, not promotional. Reddit is Perplexity's #1 citation source (46.7%).
-- **Moving cost guide page:** Creates a high-citability, FAQ-dense page targeting "how much does moving cost in [county]" queries. Directly serves Google AI Overviews.
-- **Okaloosa + Bay County description expansion:** Bring both to 134–167 words with specific local details. Edit only `content.ts`.
-- **Explicit AI crawler rules in `robots.ts`:** Minor but signals intentionality. Template provided above.
-
-## High-Impact (Long Game)
-
-- **YouTube video:** Even a 2-minute "what to expect on moving day with Beach House Moving" video creates the single highest-correlation AI citation signal (YouTube ~0.737, Ahrefs 2025). Link back to site in description.
-- **Google Business Profile posts:** Weekly GBP posts keep the entity "active" in Google's knowledge graph. AI Overviews pull from GBP for local queries.
-- **Nextdoor business listing:** High local trust signal for the 30A/Santa Rosa Beach community specifically.
+| # | Action | Effort | Impact |
+|---|--------|--------|--------|
+| 9 | **YouTube video** — "what to expect on moving day" | 2–4 hrs | High (0.737 correlation with AI citations) |
+| 10 | **Reddit presence** — helpful posts in r/Pensacola, r/DestinFL, r/PanamaCityBeach | Ongoing | High (Perplexity #1 source at 46.7%) |
+| 11 | **GBP weekly posts** — keep entity active in Google's knowledge graph | 30 min/week | Medium–High |
 
 ---
 
 ## Summary
 
-Beach House Moving's technical foundation is strong for AI search: SSR by default, FAQPage schema properly deployed, FAQ accordion content in SSR HTML (`keepMounted`), explicit GBP + Facebook entity links, and correct robots configuration. The site is well-indexed by all major AI crawlers.
+Beach House Moving's GEO foundation is now materially stronger: robots.txt explicitly welcomes all AI crawlers, FAQ answers are at optimal citation length (134–167 words) across five key questions, the About page has a definition-first passage, and the new neighborhood pages add content density for hyper-local queries.
 
-The two structural gaps are (1) **content depth** — key FAQ answers and county descriptions are below optimal citation length, and the site lacks definition-first passages that AI systems excerpt — and (2) **off-site entity signals** — no Wikipedia, Reddit, YouTube, or LinkedIn presence, which are the dominant sources for ChatGPT and Perplexity citations.
+**The two remaining structural gaps are:**
 
-**Immediate actions with the most ROI:** expand 3–4 FAQ answers in `content.ts`, add `llms.txt`, and add the definition block to About/homepage. All are copy edits requiring no new components or schema work.
+1. **`llms.txt` needs to ship** — it exists in the repo but returns 404 on the live site. One `vercel --prod` push fixes this.
+2. **Off-site entity signals are still zero** — no Wikipedia, Reddit, YouTube, or LinkedIn presence. These are the dominant citation sources for ChatGPT (Wikipedia 47.9%, Reddit 11.3%) and Perplexity (Reddit 46.7%). This is an off-site, ongoing effort — not a code fix.
+
+The quickest remaining code win is the `WebPage`/`dateModified` schema, which costs 1–2 hours and directly improves freshness signals for Google AI Overviews.

@@ -422,10 +422,10 @@ export const REVIEWS_PAGE_META = {
     `See what customers across Walton, Okaloosa & Bay Counties say about Beach House Moving. Honest, local, fully licensed movers. FL Mover Reg. #${BUSINESS.registration.number}.`,
   path: '/reviews',
   aggregateRating: {
-    ratingValue: '5',
-    reviewCount: '5',
-    bestRating: '5',
-    worstRating: '1',
+    ratingValue: 5,
+    reviewCount: 5,
+    bestRating: 5,
+    worstRating: 1,
   },
   googleReviewLink: 'https://g.page/r/CXl8yvSwTlBcEAI/review',
 } as const

@@ -11,7 +11,7 @@ import { FAQSection } from '@/components/sections/FAQSection'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { BUSINESS, CONTACT_CONTENT, FAQS, PAGE_META } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema, faqSchema } from '@/lib/structured-data'
+import { breadcrumbSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 const contactFaqs = [FAQS[0], FAQS[5], FAQS[2]]
@@ -32,7 +32,7 @@ export default async function ContactPage() {
 
   return (
     <PageShell>
-      <JsonLd data={[breadcrumbs, faqSchema(contactFaqs)]} />
+      <JsonLd data={breadcrumbs} />
 
       <PageHero
         eyebrow={CONTACT_CONTENT.eyebrow}

@@ -77,6 +77,7 @@ export function movingCompanySchema(origin: string) {
       ratingValue: REVIEWS_PAGE_META.aggregateRating.ratingValue,
       reviewCount: REVIEWS_PAGE_META.aggregateRating.reviewCount,
       bestRating: REVIEWS_PAGE_META.aggregateRating.bestRating,
+      worstRating: REVIEWS_PAGE_META.aggregateRating.worstRating,
     },
     identifier: {
       '@type': 'PropertyValue',
@@ -116,14 +117,6 @@ export function webSiteSchema(origin: string) {
       '@type': 'MovingCompany',
       name: BUSINESS.name,
       telephone: BUSINESS.phone.e164,
-    },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: {
-        '@type': 'EntryPoint',
-        urlTemplate: `${origin}/services?q={search_term_string}`,
-      },
-      'query-input': 'required name=search_term_string',
     },
   }
 }
