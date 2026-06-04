@@ -1,326 +1,226 @@
 # Maps Intelligence Analysis — beachhousemoving.xyz
-**Date:** 2026-06-03 | **Analyst:** Claude Code seo-maps skill
+
+**Date:** 2026-06-04 | **Scope:** Full codebase + live HTTP checks | **Analyst:** Cursor (seo-maps skill, Tier 0)
 
 ---
 
-## Maps Health Score: 54/100
+## Maps Health Score: 61/100
 
 | Dimension | Score | Max | Notes |
 |-----------|------:|----:|-------|
-| GBP Completeness (inferred) | 14 | 25 | 11 fields unverifiable at Tier 0 |
-| Schema Quality | 17 | 20 | Strong; 3 missing properties |
-| Cross-Platform Presence | 7 | 20 | Google confirmed; Bing/Apple/OSM unknown/missing |
-| Review Signal | 8 | 15 | 5 reviews, 5.0 rating; velocity unknown |
-| OSM / Alternative Presence | 0 | 10 | Not listed on OpenStreetMap |
-| Sitemap & Crawlability | 7 | 10 | Good structure; dynamic lastmod is weak signal |
+| GBP Completeness (inferred) | 19 | 25 | Strong web signals; dashboard fields unverified |
+| Schema Quality | 17 | 20 | Rich sitewide + county; neighborhood/geo gaps |
+| Cross-Platform Presence | 8 | 20 | Google + Facebook confirmed; Bing/Apple/Yelp/BBB unknown |
+| Review Signal | 10 | 15 | 5 reviews @ 5.0; velocity unverified |
+| OSM / Alternative Presence | 0 | 10 | Not verified in repo |
+| Sitemap & Crawlability | 7 | 10 | 40+ URLs; static `lastModified` |
 
 ---
 
-## Capability Tier Detected: **Tier 0 (Free)**
+## Capability Tier: **Tier 0 (Free / Codebase)**
 
-DataForSEO MCP not available. Analysis uses:
-- Nominatim/OSM for competitor and NAP lookup
-- Website codebase inspection for schema analysis
-- WebFetch for live page verification
-- Direct file audit for robots/sitemap/GBP signals
+DataForSEO MCP was **not used** (subagent unavailable). Analysis combines:
 
-**What this means:** Geo-grid rank tracking, live GBP profile data, review velocity charts, and real-time competitor intelligence are unavailable. Install the DataForSEO extension (`/seo dataforseo`) to unlock Tier 1.
+- Full read of `src/lib/content.ts`, `structured-data.ts`, map components, service-area routes
+- `npm run build` route manifest (26 neighborhood SSG paths confirmed)
+- Live checks: `sitemap.xml`, homepage, `/service-areas/walton-county/seaside` → HTTP 200
 
----
-
-## 1. GBP Profile Audit (Inferred — Tier 0)
-
-These results are inferred from website signals, schema, and content.ts. Fields marked ❓ require live DataForSEO data to verify.
-
-| # | Field | Status | Notes |
-|---|-------|--------|-------|
-| 1 | Business Name | ✅ Present | "Beach House Moving" — consistent |
-| 2 | Phone | ✅ Present | (850) 842-1962 |
-| 3 | Website | ✅ Present | https://beachhousemoving.xyz |
-| 4 | Primary Category | ✅ Inferred | Moving Company (assumed) |
-| 5 | Secondary Categories | ❓ Unknown | Junk Removal, Packing Services possible |
-| 6 | Business Hours | ✅ Present | 24/7 confirmed in schema |
-| 7 | GBP Description | ❓ Unknown | Not verifiable without DataForSEO |
-| 8 | Service Area (SAB) | ✅ Inferred | 3-county SAB confirmed |
-| 9 | Photos ≥ 10 | ❓ Unknown | 12+ photos in website asset library |
-| 10 | Cover Photo | ❓ Unknown | Fleet/van imagery available |
-| 11 | Logo Uploaded | ❓ Unknown | Logos present: logo-light.png, logo-dark.png |
-| 12 | GBP Posts (last 30d) | ❓ Unknown | No visible post activity |
-| 13 | Q&A Populated | ❓ Unknown | 12 FAQs on website — good source material |
-| 14 | Reviews ≥ 5 | ✅ Present | 5 reviews, 5.0 rating |
-| 15 | Owner Response Rate | ❓ Unknown | Not verifiable at Tier 0 |
-| 16 | Services Populated | ❓ Unknown | 7 services on website |
-| 17 | Products Section | ❓ Unknown | N/A for moving company |
-| 18 | Booking/Appointment URL | ❓ Unknown | /get-a-quote could be linked |
-| 19 | GBP Short Name | ❓ Unknown | |
-| 20 | Founded Year | ✅ Present | 2025 (in About copy) |
-| 21 | License/Credentials | ✅ Inferred | FDACS #IM4125 — should be in GBP description |
-| 22 | Business Attributes | ❓ Unknown | "Veteran-owned" etc. not confirmed |
-| 23 | Accessibility Attributes | ❓ Unknown | |
-| 24 | Social Profiles Linked | ✅ Present | Facebook (@beachhousemovingfl) |
-| 25 | Service Area Cities | ✅ Inferred | schema lists all 3 counties + city array |
-
-**Inferred GBP Completeness: ~58/100** (11 fields unverifiable; confirmed fields all strong)
-
-### GBP Quick-Win Opportunities (No DataForSEO Needed)
-1. **Add /get-a-quote as booking link** in GBP → direct conversion path
-2. **Upload GBP description** using: *"Beach House Moving is a locally owned, licensed and insured moving company serving Walton, Okaloosa, and Bay Counties along Florida's Emerald Coast. We specialize in residential moving, packing, long-distance moves, and junk removal. FL Mover Reg. #IM4125. Available 24/7."* (≤750 chars)
-3. **Add secondary categories**: Junk Removal Service, Packing Service, Furniture Moving & Hauling
-4. **Upload 10+ photos**: fleet photos, team action shots, and area landmarks already in `/public/images/`
-5. **Set appointment URL**: https://beachhousemoving.xyz/get-a-quote
-6. **Populate GBP Services**: match the 7 services from content.ts with descriptions
-7. **Post weekly on GBP**: seasonal moves (summer = peak), 30A local tips, before/after jobs
+Install DataForSEO extension for Tier 1: live GBP fields, geo-grid ranks, citation NAP scan.
 
 ---
 
-## 2. Review Intelligence (Tier 0 — Limited)
+## 1. GBP Profile Audit (Inferred)
+
+| # | Field | Status | Evidence |
+|---|-------|--------|----------|
+| 1 | Business Name | ✅ | `BUSINESS.name` consistent sitewide |
+| 2 | Phone | ✅ | E.164 in schema; display format in UI |
+| 3 | Website | ✅ | `https://beachhousemoving.xyz` |
+| 4 | Primary Category | ✅ Inferred | Moving Company |
+| 5 | Secondary Categories | ❓ | Recommend Junk Removal, Packing |
+| 6 | Business Hours | ✅ | 24/7 in UI + schema |
+| 7 | GBP Description | ❓ | Suggested copy below |
+| 8 | Service Area (SAB) | ✅ | 3 counties + 26 named communities in `llms.txt` |
+| 9 | Photos ≥ 10 | ❓ | `/public/images/` has fleet/move assets |
+| 10 | Cover / Logo | ❓ | `logo-light.png`, `logo-dark.png` on site |
+| 11 | Map embed ↔ listing | ✅ | `MAP_EMBED` references place `0x2c49ab7600a457f` / Beach House Moving |
+| 12 | GBP Posts (30d) | ❓ | Not detectable |
+| 13 | Q&A | N/A | Deprecated; use site FAQ + `faqSchema` (not yet wired) |
+| 14 | Reviews ≥ 5 | ✅ | `reviewCount: 5`, rating 5.0 |
+| 15 | Owner Responses | ❓ | Check GBP dashboard |
+| 16 | Services in GBP | ❓ | Mirror 7 `SERVICES` slugs |
+| 17 | Booking URL | ⚠️ | Site has `/get-a-quote` — confirm linked in GBP |
+| 18 | License in GBP | ⚠️ | **IM4125** on site — add to GBP description |
+| 19 | Social profiles | ✅ | Facebook + Google `sameAs` |
+| 20 | Founded | ✅ | `2025` in about schema/copy |
+
+**Inferred GBP completeness: ~76%** of verifiable web-linked fields.
+
+### Suggested GBP description (≤750 chars)
+
+> Beach House Moving is a locally owned, licensed and insured moving company serving Walton, Okaloosa, and Bay Counties on Florida's Emerald Coast. Owner-operated 4-person crew on every job. Residential, local, long-distance, packing, storage, delivery, and junk removal. FL Mover Reg. #IM4125. Available 24/7. Free estimates: (850) 842-1962 · beachhousemoving.xyz
+
+---
+
+## 2. Review Intelligence
 
 | Metric | Value | Benchmark | Status |
 |--------|-------|-----------|--------|
-| Total Reviews | 5 | ≥25 for authority | ⚠️ Low |
-| Average Rating | 5.0 | ≥4.5 | ✅ |
-| Reviews with Text | 4/5 (80%) | ≥60% | ✅ |
-| Review Span | 2025–2026 | Ongoing | ✅ |
-| Cross-Platform Reviews | Google only | Multi-platform preferred | ⚠️ |
+| Total reviews (site) | 5 | ≥10 local pack | ⚠️ Below pack threshold |
+| Average rating | 5.0 | ≥4.5 consumer trust | ✅ |
+| Written reviews | 4/5 | — | ✅ |
+| Schema `aggregateRating` | Sitewide + `/reviews` | Page-specific preferred | ⚠️ |
+| Review link | `g.page/.../review` | — | ✅ |
+| Velocity | Unknown | New review ≤18 days | ❓ Monitor in GBP |
 
-### Review Velocity — 18-Day Rule (Sterling Sky)
-**Cannot verify review cadence without DataForSEO.** At 5 total reviews, any gap >18 days between new reviews is a ranking risk. With the business established in 2025, accelerating review acquisition is the single highest-ROI local SEO action available.
-
-**Review acquisition targets:**
-- Short-term goal: 25 reviews (authority threshold)
-- Medium-term goal: 50 reviews (local pack competitive threshold in this market)
-- Cadence target: ≥1 new review every 18 days minimum
-
-### Fake Review Signals
-No suspicious patterns detected in the 5 testimonials in content.ts:
-- Reviewer names are distinct
-- Review text is specific and varied
-- Timeline appears natural (2025–2026)
-- No velocity spike patterns visible
+**Testimonials on homepage:** `FLAGS.SHOW_TESTIMONIALS: true` — social proof visible above fold on `/`.
 
 ---
 
-## 3. Cross-Platform NAP Verification
+## 3. Schema & Maps Parsing
 
-| Platform | Status | Name | Phone | Address | Action |
-|----------|--------|------|-------|---------|--------|
-| **Google** | ✅ Active | Beach House Moving | (850) 842-1962 | SAB (area) | Maintain |
-| **Bing Places** | ❓ Unverified | Unknown | Unknown | Unknown | Claim & verify |
-| **Apple Maps** | ❓ Unverified | Unknown | Unknown | Unknown | Claim at businessconnect.apple.com |
-| **OpenStreetMap** | ❌ Not Listed | — | — | — | Add listing |
-| **Website Schema** | ✅ Consistent | Beach House Moving | +18508421962 | SAB-safe | ✅ |
+### Sitewide (`movingCompanySchema`)
 
-### NAP Consistency Assessment
-- **Google ↔ Website:** ✅ Exact match — name, phone, and SAB approach all consistent
-- **Bing ↔ Google:** ❓ Unknown — BingSiteAuth.xml is deployed, but Bing Places listing status unconfirmed
-- **Apple ↔ Google:** ❓ Unknown — no Apple Business Connect record found
-- **OSM ↔ Google:** ❌ Not listed — zero results in Nominatim for "Beach House Moving" in Santa Rosa Beach
+- **Types:** `MovingCompany`, `HomeAndConstructionBusiness` ✅
+- **`areaServed`:** 3 `AdministrativeArea` + 20+ `City` entities ✅
+- **`geo`:** 5 decimal places via `toFixed(5)` ✅
+- **`sameAs`:** Facebook + Google g.page ✅
+- **`aggregateRating`:** Present sitewide ⚠️ (see local SEO report)
+- **SAB address:** Locality/region/ZIP only — no `streetAddress` ✅
 
-**Priority: Claim Bing Places and Apple Business Connect.** Both are free and Bing Copilot (AI search) and Apple Intelligence draw from these sources.
+### County pages (`countyAreaSchema`)
 
----
+- Per-county `@id`, `branchOf` → `/#business` ✅
+- Scoped `areaServed` per county ✅
 
-## 4. Competitor Landscape (Tier 0 — Inferred)
+### Neighborhood pages (inline schema)
 
-OSM/Overpass returned zero results for moving companies in the Florida Panhandle area — the local OSM dataset is sparse for this industry. Competitor data is inferred from market knowledge.
-
-### Known Competitive Landscape (Florida Panhandle Moving Market)
-| Competitor Type | Presence | Threat Level |
-|----------------|----------|--------------|
-| Two Men and a Truck (franchise) | Likely in Destin/FWB | High — national brand, GBP authority |
-| College Hunks Hauling Junk | Regional franchises | Medium — overlaps junk removal |
-| 1-800-Pack-Rat / PODS | Storage/moving hybrid | Low — different model |
-| Independent locals (30A) | Multiple small operators | Medium — same SAB model |
-
-**Note:** Run `/seo dataforseo` geo-grid analysis with keywords "movers Santa Rosa Beach FL", "moving company Destin FL", and "junk removal 30A" to get live competitive rank data.
-
-### Competitive Density Estimate
-The Florida Panhandle (especially 30A/Destin) has a **moderate competitive density** for moving companies, with franchise operators in Destin/Fort Walton Beach and fewer local SAB operators focused on 30A. Beach House Moving's hyperlocal 30A positioning and 24/7 availability are genuine differentiators.
+| Property | Status |
+|----------|--------|
+| `branchOf` | ✅ |
+| `areaServed` City + AdministrativeArea | ✅ |
+| `geo` | ⚠️ 3-decimal lat/lng (should match 5-decimal sitewide) |
+| `BreadcrumbList` | ✅ 4-level |
+| `Service.description` | ❌ Missing |
+| `FAQPage` | ❌ Not emitted despite on-page FAQs |
 
 ---
 
-## 5. Schema Quality Audit
+## 4. Map Embed Analysis
 
-Schema.org structured data is generated from `src/lib/structured-data.ts`.
-
-### What's Implemented ✅
-| Schema Type | Pages | Status |
-|------------|-------|--------|
-| `MovingCompany` | All pages (root layout) | ✅ Sitewide |
-| `WebSite` + `SearchAction` | All pages | ✅ Good |
-| `AggregateRating` | All pages + /reviews | ✅ Good |
-| `FAQPage` | Service + area pages | ✅ Good |
-| `Service` | Each service page | ✅ Good |
-| `BreadcrumbList` | Multi-level pages | ✅ Available |
-| `Review` (individual) | /reviews | ✅ Present |
-| `sameAs` (Facebook + Google) | Root schema | ✅ Good |
-| `identifier` (FDACS #IM4125) | Root schema | ✅ Unique signal |
-| `openingHoursSpecification` | Root schema | ✅ 24/7 all days |
-
-### What's Missing ⚠️
-
-**1. No `description` in root MovingCompany schema** (High)
-```json
-"description": "Locally owned, fully licensed moving company serving Walton, Okaloosa, and Bay Counties on Florida's Emerald Coast. Residential moving, packing, long-distance moves, and junk removal. FL Mover Reg. #IM4125."
+```614:618:src/lib/content.ts
+export const MAP_EMBED = {
+  src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1535152.0556600732!2d-87.45865950746075!3d29.580061863225904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c49ab7600a457f%3A0x5c504eb0f4ca7c79!2sBeach%20House%20Moving!5e0!3m2!1sen!2sus!4v1780542136877!5m2!1sen!2sus',
+  title: 'Beach House Moving service area map — Walton, Okaloosa & Bay Counties, Florida',
+} as const
 ```
 
-**2. No `hasMap` property** (Medium) — links schema to GBP listing
-```json
-"hasMap": "https://share.google/IDGDHjZnsKihpWaCu"
-```
+| Check | Result |
+|-------|--------|
+| Place name in embed URL | ✅ `Beach%20House%20Moving` |
+| Place ID fragment | ✅ `0x2c49ab7600a457f` |
+| Lazy loading | ✅ `loading="lazy"` on iframe |
+| Used on contact | ✅ |
+| Used on service-areas hub | ✅ |
+| SAB street pin suppressed in UI | ✅ (embed shows business listing, not mailed street in copy) |
 
-**3. No `contactPoint`** (Medium) — helps voice search and AI assistants
-```json
-"contactPoint": {
-  "@type": "ContactPoint",
-  "telephone": "+18508421962",
-  "contactType": "customer service",
-  "availableLanguage": "English",
-  "hoursAvailable": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens": "00:00",
-    "closes": "23:59"
-  }
-}
-```
-
-**4. `@type` not enriched as array** (Low) — `MovingCompany` is a subtype, but adding the parent helps breadth
-```json
-"@type": ["MovingCompany", "HomeAndConstructionBusiness"]
-```
-
-**5. `junk-removal` sitemap priority at 0.7 vs 0.9 for other services** (Low) — junk removal is a growing revenue service that deserves equal crawl priority
-
-**6. `reviewCount: "5"` in aggregateRating is low** — Google treats review count as a trust signal. Keep this number accurate as reviews grow.
+**Improvement:** Consider a **service-area polygon** or multi-pin embed only if GBP supports it for SAB; current single-place embed is appropriate for a verified listing.
 
 ---
 
-## 6. OSM / OpenStreetMap Listing
+## 5. Cross-Platform NAP Matrix
 
-**Status: NOT LISTED** ❌
+| Platform | On-site signal | Action |
+|----------|----------------|--------|
+| Google Business Profile | ✅ g.page + embed + review link | Optimize dashboard (services, booking URL, photos) |
+| Facebook | ✅ `facebook.com/beachhousemovingfl` | Keep NAP consistent |
+| Bing Places | ⚠️ `BingSiteAuth.xml` only | **Claim & verify** — critical for ChatGPT |
+| Apple Business Connect | ❓ | **Claim** (27% usage growth, BrightLocal 2026) |
+| Yelp | ❓ | Create listing — AI local source |
+| BBB | ❓ | Create listing — verification + AI source |
+| OpenStreetMap | ❓ Not in repo | Optional Nominatim check |
 
-OpenStreetMap has no record of Beach House Moving in Santa Rosa Beach, FL. As a SAB, you can add a node with:
-- `name=Beach House Moving`
-- `shop=moving_company` (or `office=moving_company`)
-- `addr:city=Santa Rosa Beach`
-- `addr:state=FL`
-- `addr:postcode=32459`
-- `phone=+18508421962`
-- `website=https://beachhousemoving.xyz`
-- `opening_hours=24/7`
-
-OSM data feeds Apple Maps, many AI datasets, and dozens of mapping applications. Adding a listing here costs 10 minutes and improves cross-platform coverage at zero cost.
-
-**How to add:** Create a free account at openstreetmap.org → Edit → Add Point → set tags above. For SABs, use approximate city-center coordinates, not your home address.
+**Public NAP rule maintained:** Name + Phone + Service Area only in UI.
 
 ---
 
-## 7. IndexNow Status
+## 6. Geo-Grid & Competitor Intelligence
+
+**Not available at Tier 0.** Requires DataForSEO `google_local_pack_serp` or manual grid tool.
+
+**Competitor set to track (suggested):** other “movers” / “moving company” results for:
+
+- `movers santa rosa beach fl`
+- `movers 30a fl`
+- `movers destin fl`
+- `movers panama city beach fl`
+
+---
+
+## 7. Programmatic Location Pages (26 neighborhoods)
+
+Build output confirms SSG paths, e.g.:
+
+- `/service-areas/walton-county/seaside`
+- `/service-areas/walton-county/30a`
+- `/service-areas/okaloosa-county/destin`
+- `/service-areas/bay-county/panama-city-beach`
+- … +22 more
+
+| Quality gate | Assessment |
+|--------------|------------|
+| Unique intros | ✅ Per `NEIGHBORHOODS[].intro` |
+| Local landmarks | ✅ Per page |
+| Conditional services | ✅ Luxury/condo/military routing |
+| Image deduplication | ⚠️ Several shared assets |
+| Crawl discovery | ✅ Hub index + county cards + sitemap |
+
+**Risk level:** Low–medium (26 pages, strong differentiation; watch image/template sameness).
+
+---
+
+## 8. Technical Maps / Crawl Signals
 
 | Item | Status |
 |------|--------|
-| Key file (`11781a711fe74e7d385896e222cbd2ad.txt`) | ✅ Deployed in `public/` |
-| Bing Webmaster auth (`BingSiteAuth.xml`) | ✅ Deployed |
-| Yandex verification (`yandex_04fafec4cd60840b.html`) | ✅ Deployed |
-| Auto-ping on publish/deploy | ❌ Not implemented |
-
-The IndexNow key file is correctly deployed, but there is no API route or webhook that auto-pings IndexNow when content changes are deployed. Consider adding an IndexNow ping to your CI/CD or Vercel deploy hook. All three major IndexNow participants (Bing, Yandex, Seznam) would be notified on every deploy.
-
----
-
-## 8. Sitemap Assessment
-
-17 URLs total — well-structured for a new local business site.
-
-| Issue | Severity |
-|-------|----------|
-| All `lastModified` dates are dynamic (set to `new Date()` on every build) | Medium |
-| `junk-removal` priority 0.7 vs 0.9 for peer services | Low |
-| `/reviews` at 0.8 — appropriate but could be higher for social proof | Low |
-
-**Dynamic lastmod fix:** Replace `new Date()` with hard-coded ISO dates or derive from content change timestamps, so Google can determine actual freshness rather than seeing every URL as "modified today" on every deploy.
+| `sitemap.xml` | ✅ HTTP 200 |
+| `robots.txt` + `host` | ✅ Apex canonical |
+| IndexNow key file | ✅ `public/11781a711fe74e7d385896e222cbd2ad.txt` |
+| `llms.txt` | ✅ Service area + communities listed |
+| `manifest.webmanifest` | ✅ Built |
+| Static `lastModified` in sitemap | ⚠️ All `2026-06-04` — weak change signal |
 
 ---
 
-## Top 10 Prioritized Actions
+## Top 10 Maps Priorities
 
-| # | Priority | Action | Effort | Impact |
-|---|----------|--------|--------|--------|
-| 1 | 🔴 Critical | Add business to OpenStreetMap with SAB-safe tags (city only, no street) | 15 min | Cross-platform presence, Apple Maps feed, AI datasets |
-| 2 | 🔴 Critical | Claim and verify Bing Places listing (BingSiteAuth.xml is ready) | 30 min | Bing Maps + Bing Copilot AI visibility |
-| 3 | 🟠 High | Claim Apple Business Connect at businessconnect.apple.com | 30 min | Apple Maps, Siri, Apple Intelligence |
-| 4 | 🟠 High | Add `description`, `hasMap`, and `contactPoint` to root MovingCompany schema | 20 min | Rich result eligibility, AI assistant responses |
-| 5 | 🟠 High | Set booking URL in GBP to https://beachhousemoving.xyz/get-a-quote | 5 min | Direct CTA in Maps listing |
-| 6 | 🟠 High | Grow reviews to 25+ at ≤18-day cadence — send post-move follow-up text with Google review link | Ongoing | Local pack ranking threshold |
-| 7 | 🟡 Medium | Populate GBP description, secondary categories (Junk Removal, Packing Service), and services | 45 min | GBP completeness score, category matching |
-| 8 | 🟡 Medium | Upload 10+ photos to GBP: fleet exterior, team action, 30A/beach context | 30 min | GBP quality score, visual trust |
-| 9 | 🟡 Medium | Implement IndexNow auto-ping on Vercel deploy | 1 hr | Bing/Yandex index freshness |
-| 10 | 🟢 Low | Fix sitemap `lastModified` to use real content timestamps instead of `new Date()` | 30 min | Crawl budget efficiency |
-
----
-
-## Schema Code Recommendations
-
-### Add to `movingCompanySchema()` in `src/lib/structured-data.ts`
-
-```typescript
-// Add these properties to the returned object:
-
-description: 'Locally owned, fully licensed moving company serving Walton, Okaloosa, and Bay Counties on Florida\'s Emerald Coast. Residential moving, packing, long-distance moves, and junk removal. FL Mover Reg. #IM4125.',
-
-hasMap: SOCIAL_LINKS.google,
-
-contactPoint: {
-  '@type': 'ContactPoint',
-  telephone: BUSINESS.phone.e164,
-  contactType: 'customer service',
-  availableLanguage: 'English',
-  hoursAvailable: {
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: [...DAYS_OF_WEEK],
-    opens: '00:00',
-    closes: '23:59',
-  },
-},
-```
-
-Change `@type`:
-```typescript
-// Before:
-'@type': 'MovingCompany',
-// After:
-'@type': ['MovingCompany', 'HomeAndConstructionBusiness'],
-```
-
----
-
-## Cost Report
-
-No DataForSEO credits consumed (Tier 0 analysis — free APIs only).
+| # | Priority | Action |
+|---|----------|--------|
+| 1 | **Critical** | GBP: link **appointment URL** → `/get-a-quote` |
+| 2 | **Critical** | Bing Places + Apple Business Connect claim (NAP match) |
+| 3 | **High** | Review cadence: 18-day minimum new Google review |
+| 4 | **High** | GBP secondary categories + populated **Services** list |
+| 5 | **High** | Upload **10+ GBP photos** from `/public/images/` fleet/move set |
+| 6 | **Medium** | Yelp + BBB listings (AI citation sources) |
+| 7 | **Medium** | Fix neighborhood `geo` to 5-decimal; enrich `Service` JSON-LD |
+| 8 | **Medium** | Emit `FAQPage` schema on FAQ-bearing pages |
+| 9 | **Low** | Tier 1 geo-grid baseline (Destin, 30A, PCB keywords) |
+| 10 | **Low** | OSM/Nominatim presence check for NAP |
 
 ---
 
 ## Limitations Disclaimer
 
-This is a **Tier 0 analysis** using free data sources only. The following could NOT be assessed:
+Cannot verify without paid/live APIs:
 
-- **Geo-grid rank tracking** — requires DataForSEO (`/seo dataforseo`)
-- **Live GBP profile field verification** — 11 of 25 GBP fields unverifiable
-- **Review velocity and cadence** — timing gaps between reviews unknown
-- **Owner response rate** — unknown
-- **GBP post activity** — unknown
-- **Competitor ranking data** — Overpass returned no moving companies in OSM for this area
-- **Bing Places live listing status** — Bing Maps API not available
-- **Apple Maps listing status** — no public API
+- Exact GBP category set, photo count, post frequency
+- Share of Local Voice / geo-grid ranks
+- Review velocity chart
+- Competitor radius mapping
+- Automated multi-directory NAP diff
 
-For a full-fidelity analysis with live data, install DataForSEO extension and re-run `/seo maps`.
+**Unlock:** DataForSEO MCP (`local_business_data`, `business_listings`, `google_local_pack_serp`).
 
 ---
 
-## Cross-Skill Recommendations
-
-- **Website on-page local signals:** `/seo local https://beachhousemoving.xyz`
-- **AI search visibility (ChatGPT, Perplexity, Bing Copilot):** `/seo geo https://beachhousemoving.xyz`
-- **Schema validation and rich result testing:** `/seo schema https://beachhousemoving.xyz`
-- **Live SERP competitor data:** `/seo dataforseo`
+*Paired report: `LOCAL-SEO-ANALYSIS-beachhousemoving.xyz.md` · Codebase: `/home/angsec/Projects/beach-house-moving`*

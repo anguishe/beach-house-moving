@@ -42,6 +42,13 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+      <head>
+        <Script
+          src="https://analytics.ahrefs.com/analytics.js"
+          data-key="j2BL/k+yqwVjkOmeUgLn+A"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className={`${playfair.variable} ${inter.variable} font-body antialiased pt-0`}>
         {GA_ID && (
           <>
