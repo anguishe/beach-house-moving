@@ -10,7 +10,7 @@ import { QuoteForm } from '@/components/forms/QuoteForm'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { BUSINESS, PAGE_META } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, contactPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -29,7 +29,7 @@ export default async function GetAQuotePage() {
 
   return (
     <PageShell>
-      <JsonLd data={breadcrumbs} />
+      <JsonLd data={[breadcrumbs, contactPageSchema('/get-a-quote', 'Get a Free Moving Quote', origin.origin)]} />
 
       <PageHero
         eyebrow="Free Estimates · No Obligation"

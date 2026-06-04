@@ -18,7 +18,7 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { BUSINESS, PAGE_META, SERVICES, SERVICES_HUB } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { SERVICE_IMAGE_MAP } from '@/lib/service-images'
-import { breadcrumbSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, servicesItemListSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 const serviceIconMap = {
@@ -46,7 +46,7 @@ export default async function ServicesPage() {
 
   return (
     <PageShell>
-      <JsonLd data={breadcrumbs} />
+      <JsonLd data={[breadcrumbs, servicesItemListSchema(origin.origin)]} />
       <PageHero
         eyebrow={SERVICES_HUB.eyebrow}
         title={SERVICES_HUB.headline}

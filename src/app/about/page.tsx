@@ -10,7 +10,7 @@ import { FAQSection } from '@/components/sections/FAQSection'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { ABOUT_CONTENT, BUSINESS, FAQS, IMAGES } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema } from '@/lib/structured-data'
+import { aboutPageSchema, breadcrumbSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 const aboutFaqs = [FAQS[0], FAQS[1], FAQS[5]]
@@ -35,7 +35,7 @@ export default async function AboutPage() {
 
   return (
     <PageShell>
-      <JsonLd data={breadcrumbs} />
+      <JsonLd data={[breadcrumbs, aboutPageSchema(origin.origin)]} />
 
       {/* Direct-answer paragraph — AEO */}
       <div className="bg-brand-sand px-6 py-6">

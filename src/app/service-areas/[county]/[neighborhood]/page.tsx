@@ -111,23 +111,6 @@ export default async function NeighborhoodPage({ params }: PageProps) {
     answer: `Yes — Beach House Moving serves ${nb.name} and surrounding ${nb.county}. We are locally owned, owner-operated, and licensed under Florida Mover Reg. #${BUSINESS.registration.number}. Call ${BUSINESS.phone.display} for a free quote.`,
   }
 
-  const localFaqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: directFaq.question,
-        acceptedAnswer: { '@type': 'Answer', text: directFaq.answer },
-      },
-      {
-        '@type': 'Question',
-        name: altFaq.q,
-        acceptedAnswer: { '@type': 'Answer', text: altFaq.a },
-      },
-    ],
-  }
-
   const businessSchema = {
     '@context': 'https://schema.org',
     '@type': ['MovingCompany', 'LocalBusiness'],
@@ -175,7 +158,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
 
   return (
     <PageShell>
-      <JsonLd data={[businessSchema, serviceSchema, breadcrumbSchema, localFaqSchema]} />
+      <JsonLd data={[businessSchema, serviceSchema, breadcrumbSchema]} />
 
       {/* Direct-answer paragraph — AEO */}
       <div className="bg-brand-sand px-6 py-6">

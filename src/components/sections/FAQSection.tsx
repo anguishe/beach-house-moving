@@ -1,4 +1,3 @@
-import { JsonLd } from '@/components/seo/JsonLd'
 import {
   Accordion,
   AccordionContent,
@@ -6,7 +5,6 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { FAQS } from '@/lib/content'
-import { faqSchema } from '@/lib/structured-data'
 
 type Faq = (typeof FAQS)[number]
 
@@ -22,8 +20,6 @@ export function FAQSection({ faqs = FAQS, className }: FAQSectionProps) {
       aria-labelledby="faq-heading"
       className={`bg-brand-sand px-6 py-20 md:py-24 ${className ?? ''}`}
     >
-      <JsonLd data={faqSchema(faqs)} />
-
       <div className="mx-auto max-w-3xl">
         <div className="mb-10 text-center">
           <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-coral">

@@ -63,7 +63,7 @@ export const LICENSE_DISPLAY = {
 export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/beachhousemovingfl/',
   facebookHandle: '@beachhousemovingfl',
-  google: 'https://share.google/IDGDHjZnsKihpWaCu',
+  google: 'https://g.page/r/CXl8yvSwTlBcEAI',
   leaveGoogleReviewLabel: '⭐ Leave us a Google review',
 } as const
 

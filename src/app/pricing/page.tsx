@@ -77,19 +77,9 @@ export default async function PricingPage() {
   ])
   const pricingFaqs = FAQS.filter((f) => pricingFaqQuestions.has(f.q))
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: pricingFaqs.map((faq) => ({
-      '@type': 'Question' as const,
-      name: faq.q,
-      acceptedAnswer: { '@type': 'Answer' as const, text: faq.a },
-    })),
-  }
-
   return (
     <PageShell>
-      <JsonLd data={[breadcrumbs, faqSchema]} />
+      <JsonLd data={breadcrumbs} />
 
       <section className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-4xl">

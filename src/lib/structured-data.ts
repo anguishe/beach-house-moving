@@ -258,6 +258,62 @@ export function reviewsAggregateRatingSchema() {
   }
 }
 
+/** AboutPage + Organization schema for /about — E-E-A-T signal. */
+export function aboutPageSchema(origin: string) {
+  const base = origin.replace(/\/$/, '')
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': `${base}/about`,
+    name: `About ${BUSINESS.name}`,
+    url: `${base}/about`,
+    mainEntity: {
+      '@type': 'MovingCompany',
+      '@id': `${base}/#business`,
+      name: BUSINESS.name,
+      foundingDate: '2025',
+      numberOfEmployees: {
+        '@type': 'QuantitativeValue',
+        value: BUSINESS.teamSize,
+      },
+      description: `Owner-operated moving company on Florida's Emerald Coast. Licensed FL Mover Reg. #${BUSINESS.registration.number}, fully insured, available 24/7.`,
+    },
+  }
+}
+
+/** ContactPage WebPage schema for /contact and /get-a-quote. */
+export function contactPageSchema(pagePath: string, pageName: string, origin: string) {
+  const base = origin.replace(/\/$/, '')
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': `${base}${pagePath}`,
+    name: pageName,
+    url: `${base}${pagePath}`,
+    mainEntity: { '@id': `${base}/#business` },
+  }
+}
+
+/** ItemList schema for the /services hub page. */
+export function servicesItemListSchema(origin: string) {
+  const base = origin.replace(/\/$/, '')
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: `${BUSINESS.name} Services`,
+    url: `${base}/services`,
+    itemListElement: SERVICES.map((service, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: service.title,
+      url: absoluteUrl(base, `/services/${service.slug}`),
+    })),
+  }
+}
+
 /** Individual Review JSON-LD for testimonials with written text. */
 export function reviewsWithTextSchema() {
   return TESTIMONIALS.filter((t) => t.text !== null).map((t) => ({
