@@ -2,7 +2,22 @@
   "permissions": {
     "allow": [
       "WebFetch(domain:beachhousemoving.xyz)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "Bash(ls /home/angsec/.claude/skills/seo-maps/references/)",
+      "Read(//home/angsec/.claude/skills/seo-maps/**)",
+      "Bash(curl -s \"https://nominatim.openstreetmap.org/search?q=Santa+Rosa+Beach+Florida&format=json&limit=1\" -H \"User-Agent: BeachHouseMovingSEOAudit/1.0 \\(anguisheh1@gmail.com\\)\")",
+      "Bash(curl -s \"https://nominatim.openstreetmap.org/search?q=Beach+House+Moving+Santa+Rosa+Beach+Florida&format=json&limit=3\" -H \"User-Agent: BeachHouseMovingSEOAudit/1.0 \\(anguisheh1@gmail.com\\)\")",
+      "Bash(curl -s --data-urlencode 'data=[out:json][timeout:30];\\(node[\"shop\"=\"moving_company\"]\\(around:100000,30.396,-86.2288\\);way[\"shop\"=\"moving_company\"]\\(around:100000,30.396,-86.2288\\);node[\"office\"=\"moving_company\"]\\(around:100000,30.396,-86.2288\\);node[\"amenity\"=\"moving_company\"]\\(around:100000,30.396,-86.2288\\);\\);out body;' \"https://overpass-api.de/api/interpreter\" -H \"User-Agent: BeachHouseMovingSEOAudit/1.0\")",
+      "Bash(curl -s --data-urlencode 'data=[out:json][timeout:30];\\(node[\"name\"~\"moving\",i][\"amenity\"!=\"parking\"]\\(around:80000,30.396,-86.2288\\);node[\"name\"~\"movers\",i][\"amenity\"!=\"parking\"]\\(around:80000,30.396,-86.2288\\);\\);out body;' \"https://overpass-api.de/api/interpreter\" -H \"User-Agent: BeachHouseMovingSEOAudit/1.0\")",
+      "Bash(curl -s --data-urlencode 'data=[out:json][timeout:25];node[\"name\"~\"moving\",i]\\(30.0,-87.0,31.0,-85.5\\);out body;' \"https://overpass-api.de/api/interpreter\" -H \"User-Agent: BeachHouseMovingSEOAudit/1.0\")",
+      "WebFetch(domain:www.bing.com)",
+      "WebFetch(domain:www.bingplaces.com)",
+      "Bash(python3)",
+      "Bash(mkdir -p /home/angsec/Projects/beach-house-moving/src/app/service-areas/\\\\[county\\\\]/\\\\[neighborhood\\\\])",
+      "Bash(npx tsc *)"
+    ],
+    "additionalDirectories": [
+      "/home/angsec/Projects/beach-house-moving/src/app/service-areas/[county]"
     ]
   }
 }

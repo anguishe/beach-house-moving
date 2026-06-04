@@ -2,6 +2,7 @@ import { CTABanner } from '@/components/sections/CTABanner'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { GalleryStrip } from '@/components/sections/GalleryStrip'
 import HeroSection from '@/components/sections/HeroSection'
+import { OwnerOperatorSection } from '@/components/sections/OwnerOperatorSection'
 import { QuoteFormSection } from '@/components/sections/QuoteFormSection'
 import { ServiceAreaSection } from '@/components/sections/ServiceAreaSection'
 import { ServicesSection } from '@/components/sections/ServicesSection'
@@ -16,6 +17,7 @@ export default function HomePage() {
         <HeroSection />
         <TrustSection />
         <ServicesSection />
+        <OwnerOperatorSection />
         <ServiceAreaSection />
         <GalleryStrip />
         <TestimonialsSection />

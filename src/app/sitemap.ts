@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-import { SERVICE_AREAS, SERVICES } from '@/lib/content'
+import { NEIGHBORHOODS, SERVICE_AREAS, SERVICES } from '@/lib/content'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -10,43 +10,49 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${base}/`,
-      lastModified: new Date(),
+      lastModified: '2026-06-04',
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${base}/services`,
-      lastModified: new Date(),
+      lastModified: '2026-06-04',
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${base}/service-areas`,
-      lastModified: new Date(),
+      lastModified: '2026-06-04',
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
       url: `${base}/about`,
-      lastModified: new Date(),
+      lastModified: '2026-06-04',
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${base}/contact`,
-      lastModified: new Date(),
+      lastModified: '2026-06-04',
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${base}/get-a-quote`,
-      lastModified: new Date(),
+      lastModified: '2026-06-04',
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
       url: `${base}/reviews`,
-      lastModified: new Date(),
+      lastModified: '2026-06-04',
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${base}/pricing`,
+      lastModified: '2026-06-04',
       changeFrequency: 'monthly',
       priority: 0.8,
     },
@@ -54,17 +60,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({
     url: `${base}/services/${service.slug}`,
-    lastModified: new Date(),
+    lastModified: '2026-06-04',
     changeFrequency: 'monthly',
     priority: service.slug === 'junk-removal' ? 0.7 : 0.9,
   }))
 
   const areaRoutes: MetadataRoute.Sitemap = SERVICE_AREAS.map((area) => ({
     url: `${base}/service-areas/${area.slug}`,
-    lastModified: new Date(),
+    lastModified: '2026-06-04',
     changeFrequency: 'monthly',
     priority: 0.9,
   }))
 
-  return [...staticRoutes, ...serviceRoutes, ...areaRoutes]
+  const neighborhoodRoutes: MetadataRoute.Sitemap = NEIGHBORHOODS.map((nb) => {
+    const area = SERVICE_AREAS.find((sa) => sa.county === nb.county)
+    return {
+      url: `${base}/service-areas/${area?.slug ?? 'walton-county'}/${nb.slug}`,
+      lastModified: '2026-06-04',
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    }
+  })
+
+  return [...staticRoutes, ...serviceRoutes, ...areaRoutes, ...neighborhoodRoutes]
 }

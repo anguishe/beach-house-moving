@@ -40,6 +40,15 @@ export default async function ContactPage() {
         description={CONTACT_CONTENT.intro}
       />
 
+      <div className="bg-brand-sand px-6 py-6">
+        <div className="mx-auto max-w-4xl">
+          <p className="font-body text-base leading-relaxed text-ink-muted">
+            The fastest way to reach Beach House Moving is a phone call to {BUSINESS.phone.display} — a
+            real person answers, day or night. You can also submit a quote request using the form below.
+          </p>
+        </div>
+      </div>
+
       <section className="px-6 py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
           <Breadcrumbs

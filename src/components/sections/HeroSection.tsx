@@ -6,6 +6,7 @@ import Link from 'next/link'
 import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { Phone, ChevronDown, ShieldCheck, Heart, DollarSign, Clock } from 'lucide-react'
 import { BUSINESS, HERO_CONTENT, IMAGES, LICENSE_DISPLAY, TRUST_BADGES } from '@/lib/content'
+// ownerStatement used below trust badges
 import { trackPhoneClick } from '@/lib/gtag'
 import { fadeUpVariants } from '@/lib/motion'
 
@@ -124,6 +125,13 @@ export default function HeroSection() {
               </span>
             ))}
           </motion.div>
+
+          <motion.p
+            {...fadeUp(0.85)}
+            className="mt-4 font-body text-xs font-medium text-brand-teal"
+          >
+            {BUSINESS.ownerStatement}
+          </motion.p>
         </div>
       </div>
 

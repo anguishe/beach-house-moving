@@ -9,7 +9,7 @@ import { PageHero } from '@/components/layout/PageHero'
 import { PageShell } from '@/components/layout/PageShell'
 import { ServiceAreaMap } from '@/components/layout/ServiceAreaMap'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { BUSINESS, PAGE_META, SERVICE_AREAS, SERVICE_AREAS_HUB } from '@/lib/content'
+import { BUSINESS, NEIGHBORHOODS, PAGE_META, SERVICE_AREAS, SERVICE_AREAS_HUB } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { breadcrumbSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
@@ -122,6 +122,35 @@ export default async function ServiceAreasPage() {
               <Phone className="size-4" aria-hidden />
               Call {BUSINESS.phone.display}
             </TrackedPhoneLink>
+          </div>
+
+          {/* Neighborhood index — crawlable link to every neighborhood page */}
+          <div className="mt-16">
+            <h2 className="mb-8 font-heading text-2xl font-bold text-brand-navy">
+              All Communities We Serve
+            </h2>
+            {SERVICE_AREAS.map((area) => {
+              const areaNeighborhoods = NEIGHBORHOODS.filter((nb) => nb.county === area.county)
+              if (areaNeighborhoods.length === 0) return null
+              return (
+                <div key={area.slug} className="mb-8">
+                  <h3 className="mb-3 font-heading text-lg font-semibold text-brand-navy">
+                    {area.county}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {areaNeighborhoods.map((nb) => (
+                      <Link
+                        key={nb.slug}
+                        href={`/service-areas/${area.slug}/${nb.slug}`}
+                        className="rounded-full bg-brand-sand px-4 py-1.5 font-body text-sm font-medium text-brand-navy transition-colors hover:bg-brand-teal hover:text-white"
+                      >
+                        {nb.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

@@ -16,10 +16,11 @@ import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageHero } from '@/components/layout/PageHero'
 import { PageShell } from '@/components/layout/PageShell'
+import { FAQSection } from '@/components/sections/FAQSection'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { BUSINESS, SERVICE_AREAS, SERVICES } from '@/lib/content'
+import { BUSINESS, FAQS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema, countyAreaSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, countyAreaSchema, faqSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 const serviceIconMap = {
@@ -67,9 +68,12 @@ export default async function CountyPage({ params }: PageProps) {
     origin.origin,
   )
 
+  const countyNeighborhoods = NEIGHBORHOODS.filter((nb) => nb.county === area.county)
+  const countyFaqs = [FAQS[0], FAQS[1], FAQS[2], FAQS[5]]
+
   return (
     <PageShell>
-      <JsonLd data={[breadcrumbs, ...countyAreaSchema(area, origin.origin)]} />
+      <JsonLd data={[breadcrumbs, ...countyAreaSchema(area, origin.origin), faqSchema(countyFaqs)]} />
 
       <PageHero
         title={`Movers in ${area.county}`}
@@ -131,6 +135,41 @@ export default async function CountyPage({ params }: PageProps) {
           </div>
         </div>
       </section>
+
+      {countyNeighborhoods.length > 0 && (
+        <section className="bg-brand-sand px-6 py-12 md:py-16">
+          <div className="mx-auto max-w-6xl">
+            <h2 className="mb-8 font-heading text-2xl font-bold text-brand-navy md:text-3xl">
+              Communities We Serve in {area.county}
+            </h2>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {countyNeighborhoods.map((nb) => {
+                const teaser = nb.intro.split('.')[0] + '.'
+                return (
+                  <Link
+                    key={nb.slug}
+                    href={`/service-areas/${area.slug}/${nb.slug}`}
+                    className="group rounded-brand-lg border border-brand-navy/8 bg-white p-5 shadow-brand transition-shadow hover:shadow-brand-hover"
+                  >
+                    <h3 className="font-heading text-lg font-semibold text-brand-navy">
+                      {nb.name}
+                    </h3>
+                    <p className="mt-2 font-body text-sm leading-relaxed text-ink-muted">
+                      {teaser}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1 font-body text-sm font-semibold text-brand-teal">
+                      Learn more
+                      <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <FAQSection faqs={countyFaqs} />
 
       <section className="bg-brand-navy px-6 py-16">
         <div className="mx-auto max-w-3xl text-center">

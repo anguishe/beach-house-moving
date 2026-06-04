@@ -48,9 +48,10 @@ export function movingCompanySchema(origin: string) {
 
   return {
     '@context': 'https://schema.org',
-    '@type': 'MovingCompany',
+    '@type': ['MovingCompany', 'HomeAndConstructionBusiness'],
     '@id': `${base}/#business`,
     name: BUSINESS.name,
+    description: 'Locally owned, fully licensed moving company serving Walton, Okaloosa, and Bay Counties on Florida\'s Emerald Coast. Residential moving, packing, long-distance moves, and storage. FL Mover Reg. #IM4125. Available 24/7.',
     url: base,
     telephone: BUSINESS.phone.e164,
     email: BUSINESS.email,
@@ -90,6 +91,18 @@ export function movingCompanySchema(origin: string) {
       addressCountry: 'US',
     },
     sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.google].filter(Boolean),
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+18508421962',
+      contactType: 'customer service',
+      availableLanguage: 'English',
+      hoursAvailable: {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+        opens: '00:00',
+        closes: '23:59',
+      },
+    },
   }
 }
 

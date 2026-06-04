@@ -15,7 +15,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageHero } from '@/components/layout/PageHero'
 import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { PAGE_META, SERVICES, SERVICES_HUB } from '@/lib/content'
+import { BUSINESS, PAGE_META, SERVICES, SERVICES_HUB } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { SERVICE_IMAGE_MAP } from '@/lib/service-images'
 import { breadcrumbSchema } from '@/lib/structured-data'
@@ -53,6 +53,17 @@ export default async function ServicesPage() {
         description={SERVICES_HUB.intro}
         image={undefined}
       />
+
+      <div className="bg-brand-sand px-6 py-6">
+        <div className="mx-auto max-w-4xl">
+          <p className="font-body text-base leading-relaxed text-ink-muted">
+            Beach House Moving offers six moving services across Walton, Okaloosa, and Bay Counties:
+            residential moving, local moving, long-distance moving, packing and unpacking, storage, and
+            delivery. Our crew is owner-operated — the {BUSINESS.teamSize} people who own this company are
+            the ones on every job.
+          </p>
+        </div>
+      </div>
 
       <section className="px-6 py-16 md:py-20">
         <div className="mx-auto max-w-6xl">
