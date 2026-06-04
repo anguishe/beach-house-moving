@@ -43,6 +43,13 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <head>
+        <Script id="google-tag-manager" strategy="beforeInteractive">
+          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WNFSB7NT');`}
+        </Script>
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="j2BL/k+yqwVjkOmeUgLn+A"
@@ -50,6 +57,15 @@ export default async function RootLayout({
         />
       </head>
       <body className={`${playfair.variable} ${inter.variable} font-body antialiased pt-0`}>
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-WNFSB7NT"
+            height="0"
+            width="0"
+            title="Google Tag Manager"
+            className="hidden invisible"
+          />
+        </noscript>
         {GA_ID && (
           <>
             <Script
