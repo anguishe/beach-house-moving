@@ -49,17 +49,19 @@ export function movingCompanySchema(origin: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'MovingCompany',
+    '@id': `${base}/#business`,
     name: BUSINESS.name,
     url: base,
     telephone: BUSINESS.phone.e164,
     email: BUSINESS.email,
     image: logoUrl,
     logo: logoUrl,
+    priceRange: '$$',
     areaServed,
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: BUSINESS.geo.lat,
-      longitude: BUSINESS.geo.lng,
+      latitude: BUSINESS.geo.lat.toFixed(5),
+      longitude: BUSINESS.geo.lng.toFixed(5),
     },
     openingHoursSpecification: [
       {
@@ -69,6 +71,12 @@ export function movingCompanySchema(origin: string) {
         closes: '23:59',
       },
     ],
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: REVIEWS_PAGE_META.aggregateRating.ratingValue,
+      reviewCount: REVIEWS_PAGE_META.aggregateRating.reviewCount,
+      bestRating: REVIEWS_PAGE_META.aggregateRating.bestRating,
+    },
     identifier: {
       '@type': 'PropertyValue',
       name: 'FDACS Florida Mover Registration',
@@ -78,6 +86,7 @@ export function movingCompanySchema(origin: string) {
       '@type': 'PostalAddress',
       addressLocality: BUSINESS.address.city,
       addressRegion: BUSINESS.address.state,
+      postalCode: BUSINESS.address.zip,
       addressCountry: 'US',
     },
     sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.google].filter(Boolean),
@@ -178,15 +187,17 @@ export function countyAreaSchema(area: ServiceArea, origin: string) {
     {
       '@context': 'https://schema.org',
       '@type': 'MovingCompany',
+      '@id': `${base}/service-areas/${area.slug}#business`,
       name: BUSINESS.name,
       url: absoluteUrl(base, `/service-areas/${area.slug}`),
       telephone: BUSINESS.phone.e164,
       email: BUSINESS.email,
+      branchOf: { '@id': `${base}/#business` },
       areaServed,
       geo: {
         '@type': 'GeoCoordinates',
-        latitude: BUSINESS.geo.lat,
-        longitude: BUSINESS.geo.lng,
+        latitude: BUSINESS.geo.lat.toFixed(5),
+        longitude: BUSINESS.geo.lng.toFixed(5),
       },
     },
     {

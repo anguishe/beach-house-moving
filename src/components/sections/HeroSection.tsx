@@ -84,6 +84,7 @@ export default function HeroSection() {
           </motion.div>
 
           <motion.h1 {...fadeUp(0.3)} className="mb-6 font-heading text-5xl font-bold leading-tight md:text-7xl">
+            <span className="sr-only">Movers in Santa Rosa Beach, FL — </span>
             <span className="block text-on-dark">Your Move,</span>
             <span className="block text-brand-gold italic">Our Mission.</span>
           </motion.h1>

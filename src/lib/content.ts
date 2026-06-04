@@ -380,6 +380,22 @@ export const TESTIMONIALS = [
     source: 'Google',
     date: '2025',
   },
+  {
+    name: 'Rachel Grady',
+    location: null,
+    rating: 5,
+    text: 'I had a fantastic experience with Beach House Moving! I hired them to help me move from storage to my new apartment, and the service was top-notch. Josh, Keith, Zach, and Les were incredible and surprisingly, they were twice as fast as the last moving company I used. They made what is usually a stressful day completely seamless. I highly recommend them to anyone looking for a fast and reliable team!',
+    source: 'Google',
+    date: '2026',
+  },
+  {
+    name: 'Linda Vardaman',
+    location: null,
+    rating: 5,
+    text: 'The guys always do a great job for us! So polite and efficient!! They handle our jobs with great care and professionalism. Highly recommend! Linda with Lily Pads',
+    source: 'Google',
+    date: '2026',
+  },
 ] as const
 
 export const REVIEWS_PAGE_META = {
@@ -389,7 +405,7 @@ export const REVIEWS_PAGE_META = {
   path: '/reviews',
   aggregateRating: {
     ratingValue: '5',
-    reviewCount: '3',
+    reviewCount: '5',
     bestRating: '5',
     worstRating: '1',
   },
@@ -579,7 +595,7 @@ export const JUNK_REMOVAL_PAGE = {
 
 /** Region-centered map embed — no street-address pin (SAB). */
 export const MAP_EMBED = {
-  src: 'https://maps.google.com/maps?q=30.396,-86.2288&hl=en&z=9&output=embed',
+  src: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1535152.0556600732!2d-87.45865950746075!3d29.580061863225904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2c49ab7600a457f%3A0x5c504eb0f4ca7c79!2sBeach%20House%20Moving!5e0!3m2!1sen!2sus!4v1780542136877!5m2!1sen!2sus',
   title: 'Beach House Moving service area map — Walton, Okaloosa & Bay Counties, Florida',
 } as const
 
