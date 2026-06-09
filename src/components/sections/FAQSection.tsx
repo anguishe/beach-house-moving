@@ -6,7 +6,7 @@ import {
 } from '@/components/ui/accordion'
 import { FAQS } from '@/lib/content'
 
-type Faq = (typeof FAQS)[number]
+type Faq = { readonly q: string; readonly a: string }
 
 type FAQSectionProps = {
   faqs?: readonly Faq[]

@@ -476,9 +476,9 @@ export const PAGE_META = {
     path: '/service-areas',
   },
   about: {
-    title: 'About Us | Beach House Moving — Locally Owned Florida Panhandle Movers',
+    title: 'About Beach House Moving | Locally Owned Florida Panhandle Movers',
     description:
-      'Meet Beach House Moving — a locally owned, fully licensed moving company serving the Emerald Coast. Three-truck fleet, FDACS #IM4125, available 24/7.',
+      'The owners are the movers. Beach House Moving is a locally owned, fully licensed moving company serving Walton, Okaloosa & Bay Counties. FL Mover Reg. #IM4125.',
     path: '/about',
   },
   contact: {
@@ -488,9 +488,9 @@ export const PAGE_META = {
     path: '/contact',
   },
   getAQuote: {
-    title: 'Get a Free Moving Quote | Beach House Moving',
+    title: 'Get a Free Moving Quote | Beach House Moving — (850) 842-1962',
     description:
-      'Request your free, no-obligation moving quote online. Licensed & insured crews serving the Florida Panhandle. We\u2019ll call you back promptly.',
+      'Request a free moving quote from Beach House Moving. Serving Walton, Okaloosa & Bay Counties. Licensed, insured, locally owned. Call (850) 842-1962 or submit online.',
     path: '/get-a-quote',
   },
   thankYou: {
@@ -617,46 +617,174 @@ export const MAP_EMBED = {
   title: 'Beach House Moving service area map — Walton, Okaloosa & Bay Counties, Florida',
 } as const
 
+export const ABOUT_FAQS = [
+  {
+    q: 'Are the owners the actual movers?',
+    a: 'Yes — the owners of Beach House Moving are the movers on every job. Beach House Moving is a four-person, owner-operated team, not a staffing agency that sends a different crew each time. The same people who answer your call, load the truck, and carry your furniture are the owners who built this company. That means direct accountability: if something matters to you on moving day, it matters to the person whose name is on the company.',
+  },
+  {
+    q: 'How long has Beach House Moving been in business?',
+    a: 'Beach House Moving was established in 2025 and is locally owned and operated on the Florida Panhandle. We built the company around a simple belief: moving companies got worse when they scaled up and sent strangers to your home. We stayed hands-on instead — growing to a three-truck fleet while keeping the owners on every job.',
+  },
+  {
+    q: 'What counties does Beach House Moving serve?',
+    a: 'Beach House Moving serves Walton, Okaloosa, and Bay Counties across the Florida Panhandle. In Walton County we cover 30A, Santa Rosa Beach, Miramar Beach, Freeport, and DeFuniak Springs. In Okaloosa County we serve Destin, Fort Walton Beach, Niceville, Crestview, and communities near Eglin AFB and Hurlburt Field. In Bay County we cover Panama City, Panama City Beach, Lynn Haven, Callaway, and Springfield. We also handle long-distance moves beyond the Panhandle.',
+  },
+  {
+    q: 'Is Beach House Moving licensed and insured in Florida?',
+    a: `Yes. Beach House Moving is fully licensed and insured in the State of Florida under Florida Mover Registration #${BUSINESS.registration.number}, issued by the Florida Department of Agriculture and Consumer Services. We carry liability insurance and cargo coverage so your belongings are protected from load-in to placement at your new home. You can verify our registration on the FDACS website.`,
+  },
+] as const
+
 export const ABOUT_CONTENT = {
-  eyebrow: 'Our Story',
-  headline: 'Rooted on the Emerald Coast',
-  intro:
-    'Locally owned movers on the Florida Panhandle — licensed, insured, and built for how moves actually work out here.',
-  storyParagraphs: [
-    'Beach House Moving started in 2025 with one truck and one rule: treat the house like it\u2019s ours and treat what\u2019s inside it like it matters.',
-    'Out here, a move is rarely just a truck and a ramp. It\u2019s a third-story rental on 30A with a boardwalk between the driveway and the front door. It\u2019s a gated community with a delivery window and a guard checking names. It\u2019s a washer and dryer that has to come out before the new set goes in, on a Sunday, because that\u2019s when the rental turns over.',
-    `We grew into a three-truck fleet because that\u2019s what the coast needs \u2014 a Sprinter van for the tight stilted driveways a box truck can\u2019t reach, and box trucks with liftgates for full houses. We\u2019re licensed and insured in Florida under Mover Registration #${BUSINESS.registration.number}, and a real person answers the phone, day or night.`,
-    'We live here. We move here. When we say we know these roads, we mean we\u2019ve backed a truck down most of them.',
+  pageTitle: 'About Beach House Moving',
+  opening: {
+    paragraphs: [
+      'Beach House Moving is a locally owned moving company on the Florida Panhandle, built by four owners who are also the movers on every job. When you hire us, the people carrying your furniture are the same people who answer the phone, quote your move, and show up on moving day — not a rotating crew dispatched by a staffing agency.',
+      'That owner-operated model is the core difference. National chains and franchise operations often send whoever is available that morning. We do not work that way. Your belongings pass through hands that have a direct stake in doing the job right, because our reputation and our name are on every box, every appliance, and every piece of furniture we touch.',
+    ],
+  },
+  story: {
+    headline: 'Our Story',
+    paragraphs: [
+      'Beach House Moving was established in 2025 on the Emerald Coast of Northwest Florida. We started with one truck and a clear standard: treat every home the way we would want ours treated, and treat what is inside it like it matters.',
+      'We watched moving companies get worse as they scaled — more trucks, more volume, less personal accountability. Owners moved into offices while strangers handled the work on site. We built Beach House Moving differently. We stayed hands-on, kept the owners on the truck, and grew only as far as we could maintain that standard.',
+      'Today we run a three-truck fleet across Walton, Okaloosa, and Bay Counties. We know the stilted beach homes, the tight 30A driveways, the PCS timelines near Eglin and Hurlburt, and the delivery windows on new construction sites. We live here, we move here, and we built this company for how moves actually work on the Panhandle.',
+    ],
+  },
+  whyLocalMatters: {
+    headline: 'Why Local Matters',
+    intro:
+      'A mover who knows these counties handles your job differently than a crew seeing the coast for the first time. Here is what local experience looks like in practice.',
+    points: [
+      {
+        county: 'Walton County',
+        description:
+          'Beach homes on stilts and narrow 30A neighborhoods are routine here, not exceptions. We know which Rosemary Beach and Seaside rentals only have boardwalk access, which gated communities require your name on a delivery list, and when a Sprinter van is the right call instead of a box truck on a tight driveway.',
+      },
+      {
+        county: 'Okaloosa County',
+        description:
+          'Military PCS timelines near Eglin AFB and Hurlburt Field do not wait for a convenient schedule. We work around report dates, base housing inspections, and short-notice move-outs in Destin, Fort Walton Beach, and Niceville — with the dollies, ramps, and stair equipment those jobs require.',
+      },
+      {
+        county: 'Bay County',
+        description:
+          'Panama City Beach and PCB are built on elevated homes and condos where liftgate access and careful stair carries are the norm. New-construction delivery windows and rental turnovers on tight timelines are common — we match the truck and crew to the access before we arrive, not after we are stuck at the gate.',
+      },
+    ],
+  },
+  fleet: {
+    headline: 'Our Fleet',
+    intro:
+      'Three vehicles, each chosen for the kind of work we do on the Emerald Coast every week.',
+    vehicles: [
+      {
+        name: 'Box Truck with Lift Gate (1 of 2)',
+        description:
+          'Our primary workhorse for full-home moves, appliance swaps, and jobs that need a liftgate for heavy items at elevated entries.',
+      },
+      {
+        name: 'Box Truck with Lift Gate (2 of 2)',
+        description:
+          'The second box truck keeps us available on busy weekends and handles parallel jobs — packing, loading, and transport for larger residences across all three counties.',
+      },
+      {
+        name: 'Sprinter Van',
+        description:
+          'Built for tight 30A driveways, stilted beach homes, and specialty deliveries where a full box truck cannot fit — same crew standards, scaled to the access.',
+      },
+    ],
+  },
+  credentials: {
+    headline: 'Licensed, Insured, and Available When You Need Us',
+    items: [
+      `Florida Mover Registration #${BUSINESS.registration.number}`,
+      'Fully licensed and insured in the State of Florida',
+      'Open 24 hours a day, seven days a week',
+      'Service area: Walton, Okaloosa, and Bay Counties',
+    ],
+  },
+  faqSection: {
+    eyebrow: 'About Us',
+    headline: 'Common Questions About Beach House Moving',
+    intro: 'Direct answers about who we are, where we work, and how we operate.',
+  },
+  licenseBadge: `Florida Mover Reg. #${BUSINESS.registration.number}`,
+  cta: {
+    quoteLabel: 'Get a Free Quote',
+  },
+} as const
+
+export const GET_A_QUOTE_FAQS = [
+  {
+    q: 'How quickly will I get a response after submitting a quote?',
+    a: 'Beach House Moving typically follows up within a few hours of your quote request — often the same day. We review your move details, confirm your service area, and call you back with clear next steps. If your timeline is urgent, call (850) 842-1962 directly for the fastest response.',
+  },
+  {
+    q: 'Is there a charge for an estimate?',
+    a: 'No. Estimates from Beach House Moving are always free — no deposit, no commitment, and no pressure. We give you an honest number before any work begins, whether you request a quote online or call (850) 842-1962.',
+  },
+  {
+    q: 'What information do I need to get a quote?',
+    a: 'To get an accurate quote, share your moving-from and moving-to locations, a general sense of move size (number of bedrooms or a rough item list), and your target date or date range. For specialty jobs — appliance delivery, junk removal, or military PCS moves — mention any access challenges like stairs, gates, or tight driveways. The more detail you provide, the more accurate your estimate will be.',
+  },
+] as const
+
+export const GET_A_QUOTE_CONTENT = {
+  eyebrow: 'Free Estimates · No Obligation',
+  headline: 'Get Your Free Moving Quote',
+  subheadline:
+    'Tell us about your move and we\u2019ll follow up with clear, honest pricing. No hidden fees. No surprises.',
+  formHeadline: 'Request a Quote Online',
+  formSubheadline:
+    'Fill out the form below and we\u2019ll review your details. Prefer to talk now? Call us directly — a real person answers.',
+  trustSignals: [
+    `Licensed & Insured · FL Mover Reg. #${BUSINESS.registration.number}`,
+    'Free Estimates — Always',
+    'Open 24 Hours · 7 Days a Week',
+    'Serving Walton, Okaloosa & Bay Counties',
   ],
-  values: [
-    {
-      title: 'Local Pride',
-      description: 'We live here, we work here, and we care about this community.',
-    },
-    {
-      title: 'Professionalism',
-      description: 'Fully licensed, insured, uniformed, on-time, and communicative.',
-    },
-    {
-      title: 'Safety',
-      description: 'Your belongings are handled with the same care we would expect in our own homes.',
-    },
-    {
-      title: 'Transparency',
-      description: 'Free estimates, no hidden fees, and honest timelines from the start.',
-    },
-    {
-      title: 'Reliability',
-      description: 'We show up. Every time.',
-    },
+  whatHappensNext: {
+    headline: 'What Happens Next',
+    intro:
+      'Submitting a quote request takes a few minutes. Here is what you can expect after you send it.',
+    steps: [
+      {
+        title: 'Submit your quote request',
+        description:
+          'Complete the form with your move details — locations, timing, and what you need moved. The more specific you are, the faster we can give you an accurate estimate.',
+      },
+      {
+        title: 'We review your details and follow up within a few hours',
+        description:
+          'A member of our owner-operated team reviews your request and calls you back — usually the same day — to confirm your area, ask any follow-up questions, and discuss your timeline.',
+      },
+      {
+        title: 'We schedule your move and confirm everything in writing',
+        description:
+          'Once you are ready to book, we lock in your date, confirm crew and truck assignment, and put the details in writing so you know exactly what to expect on moving day.',
+      },
+    ],
+  },
+  phoneCta: {
+    prefix: 'Prefer to talk? Call us at',
+  },
+  sidebarNotes: [
+    'No robots. No hold music. A real person answers.',
+    'Free estimates with zero obligation.',
+    BUSINESS.licenseStatement,
   ],
-  fleetHeadline: 'Three Trucks. One Standard.',
-  fleetDescription:
-    'Our fleet of three fully equipped trucks means we can handle moves of every size — from a studio apartment to a full home — without cutting corners on equipment or crew size.',
-  licenseBadge: `FDACS Registered Mover #${BUSINESS.registration.number}`,
-  hoursBadge: 'Open 24 Hours',
-  // TODO: confirm photo — replace placeholder when owner/team asset is available
-  teamPhotoPlaceholder: true,
+  browseServices: {
+    prefix: 'Already know what you need?',
+    linkLabel: 'Browse our services',
+  },
+  faqSection: {
+    eyebrow: 'Quote Questions',
+    headline: 'Frequently Asked Questions About Getting a Quote',
+    intro:
+      'Straight answers about response times, pricing, and what we need from you to provide an accurate estimate.',
+  },
 } as const
 
 export const CONTACT_CONTENT = {

@@ -10,7 +10,7 @@ import {
   TESTIMONIALS,
 } from '@/lib/content'
 
-type Faq = (typeof FAQS)[number]
+type Faq = { readonly q: string; readonly a: string }
 type Service = (typeof SERVICES)[number]
 type ServiceArea = (typeof SERVICE_AREAS)[number]
 
