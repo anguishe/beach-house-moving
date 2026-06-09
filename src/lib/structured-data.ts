@@ -114,15 +114,17 @@ export function movingCompanySchema(origin: string, includeRating = false) {
 }
 
 export function webSiteSchema(origin: string) {
+  const base = origin.replace(/\/$/, '')
+
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: BUSINESS.name,
-    url: origin,
-    publisher: {
-      '@type': 'MovingCompany',
-      name: BUSINESS.name,
-      telephone: BUSINESS.phone.e164,
+    url: base,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${base}/?s={query}`,
+      'query-input': 'required name=query',
     },
   }
 }
@@ -199,18 +201,7 @@ export function countyAreaSchema(area: ServiceArea, origin: string) {
     {
       '@context': 'https://schema.org',
       '@type': 'MovingCompany',
-      '@id': `${base}/service-areas/${area.slug}#business`,
-      name: BUSINESS.name,
-      url: absoluteUrl(base, `/service-areas/${area.slug}`),
-      telephone: BUSINESS.phone.e164,
-      email: BUSINESS.email,
-      branchOf: { '@id': `${base}/#business` },
-      areaServed,
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: BUSINESS.geo.lat.toFixed(5),
-        longitude: BUSINESS.geo.lng.toFixed(5),
-      },
+      '@id': `${base}/#business`,
     },
     {
       '@context': 'https://schema.org',
@@ -372,6 +363,7 @@ export function blogPostingSchema(
     datePublished: string
     heroImage: string
     slug: string
+    author: string
   },
   origin: string,
 ) {
@@ -390,7 +382,7 @@ export function blogPostingSchema(
     image: imageUrl,
     author: {
       '@type': 'Organization',
-      name: BUSINESS.name,
+      name: post.author,
       url: base,
     },
     publisher: {

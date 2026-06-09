@@ -17,43 +17,43 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${base}/services`,
-      lastModified: '2026-06-04',
+      lastModified: '2026-06-09',
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${base}/service-areas`,
-      lastModified: '2026-06-04',
+      lastModified: '2026-06-09',
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
       url: `${base}/about`,
-      lastModified: '2026-06-04',
+      lastModified: '2026-06-09',
       changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${base}/contact`,
-      lastModified: '2026-06-04',
+      lastModified: '2026-06-09',
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${base}/get-a-quote`,
-      lastModified: '2026-06-04',
+      lastModified: '2026-06-09',
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
       url: `${base}/reviews`,
-      lastModified: '2026-06-04',
+      lastModified: '2026-06-01',
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
       url: `${base}/pricing`,
-      lastModified: '2026-06-04',
+      lastModified: '2026-05-01',
       changeFrequency: 'monthly',
       priority: 0.8,
     },
@@ -67,14 +67,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({
     url: `${base}/services/${service.slug}`,
-    lastModified: '2026-06-04',
+    lastModified: '2026-06-09',
     changeFrequency: 'monthly',
     priority: service.slug === 'junk-removal' ? 0.7 : 0.9,
   }))
 
   const areaRoutes: MetadataRoute.Sitemap = SERVICE_AREAS.map((area) => ({
     url: `${base}/service-areas/${area.slug}`,
-    lastModified: '2026-06-04',
+    lastModified: '2026-06-09',
     changeFrequency: 'monthly',
     priority: 0.9,
   }))
@@ -83,7 +83,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const area = SERVICE_AREAS.find((sa) => sa.county === nb.county)
     return {
       url: `${base}/service-areas/${area?.slug ?? 'walton-county'}/${nb.slug}`,
-      lastModified: '2026-06-04',
+      lastModified: '2026-05-01',
       changeFrequency: 'weekly' as const,
       priority: 0.7,
     }

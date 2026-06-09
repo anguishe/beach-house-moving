@@ -6,6 +6,7 @@ export type Post = {
   title: string
   description: string
   datePublished: string
+  author: string
   heroImage: string
   excerpt: string
   body: { heading?: string; paragraph: string; isOwnerNote?: boolean }[]
@@ -19,6 +20,7 @@ export const POSTS: Post[] = [
     description:
       "Every 30A community has its own gates, parking limits, and move-day realities. Our owner-operated crew has worked them all. Here's what we've learned.",
     datePublished: '2026-06-02',
+    author: 'Beach House Moving',
     heroImage: '/images/move-inlet-beach.jpg',
     excerpt:
       "Seaside and Rosemary Beach have almost no truck parking. Alys Beach requires floor protection before the first item moves. Blue Mountain's driveways are steeper than they look on a map. Here's the real 30A mover's guide.",
@@ -89,6 +91,7 @@ export const POSTS: Post[] = [
     description:
       "PCS moves have tight timelines and real stakes. Here's what military families relocating near Eglin AFB or Hurlburt Field should know about moving on the Emerald Coast.",
     datePublished: '2026-06-02',
+    author: 'Beach House Moving',
     heroImage: '/images/truck-dolly.jpg',
     excerpt:
       "PCS orders don't wait. Neither do we. Here's what families moving near Eglin AFB or Hurlburt Field need to know about the Emerald Coast housing market and how we handle military relocations.",
@@ -144,6 +147,7 @@ export const POSTS: Post[] = [
     description:
       'New construction on 30A and across the Panhandle comes with fresh floors, tight stairwells, and finishes that are easy to damage on move-in day. Here\'s how we approach it.',
     datePublished: '2026-06-02',
+    author: 'Beach House Moving',
     heroImage: '/images/clean-entry.jpg',
     excerpt:
       "Move-in day is also the highest-risk day for a new build. Here's how we protect finished floors, paint, and trim from the first carry to the last.",
@@ -203,6 +207,7 @@ export const POSTS: Post[] = [
     description:
       'A real moving checklist built for 30A and Destin — parking logistics, beach access restrictions, HOA rules, and seasonal timing. From movers who work here every week.',
     datePublished: '2026-05-15',
+    author: 'Beach House Moving',
     heroImage: '/images/move-inlet-beach.jpg',
     excerpt:
       'Moving along 30A or into Destin comes with logistics that a generic moving checklist completely ignores. Here is what we have learned from doing these moves.',
@@ -282,6 +287,7 @@ export const POSTS: Post[] = [
     description:
       'PCS moves to Eglin Air Force Base and Hurlburt Field — local mover guide to neighborhoods, BAH rates, on-base vs off-base, and how to coordinate your military relocation.',
     datePublished: '2026-04-22',
+    author: 'Beach House Moving',
     heroImage: '/images/move-niceville.jpg',
     excerpt:
       'PCS orders to Eglin or Hurlburt come with a short timeline and a long to-do list. Here is what local movers who do these moves every season know about making it work.',
@@ -370,6 +376,7 @@ export const POSTS: Post[] = [
     description:
       'Moving into or out of a beach condo in Destin, Panama City Beach, or 30A? Here is how to handle elevators, HOA freight rules, parking decks, and seasonal chaos.',
     datePublished: '2026-03-18',
+    author: 'Beach House Moving',
     heroImage: '/images/move-pcb.jpg',
     excerpt:
       'Beach condos on the Emerald Coast have a specific set of logistics that most moving checklists skip entirely. Elevators, parking decks, HOA freight rules, and seasonal timing all matter.',

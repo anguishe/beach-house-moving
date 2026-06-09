@@ -6,7 +6,7 @@ import { Navbar } from '@/components/layout/Navbar'
 import { SkipToContent } from '@/components/layout/SkipToContent'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { buildMetadata, HOME_METADATA } from '@/lib/seo'
-import { movingCompanySchema, webSiteSchema } from '@/lib/structured-data'
+import { webSiteSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 import './globals.css'
 
@@ -65,7 +65,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             className="hidden invisible"
           />
         </noscript>
-        <JsonLd data={movingCompanySchema(origin.origin, false)} />
         <JsonLd data={webSiteSchema(origin.origin)} />
         <SkipToContent />
         <Navbar />
