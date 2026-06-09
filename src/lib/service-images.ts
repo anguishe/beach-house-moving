@@ -9,7 +9,7 @@ export const SERVICE_IMAGE_MAP: Record<
   'local-moving': IMAGES.dolly,
   'long-distance-moving': IMAGES.fleet,
   'packing-unpacking': IMAGES.dresserPack,
-  storage: IMAGES.collage,
+  storage: IMAGES.moverStorageCorridor,
   delivery: IMAGES.fridge,
   'junk-removal': IMAGES.truckLoading,
 }

@@ -21,7 +21,7 @@ const serviceImageMap: Record<string, { src: string; alt: string }> = {
   'local-moving': IMAGES.dolly,
   'long-distance-moving': IMAGES.fleet,
   'packing-unpacking': IMAGES.dresserPack,
-  storage: IMAGES.collage,
+  storage: IMAGES.moverStorageCorridor,
   delivery: IMAGES.fridge,
 }
 

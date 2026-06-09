@@ -187,6 +187,7 @@ export const SERVICES = [
     fullDescription:
       'Between closings, mid-renovation, or waiting on a rental to turn over — we\'ve got secure storage on flexible terms. We document what goes in and get it back to you when you\'re ready.',
     icon: 'Warehouse',
+    image: '/images/mover-storage-corridor.jpg',
     featured: false,
     metaTitle: 'Moving Storage Solutions | Beach House Moving',
     metaDescription:
@@ -384,6 +385,10 @@ export const IMAGES = {
   liftgateBlanketsCoastalHome: {
     src: '/images/liftgate-blankets-coastal-home.jpg',
     alt: 'Beach House Moving liftgate staged with moving blankets at a Santa Rosa Beach home',
+  },
+  moverStorageCorridor: {
+    src: '/images/mover-storage-corridor.jpg',
+    alt: 'Beach House Moving mover wheeling a flat cart through a climate-controlled storage facility',
   },
 } as const
 
