@@ -16,7 +16,7 @@ import {
   SERVICES,
 } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { SERVICE_IMAGE_MAP } from '@/lib/service-images'
+import { SERVICE_IMAGE_MAP, SERVICE_SECONDARY_IMAGE_MAP } from '@/lib/service-images'
 import { breadcrumbSchema, serviceSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
@@ -49,6 +49,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   const origin = await getSiteOrigin()
   const serviceImage = SERVICE_IMAGE_MAP[service.slug]
+  const secondaryImage = SERVICE_SECONDARY_IMAGE_MAP[service.slug]
   const includes = SERVICE_INCLUDES[service.slug]
   const faqIndices = SERVICE_FAQ_INDICES[service.slug]
   const serviceFaqs = faqIndices.map((i) => FAQS[i])
@@ -117,6 +118,20 @@ export default async function ServiceDetailPage({ params }: PageProps) {
               ))}
             </ul>
           </div>
+
+          {secondaryImage && (
+            <figure className="mt-12 overflow-hidden rounded-brand-lg shadow-brand">
+              <Image
+                src={secondaryImage.src}
+                alt={secondaryImage.alt}
+                width={1350}
+                height={1800}
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, 896px"
+                className="h-auto w-full object-cover"
+              />
+            </figure>
+          )}
         </div>
       </section>
 

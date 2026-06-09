@@ -381,15 +381,23 @@ export const IMAGES = {
   },
   loadedLiftgateCoastalHome: {
     src: '/images/loaded-liftgate-coastal-home.jpg',
-    alt: 'Beach House Moving truck loaded at a coastal craftsman home on 30A',
+    alt: 'Beach House Moving truck loaded for a local move at a 30A coastal home',
+  },
+  moverCarryEstate: {
+    src: '/images/mover-carry-estate.jpg',
+    alt: 'Beach House Moving mover carrying a wrapped item into a luxury beach home',
   },
   moverCarryWrappedEstate: {
     src: '/images/mover-carry-wrapped-estate.jpg',
-    alt: 'Beach House Moving mover carrying wrapped furniture to a luxury Emerald Coast estate',
+    alt: 'Beach House Moving crew loading a long-distance move at an Emerald Coast estate',
   },
   liftgateBlanketsCoastalHome: {
     src: '/images/liftgate-blankets-coastal-home.jpg',
-    alt: 'Beach House Moving liftgate staged with moving blankets at a Santa Rosa Beach home',
+    alt: 'Beach House Moving moving blankets and packing materials staged at a Santa Rosa Beach move',
+  },
+  crewHomeGymAssembly: {
+    src: '/images/crew-home-gym-assembly.jpg',
+    alt: 'Beach House Moving crew assembling and placing home gym equipment after delivery',
   },
   moverStorageCorridor: {
     src: '/images/mover-storage-corridor.jpg',
