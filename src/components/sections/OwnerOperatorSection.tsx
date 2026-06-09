@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { BUSINESS, IMAGES } from '@/lib/content'
+import { IMAGES } from '@/lib/content'
 
 export function OwnerOperatorSection() {
   return (

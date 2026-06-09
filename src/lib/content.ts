@@ -1066,7 +1066,7 @@ export const NEIGHBORHOODS = [
     slug: 'miramar-beach',
     name: 'Miramar Beach',
     county: 'Walton County',
-    image: '/images/fleet-box-truck.jpg',
+    image: '/images/move-miramar-beach.jpg',
     intro: 'Miramar Beach runs along the western end of Walton County between Destin and Sandestin — a dense mix of beachfront condos, gated communities, and large homes. High-rise condo moves with elevator reservations and lift-gate box trucks are routine work for our crew.',
     landmarks: ['Sandestin', 'Silver Sands Premium Outlets', 'Scenic Gulf Drive', 'Baytowne Wharf'],
     metaTitle: 'Miramar Beach Movers | Beach House Moving — Walton County, FL',
