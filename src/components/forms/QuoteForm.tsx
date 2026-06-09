@@ -112,10 +112,15 @@ export function QuoteForm() {
                   if (value) field.onChange(value)
                 }}
               >
-                <SelectTrigger id="moveType" size="form" className="w-full" aria-invalid={!!form.formState.errors.moveType}>
+                <SelectTrigger
+                  id="moveType"
+                  size="form"
+                  className="h-11 w-full bg-white text-ink"
+                  aria-invalid={!!form.formState.errors.moveType}
+                >
                   <SelectValue placeholder="Select move type..." />
                 </SelectTrigger>
-                <SelectContent>
+                <SelectContent sideOffset={4}>
                   {QUOTE_FORM_MOVE_TYPES.map((type) => (
                     <SelectItem key={type} value={type}>
                       {type}

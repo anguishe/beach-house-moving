@@ -34,6 +34,10 @@
   --color-ring: #2a9d8f;
   --color-destructive: #e53e3e;
   --color-destructive-foreground: #ffffff;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1b2b4b;
+  --color-accent: #f5f0e8;
+  --color-accent-foreground: #1b2b4b;
 
   /* Typography — next/font variables set on <html> in layout.tsx */
   --font-heading: var(--font-playfair), "Playfair Display", Georgia, serif;
@@ -88,6 +92,92 @@ body {
   h5,
   h6 {
     @apply font-heading;
+  }
+
+  select {
+    appearance: auto;
+    -webkit-appearance: auto;
+    background-color: white;
+    color: #1b2b4b;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.375rem;
+    padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    width: 100%;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231B2B4B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1rem;
+  }
+
+  select:focus {
+    outline: 2px solid #2a9d8f;
+    outline-offset: 2px;
+    border-color: #2a9d8f;
+  }
+
+  select option {
+    background-color: white;
+    color: #1b2b4b;
+    padding: 0.5rem;
+  }
+
+  input[type='date'] {
+    color-scheme: light;
+    background-color: white;
+    color: #1b2b4b;
+  }
+
+  input[type='date']::-webkit-calendar-picker-indicator {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+
+  [data-radix-popper-content-wrapper],
+  [data-floating-ui-portal],
+  [data-base-ui-portal] {
+    z-index: 50 !important;
+  }
+
+  [data-slot='select-content'],
+  [role='listbox'] {
+    z-index: 50;
+    background-color: white;
+    color: #1b2b4b;
+    border: 1px solid #cbd5e0;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 24px rgb(27 43 75 / 0.12);
+    overflow: hidden;
+  }
+
+  [data-slot='select-trigger'] {
+    background-color: white;
+    color: #1b2b4b;
+  }
+
+  [data-slot='select-item'],
+  [role='option'] {
+    padding: 0.625rem 0.875rem;
+    color: #1b2b4b;
+    cursor: pointer;
+    font-size: 0.875rem;
+  }
+
+  [data-slot='select-item']:hover,
+  [data-slot='select-item']:focus,
+  [role='option']:hover,
+  [role='option'][data-highlighted] {
+    background-color: #f5f0e8;
+    color: #1b2b4b;
+  }
+
+  [data-slot='select-item'][data-selected],
+  [role='option'][data-selected] {
+    background-color: #e1f5ee;
+    color: #0f6e56;
+    font-weight: 500;
   }
 }
 
