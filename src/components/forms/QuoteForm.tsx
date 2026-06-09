@@ -41,7 +41,11 @@ export function QuoteForm() {
       })
 
       if (res.ok) {
-        trackQuoteLead()
+        trackQuoteLead({
+          move_type: data.moveType,
+          moving_from: data.moveFrom,
+          moving_to: data.moveTo,
+        })
         router.push('/thank-you')
         return
       }

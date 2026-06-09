@@ -1,7 +1,9 @@
 import type { Metadata } from 'next'
+import { Suspense } from 'react'
 import Script from 'next/script'
 import { Playfair_Display, Inter } from 'next/font/google'
 
+import { GtmPageView } from '@/components/analytics/GtmPageView'
 import { Navbar } from '@/components/layout/Navbar'
 import { SkipToContent } from '@/components/layout/SkipToContent'
 import { JsonLd } from '@/components/seo/JsonLd'
@@ -56,6 +58,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
       </head>
       <body className={`${playfair.variable} ${inter.variable} font-body antialiased pt-0`}>
+        <Suspense fallback={null}>
+          <GtmPageView />
+        </Suspense>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-WNFSB7NT"

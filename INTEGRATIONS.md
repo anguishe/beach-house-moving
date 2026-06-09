@@ -56,37 +56,31 @@ Send **owner notification emails only** when the quote form is submitted. The bu
 
 ---
 
-## 2. Google Analytics 4
+## 2. Google Analytics 4 (via GTM)
 
 ### Purpose
 Track visitor behavior, traffic sources, and conversion events (quote form submissions, phone clicks).
 
-### Setup Steps
-1. Go to [analytics.google.com](https://analytics.google.com)
-2. Create a GA4 property for `beachhousemoving.xyz`
-3. Copy the Measurement ID (format `G-XXXXXXXXXX`)
-4. Add to `.env.local`:
-   ```
-   NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-   ```
-5. Add same var to Vercel Environment Variables
+GA4 is managed inside Google Tag Manager (GTM-WNFSB7NT), not loaded directly.
+The site loads GTM via next/script (afterInteractive) in layout.tsx.
+GTM's GA4 Configuration tag (Measurement ID: G-6H4SJSCW0G) handles page_view on initial load.
 
-> The Measurement ID is **env-driven** — never hardcode it in source files.
+### SPA page navigation tracking
+- GtmPageView component (src/components/analytics/GtmPageView.tsx) fires a page_view
+  dataLayer event on every Next.js client-side route change.
+- OR configure a History Change trigger in GTM — either approach works. Do not use both.
 
-### Implementation
-GA4 script is loaded in `/src/app/layout.tsx` when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set:
-```typescript
-// Uses next/script with strategy="afterInteractive"
-// gtag helpers in /src/lib/gtag.ts
-```
+### Events fired from site code (src/lib/gtag.ts)
+- generate_lead: quote form success — via dataLayer.push + window.gtag fallback
+- contact: phone link click — via dataLayer.push + window.gtag fallback
+- phone_click: paired with contact, includes location parameter
+- page_view: SPA navigations via GtmPageView component
 
-### Key Events to Track
-
-| Event Name | Trigger | Where |
-|---|---|---|
-| `generate_lead` | Quote form submitted successfully | `QuoteForm.tsx` (before redirect to `/thank-you`) |
-| `contact` | Phone number clicked | Navbar, Hero, Footer phone links |
-| `page_view` | Route change | Automatic via GA4 |
+### GTM must have
+- GA4 Configuration tag → All Pages trigger
+- Custom Event trigger on "generate_lead" → GA4 Event tag
+- Custom Event trigger on "page_view" → GA4 Configuration tag (for SPA views)
+- History Change trigger (alternative to GtmPageView component — use one or the other)
 
 ### Conversion Setup
 In GA4 dashboard, mark `generate_lead` as a conversion event.

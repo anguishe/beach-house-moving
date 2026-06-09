@@ -147,7 +147,7 @@ User fills QuoteForm
   → server validates with quoteFormSchema (zod)
   → Resend sends owner notification email only
   → 200 JSON { success: true }
-  → client fires GA4 generate_lead (gtag) + GTM dataLayer
+  → client fires generate_lead via dataLayer (+ gtag fallback)
   → client navigates to /thank-you (noindex)
 ```
 
@@ -155,10 +155,12 @@ User fills QuoteForm
 
 ### Analytics
 
-- GTM loaded in root `layout.tsx` (`strategy="afterInteractive"`)
-- GA4 also loaded directly when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set — **owner must confirm no double-counting if GA4 is also configured inside GTM**
-- `generate_lead` — fired in `QuoteForm.tsx` before redirect to `/thank-you`
-- `contact` + `phone_click` dataLayer event — fired on phone link clicks via `trackPhoneClick()`
+- GTM only — loaded in root `layout.tsx` via `next/script` (`strategy="afterInteractive"`); no direct gtag/GA4 script in layout
+- GA4 property G-6H4SJSCW0G is configured inside GTM (GA4 Configuration tag)
+- All custom events go through `dataLayer.push()` in `/src/lib/gtag.ts` (with optional `window.gtag` fallback)
+- SPA route changes — `GtmPageView` component pushes `page_view` to dataLayer on client-side navigations (or use GTM History Change trigger instead — not both)
+- `generate_lead` — fired in `QuoteForm.tsx` before redirect to `/thank-you` (includes move type and origin/destination params)
+- `contact` + `phone_click` dataLayer events — fired on phone link clicks via `trackPhoneClick()`
 
 ---
 
