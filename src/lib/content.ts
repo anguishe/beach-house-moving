@@ -66,11 +66,11 @@ export const LICENSE_DISPLAY = {
 } as const
 
 export const SOCIAL_LINKS = {
-  facebook: 'https://www.facebook.com/beachhousemovingfl/',
+  facebook: 'https://www.facebook.com/profile.php?id=61578080548022',
   facebookHandle: '@beachhousemovingfl',
   google: 'https://g.page/r/CXl8yvSwTlBcEAI',
-  yelp: '', // TODO: add Yelp business URL after claiming at biz.yelp.com/claiming
-  bbb: '', // TODO: add BBB profile URL after accreditation application
+  yelp: '', // Add Yelp URL when verification is complete
+  bbb: 'https://www.bbb.org/us/fl/santa-rosa-beach/profile/moving-companies/beach-house-moving-llc-0683-90102540',
   leaveGoogleReviewLabel: '⭐ Leave us a Google review',
 } as const
 

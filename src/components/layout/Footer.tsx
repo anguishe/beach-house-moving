@@ -127,6 +127,16 @@ export function Footer() {
                 <span className="font-body text-[13px] text-on-dark-muted">{BUSINESS.hours}</span>
               </div>
               <p className="font-body text-xs text-on-dark-muted">{LICENSE_DISPLAY.footerRegistration}</p>
+              {SOCIAL_LINKS.bbb ? (
+                <a
+                  href={SOCIAL_LINKS.bbb}
+                  target="_blank"
+                  rel="noopener noreferrer nofollow"
+                  className="text-xs text-on-dark-muted transition-colors hover:text-white"
+                >
+                  BBB Business Profile
+                </a>
+              ) : null}
             </div>
           </div>
         </div>

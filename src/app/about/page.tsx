@@ -8,7 +8,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageShell } from '@/components/layout/PageShell'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { ABOUT_CONTENT, ABOUT_FAQS, BUSINESS, IMAGES, PAGE_META } from '@/lib/content'
+import { ABOUT_CONTENT, ABOUT_FAQS, BUSINESS, IMAGES, PAGE_META, SOCIAL_LINKS } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { aboutPageSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
@@ -155,6 +155,23 @@ export default async function AboutPage() {
                     {item}
                   </li>
                 ))}
+                {SOCIAL_LINKS.bbb ? (
+                  <li className="flex items-start gap-3 font-body text-base leading-relaxed text-ink-muted">
+                    <CheckCircle2
+                      className="mt-0.5 size-5 shrink-0 text-brand-teal"
+                      strokeWidth={1.6}
+                      aria-hidden
+                    />
+                    <a
+                      href={SOCIAL_LINKS.bbb}
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      className="text-brand-navy underline decoration-brand-navy/30 underline-offset-2 transition-colors hover:text-brand-teal hover:decoration-brand-teal"
+                    >
+                      Listed with the Better Business Bureau.
+                    </a>
+                  </li>
+                ) : null}
               </ul>
             </div>
 
