@@ -3,11 +3,16 @@ import Image from 'next/image'
 import { Star } from 'lucide-react'
 
 import { PageShell } from '@/components/layout/PageShell'
+import { GoogleReviewsGrid } from '@/components/sections/GoogleReviewsGrid'
 import { ReviewsGrid } from '@/components/sections/ReviewsGrid'
+import { WrittenReviewsSection } from '@/components/sections/WrittenReviewsSection'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { IMAGES, REVIEWS_PAGE, REVIEWS_PAGE_META } from '@/lib/content'
+import { fetchGoogleReviews, fetchPlaceSummary } from '@/lib/google-reviews'
 import { buildMetadata } from '@/lib/seo'
 import { reviewsAggregateRatingSchema, reviewsWithTextSchema } from '@/lib/structured-data'
+
+export const revalidate = 86400
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -32,12 +37,27 @@ function HeroStars() {
   )
 }
 
-export default function ReviewsPage() {
+export default async function ReviewsPage() {
+  const [googleReviews, placeSummary] = await Promise.all([
+    fetchGoogleReviews(),
+    fetchPlaceSummary(),
+  ])
+
+  const reviewCount =
+    placeSummary?.user_ratings_total ?? REVIEWS_PAGE_META.aggregateRating.reviewCount
+  const ratingValue = placeSummary?.rating ?? REVIEWS_PAGE_META.aggregateRating.ratingValue
+  const ratingSummary = `${reviewCount} Reviews · ${ratingValue.toFixed(1)} Average`
+
   const reviewSchemas = reviewsWithTextSchema()
 
   return (
     <PageShell>
-      <JsonLd data={reviewsAggregateRatingSchema()} />
+      <JsonLd
+        data={reviewsAggregateRatingSchema({
+          ratingValue,
+          reviewCount,
+        })}
+      />
       <JsonLd data={reviewSchemas} />
 
       <section className="relative min-h-88 overflow-hidden md:min-h-104">
@@ -63,11 +83,42 @@ export default function ReviewsPage() {
           <div className="mt-6">
             <HeroStars />
           </div>
-          <p className="mt-3 font-body text-sm text-white/70">{REVIEWS_PAGE.hero.ratingSummary}</p>
+          <p className="mt-3 font-body text-sm text-white/70">{ratingSummary}</p>
         </div>
       </section>
 
-      <ReviewsGrid />
+      {googleReviews.length > 0 ? (
+        <GoogleReviewsGrid reviews={googleReviews} intro={REVIEWS_PAGE.reviewsSection.intro} />
+      ) : (
+        <>
+          <section className="bg-brand-sand px-4 pt-16 md:px-8 md:pt-24">
+            <p className="mx-auto max-w-3xl text-center font-body text-base leading-relaxed text-ink-muted">
+              {REVIEWS_PAGE.reviewsSection.intro}
+            </p>
+          </section>
+          <ReviewsGrid />
+        </>
+      )}
+
+      <section className="bg-white py-16 md:py-20">
+        <div className="mx-auto max-w-3xl px-4 md:px-8">
+          <h2 className="mb-8 text-center font-heading text-2xl font-bold text-brand-navy md:text-3xl">
+            {REVIEWS_PAGE.whyReviewsMatter.heading}
+          </h2>
+          <div className="space-y-6">
+            {REVIEWS_PAGE.whyReviewsMatter.paragraphs.map((paragraph) => (
+              <p
+                key={paragraph.slice(0, 48)}
+                className="font-body text-base leading-relaxed text-ink-muted"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <WrittenReviewsSection />
 
       <div className="relative h-100 w-full overflow-hidden">
         <Image

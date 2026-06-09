@@ -1,6 +1,7 @@
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void
+    dataLayer?: Record<string, unknown>[]
   }
 }
 
@@ -36,4 +37,11 @@ export function trackQuoteLead() {
 
 export function trackPhoneClick(location: string) {
   event({ action: 'contact', category: 'engagement', label: location })
+  if (typeof window !== 'undefined') {
+    window.dataLayer = window.dataLayer ?? []
+    window.dataLayer.push({
+      event: 'phone_click',
+      phone_click_location: location,
+    })
+  }
 }

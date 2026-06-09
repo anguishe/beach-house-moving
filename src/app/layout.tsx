@@ -43,7 +43,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <head>
-        <Script id="google-tag-manager" strategy="beforeInteractive">
+        <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -68,6 +68,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {GA_ID && (
           <>
+            {/* TODO: OWNER ACTION REQUIRED — if GA4 is configured inside GTM (standard setup),
+                delete the gtag/js script and gtag('config') block below to prevent double-counting.
+                Verify in GA4 → Realtime → Events: one page_view per visit = correct. Two = delete this block. */}
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
               strategy="afterInteractive"
@@ -83,7 +86,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             </Script>
           </>
         )}
-        <JsonLd data={movingCompanySchema(origin.origin)} />
+        <JsonLd data={movingCompanySchema(origin.origin, false)} />
         <JsonLd data={webSiteSchema(origin.origin)} />
         <SkipToContent />
         <Navbar />

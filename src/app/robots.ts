@@ -15,8 +15,8 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       { userAgent: 'anthropic-ai', allow: '/' },
       { userAgent: 'PerplexityBot', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
+      { userAgent: 'Bytespider', allow: '/' },
     ],
     sitemap: `${origin.origin}/sitemap.xml`,
-    host: origin.origin,
   }
 }

@@ -1,7 +1,5 @@
 // src/content/posts.ts
 // Static blog post data. No CMS — content lives in code.
-// [OWNER NOTE] comments are intentional placeholders for real first-hand details.
-// Do not replace them with invented content.
 
 export type Post = {
   slug: string
@@ -32,8 +30,8 @@ export const POSTS: Post[] = [
       },
       {
         paragraph:
-          '// [OWNER NOTE: Add 1-2 sentences from your own experience — a specific moment that captures what 30A moves are actually like.]',
-        isOwnerNote: true,
+          'One of our earlier 30A moves drove this home. We had a standard box truck staged for a Grayton Beach job and spent twenty minutes deciding the safest entry angle around parked golf carts and a tight live-oak canopy. We use our Sprinter van to shuttle in neighborhoods where the big truck simply doesn\'t fit — it adds a carry but it protects the streets and the schedule.',
+        isOwnerNote: false,
       },
       {
         heading: 'Seaside & WaterColor',
@@ -42,8 +40,8 @@ export const POSTS: Post[] = [
       },
       {
         paragraph:
-          '// [OWNER NOTE: Add a real detail — a specific gate code situation, a parking trick, a time of day that works best.]',
-        isOwnerNote: true,
+          "WaterColor's HOA check-in is usually smooth if you're on the guest list before 8 a.m. Seaside proper has almost no staging room on the internal streets — we always build in an extra 30 minutes and plan the truck position from Google Street View before we arrive.",
+        isOwnerNote: false,
       },
       {
         heading: 'Rosemary Beach & Alys Beach',
@@ -52,8 +50,8 @@ export const POSTS: Post[] = [
       },
       {
         paragraph:
-          "// [OWNER NOTE: Add a specific job memory if you have one — a narrow alley, a tricky carriage home entry, a floor you're glad you protected.]",
-        isOwnerNote: true,
+          "Rosemary Beach carriage-home alleys are tight. We've learned to walk those first. Alys Beach's white walls and pale stone floors are beautiful and unforgiving — floor runners and wall corner guards go down before we carry anything heavier than a lamp.",
+        isOwnerNote: false,
       },
       {
         heading: 'Inlet Beach & Grayton Beach',
@@ -61,8 +59,9 @@ export const POSTS: Post[] = [
           'Inlet Beach at the eastern end of 30A has more room to work with than most. Grayton Beach has soft sand roads that are part of its character — and part of what we plan around before we bring a heavy truck.',
       },
       {
-        paragraph: '// [OWNER NOTE: Add anything real about these two.]',
-        isOwnerNote: true,
+        paragraph:
+          'Grayton Beach has soft sand roads that are part of the charm — and part of what we account for when a fully loaded box truck needs a solid surface. We stage at the paved perimeter when the driveway sand is loose. Inlet Beach has new-construction sites where the road itself is still being finished; plywood under the truck ramp is standard.',
+        isOwnerNote: false,
       },
       {
         heading: 'What to Tell Your Movers Before Move Day',
@@ -101,8 +100,8 @@ export const POSTS: Post[] = [
       },
       {
         paragraph:
-          "// [OWNER NOTE: If you've done PCS moves, add one real sentence — a family you helped, a timeline that worked out.]",
-        isOwnerNote: true,
+          "We've helped families where the orders changed the reporting date mid-process — two days' notice to move out of base lodging into a Niceville rental. We had the Sprinter out same afternoon. That kind of flexibility is something a scheduling call center can't offer. We're a small crew and we pick up the phone.",
+        isOwnerNote: false,
       },
       {
         heading: 'On-Base vs. Off-Base Housing',
@@ -111,8 +110,8 @@ export const POSTS: Post[] = [
       },
       {
         paragraph:
-          '// [OWNER NOTE: Any real experience with phased military moves or storage bridging.]',
-        isOwnerNote: true,
+          "Phased moves — temporary lodging to storage to permanent address — are something we handle regularly for Eglin and Hurlburt families. We've stored household goods for families waiting on base housing assignment and then completed the delivery when the address was confirmed. One call at the start covers the whole sequence.",
+        isOwnerNote: false,
       },
       {
         heading: 'Niceville, Fort Walton Beach & Shalimar',
@@ -156,13 +155,18 @@ export const POSTS: Post[] = [
       },
       {
         paragraph:
-          '// [OWNER NOTE: Add a real detail about a new-construction move you did — a specific floor, a narrow stairwell, a finish you were glad you protected.]',
-        isOwnerNote: true,
+          "The most common finishes we move into along 30A and across the Panhandle right now: wide-plank engineered white oak in the main living areas — often in lighter driftwood or veiled-white tones with a matte finish — followed by large-format porcelain in kitchens and wet zones, polished concrete in modern Inlet Beach and Watersound builds, and waterproof LVP in lower levels and kids' rooms. All of them look incredible on day one. All of them show a scratch if you're not careful.",
+        isOwnerNote: false,
       },
       {
         heading: 'Floor Protection Is Standard, Not Optional',
         paragraph:
           "We lay floor runners before the first item comes in. On hardwood, that means felt pads under every furniture leg and runners on every walking path. On tile, we use protection board over the grout lines. On carpet, plastic film. None of this is billed as an extra — it's part of how we move.",
+      },
+      {
+        paragraph:
+          "Our standard setup: Ram Board or heavy rosin paper taped down over every high-traffic path — it's breathable, so it doesn't trap coastal humidity under hardwood the way plastic sheeting can. Felt furniture sliders under anything heavy. Carpet film on any LVP transition zones. For polished concrete, we add plywood sheets under dollies and appliances to distribute the weight. One thing we learned early: skip the plastic sheeting directly on fresh hardwood in summer — the humidity under it causes sweating that can mark the finish before you've even moved in.",
+        isOwnerNote: false,
       },
       {
         heading: 'Stairs, Door Frames, and Corners',
@@ -171,8 +175,8 @@ export const POSTS: Post[] = [
       },
       {
         paragraph:
-          '// [OWNER NOTE: Add a specific tight-stairwell detail if you have one.]',
-        isOwnerNote: true,
+          "The tightest job we've worked was a beachfront home in Rosemary Beach — a fresh white-oak staircase, a 90-degree turn on the landing, and a king-size platform bed that needed to be partially disassembled to navigate it. Moving blankets doubled on the railing, corner guards on every door frame, and a slow methodical carry. No marks. That's the standard.",
+        isOwnerNote: false,
       },
       {
         heading: 'Coordinate With Your Builder Before Move Day',

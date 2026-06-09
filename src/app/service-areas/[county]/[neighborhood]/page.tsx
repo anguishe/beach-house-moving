@@ -124,8 +124,8 @@ export default async function NeighborhoodPage({ params }: PageProps) {
     ],
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: BUSINESS.geo.lat,
-      longitude: BUSINESS.geo.lng,
+      latitude: BUSINESS.geo.lat.toFixed(5),
+      longitude: BUSINESS.geo.lng.toFixed(5),
     },
     openingHoursSpecification: [
       {

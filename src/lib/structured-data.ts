@@ -29,7 +29,7 @@ function absoluteUrl(origin: string, path: string): string {
 }
 
 /** Sitewide MovingCompany schema — SAB: no street address in public output. */
-export function movingCompanySchema(origin: string) {
+export function movingCompanySchema(origin: string, includeRating = false) {
   const base = origin.replace(/\/$/, '')
   const logoUrl = absoluteUrl(base, IMAGES.logo.src)
 
@@ -72,13 +72,17 @@ export function movingCompanySchema(origin: string) {
         closes: '23:59',
       },
     ],
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: REVIEWS_PAGE_META.aggregateRating.ratingValue,
-      reviewCount: REVIEWS_PAGE_META.aggregateRating.reviewCount,
-      bestRating: REVIEWS_PAGE_META.aggregateRating.bestRating,
-      worstRating: REVIEWS_PAGE_META.aggregateRating.worstRating,
-    },
+    ...(includeRating
+      ? {
+          aggregateRating: {
+            '@type': 'AggregateRating',
+            ratingValue: REVIEWS_PAGE_META.aggregateRating.ratingValue,
+            reviewCount: REVIEWS_PAGE_META.aggregateRating.reviewCount,
+            bestRating: REVIEWS_PAGE_META.aggregateRating.bestRating,
+            worstRating: REVIEWS_PAGE_META.aggregateRating.worstRating,
+          },
+        }
+      : {}),
     identifier: {
       '@type': 'PropertyValue',
       name: 'FDACS Florida Mover Registration',
@@ -91,7 +95,9 @@ export function movingCompanySchema(origin: string) {
       postalCode: BUSINESS.address.zip,
       addressCountry: 'US',
     },
-    sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.google].filter(Boolean),
+    sameAs: [SOCIAL_LINKS.facebook, SOCIAL_LINKS.google, SOCIAL_LINKS.yelp, SOCIAL_LINKS.bbb].filter(
+      Boolean,
+    ),
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+18508421962',
@@ -239,7 +245,10 @@ export function faqSchema(faqs: readonly Faq[] = FAQS) {
 }
 
 /** MovingCompany + AggregateRating for /reviews (SAB — no street address). */
-export function reviewsAggregateRatingSchema() {
+export function reviewsAggregateRatingSchema(overrides?: {
+  ratingValue?: number
+  reviewCount?: number
+}) {
   const base = BUSINESS.website.replace(/\/$/, '')
 
   return {
@@ -250,8 +259,8 @@ export function reviewsAggregateRatingSchema() {
     telephone: BUSINESS.phone.e164,
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: REVIEWS_PAGE_META.aggregateRating.ratingValue,
-      reviewCount: REVIEWS_PAGE_META.aggregateRating.reviewCount,
+      ratingValue: overrides?.ratingValue ?? REVIEWS_PAGE_META.aggregateRating.ratingValue,
+      reviewCount: overrides?.reviewCount ?? REVIEWS_PAGE_META.aggregateRating.reviewCount,
       bestRating: REVIEWS_PAGE_META.aggregateRating.bestRating,
       worstRating: REVIEWS_PAGE_META.aggregateRating.worstRating,
     },
@@ -334,4 +343,69 @@ export function reviewsWithTextSchema() {
       name: BUSINESS.name,
     },
   }))
+}
+
+/** BlogPosting schema for /resources/[slug] articles. */
+export function blogPostingSchema(
+  post: {
+    title: string
+    description: string
+    datePublished: string
+    heroImage: string
+    slug: string
+  },
+  origin: string,
+) {
+  const base = origin.replace(/\/$/, '')
+  const postUrl = absoluteUrl(base, `/resources/${post.slug}`)
+  const imageUrl = absoluteUrl(base, post.heroImage)
+  const logoUrl = absoluteUrl(base, IMAGES.logo.src)
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.description,
+    datePublished: post.datePublished,
+    dateModified: post.datePublished,
+    image: imageUrl,
+    author: {
+      '@type': 'Organization',
+      name: BUSINESS.name,
+      url: base,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: BUSINESS.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: logoUrl,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': postUrl,
+    },
+  }
+}
+
+/** ItemList schema for /resources hub page. */
+export function resourcesItemListSchema(
+  posts: readonly { title: string; slug: string }[],
+  origin: string,
+) {
+  const base = origin.replace(/\/$/, '')
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Moving Resources & Local Guides',
+    url: `${base}/resources`,
+    itemListElement: posts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: post.title,
+      url: absoluteUrl(base, `/resources/${post.slug}`),
+    })),
+  }
 }

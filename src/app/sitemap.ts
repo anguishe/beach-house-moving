@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 
 import { NEIGHBORHOODS, SERVICE_AREAS, SERVICES } from '@/lib/content'
+import { POSTS } from '@/content/posts'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -56,6 +57,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${base}/resources`,
+      lastModified: '2026-06-09',
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
   ]
 
   const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({
@@ -82,5 +89,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   })
 
-  return [...staticRoutes, ...serviceRoutes, ...areaRoutes, ...neighborhoodRoutes]
+  const resourcePostRoutes: MetadataRoute.Sitemap = POSTS.map((post) => ({
+    url: `${base}/resources/${post.slug}`,
+    lastModified: post.datePublished,
+    changeFrequency: 'monthly' as const,
+    priority: 0.65,
+  }))
+
+  return [...staticRoutes, ...serviceRoutes, ...areaRoutes, ...neighborhoodRoutes, ...resourcePostRoutes]
 }

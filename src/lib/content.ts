@@ -64,6 +64,8 @@ export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/beachhousemovingfl/',
   facebookHandle: '@beachhousemovingfl',
   google: 'https://g.page/r/CXl8yvSwTlBcEAI',
+  yelp: '', // TODO: add Yelp business URL after claiming at biz.yelp.com/claiming
+  bbb: '', // TODO: add BBB profile URL after accreditation application
   leaveGoogleReviewLabel: '⭐ Leave us a Google review',
 } as const
 
@@ -375,6 +377,30 @@ export const IMAGES = {
 
 export const TESTIMONIALS = [
   {
+    name: 'Tammy Pierce',
+    location: null,
+    rating: 5,
+    text: 'We have used Josh on at least 10 moves. He is absolutely the very best!! Always on time, lots of attention to detail. Would 100% recommend him if you are moving.',
+    source: 'Google',
+    date: '2026',
+  },
+  {
+    name: 'Charlann Joyner',
+    location: null,
+    rating: 5,
+    text: 'Josh & his crew are extremely professional & efficient. We recommend them to all of our clients',
+    source: 'Google',
+    date: '2026',
+  },
+  {
+    name: 'A. Perkins',
+    location: null,
+    rating: 5,
+    text: "The Beach House Moving crew is awesome! We've used their services several times and they always go above and beyond. They're reliable, trustworthy, and always my first call when I need help!",
+    source: 'Google',
+    date: '2026',
+  },
+  {
     name: 'Neinei',
     location: null,
     rating: 5,
@@ -423,7 +449,7 @@ export const REVIEWS_PAGE_META = {
   path: '/reviews',
   aggregateRating: {
     ratingValue: 5,
-    reviewCount: 5,
+    reviewCount: 8,
     bestRating: 5,
     worstRating: 1,
   },
@@ -440,6 +466,21 @@ export const REVIEWS_PAGE = {
   },
   reviewsSection: {
     heading: 'Google Reviews',
+    intro:
+      'Beach House Moving is a four-person, owner-operated crew licensed in Florida (Mover Reg. #IM4125) and serving Walton, Okaloosa, and Bay Counties around the clock. The owners show up on every job — not a dispatch center, not a franchise crew you have never met. Our three-vehicle fleet — two box trucks with lift gates and a Sprinter van — is built for the Emerald Coast: gated 30A communities, beach condos with elevator rules, and military PCS timelines near Eglin AFB and Hurlburt Field. When neighbors leave a review, they are describing a real move with real people who answered the phone at 2 a.m. because that is how we operate.',
+  },
+  whyReviewsMatter: {
+    heading: 'Why Reviews Matter on the Emerald Coast',
+    paragraphs: [
+      'On the Panhandle, your next mover is usually someone your neighbor already used. National brands spend millions on ads; local families ask around at church, at the base gate, or in a 30A Facebook group. A review from someone in Niceville or Seaside carries more weight than a generic testimonial from three states away — because the streets, the gates, and the stair carries are the same ones you are about to face.',
+      'Our Google reviews mention specific jobs — a king bed through a Rosemary Beach carriage-home alley, a PCS move out of base lodging on two days\' notice, floor runners down before the first box crosses a new white-oak install. That level of detail tells you the reviewer actually moved with us, in a place you recognize, not that they clicked a star on a mass email request.',
+      'When something goes wrong on a move — and occasionally it does — we respond directly. A small owner-operated team cannot hide behind a call center. We read every review, we reply when it makes sense, and we fix what we can. That transparency is part of why neighbors keep recommending us across Walton, Okaloosa, and Bay Counties.',
+    ],
+  },
+  writtenReviewsSection: {
+    heading: 'What Our Customers Say in Their Own Words',
+    subtext:
+      'Longer review excerpts from verified Google customers — full context the carousel may not show.',
   },
   noWrittenReview: '5-star rating — no written review',
   verifiedBadge: 'Verified Google Review',

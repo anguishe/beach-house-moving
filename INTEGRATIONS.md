@@ -14,6 +14,7 @@
 | Google Analytics 4 | Traffic analytics, conversion tracking | Live (env-driven) | `NEXT_PUBLIC_GA_MEASUREMENT_ID` |
 | Google Search Console | SEO monitoring, indexing | Setup manually | N/A (file verification) |
 | Google Maps Embed | Service area map on contact page | Optional | `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` (or free iframe) |
+| Google Places API | Live Google reviews (homepage carousel + /reviews) | Optional | `GOOGLE_PLACES_API_KEY`, `NEXT_PUBLIC_GOOGLE_PLACE_ID` |
 | Google Business Profile | Local SEO / NAP consistency | Verified (service-area business) | N/A — link in `SOCIAL_LINKS.google` |
 | Vercel | Hosting, deployment | Required | Vercel dashboard |
 | Facebook Page | Social proof link in footer | Active | N/A |
@@ -141,7 +142,35 @@ GBP is verified as a service-area business.
 
 ---
 
-## 6. Vercel (Hosting)
+
+## 6. Google Places API (Live Reviews)
+
+### Purpose
+Fetch live Google Business Profile reviews at build time for the homepage carousel and `/reviews` page. Refreshes via ISR (`revalidate: 86400` — once per 24 hours max).
+
+### Setup Steps
+1. Enable **Places API** in [Google Cloud Console](https://console.cloud.google.com/)
+2. Create an API key restricted to Places API (server-side only — no HTTP referrer restriction needed if key is never exposed to the client)
+3. Copy your Google Business Profile **Place ID** (from GBP or Places API)
+4. Add to `.env.local`:
+   ```
+   GOOGLE_PLACES_API_KEY=
+   NEXT_PUBLIC_GOOGLE_PLACE_ID=
+   ```
+5. Add same vars to Vercel Environment Variables
+
+### How It's Used
+- **`/src/lib/google-reviews.ts`** — server-only fetch; returns `[]` gracefully if key is missing
+- **Homepage** — `GoogleReviewsCarousel` (falls back to static `TestimonialsSection` if no reviews)
+- **`/reviews`** — `GoogleReviewsGrid` with live rating summary from `fetchPlaceSummary()`
+
+### Security
+- `GOOGLE_PLACES_API_KEY` has **no** `NEXT_PUBLIC_` prefix — never exposed to the browser
+- Do not fetch reviews on the client
+
+---
+
+## 7. Vercel (Hosting)
 
 ### Purpose
 Production hosting, CI/CD, preview deployments, SSL.
@@ -165,7 +194,7 @@ Production hosting, CI/CD, preview deployments, SSL.
 
 ---
 
-## 7. Facebook Page (Social Proof)
+## 8. Facebook Page (Social Proof)
 
 ### Purpose
 Link to the business's Facebook page for social proof in the footer.
@@ -196,6 +225,10 @@ RESEND_TO_EMAIL=beachhousemoving@gmail.com
 
 # Maps (Optional)
 NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=
+
+# Google Places — live reviews (server-side key only)
+GOOGLE_PLACES_API_KEY=
+NEXT_PUBLIC_GOOGLE_PLACE_ID=
 ```
 
 ### `.env.example` (commit this — no real values)

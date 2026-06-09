@@ -80,7 +80,7 @@ export function Footer() {
               Quick Links
             </p>
             <div className="flex flex-col gap-3">
-              {[...NAV_LINKS, { label: 'Pricing', href: '/pricing' }, { label: 'Get a Quote', href: '/get-a-quote' }].map((link) => (
+              {[...NAV_LINKS, { label: 'Pricing', href: '/pricing' }, { label: 'Resources', href: '/resources' }, { label: 'Get a Quote', href: '/get-a-quote' }].map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
