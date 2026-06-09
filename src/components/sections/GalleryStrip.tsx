@@ -4,19 +4,7 @@ import Image from 'next/image'
 import { useReducedMotion } from 'framer-motion'
 
 import { cn } from '@/lib/utils'
-import { IMAGES } from '@/lib/content'
-
-const GALLERY_PHOTOS = [
-  IMAGES.truckLoading,
-  IMAGES.dolly,
-  IMAGES.fridge,
-  IMAGES.washerDryer,
-  IMAGES.dresserPack,
-  IMAGES.stairs,
-  IMAGES.cleanEntry,
-  IMAGES.boxTruck,
-  IMAGES.fleet,
-] as const
+import { GALLERY_PHOTOS } from '@/lib/content'
 
 const galleryPhotos = [...GALLERY_PHOTOS, ...GALLERY_PHOTOS]
 

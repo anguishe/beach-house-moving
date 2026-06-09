@@ -373,7 +373,35 @@ export const IMAGES = {
     src: '/images/collage-moves.jpg',
     alt: 'Beach House Moving packing, moving, and storage services collage',
   },
+  loadedLiftgateCoastalHome: {
+    src: '/images/loaded-liftgate-coastal-home.jpg',
+    alt: 'Beach House Moving truck loaded at a coastal craftsman home on 30A',
+  },
+  moverCarryWrappedEstate: {
+    src: '/images/mover-carry-wrapped-estate.jpg',
+    alt: 'Beach House Moving mover carrying wrapped furniture to a luxury Emerald Coast estate',
+  },
+  liftgateBlanketsCoastalHome: {
+    src: '/images/liftgate-blankets-coastal-home.jpg',
+    alt: 'Beach House Moving liftgate staged with moving blankets at a Santa Rosa Beach home',
+  },
 } as const
+
+/** Homepage gallery marquee — every slot must use a unique `src`. */
+export const GALLERY_PHOTOS = [
+  IMAGES.truckLoading,
+  IMAGES.dolly,
+  IMAGES.fridge,
+  IMAGES.washerDryer,
+  IMAGES.dresserPack,
+  IMAGES.stairs,
+  IMAGES.cleanEntry,
+  IMAGES.boxTruck,
+  IMAGES.fleet,
+  IMAGES.loadedLiftgateCoastalHome,
+  IMAGES.moverCarryWrappedEstate,
+  IMAGES.liftgateBlanketsCoastalHome,
+] as const
 
 export const TESTIMONIALS = [
   {
