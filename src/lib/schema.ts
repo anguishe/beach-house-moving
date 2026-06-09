@@ -9,9 +9,11 @@ export const quoteFormSchema = z.object({
   moveFrom: z.string().min(2, 'Origin city or ZIP required'),
   moveTo: z.string().min(2, 'Destination city or ZIP required'),
   notes: z.string().optional(),
+  smsConsent: z.boolean().default(false),
 })
 
-export type QuoteFormData = z.infer<typeof quoteFormSchema>
+export type QuoteFormInput = z.input<typeof quoteFormSchema>
+export type QuoteFormData = z.output<typeof quoteFormSchema>
 
 export const contactFormSchema = z.object({
   fullName: z.string().min(2, 'Name is required'),

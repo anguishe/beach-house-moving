@@ -30,7 +30,11 @@ export async function POST(req: NextRequest) {
     })
 
     return NextResponse.json({ success: true })
-  } catch {
+  } catch (error) {
+    console.error(
+      '[contact-api] Send failed:',
+      error instanceof Error ? error.message : String(error)
+    )
     return NextResponse.json({ error: 'Failed to send' }, { status: 500 })
   }
 }

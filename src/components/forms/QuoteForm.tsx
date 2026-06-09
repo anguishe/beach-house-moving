@@ -7,6 +7,7 @@ import { AlertCircle, Loader2 } from 'lucide-react'
 import { useForm, Controller } from 'react-hook-form'
 
 import { Button } from '@/components/ui/button'
+import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import {
@@ -19,24 +20,24 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import { BUSINESS, QUOTE_FORM_MOVE_TYPES } from '@/lib/content'
 import { trackQuoteLead, trackPhoneClick } from '@/lib/gtag'
-import { quoteFormSchema, type QuoteFormData } from '@/lib/schema'
+import { quoteFormSchema, type QuoteFormInput } from '@/lib/schema'
 
 export function QuoteForm() {
   const router = useRouter()
-  const form = useForm<QuoteFormData>({
+  const form = useForm<QuoteFormInput>({
     resolver: zodResolver(quoteFormSchema),
-    defaultValues: { moveType: '' },
+    defaultValues: { moveType: '', smsConsent: false },
   })
   const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle')
 
-  const onSubmit = async (data: QuoteFormData) => {
+  const onSubmit = async (data: QuoteFormInput) => {
     setStatus('loading')
 
     try {
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(quoteFormSchema.parse(data)),
       })
 
       if (res.ok) {
@@ -154,6 +155,24 @@ export function QuoteForm() {
       <div className="space-y-2">
         <Label htmlFor="notes">Additional Notes</Label>
         <Textarea id="notes" rows={4} size="form" {...form.register('notes')} />
+      </div>
+
+      <div className="flex items-start gap-3">
+        <Controller
+          name="smsConsent"
+          control={form.control}
+          render={({ field }) => (
+            <Checkbox
+              id="smsConsent"
+              checked={field.value}
+              onCheckedChange={(checked) => field.onChange(checked === true)}
+              className="mt-0.5"
+            />
+          )}
+        />
+        <Label htmlFor="smsConsent" className="font-body text-sm font-normal leading-snug text-ink-muted">
+          I agree to receive text message updates about my move. Message &amp; data rates may apply.
+        </Label>
       </div>
 
       <Button

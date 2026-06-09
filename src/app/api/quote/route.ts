@@ -6,6 +6,9 @@ import { quoteFormSchema } from '@/lib/schema'
 export async function POST(req: NextRequest) {
   try {
     if (!process.env.RESEND_API_KEY) {
+      console.error(
+        '[quote-api] RESEND_API_KEY is not configured. Set it in Vercel → Settings → Environment Variables. See INTEGRATIONS.md.'
+      )
       return NextResponse.json({ error: 'Email service not configured' }, { status: 503 })
     }
 
