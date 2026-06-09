@@ -1,3 +1,22 @@
+/*
+ * Google Reviews API — SETUP STATUS
+ *
+ * Current state: NEXT_PUBLIC_GOOGLE_PLACE_ID is not yet configured.
+ * The GBP listing is new and not yet indexed in Google Places search.
+ *
+ * When to enable:
+ * 1. Search "Beach House Moving" in Google Maps and confirm the business card appears.
+ * 2. Click the business → Share → Copy link. The Place ID is in the URL after "1s".
+ *    Example: https://maps.google.com/?cid=XXXXXXXXXX — the Place ID format is ChIJ...
+ *    To get the ChIJ format: go to https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder
+ * 3. Add NEXT_PUBLIC_GOOGLE_PLACE_ID=ChIJ... to Vercel → Settings → Environment Variables
+ * 4. Redeploy. fetchGoogleReviews() will begin returning live reviews.
+ * 5. Once confirmed working, FLAGS.SHOW_TESTIMONIALS can remain true (live reviews will
+ *    take precedence over static data via the GoogleReviewsCarousel component).
+ *
+ * The GOOGLE_PLACES_API_KEY is already set. Only the Place ID is missing.
+ */
+
 export type GoogleReview = {
   author_name: string
   rating: number
@@ -35,7 +54,9 @@ async function fetchPlaceDetails(): Promise<PlaceDetailsResponse | null> {
   }
 
   if (!placeId) {
-    console.warn('[google-reviews] NEXT_PUBLIC_GOOGLE_PLACE_ID is not set — returning empty reviews')
+    console.warn(
+      '[google-reviews] NEXT_PUBLIC_GOOGLE_PLACE_ID is not set. See src/lib/google-reviews.ts for setup instructions.',
+    )
     return null
   }
 
