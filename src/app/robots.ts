@@ -7,7 +7,11 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
 
   return {
     rules: [
-      { userAgent: '*', allow: '/' },
+      {
+        userAgent: '*',
+        allow: '/',
+        disallow: ['/api/', '/thank-you', '/_next/'],
+      },
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'OAI-SearchBot', allow: '/' },
       { userAgent: 'ChatGPT-User', allow: '/' },
@@ -16,7 +20,9 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       { userAgent: 'PerplexityBot', allow: '/' },
       { userAgent: 'Google-Extended', allow: '/' },
       { userAgent: 'Bytespider', allow: '/' },
+      { userAgent: 'Applebot', allow: '/' },
     ],
     sitemap: `${origin.origin}/sitemap.xml`,
+    host: origin.origin,
   }
 }

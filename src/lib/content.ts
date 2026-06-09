@@ -5,6 +5,11 @@
 // Service-Area Business: street address is intentionally NOT public.
 // ============================================================
 
+// Feature flags.
+// SHOW_TESTIMONIALS: true = show static Google reviews from TESTIMONIALS[].
+// When NEXT_PUBLIC_GOOGLE_PLACE_ID is set and Google Places API is live,
+// the homepage switches to GoogleReviewsCarousel automatically.
+// Do NOT set to false — real verified reviews are present.
 export const FLAGS = {
   SHOW_TESTIMONIALS: true,
 } as const

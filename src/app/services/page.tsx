@@ -57,9 +57,9 @@ export default async function ServicesPage() {
       <div className="bg-brand-sand px-6 py-6">
         <div className="mx-auto max-w-4xl">
           <p className="font-body text-base leading-relaxed text-ink-muted">
-            Beach House Moving offers six moving services across Walton, Okaloosa, and Bay Counties:
-            residential moving, local moving, long-distance moving, packing and unpacking, storage, and
-            delivery. Our crew is owner-operated — the {BUSINESS.teamSize} people who own this company are
+            Beach House Moving offers seven moving services across Walton, Okaloosa, and Bay Counties:
+            residential moving, local moving, long-distance moving, packing and unpacking, storage,
+            delivery, and junk removal. Our crew is owner-operated — the {BUSINESS.teamSize} people who own this company are
             the ones on every job.
           </p>
         </div>

@@ -5,7 +5,6 @@ import { Playfair_Display, Inter } from 'next/font/google'
 import { Navbar } from '@/components/layout/Navbar'
 import { SkipToContent } from '@/components/layout/SkipToContent'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { GA_ID } from '@/lib/gtag'
 import { buildMetadata, HOME_METADATA } from '@/lib/seo'
 import { movingCompanySchema, webSiteSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
@@ -66,26 +65,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             className="hidden invisible"
           />
         </noscript>
-        {GA_ID && (
-          <>
-            {/* TODO: OWNER ACTION REQUIRED — if GA4 is configured inside GTM (standard setup),
-                delete the gtag/js script and gtag('config') block below to prevent double-counting.
-                Verify in GA4 → Realtime → Events: one page_view per visit = correct. Two = delete this block. */}
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                window.gtag = gtag;
-                gtag('js', new Date());
-                gtag('config', '${GA_ID}');
-              `}
-            </Script>
-          </>
-        )}
         <JsonLd data={movingCompanySchema(origin.origin, false)} />
         <JsonLd data={webSiteSchema(origin.origin)} />
         <SkipToContent />

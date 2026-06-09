@@ -34,7 +34,7 @@ export function OwnerOperatorSection() {
           <div className="relative aspect-[4/3] overflow-hidden rounded-brand-lg">
             <Image
               src={IMAGES.fleet.src}
-              alt="Beach House Moving full fleet — Sprinter van and two box trucks"
+              alt={IMAGES.fleet.alt}
               fill
               loading="lazy"
               sizes="(max-width: 1024px) 100vw, 50vw"
