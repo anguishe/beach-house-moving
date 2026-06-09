@@ -66,7 +66,7 @@ export const LICENSE_DISPLAY = {
 } as const
 
 export const SOCIAL_LINKS = {
-  facebook: 'https://www.facebook.com/profile.php?id=61578080548022',
+  facebook: 'https://www.facebook.com/beachhousemovingfl/',
   facebookHandle: '@beachhousemovingfl',
   google: 'https://g.page/r/CXl8yvSwTlBcEAI',
   yelp: '', // Add Yelp URL when verification is complete
