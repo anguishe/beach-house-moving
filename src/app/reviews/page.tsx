@@ -10,7 +10,8 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { IMAGES, REVIEWS_PAGE, REVIEWS_PAGE_META } from '@/lib/content'
 import { fetchGoogleReviews, fetchPlaceSummary } from '@/lib/google-reviews'
 import { buildMetadata } from '@/lib/seo'
-import { reviewsAggregateRatingSchema, reviewsWithTextSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, reviewsAggregateRatingSchema, reviewsWithTextSchema } from '@/lib/structured-data'
+import { getSiteOrigin } from '@/lib/site-url'
 
 export const revalidate = 86400
 
@@ -38,6 +39,7 @@ function HeroStars() {
 }
 
 export default async function ReviewsPage() {
+  const origin = await getSiteOrigin()
   const [googleReviews, placeSummary] = await Promise.all([
     fetchGoogleReviews(),
     fetchPlaceSummary(),
@@ -49,16 +51,26 @@ export default async function ReviewsPage() {
   const ratingSummary = `${reviewCount} Reviews · ${ratingValue.toFixed(1)} Average`
 
   const reviewSchemas = reviewsWithTextSchema()
+  const breadcrumbs = breadcrumbSchema(
+    [
+      { name: 'Home', path: '/' },
+      { name: 'Reviews', path: '/reviews' },
+    ],
+    origin.origin,
+  )
 
   return (
     <PageShell>
       <JsonLd
-        data={reviewsAggregateRatingSchema({
-          ratingValue,
-          reviewCount,
-        })}
+        data={[
+          breadcrumbs,
+          reviewsAggregateRatingSchema({
+            ratingValue,
+            reviewCount,
+          }),
+          ...reviewSchemas,
+        ]}
       />
-      <JsonLd data={reviewSchemas} />
 
       <section className="relative min-h-88 overflow-hidden md:min-h-104">
         <Image

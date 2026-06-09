@@ -11,7 +11,7 @@ import { ServiceAreaMap } from '@/components/layout/ServiceAreaMap'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { BUSINESS, NEIGHBORHOODS, PAGE_META, SERVICE_AREAS, SERVICE_AREAS_HUB } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, serviceAreasItemListSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -30,7 +30,7 @@ export default async function ServiceAreasPage() {
 
   return (
     <PageShell>
-      <JsonLd data={breadcrumbs} />
+      <JsonLd data={[breadcrumbs, serviceAreasItemListSchema(origin.origin)]} />
 
       <PageHero
         eyebrow={SERVICE_AREAS_HUB.eyebrow}

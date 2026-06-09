@@ -11,9 +11,9 @@ import { TestimonialsSection } from '@/components/sections/TestimonialsSection'
 import { TrustSection } from '@/components/sections/TrustSection'
 import { Footer } from '@/components/layout/Footer'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { REVIEWS_PAGE_META } from '@/lib/content'
+import { FAQS, REVIEWS_PAGE_META } from '@/lib/content'
 import { fetchGoogleReviews, fetchPlaceSummary } from '@/lib/google-reviews'
-import { movingCompanySchema } from '@/lib/structured-data'
+import { faqSchema, movingCompanySchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export const revalidate = 86400
@@ -33,7 +33,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <JsonLd data={movingCompanySchema(origin.origin, true)} />
+      <JsonLd data={[movingCompanySchema(origin.origin, true), faqSchema(FAQS)]} />
       <main id="main-content" tabIndex={-1} className="pb-[64px] outline-none md:pb-0">
         <HeroSection />
         <TrustSection />

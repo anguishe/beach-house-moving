@@ -10,6 +10,7 @@ import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { BUSINESS, FAQS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES, TRUST_BADGES } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
+import { faqSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 type PageProps = {
@@ -106,10 +107,13 @@ export default async function NeighborhoodPage({ params }: PageProps) {
 
   const pageUrl = `${base}/service-areas/${area.slug}/${nb.slug}`
 
-  const directFaq = {
-    question: `Does Beach House Moving serve ${nb.name}?`,
-    answer: `Yes — Beach House Moving serves ${nb.name} and surrounding ${nb.county}. We are locally owned, owner-operated, and licensed under Florida Mover Reg. #${BUSINESS.registration.number}. Call ${BUSINESS.phone.display} for a free quote.`,
-  }
+  const neighborhoodFaqs = [
+    {
+      q: `Does Beach House Moving serve ${nb.name}?`,
+      a: `Yes — Beach House Moving serves ${nb.name} and surrounding ${nb.county}. We are locally owned, owner-operated, and licensed under Florida Mover Reg. #${BUSINESS.registration.number}. Call ${BUSINESS.phone.display} for a free quote.`,
+    },
+    altFaq,
+  ] as const
 
   const businessSchema = {
     '@context': 'https://schema.org',
@@ -158,7 +162,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
 
   return (
     <PageShell>
-      <JsonLd data={[businessSchema, serviceSchema, breadcrumbSchema]} />
+      <JsonLd data={[businessSchema, serviceSchema, breadcrumbSchema, faqSchema(neighborhoodFaqs)]} />
 
       {/* Direct-answer paragraph — AEO */}
       <div className="bg-brand-sand px-6 py-6">
@@ -281,22 +285,15 @@ export default async function NeighborhoodPage({ params }: PageProps) {
               Common Questions About Moving in {nb.name}
             </h2>
             <div className="mt-6 space-y-4">
-              <div className="rounded-brand border border-brand-navy/8 bg-white p-6 shadow-brand">
-                <h3 className="font-heading text-base font-semibold text-brand-navy">
-                  {directFaq.question}
-                </h3>
-                <p className="mt-2 font-body text-sm leading-relaxed text-ink-muted">
-                  {directFaq.answer}
-                </p>
-              </div>
-              <div className="rounded-brand border border-brand-navy/8 bg-white p-6 shadow-brand">
-                <h3 className="font-heading text-base font-semibold text-brand-navy">
-                  {altFaq.q}
-                </h3>
-                <p className="mt-2 font-body text-sm leading-relaxed text-ink-muted">
-                  {altFaq.a}
-                </p>
-              </div>
+              {neighborhoodFaqs.map((faq) => (
+                <div
+                  key={faq.q}
+                  className="rounded-brand border border-brand-navy/8 bg-white p-6 shadow-brand"
+                >
+                  <h3 className="font-heading text-base font-semibold text-brand-navy">{faq.q}</h3>
+                  <p className="mt-2 font-body text-sm leading-relaxed text-ink-muted">{faq.a}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

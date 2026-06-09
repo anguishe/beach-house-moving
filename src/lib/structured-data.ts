@@ -305,6 +305,25 @@ export function contactPageSchema(pagePath: string, pageName: string, origin: st
   }
 }
 
+/** ItemList schema for the /service-areas hub page. */
+export function serviceAreasItemListSchema(origin: string) {
+  const base = origin.replace(/\/$/, '')
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Beach House Moving Service Areas',
+    description:
+      'Moving company serving Walton, Okaloosa, and Bay Counties in the Florida Panhandle.',
+    itemListElement: SERVICE_AREAS.map((area, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: area.county,
+      url: absoluteUrl(base, `/service-areas/${area.slug}`),
+    })),
+  }
+}
+
 /** ItemList schema for the /services hub page. */
 export function servicesItemListSchema(origin: string) {
   const base = origin.replace(/\/$/, '')

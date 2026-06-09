@@ -20,7 +20,7 @@ import { FAQSection } from '@/components/sections/FAQSection'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { BUSINESS, FAQS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema, countyAreaSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, countyAreaSchema, faqSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 const serviceIconMap = {
@@ -73,7 +73,7 @@ export default async function CountyPage({ params }: PageProps) {
 
   return (
     <PageShell>
-      <JsonLd data={[breadcrumbs, ...countyAreaSchema(area, origin.origin)]} />
+      <JsonLd data={[breadcrumbs, ...countyAreaSchema(area, origin.origin), faqSchema(FAQS)]} />
 
       <PageHero
         title={`Movers in ${area.county}`}
