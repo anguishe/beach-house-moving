@@ -395,6 +395,14 @@ export const IMAGES = {
     src: '/images/mover-storage-corridor.jpg',
     alt: 'Beach House Moving mover wheeling a flat cart through a climate-controlled storage facility',
   },
+  crewBrandedAntiqueMove: {
+    src: '/images/crew-branded-antique-move.jpg',
+    alt: 'Beach House Moving owners moving antique furniture in a luxury Emerald Coast home',
+  },
+  crewTeamFurnitureMove: {
+    src: '/images/crew-team-furniture-move.jpg',
+    alt: 'The Beach House Moving owner-operator team handling a customer move together',
+  },
 } as const
 
 /** Homepage gallery marquee — every slot must use a unique `src`. */

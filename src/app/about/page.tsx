@@ -45,15 +45,28 @@ export default async function AboutPage() {
           </h1>
 
           <div className="mt-10 space-y-12">
-            <div className="space-y-4">
-              {ABOUT_CONTENT.opening.paragraphs.map((paragraph) => (
-                <p
-                  key={paragraph.slice(0, 48)}
-                  className="font-body text-base leading-relaxed text-ink-muted"
-                >
-                  {paragraph}
-                </p>
-              ))}
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
+              <div className="space-y-4">
+                {ABOUT_CONTENT.opening.paragraphs.map((paragraph) => (
+                  <p
+                    key={paragraph.slice(0, 48)}
+                    className="font-body text-base leading-relaxed text-ink-muted"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+              <figure className="overflow-hidden rounded-brand-lg shadow-brand">
+                <Image
+                  src={IMAGES.crewBrandedAntiqueMove.src}
+                  alt={IMAGES.crewBrandedAntiqueMove.alt}
+                  width={1350}
+                  height={1800}
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="h-auto w-full object-cover"
+                />
+              </figure>
             </div>
 
             <div>
@@ -111,6 +124,17 @@ export default async function AboutPage() {
                   </li>
                 ))}
               </ul>
+              <figure className="mt-8 overflow-hidden rounded-brand-lg shadow-brand">
+                <Image
+                  src={IMAGES.crewTeamFurnitureMove.src}
+                  alt={IMAGES.crewTeamFurnitureMove.alt}
+                  width={1350}
+                  height={1800}
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  className="h-auto w-full object-cover"
+                />
+              </figure>
             </div>
 
             <div>
@@ -132,17 +156,6 @@ export default async function AboutPage() {
                   </li>
                 ))}
               </ul>
-            </div>
-
-            <div className="relative aspect-[16/9] overflow-hidden rounded-brand-lg bg-brand-sand">
-              <Image
-                src={IMAGES.fleet.src}
-                alt={IMAGES.fleet.alt}
-                fill
-                loading="lazy"
-                sizes="(max-width: 768px) 100vw, 800px"
-                className="object-contain p-4"
-              />
             </div>
 
             <div className="flex flex-col items-center gap-4 pt-4 sm:flex-row">
