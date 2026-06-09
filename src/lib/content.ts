@@ -200,6 +200,7 @@ export const SERVICES = [
     fullDescription:
       'New sofa, a fridge swap, a washer-dryer set, or one oversized piece up three flights — we deliver and place it, and we\'ll help with the hookup. Same care as a full move, scaled to one item.',
     icon: 'PackageCheck',
+    image: '/images/crew-gym-equipment-liftgate.jpg',
     featured: false,
     metaTitle: 'Furniture & Appliance Delivery | Beach House Moving',
     metaDescription:
@@ -353,6 +354,10 @@ export const IMAGES = {
   fridge: {
     src: '/images/team-fridge.jpg',
     alt: 'Beach House Moving crew carefully moving a refrigerator',
+  },
+  crewGymEquipmentLiftgate: {
+    src: '/images/crew-gym-equipment-liftgate.jpg',
+    alt: 'Beach House Moving crew loading gym equipment onto a truck liftgate on the Emerald Coast',
   },
   washerDryer: {
     src: '/images/team-washer-dryer.jpg',

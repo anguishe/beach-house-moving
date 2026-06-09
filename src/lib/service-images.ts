@@ -10,6 +10,6 @@ export const SERVICE_IMAGE_MAP: Record<
   'long-distance-moving': IMAGES.fleet,
   'packing-unpacking': IMAGES.dresserPack,
   storage: IMAGES.moverStorageCorridor,
-  delivery: IMAGES.fridge,
+  delivery: IMAGES.crewGymEquipmentLiftgate,
   'junk-removal': IMAGES.truckLoading,
 }
