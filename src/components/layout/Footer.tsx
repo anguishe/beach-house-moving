@@ -1,8 +1,8 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
 
 import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
+import { BrandLogo } from '@/components/layout/BrandLogo'
 import {
   BUSINESS,
   IMAGES,
@@ -28,14 +28,15 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-8">
         <div className="footer-grid mb-12 grid gap-12 md:grid-cols-3">
           <div className="flex flex-col gap-4">
-            <Image
-              src="/images/logo-light.png"
-              alt={IMAGES.logo.alt}
-              width={140}
-              height={46}
-              loading="lazy"
-              className="block h-10 w-auto"
-            />
+            <Link
+              href="/"
+              aria-label={`${BUSINESS.name} — Home`}
+              className="inline-block w-fit rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
+            >
+              <div className="inline-block rounded-lg bg-white/10 p-2 opacity-90 transition-opacity hover:opacity-100">
+                <BrandLogo size="footer" alt={IMAGES.logo.footerAlt} className="rounded" />
+              </div>
+            </Link>
             <p className="max-w-[220px] font-body text-[13px] leading-relaxed text-on-dark-muted">
               {BUSINESS.name} — {BUSINESS.tagline}
             </p>

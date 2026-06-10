@@ -334,8 +334,21 @@ export const FAQS = [
 
 // Image library — paths map to /public/images. Alt text is final copy.
 export const IMAGES = {
-  logo: { src: '/images/logo-light.png', alt: 'Beach House Moving logo' },
-  logoOnLight: { src: '/images/logo-dark.png', alt: 'Beach House Moving logo' },
+  logo: {
+    /** Primary circular brand mark (Facebook profile style). */
+    src: '/images/circular-logo.png',
+    footer: '/images/circular-logo.png',
+    navbar: '/images/circular-logo.png',
+    alt: 'Beach House Moving',
+    footerAlt:
+      'Beach House Moving — Licensed & Insured Movers on the Emerald Coast',
+    width: 1024,
+    height: 1024,
+  },
+  /** Horizontal wordmark for light backgrounds (legacy asset). */
+  logoOnLight: { src: '/images/logo-dark.png', alt: 'Beach House Moving wordmark logo' },
+  /** Horizontal wordmark for dark backgrounds (legacy asset). */
+  logoHorizontalLight: { src: '/images/logo-light.png', alt: 'Beach House Moving wordmark logo' },
   hero: {
     src: '/images/hero-van.jpg',
     alt: 'Beach House Moving van parked at a beachfront home on 30A, Santa Rosa Beach, Florida',

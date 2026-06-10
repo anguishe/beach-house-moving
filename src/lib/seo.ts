@@ -72,6 +72,7 @@ export async function buildMetadata({
     icons: {
       icon: [
         { url: '/favicon.ico' },
+        { url: '/images/circular-logo.png', sizes: '1024x1024', type: 'image/png' },
         { url: '/images/icon-512.png', sizes: '512x512', type: 'image/png' },
       ],
       apple: [

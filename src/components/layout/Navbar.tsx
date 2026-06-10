@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, Phone, X } from 'lucide-react'
@@ -12,8 +11,9 @@ import {
   SheetContent,
   SheetTitle,
 } from '@/components/ui/sheet'
+import { BrandLogo } from '@/components/layout/BrandLogo'
 import { cn } from '@/lib/utils'
-import { BUSINESS, IMAGES, LICENSE_DISPLAY, NAV_LINKS } from '@/lib/content'
+import { BUSINESS, LICENSE_DISPLAY, NAV_LINKS } from '@/lib/content'
 import { trackPhoneClick } from '@/lib/gtag'
 import { isNavLinkActive } from '@/lib/nav'
 
@@ -44,14 +44,7 @@ export function Navbar() {
             href="/"
             className="flex shrink-0 items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
           >
-            <Image
-              src="/images/logo-light.png"
-              alt={IMAGES.logo.alt}
-              width={120}
-              height={40}
-              priority
-              className="block h-[38px] w-auto"
-            />
+            <BrandLogo size="nav" priority />
           </Link>
 
           <div className="hidden items-center gap-9 lg:flex">
@@ -122,15 +115,7 @@ export function Navbar() {
           <SheetTitle className="sr-only">Navigation menu</SheetTitle>
 
           <div className="mb-10 flex items-center justify-between">
-            <Image
-              src="/images/logo-light.png"
-              alt=""
-              width={110}
-              height={36}
-              loading="lazy"
-              className="h-[34px] w-auto"
-              aria-hidden
-            />
+            <BrandLogo size="drawer" alt="" aria-hidden />
             <SheetClose
               className="flex items-center rounded-md bg-white/10 p-1.5 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
               aria-label="Close menu"
