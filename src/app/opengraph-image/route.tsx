@@ -1,13 +1,9 @@
 // Branded OG image — 1200×630 — hero photo + text overlay
-// Edge Function target size: <200 KB (well under Vercel Hobby 1 MB limit)
+// Route handler (not file convention) so metadata uses our hardcoded og:image URL.
 
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt =
-  'Beach House Moving — Licensed & Insured Movers on the Florida Panhandle'
-export const size = { width: 1200, height: 630 }
-export const contentType = 'image/png'
 
 async function loadArrayBuffer(url: string | URL): Promise<ArrayBuffer> {
   const response = await fetch(url)
@@ -17,17 +13,17 @@ async function loadArrayBuffer(url: string | URL): Promise<ArrayBuffer> {
   return response.arrayBuffer()
 }
 
-export default async function OgImage() {
+export async function GET() {
   const [playfairBold, interRegular, interSemiBold] = await Promise.all([
-    loadArrayBuffer(new URL('./fonts/playfair-bold-latin.woff2', import.meta.url)),
-    loadArrayBuffer(new URL('./fonts/inter-regular-latin.woff2', import.meta.url)),
-    loadArrayBuffer(new URL('./fonts/inter-semibold-latin.woff2', import.meta.url)),
+    loadArrayBuffer(new URL('../fonts/playfair-bold-latin.woff2', import.meta.url)),
+    loadArrayBuffer(new URL('../fonts/inter-regular-latin.woff2', import.meta.url)),
+    loadArrayBuffer(new URL('../fonts/inter-semibold-latin.woff2', import.meta.url)),
   ])
 
   let heroSrc: string | null = null
   try {
     const heroBuffer = await loadArrayBuffer(
-      new URL('../../public/images/og-hero.jpg', import.meta.url)
+      new URL('../../../public/images/og-hero.jpg', import.meta.url),
     )
     const base64 = Buffer.from(heroBuffer).toString('base64')
     heroSrc = `data:image/jpeg;base64,${base64}`
@@ -192,7 +188,8 @@ export default async function OgImage() {
       </div>
     ),
     {
-      ...size,
+      width: 1200,
+      height: 630,
       fonts: [
         {
           name: 'Playfair Display',
@@ -213,6 +210,6 @@ export default async function OgImage() {
           weight: 600,
         },
       ],
-    }
+    },
   )
 }

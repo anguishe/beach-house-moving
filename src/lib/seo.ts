@@ -15,14 +15,6 @@ function normalizePath(path: string): string {
   return path.startsWith('/') ? path : `/${path}`
 }
 
-function ogImageUrl(origin: URL): string {
-  return new URL('/opengraph-image', origin).toString()
-}
-
-function twitterImageUrl(origin: URL): string {
-  return new URL('/opengraph-image', origin).toString()
-}
-
 /**
  * Consistent metadata for every indexable page: title, description,
  * self-referential canonical, robots, Open Graph, and Twitter cards.
@@ -38,9 +30,6 @@ export async function buildMetadata({
     canonicalPath === '/'
       ? `${metadataBase.origin}/`
       : new URL(canonicalPath, metadataBase).toString()
-  const ogImage = ogImageUrl(metadataBase)
-  const twitterImage = twitterImageUrl(metadataBase)
-
   return {
     metadataBase,
     title,
@@ -61,7 +50,7 @@ export async function buildMetadata({
       siteName: BUSINESS.name,
       images: [
         {
-          url: ogImage,
+          url: 'https://beachhousemoving.xyz/opengraph-image',
           width: 1200,
           height: 630,
           alt: `${BUSINESS.name} — Licensed & Insured Movers on the Florida Panhandle`,
@@ -74,7 +63,7 @@ export async function buildMetadata({
       description,
       images: [
         {
-          url: twitterImage,
+          url: 'https://beachhousemoving.xyz/opengraph-image',
           alt: `${BUSINESS.name} — Licensed & Insured Movers on the Florida Panhandle`,
         },
       ],
