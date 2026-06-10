@@ -2,7 +2,6 @@
 // Edge Function target size: <200 KB (well under Vercel Hobby 1 MB limit)
 
 import { ImageResponse } from 'next/og'
-import { siteUrl } from '@/lib/site-url'
 
 export const runtime = 'edge'
 export const alt =
@@ -25,17 +24,15 @@ export default async function OgImage() {
     loadArrayBuffer(new URL('./fonts/inter-semibold-latin.woff2', import.meta.url)),
   ])
 
-  // Fetch hero background image at runtime from public/.
-  // This is NOT bundled — it is a network request at render time.
-  // Fails gracefully: falls back to solid navy if image is unavailable.
-  let heroSrc: ArrayBuffer | null = null
+  let heroSrc: string | null = null
   try {
-    const res = await fetch(`${siteUrl}/images/og-hero.jpg`, {
-      cache: 'force-cache',
-    })
-    if (res.ok) heroSrc = await res.arrayBuffer()
+    const heroBuffer = await loadArrayBuffer(
+      new URL('../../public/images/og-hero.jpg', import.meta.url)
+    )
+    const base64 = Buffer.from(heroBuffer).toString('base64')
+    heroSrc = `data:image/jpeg;base64,${base64}`
   } catch {
-    // Intentionally silent — gradient fallback handles this
+    // Silent — gradient fallback handles unavailable image
   }
 
   return new ImageResponse(
@@ -53,7 +50,7 @@ export default async function OgImage() {
         {heroSrc ? (
           <img
             alt=""
-            src={heroSrc as unknown as string}
+            src={heroSrc}
             style={{
               position: 'absolute',
               inset: 0,
