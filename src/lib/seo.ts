@@ -16,11 +16,11 @@ function normalizePath(path: string): string {
 }
 
 function ogImageUrl(origin: URL): string {
-  return new URL('/opengraph-image.jpg', origin).toString()
+  return new URL('/opengraph-image', origin).toString()
 }
 
 function twitterImageUrl(origin: URL): string {
-  return new URL('/twitter-image.jpg', origin).toString()
+  return new URL('/opengraph-image', origin).toString()
 }
 
 /**
@@ -64,7 +64,7 @@ export async function buildMetadata({
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${BUSINESS.name} — Licensed movers serving Walton, Okaloosa & Bay Counties`,
+          alt: `${BUSINESS.name} — Licensed & Insured Movers on the Florida Panhandle`,
         },
       ],
     },
@@ -72,7 +72,12 @@ export async function buildMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: [twitterImage],
+      images: [
+        {
+          url: twitterImage,
+          alt: `${BUSINESS.name} — Licensed & Insured Movers on the Florida Panhandle`,
+        },
+      ],
     },
     icons: {
       icon: [

@@ -1,0 +1,236 @@
+// Branded OG image: hero photo + text overlay — 1200×630
+// Served at /opengraph-image — injected sitewide by Next.js App Router convention.
+
+import { ImageResponse } from 'next/og'
+
+import { siteUrl } from '@/lib/site-url'
+
+export const runtime = 'edge'
+export const alt =
+  'Beach House Moving — Licensed & Insured Movers on the Florida Panhandle'
+export const size = { width: 1200, height: 630 }
+export const contentType = 'image/png'
+
+async function loadArrayBuffer(url: string | URL): Promise<ArrayBuffer> {
+  const response = await fetch(url)
+  if (!response.ok) {
+    throw new Error(`Failed to load asset: ${response.status}`)
+  }
+  return response.arrayBuffer()
+}
+
+export default async function OgImage() {
+  const playfairBold = await loadArrayBuffer(
+    new URL('./fonts/playfair-display-bold.ttf', import.meta.url),
+  )
+  const interRegular = await loadArrayBuffer(
+    new URL('./fonts/inter-regular.ttf', import.meta.url),
+  )
+  const interSemiBold = await loadArrayBuffer(
+    new URL('./fonts/inter-semibold.ttf', import.meta.url),
+  )
+
+  let heroImageData: ArrayBuffer | null = null
+  try {
+    heroImageData = await loadArrayBuffer(
+      new URL('/images/og-hero.jpg', siteUrl),
+    )
+  } catch {
+    try {
+      heroImageData = await loadArrayBuffer(
+        new URL('./og-hero.jpg', import.meta.url),
+      )
+    } catch {
+      heroImageData = null
+    }
+  }
+
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: 1200,
+          height: 630,
+          display: 'flex',
+          position: 'relative',
+          fontFamily: 'Inter, system-ui, sans-serif',
+          overflow: 'hidden',
+        }}
+      >
+        {heroImageData ? (
+          <img
+            alt=""
+            // @ts-expect-error ImageResponse accepts ArrayBuffer src
+            src={heroImageData}
+            style={{
+              position: 'absolute',
+              inset: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              objectPosition: 'center',
+            }}
+          />
+        ) : (
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              background: '#1B2B4B',
+            }}
+          />
+        )}
+
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background:
+              'linear-gradient(to right, rgba(27,43,75,0.84) 0%, rgba(27,43,75,0.84) 55%, rgba(27,43,75,0.22) 100%)',
+          }}
+        />
+
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            paddingLeft: 64,
+            paddingRight: 480,
+            paddingBottom: 60,
+            gap: 0,
+          }}
+        >
+          <div
+            style={{
+              display: 'flex',
+              marginBottom: 18,
+            }}
+          >
+            <span
+              style={{
+                background: '#2A9D8F',
+                color: '#FFFFFF',
+                fontSize: 16,
+                fontWeight: 600,
+                letterSpacing: '0.10em',
+                textTransform: 'uppercase',
+                padding: '7px 20px',
+                borderRadius: 100,
+                fontFamily: 'Inter, system-ui, sans-serif',
+              }}
+            >
+              Florida Panhandle · Licensed &amp; Insured
+            </span>
+          </div>
+
+          <div
+            style={{
+              color: '#FFFFFF',
+              fontSize: 80,
+              fontWeight: 700,
+              lineHeight: 1.0,
+              fontFamily: 'Playfair Display, Georgia, serif',
+              marginBottom: 14,
+            }}
+          >
+            Beach House Moving
+          </div>
+
+          <div
+            style={{
+              color: '#E9C46A',
+              fontSize: 34,
+              fontWeight: 400,
+              fontStyle: 'italic',
+              fontFamily: 'Playfair Display, Georgia, serif',
+              marginBottom: 22,
+            }}
+          >
+            Your Move, Our Mission.
+          </div>
+
+          <div
+            style={{
+              color: '#CBD5E0',
+              fontSize: 20,
+              fontWeight: 500,
+              letterSpacing: '0.03em',
+              marginBottom: 22,
+              fontFamily: 'Inter, system-ui, sans-serif',
+            }}
+          >
+            Walton · Okaloosa · Bay Counties
+          </div>
+
+          <div style={{ display: 'flex' }}>
+            <span
+              style={{
+                background: '#E85D3D',
+                color: '#FFFFFF',
+                fontSize: 24,
+                fontWeight: 700,
+                padding: '12px 32px',
+                borderRadius: 100,
+                fontFamily: 'Inter, system-ui, sans-serif',
+              }}
+            >
+              (850) 842-1962 · Free Quote
+            </span>
+          </div>
+        </div>
+
+        <div
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: 52,
+            background: 'rgba(27, 43, 75, 0.92)',
+            display: 'flex',
+            alignItems: 'center',
+            paddingLeft: 64,
+          }}
+        >
+          <span
+            style={{
+              color: '#CBD5E0',
+              fontSize: 17,
+              fontWeight: 500,
+              fontFamily: 'Inter, system-ui, sans-serif',
+              letterSpacing: '0.02em',
+            }}
+          >
+            FL Mover Reg. #IM4125 · beachhousemoving.xyz · Open 24 Hours
+          </span>
+        </div>
+      </div>
+    ),
+    {
+      ...size,
+      fonts: [
+        {
+          name: 'Playfair Display',
+          data: playfairBold,
+          style: 'normal',
+          weight: 700,
+        },
+        {
+          name: 'Inter',
+          data: interRegular,
+          style: 'normal',
+          weight: 400,
+        },
+        {
+          name: 'Inter',
+          data: interSemiBold,
+          style: 'normal',
+          weight: 600,
+        },
+      ],
+    },
+  )
+}
