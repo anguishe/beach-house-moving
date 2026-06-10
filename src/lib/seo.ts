@@ -50,10 +50,10 @@ export async function buildMetadata({
       siteName: BUSINESS.name,
       images: [
         {
-          url: 'https://beachhousemoving.xyz/opengraph-image',
+          url: '/images/og-hero.jpg',
           width: 1200,
           height: 630,
-          alt: `${BUSINESS.name} — Licensed & Insured Movers on the Florida Panhandle`,
+          alt: `${BUSINESS.name} — Movers in Santa Rosa Beach, FL`,
         },
       ],
     },
@@ -63,8 +63,8 @@ export async function buildMetadata({
       description,
       images: [
         {
-          url: 'https://beachhousemoving.xyz/opengraph-image',
-          alt: `${BUSINESS.name} — Licensed & Insured Movers on the Florida Panhandle`,
+          url: '/images/og-hero.jpg',
+          alt: `${BUSINESS.name} — Movers in Santa Rosa Beach, FL`,
         },
       ],
     },

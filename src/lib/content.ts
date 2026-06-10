@@ -573,7 +573,7 @@ export const REVIEWS_PAGE = {
 export const PAGE_META = {
   home: {
     title: `Beach House Moving | Movers in ${BUSINESS.address.city}, FL`,
-    description: `Locally owned & fully licensed movers serving Walton, Okaloosa & Bay Counties. Packing, loading, transportation & storage. Get your free quote — ${BUSINESS.phone.display}.`,
+    description: `Locally owned & fully licensed movers serving Walton, Okaloosa & Bay Counties. 3-truck fleet. FL Mover Reg. #IM4125. Free quote — ${BUSINESS.phone.display}.`,
     path: '/',
   },
   services: {
