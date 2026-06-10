@@ -1,5 +1,6 @@
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? 'https://beachhousemoving.xyz'
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, '') ??
+  'https://beachhousemoving.xyz'
 
 /**
  * Resolves the site origin for metadata and absolute URLs.

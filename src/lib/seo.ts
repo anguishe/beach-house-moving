@@ -16,11 +16,11 @@ function normalizePath(path: string): string {
 }
 
 function ogImageUrl(origin: URL): string {
-  return new URL('/opengraph-image', origin).toString()
+  return new URL('/opengraph-image.jpg', origin).toString()
 }
 
 function twitterImageUrl(origin: URL): string {
-  return new URL('/twitter-image', origin).toString()
+  return new URL('/twitter-image.jpg', origin).toString()
 }
 
 /**
