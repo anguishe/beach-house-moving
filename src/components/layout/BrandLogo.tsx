@@ -4,8 +4,8 @@ import { IMAGES } from '@/lib/content'
 import { cn } from '@/lib/utils'
 
 const SIZES = {
-  nav: { width: 44, height: 44, className: 'h-11 w-11' },
-  drawer: { width: 40, height: 40, className: 'h-10 w-10' },
+  nav: { width: 600, height: 389, className: 'h-11 w-auto' },
+  drawer: { width: 600, height: 389, className: 'h-10 w-auto' },
   footer: { width: 64, height: 64, className: 'h-16 w-16' },
 } as const
 
@@ -16,7 +16,7 @@ type BrandLogoProps = {
   alt?: string
 } & Pick<ImageProps, 'aria-hidden' | 'loading'>
 
-/** Circular brand mark — single source for navbar, footer, and drawer logo usage. */
+/** Brand mark — horizontal wordmark in navbar/drawer; circular mark in footer. */
 export function BrandLogo({
   size = 'nav',
   priority = false,

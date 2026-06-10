@@ -338,7 +338,7 @@ export const IMAGES = {
     /** Primary circular brand mark (Facebook profile style). */
     src: '/images/circular-logo.png',
     footer: '/images/circular-logo.png',
-    navbar: '/images/circular-logo.png',
+    navbar: '/images/logo-dark.png',
     alt: 'Beach House Moving',
     footerAlt:
       'Beach House Moving — Licensed & Insured Movers on the Emerald Coast',
@@ -348,7 +348,7 @@ export const IMAGES = {
   /** Horizontal wordmark for light backgrounds (legacy asset). */
   logoOnLight: { src: '/images/logo-dark.png', alt: 'Beach House Moving wordmark logo' },
   /** Horizontal wordmark for dark backgrounds (legacy asset). */
-  logoHorizontalLight: { src: '/images/logo-light.png', alt: 'Beach House Moving wordmark logo' },
+  logoHorizontalLight: { src: '/images/logo-dark.png', alt: 'Beach House Moving wordmark logo' },
   hero: {
     src: '/images/hero-van.jpg',
     alt: 'Beach House Moving van parked at a beachfront home on 30A, Santa Rosa Beach, Florida',

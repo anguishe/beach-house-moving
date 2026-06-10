@@ -19,6 +19,10 @@ function ogImageUrl(origin: URL): string {
   return new URL('/opengraph-image', origin).toString()
 }
 
+function twitterImageUrl(origin: URL): string {
+  return new URL('/twitter-image', origin).toString()
+}
+
 /**
  * Consistent metadata for every indexable page: title, description,
  * self-referential canonical, robots, Open Graph, and Twitter cards.
@@ -35,6 +39,7 @@ export async function buildMetadata({
       ? `${metadataBase.origin}/`
       : new URL(canonicalPath, metadataBase).toString()
   const ogImage = ogImageUrl(metadataBase)
+  const twitterImage = twitterImageUrl(metadataBase)
 
   return {
     metadataBase,
@@ -67,7 +72,7 @@ export async function buildMetadata({
       card: 'summary_large_image',
       title,
       description,
-      images: [ogImage],
+      images: [twitterImage],
     },
     icons: {
       icon: [
