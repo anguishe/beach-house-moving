@@ -1,8 +1,7 @@
-// Branded OG image: hero photo + text overlay — 1200×630
-// Served at /opengraph-image — injected sitewide by Next.js App Router convention.
+// Branded OG image — 1200×630 — hero photo + text overlay
+// Edge Function target size: <200 KB (well under Vercel Hobby 1 MB limit)
 
 import { ImageResponse } from 'next/og'
-
 import { siteUrl } from '@/lib/site-url'
 
 export const runtime = 'edge'
@@ -20,29 +19,23 @@ async function loadArrayBuffer(url: string | URL): Promise<ArrayBuffer> {
 }
 
 export default async function OgImage() {
-  const playfairBold = await loadArrayBuffer(
-    new URL('./fonts/playfair-display-bold.ttf', import.meta.url),
-  )
-  const interRegular = await loadArrayBuffer(
-    new URL('./fonts/inter-regular.ttf', import.meta.url),
-  )
-  const interSemiBold = await loadArrayBuffer(
-    new URL('./fonts/inter-semibold.ttf', import.meta.url),
-  )
+  const [playfairBold, interRegular, interSemiBold] = await Promise.all([
+    loadArrayBuffer(new URL('./fonts/playfair-bold-latin.woff2', import.meta.url)),
+    loadArrayBuffer(new URL('./fonts/inter-regular-latin.woff2', import.meta.url)),
+    loadArrayBuffer(new URL('./fonts/inter-semibold-latin.woff2', import.meta.url)),
+  ])
 
-  let heroImageData: ArrayBuffer | null = null
+  // Fetch hero background image at runtime from public/.
+  // This is NOT bundled — it is a network request at render time.
+  // Fails gracefully: falls back to solid navy if image is unavailable.
+  let heroSrc: ArrayBuffer | null = null
   try {
-    heroImageData = await loadArrayBuffer(
-      new URL('/images/og-hero.jpg', siteUrl),
-    )
+    const res = await fetch(`${siteUrl}/images/og-hero.jpg`, {
+      cache: 'force-cache',
+    })
+    if (res.ok) heroSrc = await res.arrayBuffer()
   } catch {
-    try {
-      heroImageData = await loadArrayBuffer(
-        new URL('./og-hero.jpg', import.meta.url),
-      )
-    } catch {
-      heroImageData = null
-    }
+    // Intentionally silent — gradient fallback handles this
   }
 
   return new ImageResponse(
@@ -53,15 +46,14 @@ export default async function OgImage() {
           height: 630,
           display: 'flex',
           position: 'relative',
-          fontFamily: 'Inter, system-ui, sans-serif',
           overflow: 'hidden',
+          fontFamily: '"Inter", system-ui, sans-serif',
         }}
       >
-        {heroImageData ? (
+        {heroSrc ? (
           <img
             alt=""
-            // @ts-expect-error ImageResponse accepts ArrayBuffer src
-            src={heroImageData}
+            src={heroSrc as unknown as string}
             style={{
               position: 'absolute',
               inset: 0,
@@ -86,40 +78,36 @@ export default async function OgImage() {
             position: 'absolute',
             inset: 0,
             background:
-              'linear-gradient(to right, rgba(27,43,75,0.84) 0%, rgba(27,43,75,0.84) 55%, rgba(27,43,75,0.22) 100%)',
+              'linear-gradient(to right, rgba(27,43,75,0.88) 0%, rgba(27,43,75,0.88) 52%, rgba(27,43,75,0.20) 100%)',
           }}
         />
 
         <div
           style={{
             position: 'absolute',
-            inset: 0,
+            top: 0,
+            left: 0,
+            bottom: 52,
+            width: 680,
             display: 'flex',
             flexDirection: 'column',
             justifyContent: 'center',
             paddingLeft: 64,
-            paddingRight: 480,
-            paddingBottom: 60,
+            paddingRight: 40,
             gap: 0,
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              marginBottom: 18,
-            }}
-          >
+          <div style={{ display: 'flex', marginBottom: 18 }}>
             <span
               style={{
                 background: '#2A9D8F',
                 color: '#FFFFFF',
-                fontSize: 16,
+                fontSize: 15,
                 fontWeight: 600,
                 letterSpacing: '0.10em',
                 textTransform: 'uppercase',
-                padding: '7px 20px',
+                padding: '7px 18px',
                 borderRadius: 100,
-                fontFamily: 'Inter, system-ui, sans-serif',
               }}
             >
               Florida Panhandle · Licensed &amp; Insured
@@ -129,10 +117,10 @@ export default async function OgImage() {
           <div
             style={{
               color: '#FFFFFF',
-              fontSize: 80,
+              fontSize: 76,
               fontWeight: 700,
               lineHeight: 1.0,
-              fontFamily: 'Playfair Display, Georgia, serif',
+              fontFamily: '"Playfair Display", Georgia, serif',
               marginBottom: 14,
             }}
           >
@@ -142,11 +130,11 @@ export default async function OgImage() {
           <div
             style={{
               color: '#E9C46A',
-              fontSize: 34,
+              fontSize: 32,
               fontWeight: 400,
               fontStyle: 'italic',
-              fontFamily: 'Playfair Display, Georgia, serif',
-              marginBottom: 22,
+              fontFamily: '"Playfair Display", Georgia, serif',
+              marginBottom: 20,
             }}
           >
             Your Move, Our Mission.
@@ -155,11 +143,10 @@ export default async function OgImage() {
           <div
             style={{
               color: '#CBD5E0',
-              fontSize: 20,
-              fontWeight: 500,
-              letterSpacing: '0.03em',
-              marginBottom: 22,
-              fontFamily: 'Inter, system-ui, sans-serif',
+              fontSize: 19,
+              fontWeight: 400,
+              letterSpacing: '0.04em',
+              marginBottom: 24,
             }}
           >
             Walton · Okaloosa · Bay Counties
@@ -170,11 +157,10 @@ export default async function OgImage() {
               style={{
                 background: '#E85D3D',
                 color: '#FFFFFF',
-                fontSize: 24,
-                fontWeight: 700,
-                padding: '12px 32px',
+                fontSize: 22,
+                fontWeight: 600,
+                padding: '11px 30px',
                 borderRadius: 100,
-                fontFamily: 'Inter, system-ui, sans-serif',
               }}
             >
               (850) 842-1962 · Free Quote
@@ -189,7 +175,7 @@ export default async function OgImage() {
             left: 0,
             right: 0,
             height: 52,
-            background: 'rgba(27, 43, 75, 0.92)',
+            background: 'rgba(27,43,75,0.93)',
             display: 'flex',
             alignItems: 'center',
             paddingLeft: 64,
@@ -198,10 +184,9 @@ export default async function OgImage() {
           <span
             style={{
               color: '#CBD5E0',
-              fontSize: 17,
-              fontWeight: 500,
-              fontFamily: 'Inter, system-ui, sans-serif',
-              letterSpacing: '0.02em',
+              fontSize: 16,
+              fontWeight: 600,
+              letterSpacing: '0.03em',
             }}
           >
             FL Mover Reg. #IM4125 · beachhousemoving.xyz · Open 24 Hours
@@ -231,6 +216,6 @@ export default async function OgImage() {
           weight: 600,
         },
       ],
-    },
+    }
   )
 }
