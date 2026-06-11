@@ -82,8 +82,15 @@
 **Approved headline (use this unless directed otherwise):**
 > "Your Move, Our Mission."
 
-### Supporting Tagline
-> "Locally owned. Fully licensed. Fully committed."
+### Tagline
+> "Simply A Better Choice."
+
+The tagline is the brand signoff (footer, closing brand moments). Do not substitute the credentials line for it.
+
+### Credentials Line (Trust Signal)
+> "Licensed & Insured · Locally Owned & Operated"
+
+The credentials line is the trust signal — use it above the fold and in hero trust badges, not as the tagline.
 
 ### Hero Subheadline
 > "Beach House Moving serves Walton, Okaloosa, and Bay Counties with professional packing, loading, and transportation services. Licensed, insured, and ready when you are."

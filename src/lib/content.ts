@@ -17,7 +17,7 @@ export const FLAGS = {
 export const BUSINESS = {
   name: 'Beach House Moving',
   legalName: 'Beach House Moving',
-  tagline: 'The owners are the movers. Fully licensed. Fully committed.',
+  tagline: 'Simply A Better Choice.',
   headline: 'Your Move, Our Mission.',
   subheadline:
     'Beach House Moving is a 4-person, owner-operated team serving Walton, Okaloosa, and Bay Counties. We handle luxury beach homes, appliance delivery, military PCS moves, and everything in between — licensed, insured, and available 24 hours a day.',
