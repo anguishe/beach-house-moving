@@ -17,7 +17,7 @@ import {
 } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { SERVICE_IMAGE_MAP, SERVICE_SECONDARY_IMAGE_MAP } from '@/lib/service-images'
-import { breadcrumbSchema, faqSchema, serviceSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, serviceSchema, webPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 type PageProps = {
@@ -54,6 +54,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const faqIndices = SERVICE_FAQ_INDICES[service.slug]
   const serviceFaqs = faqIndices.map((i) => FAQS[i])
 
+  const canonicalUrl = `${origin.origin}/services/${service.slug}`
   const breadcrumbs = breadcrumbSchema(
     [
       { name: 'Home', path: '/' },
@@ -65,7 +66,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
   return (
     <PageShell>
-      <JsonLd data={[breadcrumbs, serviceSchema(service, origin.origin), faqSchema(serviceFaqs)]} />
+      <JsonLd
+        data={[
+          breadcrumbs,
+          serviceSchema(service, origin.origin),
+          webPageSchema(canonicalUrl, service.metaTitle, '2026-06-11', service.metaDescription),
+        ]}
+      />
 
       <PageHero
         title={service.title}

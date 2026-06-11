@@ -7,7 +7,7 @@ import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { POSTS } from '@/content/posts'
 import { buildMetadata } from '@/lib/seo'
-import { blogPostingSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
+import { blogPostingSchema, breadcrumbSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 type PageProps = {
@@ -48,8 +48,6 @@ export default async function ResourcePostPage({ params }: PageProps) {
 
   const origin = await getSiteOrigin()
   const visibleBody = post.body.filter((block) => !block.isOwnerNote)
-  const postFaqs = post.faq.map((item) => ({ q: item.question, a: item.answer }))
-
   const breadcrumbs = breadcrumbSchema(
     [
       { name: 'Home', path: '/' },
@@ -61,7 +59,7 @@ export default async function ResourcePostPage({ params }: PageProps) {
 
   return (
     <PageShell>
-      <JsonLd data={[breadcrumbs, blogPostingSchema(post, origin.origin), faqSchema(postFaqs)]} />
+      <JsonLd data={[breadcrumbs, blogPostingSchema(post, origin.origin)]} />
 
       <article className="pb-16 md:pb-24">
         <div className="relative aspect-21/9 max-h-120 w-full overflow-hidden md:aspect-3/1">

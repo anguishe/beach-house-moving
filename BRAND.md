@@ -82,10 +82,9 @@
 **Approved headline (use this unless directed otherwise):**
 > "Your Move, Our Mission."
 
-### Tagline
-> "Simply A Better Choice."
+**Tagline:** "Simply A Better Choice."
 
-The tagline is the brand signoff (footer, closing brand moments). Do not substitute the credentials line for it.
+*The tagline is the brand signoff. "Licensed & Insured · Locally Owned & Operated" is the separate credentials line. "Your Move, Our Mission." is the headline. Do not conflate these three roles.*
 
 ### Credentials Line (Trust Signal)
 > "Licensed & Insured · Locally Owned & Operated"

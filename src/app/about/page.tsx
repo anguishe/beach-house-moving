@@ -10,7 +10,7 @@ import { FAQSection } from '@/components/sections/FAQSection'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { ABOUT_CONTENT, ABOUT_FAQS, BUSINESS, IMAGES, PAGE_META, SOCIAL_LINKS } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { aboutPageSchema, breadcrumbSchema, faqSchema } from '@/lib/structured-data'
+import { aboutPageSchema, breadcrumbSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -29,7 +29,7 @@ export default async function AboutPage() {
 
   return (
     <PageShell>
-      <JsonLd data={[breadcrumbs, aboutPageSchema(origin.origin), faqSchema(ABOUT_FAQS)]} />
+      <JsonLd data={[breadcrumbs, aboutPageSchema(origin.origin)]} />
 
       <section className="px-6 py-12 md:py-16">
         <div className="mx-auto max-w-4xl">

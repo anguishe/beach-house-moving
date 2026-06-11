@@ -15,7 +15,7 @@ import {
   PAGE_META,
 } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema, contactPageSchema, faqSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, contactPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -38,7 +38,6 @@ export default async function GetAQuotePage() {
         data={[
           breadcrumbs,
           contactPageSchema('/get-a-quote', 'Get a Free Moving Quote', origin.origin),
-          faqSchema(GET_A_QUOTE_FAQS),
         ]}
       />
 

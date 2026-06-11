@@ -11,7 +11,7 @@ import { FAQSection } from '@/components/sections/FAQSection'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { BUSINESS, CONTACT_CONTENT, FAQS, PAGE_META } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema, contactPageSchema, faqSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, contactPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 const contactFaqs = [FAQS[0], FAQS[5], FAQS[2]]
@@ -36,7 +36,6 @@ export default async function ContactPage() {
         data={[
           breadcrumbs,
           contactPageSchema('/contact', 'Contact Beach House Moving', origin.origin),
-          faqSchema(FAQS),
         ]}
       />
 

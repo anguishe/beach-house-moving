@@ -64,6 +64,7 @@ html {
   }
 
   .ken-burns,
+  [class*="ken-burns"],
   .marquee-track,
   .ticker-locations {
     animation: none !important;

@@ -268,7 +268,6 @@ export const QUOTE_FORM_MOVE_TYPES = [
   'Other',
 ] as const
 
-// AEO: concise, factual Q&A. Rendered on-page AND emitted as FAQPage JSON-LD.
 export const FAQS = [
   {
     q: 'What areas does Beach House Moving serve?',

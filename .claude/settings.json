@@ -32,7 +32,9 @@
       "Read(//tmp/**)",
       "Read(//home/angsec/.config/Code/**)",
       "Bash(identify /tmp/og-local.jpg /tmp/og-local2.jpg)",
-      "Bash(cp ~/Downloads/og-hero-1200x630.jpg /home/angsec/Projects/beach-house-moving/public/images/og-hero.jpg && identify /home/angsec/Projects/beach-house-moving/public/images/og-hero.jpg)"
+      "Bash(cp ~/Downloads/og-hero-1200x630.jpg /home/angsec/Projects/beach-house-moving/public/images/og-hero.jpg && identify /home/angsec/Projects/beach-house-moving/public/images/og-hero.jpg)",
+      "Bash(sed -n '115,135p' /home/angsec/Projects/beach-house-moving/src/lib/structured-data.ts)",
+      "Bash(sed -n '340,360p' /home/angsec/Projects/beach-house-moving/src/lib/structured-data.ts)"
     ],
     "additionalDirectories": [
       "/home/angsec/Projects/beach-house-moving/src/app/service-areas/[county]",

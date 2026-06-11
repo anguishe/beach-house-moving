@@ -3,6 +3,7 @@
 // No text-on-photo — legible at all preview sizes (iMessage, Facebook, Slack, LinkedIn).
 // Node.js runtime (default) — avoids Edge Runtime / Buffer incompatibility.
 import { ImageResponse } from 'next/og'
+import { BUSINESS } from '@/lib/content'
 
 export const alt = 'Beach House Moving | Movers in Santa Rosa Beach, FL'
 export const size = { width: 1200, height: 630 }
@@ -32,7 +33,6 @@ export default function Image() {
             position: 'relative',
           }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="https://beachhousemoving.xyz/images/og-hero.jpg"
             alt=""
@@ -87,7 +87,7 @@ export default function Image() {
               padding: '6px 16px',
               borderRadius: '6px',
               letterSpacing: '0.02em',
-              width: 'fit-content',
+              width: '45%',
               lineHeight: 1.3,
             }}
           >
@@ -139,7 +139,7 @@ export default function Image() {
               fontStyle: 'italic',
             }}
           >
-            Locally owned. Fully licensed. Fully committed.
+            {BUSINESS.tagline}
           </div>
 
           {/* Domain + phone row */}

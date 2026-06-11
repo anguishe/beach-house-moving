@@ -1,6 +1,5 @@
 import {
   BUSINESS,
-  FAQS,
   IMAGES,
   JUNK_REMOVAL_AREA_SERVED,
   REVIEWS_PAGE_META,
@@ -9,8 +8,8 @@ import {
   SOCIAL_LINKS,
   TESTIMONIALS,
 } from '@/lib/content'
+import { siteUrl } from '@/lib/site-url'
 
-type Faq = { readonly q: string; readonly a: string }
 type Service = (typeof SERVICES)[number]
 type ServiceArea = (typeof SERVICE_AREAS)[number]
 
@@ -121,11 +120,6 @@ export function webSiteSchema(origin: string) {
     '@type': 'WebSite',
     name: BUSINESS.name,
     url: base,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${base}/?s={query}`,
-      'query-input': 'required name=query',
-    },
   }
 }
 
@@ -190,10 +184,17 @@ export function countyAreaSchema(area: ServiceArea, origin: string) {
   const base = origin.replace(/\/$/, '')
 
   const areaServed = [
-    { '@type': 'AdministrativeArea' as const, name: area.county },
+    {
+      '@type': 'AdministrativeArea' as const,
+      name: area.county,
+      addressRegion: 'FL',
+      addressCountry: 'US',
+    },
     ...area.cities.map((city) => ({
       '@type': 'City' as const,
       name: city,
+      addressRegion: 'FL',
+      addressCountry: 'US',
     })),
   ]
 
@@ -218,21 +219,6 @@ export function countyAreaSchema(area: ServiceArea, origin: string) {
       areaServed,
     },
   ]
-}
-
-export function faqSchema(faqs: readonly Faq[] = FAQS) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.a,
-      },
-    })),
-  }
 }
 
 /** MovingCompany + AggregateRating for /reviews (SAB — no street address). */
@@ -344,8 +330,9 @@ export function reviewsWithTextSchema() {
     },
     reviewRating: {
       '@type': 'Rating',
-      ratingValue: String(t.rating),
-      bestRating: '5',
+      ratingValue: t.rating,
+      bestRating: 5,
+      worstRating: 1,
     },
     reviewBody: t.text,
     itemReviewed: {
@@ -418,5 +405,26 @@ export function resourcesItemListSchema(
       name: post.title,
       url: absoluteUrl(base, `/resources/${post.slug}`),
     })),
+  }
+}
+
+export function webPageSchema(
+  url: string,
+  name: string,
+  dateModified: string,
+  description: string,
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    url,
+    name,
+    dateModified,
+    description,
+    isPartOf: { '@type': 'WebSite', url: siteUrl },
+    publisher: {
+      '@type': 'Organization',
+      name: BUSINESS.name,
+    },
   }
 }

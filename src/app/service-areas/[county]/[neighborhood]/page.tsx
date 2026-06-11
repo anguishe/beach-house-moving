@@ -10,7 +10,7 @@ import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { BUSINESS, FAQS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES, TRUST_BADGES } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { faqSchema } from '@/lib/structured-data'
+import { webPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 type PageProps = {
@@ -123,8 +123,18 @@ export default async function NeighborhoodPage({ params }: PageProps) {
     url: base,
     telephone: BUSINESS.phone.e164,
     areaServed: [
-      { '@type': 'City', name: nb.name, addressRegion: 'FL' },
-      { '@type': 'AdministrativeArea', name: nb.county },
+      {
+        '@type': 'City',
+        name: nb.name,
+        addressRegion: 'FL',
+        addressCountry: 'US',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: nb.county,
+        addressRegion: 'FL',
+        addressCountry: 'US',
+      },
     ],
     geo: {
       '@type': 'GeoCoordinates',
@@ -162,7 +172,14 @@ export default async function NeighborhoodPage({ params }: PageProps) {
 
   return (
     <PageShell>
-      <JsonLd data={[businessSchema, serviceSchema, breadcrumbSchema, faqSchema(neighborhoodFaqs)]} />
+      <JsonLd
+        data={[
+          businessSchema,
+          serviceSchema,
+          breadcrumbSchema,
+          webPageSchema(pageUrl, nb.metaTitle, '2026-06-11', nb.metaDescription),
+        ]}
+      />
 
       {/* Direct-answer paragraph — AEO */}
       <div className="bg-brand-sand px-6 py-6">

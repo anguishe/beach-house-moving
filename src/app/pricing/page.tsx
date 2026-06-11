@@ -8,7 +8,7 @@ import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { BUSINESS, FAQS } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema, faqSchema } from '@/lib/structured-data'
+import { breadcrumbSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -79,7 +79,7 @@ export default async function PricingPage() {
 
   return (
     <PageShell>
-      <JsonLd data={[breadcrumbs, faqSchema(pricingFaqs)]} />
+      <JsonLd data={[breadcrumbs]} />
 
       <section className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-4xl">
