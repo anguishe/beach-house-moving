@@ -1,7 +1,7 @@
 'use client'
 
 import type { ReactNode } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
+import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
 
 import { inViewFadeUp } from '@/lib/motion'
 
@@ -17,8 +17,10 @@ export function MotionReveal({ children, index = 0, className, style }: MotionRe
   const prefersReducedMotion = useReducedMotion()
 
   return (
-    <motion.div {...inViewFadeUp(prefersReducedMotion, index)} className={className} style={style}>
-      {children}
-    </motion.div>
+    <LazyMotion features={domAnimation} strict>
+      <m.div {...inViewFadeUp(prefersReducedMotion, index)} className={className} style={style}>
+        {children}
+      </m.div>
+    </LazyMotion>
   )
 }

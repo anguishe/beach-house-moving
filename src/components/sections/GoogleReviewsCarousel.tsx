@@ -1,11 +1,12 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { useReducedMotion } from 'framer-motion'
 import { CheckCircle, Star } from 'lucide-react'
 import Link from 'next/link'
 
 import { REVIEWS_PAGE, REVIEWS_PAGE_META } from '@/lib/content'
+import { cn } from '@/lib/utils'
 import type { GoogleReview } from '@/lib/google-reviews'
 
 type GoogleReviewsCarouselProps = {
@@ -107,34 +108,10 @@ export function GoogleReviewsCarousel({
   averageRating,
 }: GoogleReviewsCarouselProps) {
   const prefersReducedMotion = useReducedMotion()
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const [isPaused, setIsPaused] = useState(false)
-
-  const scroll = useCallback(() => {
-    const el = scrollRef.current
-    if (!el || isPaused || prefersReducedMotion) return
-
-    const maxScroll = el.scrollWidth - el.clientWidth
-    if (maxScroll <= 0) return
-
-    el.scrollLeft += 1
-    if (el.scrollLeft >= maxScroll) {
-      el.scrollLeft = 0
-    }
-  }, [isPaused, prefersReducedMotion])
-
-  useEffect(() => {
-    if (prefersReducedMotion || reviews.length === 0) return
-
-    const interval = window.setInterval(scroll, 30)
-    return () => window.clearInterval(interval)
-  }, [scroll, prefersReducedMotion, reviews.length])
 
   if (reviews.length === 0) {
     return null
   }
-
-  const duplicatedReviews = [...reviews, ...reviews]
 
   return (
     <section id="reviews" className="bg-brand-sand py-24">
@@ -162,19 +139,34 @@ export function GoogleReviewsCarousel({
           </div>
         </div>
 
-        <div
-          ref={scrollRef}
-          className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          onFocus={() => setIsPaused(true)}
-          onBlur={() => setIsPaused(false)}
-          aria-label="Google customer reviews carousel"
-        >
-          {duplicatedReviews.map((review, index) => (
-            <ReviewCard key={`${review.author_name}-${review.time}-${index}`} review={review} />
-          ))}
-        </div>
+        {prefersReducedMotion ? (
+          <div
+            className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            aria-label="Google customer reviews carousel"
+          >
+            {reviews.map((review, index) => (
+              <ReviewCard key={`${review.author_name}-${review.time}-${index}`} review={review} />
+            ))}
+          </div>
+        ) : (
+          <div className="overflow-hidden pb-4" aria-label="Google customer reviews carousel">
+            <div className={cn('flex w-max reviews-marquee-track')}>
+              <div className="flex gap-6">
+                {reviews.map((review, index) => (
+                  <ReviewCard key={`${review.author_name}-${review.time}-${index}`} review={review} />
+                ))}
+              </div>
+              <div className="flex gap-6" aria-hidden="true">
+                {reviews.map((review, index) => (
+                  <ReviewCard
+                    key={`${review.author_name}-${review.time}-dup-${index}`}
+                    review={review}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-x-4 gap-y-2">
           <Link

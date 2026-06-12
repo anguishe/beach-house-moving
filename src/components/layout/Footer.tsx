@@ -145,9 +145,17 @@ export function Footer() {
         <div className="mb-7 h-px bg-white/8" />
 
         <div className="flex flex-wrap items-center justify-between gap-3">
-          <p className="m-0 font-body text-xs text-on-dark-muted">
-            © {year} {BUSINESS.name}. All rights reserved.
-          </p>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <p className="m-0 font-body text-xs text-on-dark-muted">
+              © {year} {BUSINESS.name}. All rights reserved.
+            </p>
+            <Link
+              href="/privacy-policy"
+              className="font-body text-xs text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+            >
+              Privacy Policy
+            </Link>
+          </div>
           <p className="m-0 font-body text-xs text-on-dark-muted">{BUSINESS.licenseStatement}</p>
         </div>
       </div>

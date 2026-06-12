@@ -97,7 +97,7 @@ export function ServicesSection() {
                     </p>
 
                     <div className="flex items-center gap-1 font-body text-[13px] font-semibold text-brand-teal">
-                      Learn more
+                      {service.linkLabel}
                       <ArrowRight className="size-3.5" strokeWidth={2} aria-hidden />
                     </div>
                   </div>

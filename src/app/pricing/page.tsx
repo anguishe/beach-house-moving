@@ -53,6 +53,29 @@ const pricingFactors = [
   },
 ]
 
+const typicalMoveRows = [
+  {
+    size: 'Studio / 1-bedroom',
+    time: 'Call for info',
+    pricing: 'Hourly — crew + truck, fuel included',
+  },
+  {
+    size: '2–3 bedroom home',
+    time: 'Call for info',
+    pricing: 'Hourly — crew + truck, fuel included',
+  },
+  {
+    size: '4+ bedroom / large home',
+    time: 'Call for info',
+    pricing: 'Hourly — crew + truck, fuel included',
+  },
+  {
+    size: 'Long-distance',
+    time: 'n/a',
+    pricing: 'Fixed written quote before the truck rolls',
+  },
+]
+
 const howToSteps = [
   `Call us at ${BUSINESS.phone.display} — a real person answers, ${BUSINESS.hours}.`,
   'Tell us your move size, the addresses, any stairs or specialty items, and your target date.',
@@ -103,6 +126,64 @@ export default async function PricingPage() {
             give you a real number, not a range designed to get in the door.
           </p>
 
+          {/* Typical move, hour-wise */}
+          <div className="mt-14">
+            <h2 className="font-heading text-2xl font-bold text-brand-navy">
+              What a Typical Move Looks Like, Hour-Wise
+            </h2>
+            <p className="mt-4 font-body text-base leading-relaxed text-ink-muted">
+              Local moves are billed hourly, so the honest way to talk price is time. Every home is
+              different — stairs, walk distance, and packing readiness move the number — but
+              here&apos;s the realistic range we see, so you have a framework before you ever pick up
+              the phone.
+            </p>
+            {/* TODO: restore confirmed hour ranges once owner confirms — Studio/1BR, 2-3BR, 4BR+ */}
+            <div className="mt-6 overflow-x-auto rounded-brand-lg border border-brand-navy/8 bg-white shadow-brand">
+              <table className="w-full min-w-[480px] border-collapse font-body text-sm">
+                <thead>
+                  <tr className="border-b border-brand-navy/8 bg-brand-sand/40">
+                    <th
+                      scope="col"
+                      className="px-6 py-4 text-left font-semibold text-brand-navy"
+                    >
+                      Move size
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-4 text-left font-semibold text-brand-navy"
+                    >
+                      Typical time on the clock
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-4 text-left font-semibold text-brand-navy"
+                    >
+                      How it&apos;s priced
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {typicalMoveRows.map(({ size, time, pricing }, i) => (
+                    <tr
+                      key={size}
+                      className={
+                        i < typicalMoveRows.length - 1 ? 'border-b border-brand-navy/8' : undefined
+                      }
+                    >
+                      <td className="px-6 py-4 font-medium text-brand-navy">{size}</td>
+                      <td className="px-6 py-4 text-ink-muted">{time}</td>
+                      <td className="px-6 py-4 text-ink-muted">{pricing}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-4 font-body text-base leading-relaxed text-ink-muted">
+              Your free estimate turns this range into your number — call (850) 842-1962 and
+              we&apos;ll talk through your actual home.
+            </p>
+          </div>
+
           {/* What affects cost */}
           <div className="mt-14">
             <h2 className="font-heading text-2xl font-bold text-brand-navy">
@@ -127,6 +208,33 @@ export default async function PricingPage() {
               There are no fuel surcharges, no mattress fees, no stair fees that appear only on the
               final invoice. What we quote is what you pay. That&apos;s a reflection of how we&apos;d
               want to be treated — not a marketing line.
+            </p>
+          </div>
+
+          {/* Why cheapest quote costs more */}
+          <div className="mt-14">
+            <h2 className="font-heading text-2xl font-bold text-brand-navy">
+              Why the Cheapest Quote Usually Costs More
+            </h2>
+            <p className="mt-4 font-body text-base leading-relaxed text-ink-muted">
+              Every season, someone on the Emerald Coast hires the lowest number they were quoted
+              — an unlicensed crew with a rented truck — and ends up paying twice: once for the
+              move, and again for the cracked dresser, the gouged stair rail, or the deposit that
+              vanished with no company behind it. A licensed Florida mover is registered with FDACS,
+              background-checked, and required to carry real insurance. Beach House Moving operates
+              under FL Mover Registration #IM4125 — you can verify it yourself on the FDACS
+              website. When you compare quotes, compare what stands behind them.
+            </p>
+            <p className="mt-4 font-body text-base leading-relaxed text-ink-muted">
+              See what that looks like in practice on our{' '}
+              <Link href="/reviews" className="font-semibold text-brand-teal underline-offset-2 hover:underline">
+                reviews page
+              </Link>{' '}
+              and{' '}
+              <Link href="/about" className="font-semibold text-brand-teal underline-offset-2 hover:underline">
+                meet the owners
+              </Link>{' '}
+              — the same four people who answer this phone.
             </p>
           </div>
 

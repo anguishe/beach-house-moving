@@ -15,6 +15,7 @@ import {
   SERVICES,
 } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
+import { SERVICE_DETAILS } from '@/lib/service-details'
 import { SERVICE_IMAGE_MAP } from '@/lib/service-images'
 import { breadcrumbSchema, junkRemovalServiceSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
@@ -48,6 +49,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function JunkRemovalPage() {
   const service = getJunkRemovalService()
+  const fullDescription = SERVICE_DETAILS[service.slug].fullDescription
   const origin = await getSiteOrigin()
   const serviceImage = SERVICE_IMAGE_MAP['junk-removal']
 
@@ -62,7 +64,7 @@ export default async function JunkRemovalPage() {
 
   return (
     <PageShell>
-      <JsonLd data={[breadcrumbs, junkRemovalServiceSchema(service.fullDescription)]} />
+      <JsonLd data={[breadcrumbs, junkRemovalServiceSchema(fullDescription)]} />
 
       <PageHero
         title={service.title}
@@ -106,7 +108,7 @@ export default async function JunkRemovalPage() {
           )}
 
           <p className="font-body text-base leading-relaxed text-ink-muted md:text-lg">
-            {service.fullDescription}
+            {fullDescription}
           </p>
 
           <div className="mt-12">

@@ -1,10 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { motion, useReducedMotion } from 'framer-motion'
 import { CheckCircle, Star } from 'lucide-react'
 
-import { REVIEWS_PAGE } from '@/lib/content'
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
+import { BUSINESS, REVIEWS_PAGE } from '@/lib/content'
 import type { GoogleReview } from '@/lib/google-reviews'
 
 type GoogleReviewsGridProps = {
@@ -99,6 +101,29 @@ function ReviewCard({ review }: { review: GoogleReview }) {
   )
 }
 
+function ReviewsInlineCTA() {
+  return (
+    <div className="col-span-full rounded-brand-lg bg-brand-navy px-6 py-10 text-center shadow-brand md:px-10">
+      <p className="font-body text-base leading-relaxed text-white md:text-lg">
+        Have a move coming up?{' '}
+        <TrackedPhoneLink
+          location="reviews-grid-inline-cta"
+          className="inline-flex items-center justify-center rounded-brand bg-brand-coral px-5 py-2.5 font-body text-base font-semibold text-white no-underline shadow-brand transition-colors duration-200 hover:bg-brand-coral-dark hover:shadow-brand-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
+        >
+          Call {BUSINESS.phone.display}
+        </TrackedPhoneLink>{' '}
+        — we answer 24/7.
+      </p>
+      <Link
+        href="/get-a-quote"
+        className="mt-5 inline-block font-body text-sm font-semibold text-brand-teal underline-offset-4 transition-colors hover:text-brand-teal-dark hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
+      >
+        Get a Free Quote
+      </Link>
+    </div>
+  )
+}
+
 export function GoogleReviewsGrid({ reviews, intro }: GoogleReviewsGridProps) {
   const prefersReducedMotion = useReducedMotion()
 
@@ -137,11 +162,22 @@ export function GoogleReviewsGrid({ reviews, intro }: GoogleReviewsGridProps) {
           whileInView="visible"
           viewport={{ once: true, margin: '-40px' }}
         >
-          {reviews.map((review, index) => (
-            <motion.div key={`${review.author_name}-${review.time}-${index}`} variants={cardVariants}>
-              <ReviewCard review={review} />
-            </motion.div>
-          ))}
+          {reviews.flatMap((review, index) => {
+            const card = (
+              <motion.div
+                key={`${review.author_name}-${review.time}-${index}`}
+                variants={cardVariants}
+              >
+                <ReviewCard review={review} />
+              </motion.div>
+            )
+
+            if (index === 2) {
+              return [card, <ReviewsInlineCTA key="reviews-inline-cta" />]
+            }
+
+            return [card]
+          })}
         </motion.div>
       </div>
     </section>

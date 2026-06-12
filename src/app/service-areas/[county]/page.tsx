@@ -17,10 +17,11 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageHero } from '@/components/layout/PageHero'
 import { PageShell } from '@/components/layout/PageShell'
 import { FAQSection } from '@/components/sections/FAQSection'
+import { TrustStrip } from '@/components/TrustStrip'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { BUSINESS, FAQS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES } from '@/lib/content'
+import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema, countyAreaSchema, webPageSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, countyAreaSchema, faqPageSchema, webPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 const serviceIconMap = {
@@ -70,7 +71,6 @@ export default async function CountyPage({ params }: PageProps) {
   )
 
   const countyNeighborhoods = NEIGHBORHOODS.filter((nb) => nb.county === area.county)
-  const countyFaqs = [FAQS[0], FAQS[1], FAQS[2], FAQS[5]]
 
   return (
     <PageShell>
@@ -79,6 +79,7 @@ export default async function CountyPage({ params }: PageProps) {
           breadcrumbs,
           ...countyAreaSchema(area, origin.origin),
           webPageSchema(canonicalUrl, area.metaTitle, '2026-06-11', area.metaDescription),
+          faqPageSchema(area.faqs, canonicalUrl),
         ]}
       />
 
@@ -88,6 +89,8 @@ export default async function CountyPage({ params }: PageProps) {
         image={{ src: area.image, alt: `Beach House Moving serving ${area.county}` }}
         priority
       />
+
+      <TrustStrip />
 
       <section className="px-6 py-12 md:py-16">
         <div className="mx-auto max-w-4xl">
@@ -165,7 +168,7 @@ export default async function CountyPage({ params }: PageProps) {
                       {teaser}
                     </p>
                     <span className="mt-3 inline-flex items-center gap-1 font-body text-sm font-semibold text-brand-teal">
-                      Learn more
+                      {nb.name}
                       <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </Link>
@@ -176,7 +179,7 @@ export default async function CountyPage({ params }: PageProps) {
         </section>
       )}
 
-      <FAQSection faqs={countyFaqs} />
+      <FAQSection faqs={area.faqs} />
 
       <section className="bg-brand-navy px-6 py-16">
         <div className="mx-auto max-w-3xl text-center">

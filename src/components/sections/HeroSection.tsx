@@ -1,9 +1,9 @@
 'use client'
 
-import { useRef, type ElementType } from 'react'
+import { useEffect, useRef, type ElementType } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { motion, useScroll, useTransform, useReducedMotion } from 'framer-motion'
+import { motion, useMotionValueEvent, useScroll, useTransform, useReducedMotion } from 'framer-motion'
 import { Phone, ChevronDown, ShieldCheck, Heart, DollarSign, Clock } from 'lucide-react'
 import { BUSINESS, HERO_CONTENT, IMAGES, LICENSE_DISPLAY, TRUST_BADGES } from '@/lib/content'
 // ownerStatement used below trust badges
@@ -28,17 +28,34 @@ const floatingTrustBadges = TRUST_BADGES.slice(0, 3)
 
 export default function HeroSection() {
   const heroRef = useRef<HTMLElement>(null)
+  const bgParallaxRef = useRef<HTMLDivElement>(null)
   const prefersReducedMotion = useReducedMotion()
   const { scrollY } = useScroll()
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
   const bgY = useTransform(scrollY, [0, 700], [0, prefersReducedMotion ? 0 : 180])
 
+  useMotionValueEvent(bgY, 'change', (latest) => {
+    const layer = bgParallaxRef.current
+    if (!layer) return
+    layer.style.transform = latest === 0 ? 'none' : `translate3d(0, ${latest}px, 0)`
+  })
+
+  useEffect(() => {
+    const layer = bgParallaxRef.current
+    if (!layer) return
+    const latest = bgY.get()
+    layer.style.transform = latest === 0 ? 'none' : `translate3d(0, ${latest}px, 0)`
+  }, [bgY])
+
   const fadeUp = (delay: number) => fadeUpVariants(prefersReducedMotion, { delay })
 
   return (
     <section ref={heroRef} className="relative flex min-h-screen w-full items-center overflow-hidden">
-      <motion.div className="absolute inset-0" style={{ y: bgY }}>
-        <div className={`absolute inset-0 size-full ${prefersReducedMotion ? '' : 'ken-burns'}`}>
+      <div className="absolute inset-0 overflow-hidden">
+        <div
+          ref={bgParallaxRef}
+          className={`absolute inset-0 size-full ${prefersReducedMotion ? '' : 'ken-burns'}`}
+        >
           <Image
             src="/images/hero-van.jpg"
             alt={IMAGES.hero.alt}
@@ -49,7 +66,7 @@ export default function HeroSection() {
             className="object-cover object-center"
           />
         </div>
-      </motion.div>
+      </div>
 
       <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-brand-navy/92 via-brand-navy/75 via-45% to-transparent" />
       <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-brand-navy/55 from-0% via-transparent via-30% to-brand-navy/65 to-100%" />
@@ -143,13 +160,12 @@ export default function HeroSection() {
       >
         <div className="relative size-14 shrink-0 overflow-hidden rounded-brand">
           <Image
-            src="/images/hero-van.jpg"
-            alt=""
+            src="/images/circular-logo.png"
+            alt="Beach House Moving logo"
             fill
             loading="lazy"
             sizes="56px"
             className="object-cover"
-            aria-hidden
           />
         </div>
         <div>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CheckCircle2 } from 'lucide-react'
 
@@ -8,6 +9,7 @@ import { PageHero } from '@/components/layout/PageHero'
 import { PageShell } from '@/components/layout/PageShell'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { ServiceCTA } from '@/components/sections/ServiceCTA'
+import { TrustStrip } from '@/components/TrustStrip'
 import { JsonLd } from '@/components/seo/JsonLd'
 import {
   FAQS,
@@ -16,8 +18,9 @@ import {
   SERVICES,
 } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
+import { SERVICE_DETAILS, SERVICE_RELATED } from '@/lib/service-details'
 import { SERVICE_IMAGE_MAP, SERVICE_SECONDARY_IMAGE_MAP } from '@/lib/service-images'
-import { breadcrumbSchema, serviceSchema, webPageSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, faqPageSchema, serviceSchema, webPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 type PageProps = {
@@ -51,8 +54,15 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const serviceImage = SERVICE_IMAGE_MAP[service.slug]
   const secondaryImage = SERVICE_SECONDARY_IMAGE_MAP[service.slug]
   const includes = SERVICE_INCLUDES[service.slug]
+  const details = SERVICE_DETAILS[service.slug]
+  const fullDescription = details.fullDescription
+  const heroTitle = details.heroTitle ?? service.title
+  const sections = details.sections
   const faqIndices = SERVICE_FAQ_INDICES[service.slug]
-  const serviceFaqs = faqIndices.map((i) => FAQS[i])
+  const serviceFaqs = details.faqs ?? faqIndices.map((i) => FAQS[i])
+  const relatedServices = (SERVICE_RELATED[service.slug] ?? [])
+    .map((slug) => SERVICES.find((s) => s.slug === slug))
+    .filter((s): s is (typeof SERVICES)[number] => s !== undefined)
 
   const canonicalUrl = `${origin.origin}/services/${service.slug}`
   const breadcrumbs = breadcrumbSchema(
@@ -69,17 +79,20 @@ export default async function ServiceDetailPage({ params }: PageProps) {
       <JsonLd
         data={[
           breadcrumbs,
-          serviceSchema(service, origin.origin),
+          serviceSchema(service, fullDescription, origin.origin),
           webPageSchema(canonicalUrl, service.metaTitle, '2026-06-11', service.metaDescription),
+          faqPageSchema(serviceFaqs, canonicalUrl),
         ]}
       />
 
       <PageHero
-        title={service.title}
-        description={service.fullDescription}
+        title={heroTitle}
+        description={fullDescription}
         image={serviceImage}
         priority
       />
+
+      <TrustStrip />
 
       <section className="px-6 py-12 md:py-16">
         <div className="mx-auto max-w-4xl">
@@ -105,8 +118,24 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           )}
 
           <p className="font-body text-base leading-relaxed text-ink-muted md:text-lg">
-            {service.fullDescription}
+            {fullDescription}
           </p>
+
+          {sections?.map((section) => (
+            <div key={section.heading} className="mt-12">
+              <h2 className="font-heading text-2xl font-bold text-brand-navy">
+                {section.heading}
+              </h2>
+              {section.body.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="mt-4 font-body text-base leading-relaxed text-ink-muted md:text-lg"
+                >
+                  {paragraph}
+                </p>
+              ))}
+            </div>
+          ))}
 
           <div className="mt-12">
             <h2 className="font-heading text-2xl font-bold text-brand-navy">
@@ -141,6 +170,27 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           )}
         </div>
       </section>
+
+      {relatedServices.length > 0 ? (
+        <section className="px-6 pb-12 md:pb-16">
+          <div className="mx-auto max-w-4xl">
+            <p className="font-body text-sm font-semibold text-brand-navy">
+              Also worth knowing about:
+            </p>
+            <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+              {relatedServices.map((related) => (
+                <Link
+                  key={related.slug}
+                  href={`/services/${related.slug}`}
+                  className="font-body text-sm font-medium text-brand-teal underline-offset-4 hover:text-brand-teal-dark hover:underline"
+                >
+                  {related.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       <ServiceCTA serviceTitle={service.title} />
       <FAQSection faqs={serviceFaqs} />

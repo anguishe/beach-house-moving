@@ -112,7 +112,7 @@ export default async function ServicesPage() {
                       {service.shortDescription}
                     </p>
                     <span className="mt-4 inline-flex items-center gap-1 font-body text-sm font-semibold text-brand-teal">
-                      Learn more
+                      {service.linkLabel}
                       <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
                     </span>
                   </div>

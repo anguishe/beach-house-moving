@@ -10,7 +10,7 @@ import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { BUSINESS, FAQS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES, TRUST_BADGES } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { webPageSchema } from '@/lib/structured-data'
+import { faqPageSchema, webPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 type PageProps = {
@@ -118,7 +118,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
   const businessSchema = {
     '@context': 'https://schema.org',
     '@type': ['MovingCompany', 'LocalBusiness'],
-    '@id': `${pageUrl}#business`,
+    '@id': `${base}/#business`,
     name: BUSINESS.name,
     url: base,
     telephone: BUSINESS.phone.e164,
@@ -146,7 +146,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
         opens: '00:00',
-        closes: '23:59',
+        closes: '00:00',
       },
     ],
     branchOf: { '@id': `${base}/#business` },
@@ -178,6 +178,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
           serviceSchema,
           breadcrumbSchema,
           webPageSchema(pageUrl, nb.metaTitle, '2026-06-11', nb.metaDescription),
+          faqPageSchema(neighborhoodFaqs, pageUrl),
         ]}
       />
 
@@ -224,6 +225,15 @@ export default async function NeighborhoodPage({ params }: PageProps) {
               />
             </div>
             <p className="mt-6 font-body text-lg leading-relaxed text-ink-muted">{nb.intro}</p>
+            {'introExtended' in nb &&
+              nb.introExtended.map((paragraph) => (
+                <p
+                  key={paragraph.slice(0, 48)}
+                  className="mt-4 font-body text-lg leading-relaxed text-ink-muted"
+                >
+                  {paragraph}
+                </p>
+              ))}
             <p className="mt-4 font-body text-base leading-relaxed text-ink-muted">
               When you hire Beach House Moving, you get the owners on the job —{' '}
               {ownerClosing}
@@ -271,7 +281,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
                         {service.shortDescription}
                       </p>
                       <span className="mt-2 inline-flex items-center gap-1 font-body text-xs font-semibold text-brand-teal">
-                        Learn more
+                        {service.linkLabel}
                         <ArrowRight className="size-3 transition-transform group-hover:translate-x-0.5" />
                       </span>
                     </div>

@@ -6,10 +6,7 @@ import { Playfair_Display, Inter } from 'next/font/google'
 import { GtmPageView } from '@/components/analytics/GtmPageView'
 import { Navbar } from '@/components/layout/Navbar'
 import { SkipToContent } from '@/components/layout/SkipToContent'
-import { JsonLd } from '@/components/seo/JsonLd'
 import { buildMetadata, HOME_METADATA } from '@/lib/seo'
-import { webSiteSchema } from '@/lib/structured-data'
-import { getSiteOrigin } from '@/lib/site-url'
 import './globals.css'
 
 const playfair = Playfair_Display({
@@ -39,11 +36,12 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const origin = await getSiteOrigin()
-
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <head>
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://analytics.ahrefs.com" crossOrigin="" />
+        <link rel="dns-prefetch" href="https://maps.googleapis.com" />
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -70,7 +68,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             className="hidden invisible"
           />
         </noscript>
-        <JsonLd data={webSiteSchema(origin.origin)} />
         <SkipToContent />
         <Navbar />
         {children}

@@ -13,7 +13,7 @@ import { Footer } from '@/components/layout/Footer'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { REVIEWS_PAGE_META } from '@/lib/content'
 import { fetchGoogleReviews, fetchPlaceSummary } from '@/lib/google-reviews'
-import { movingCompanySchema, webPageSchema } from '@/lib/structured-data'
+import { movingCompanySchema, webPageSchema, webSiteSchema } from '@/lib/structured-data'
 import { getSiteOrigin, siteUrl } from '@/lib/site-url'
 
 export const revalidate = 86400
@@ -36,6 +36,7 @@ export default async function HomePage() {
       <JsonLd
         data={[
           movingCompanySchema(origin.origin, true),
+          webSiteSchema(origin.origin),
           webPageSchema(
             siteUrl,
             'Beach House Moving | Movers in Santa Rosa Beach, FL',

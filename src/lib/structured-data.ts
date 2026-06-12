@@ -3,15 +3,46 @@ import {
   IMAGES,
   JUNK_REMOVAL_AREA_SERVED,
   REVIEWS_PAGE_META,
-  SERVICE_AREAS,
   SERVICES,
   SOCIAL_LINKS,
   TESTIMONIALS,
 } from '@/lib/content'
 import { siteUrl } from '@/lib/site-url'
 
+export const BUILD_DATE = new Date().toISOString().split('T')[0]
+
 type Service = (typeof SERVICES)[number]
-type ServiceArea = (typeof SERVICE_AREAS)[number]
+
+/** Lean schema-only service area data — avoids importing full SERVICE_AREAS descriptions. */
+const SCHEMA_COUNTIES = [
+  'Walton County',
+  'Okaloosa County',
+  'Bay County',
+] as const
+
+const SCHEMA_CITIES = [
+  'Santa Rosa Beach',
+  'Destin',
+  'Miramar Beach',
+  'Fort Walton Beach',
+  'Niceville',
+  'Panama City Beach',
+  'Panama City',
+  'Crestview',
+] as const
+
+const SCHEMA_SERVICE_AREA_HUB = [
+  { county: 'Walton County', slug: 'walton-county' },
+  { county: 'Okaloosa County', slug: 'okaloosa-county' },
+  { county: 'Bay County', slug: 'bay-county' },
+] as const
+
+type CountyAreaInput = {
+  county: string
+  slug: string
+  cities: readonly string[]
+  description: string
+}
 
 const DAYS_OF_WEEK = [
   'Monday',
@@ -33,22 +64,21 @@ export function movingCompanySchema(origin: string, includeRating = false) {
   const logoUrl = absoluteUrl(base, IMAGES.logo.src)
 
   const areaServed = [
-    ...SERVICE_AREAS.map((area) => ({
+    ...SCHEMA_COUNTIES.map((county) => ({
       '@type': 'AdministrativeArea' as const,
-      name: area.county,
+      name: county,
     })),
-    ...SERVICE_AREAS.flatMap((area) =>
-      area.cities.map((city) => ({
-        '@type': 'City' as const,
-        name: city,
-      })),
-    ),
+    ...SCHEMA_CITIES.map((city) => ({
+      '@type': 'City' as const,
+      name: city,
+    })),
   ]
 
   return {
     '@context': 'https://schema.org',
     '@type': ['MovingCompany', 'HomeAndConstructionBusiness'],
     '@id': `${base}/#business`,
+    foundingDate: '2025',
     name: BUSINESS.name,
     description: 'Locally owned, fully licensed moving company serving Walton, Okaloosa, and Bay Counties on Florida\'s Emerald Coast. Residential moving, packing, long-distance moves, and storage. FL Mover Reg. #IM4125. Available 24/7.',
     url: base,
@@ -68,7 +98,7 @@ export function movingCompanySchema(origin: string, includeRating = false) {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: [...DAYS_OF_WEEK],
         opens: '00:00',
-        closes: '23:59',
+        closes: '00:00',
       },
     ],
     ...(includeRating
@@ -106,7 +136,7 @@ export function movingCompanySchema(origin: string, includeRating = false) {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
         opens: '00:00',
-        closes: '23:59',
+        closes: '00:00',
       },
     },
   }
@@ -118,6 +148,7 @@ export function webSiteSchema(origin: string) {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${base}/#website`,
     name: BUSINESS.name,
     url: base,
   }
@@ -157,30 +188,41 @@ export function junkRemovalServiceSchema(description: string) {
   }
 }
 
-export function serviceSchema(service: Service, origin: string) {
+export function serviceSchema(service: Service, description: string, origin: string) {
   const base = origin.replace(/\/$/, '')
+  const url = absoluteUrl(base, `/services/${service.slug}`)
 
   return {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': `${url}#service`,
+    serviceType: service.title,
     name: service.title,
-    description: service.fullDescription,
-    url: absoluteUrl(base, `/services/${service.slug}`),
+    description,
+    url,
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'USD',
+      priceSpecification: {
+        '@type': 'PriceSpecification',
+        description: 'Free estimates — call (850) 842-1962 for a quote.',
+      },
+    },
     provider: {
       '@type': 'MovingCompany',
       name: BUSINESS.name,
       url: base,
       telephone: BUSINESS.phone.e164,
     },
-    areaServed: SERVICE_AREAS.map((area) => ({
+    areaServed: SCHEMA_COUNTIES.map((county) => ({
       '@type': 'AdministrativeArea',
-      name: area.county,
+      name: county,
     })),
   }
 }
 
 /** County-scoped MovingCompany + Service JSON-LD for local SEO pages (SAB — no street address). */
-export function countyAreaSchema(area: ServiceArea, origin: string) {
+export function countyAreaSchema(area: CountyAreaInput, origin: string) {
   const base = origin.replace(/\/$/, '')
 
   const areaServed = [
@@ -254,6 +296,11 @@ export function aboutPageSchema(origin: string) {
     '@id': `${base}/about`,
     name: `About ${BUSINESS.name}`,
     url: `${base}/about`,
+    description:
+      'Owner-operated moving company on Florida\'s Emerald Coast. Licensed FL Mover Reg. #IM4125, fully insured, available 24/7.',
+    dateModified: BUILD_DATE,
+    inLanguage: 'en-US',
+    isPartOf: { '@id': `${base}/#website` },
     mainEntity: {
       '@type': 'MovingCompany',
       '@id': `${base}/#business`,
@@ -278,7 +325,22 @@ export function contactPageSchema(pagePath: string, pageName: string, origin: st
     '@id': `${base}${pagePath}`,
     name: pageName,
     url: `${base}${pagePath}`,
+    description:
+      'Request a free moving quote from Beach House Moving — serving Walton, Okaloosa & Bay Counties 24/7.',
     mainEntity: { '@id': `${base}/#business` },
+  }
+}
+
+export function faqPageSchema(faqs: readonly { q: string; a: string }[], pageUrl: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${pageUrl}#faq`,
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
   }
 }
 
@@ -292,7 +354,7 @@ export function serviceAreasItemListSchema(origin: string) {
     name: 'Beach House Moving Service Areas',
     description:
       'Moving company serving Walton, Okaloosa, and Bay Counties in the Florida Panhandle.',
-    itemListElement: SERVICE_AREAS.map((area, index) => ({
+    itemListElement: SCHEMA_SERVICE_AREA_HUB.map((area, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       name: area.county,
@@ -348,9 +410,9 @@ export function blogPostingSchema(
     title: string
     description: string
     datePublished: string
+    dateModified?: string
     heroImage: string
     slug: string
-    author: string
   },
   origin: string,
 ) {
@@ -365,12 +427,12 @@ export function blogPostingSchema(
     headline: post.title,
     description: post.description,
     datePublished: post.datePublished,
-    dateModified: post.datePublished,
+    dateModified: post.dateModified ?? post.datePublished,
     image: imageUrl,
     author: {
-      '@type': 'Organization',
-      name: post.author,
-      url: base,
+      '@type': 'Person',
+      name: 'Joshua B McGrew',
+      url: `${base}/about`,
     },
     publisher: {
       '@type': 'Organization',
@@ -421,7 +483,7 @@ export function webPageSchema(
     name,
     dateModified,
     description,
-    isPartOf: { '@type': 'WebSite', url: siteUrl },
+    isPartOf: { '@id': `${siteUrl}/#website` },
     publisher: {
       '@type': 'Organization',
       name: BUSINESS.name,

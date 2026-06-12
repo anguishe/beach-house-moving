@@ -50,7 +50,7 @@ export async function buildMetadata({
       siteName: BUSINESS.name,
       images: [
         {
-          url: '/images/og-hero.jpg',
+          url: 'https://beachhousemoving.xyz/images/og-hero.jpg',
           width: 1200,
           height: 630,
           alt: `${BUSINESS.name} — Movers in Santa Rosa Beach, FL`,
@@ -63,14 +63,13 @@ export async function buildMetadata({
       description,
       images: [
         {
-          url: '/images/og-hero.jpg',
+          url: 'https://beachhousemoving.xyz/images/og-hero.jpg',
           alt: `${BUSINESS.name} — Movers in Santa Rosa Beach, FL`,
         },
       ],
     },
     icons: {
       icon: [
-        { url: '/favicon.ico' },
         { url: '/images/circular-logo.png', sizes: '1024x1024', type: 'image/png' },
         { url: '/images/icon-512.png', sizes: '512x512', type: 'image/png' },
       ],

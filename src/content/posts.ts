@@ -1,15 +1,26 @@
 // src/content/posts.ts
 // Static blog post data. No CMS — content lives in code.
 
+export type PostBlock = {
+  heading?: string
+  body?: string
+  paragraph?: string
+  subheading?: string
+  isOwnerNote?: boolean
+}
+
 export type Post = {
   slug: string
   title: string
   description: string
   datePublished: string
+  dateModified?: string
   author: string
   heroImage: string
+  heroAlt?: string
   excerpt: string
-  body: { heading?: string; paragraph: string; isOwnerNote?: boolean }[]
+  body: PostBlock[]
+  relatedServices?: { label: string; href: string }[]
   faq: { question: string; answer: string }[]
 }
 
@@ -22,6 +33,12 @@ export const POSTS: Post[] = [
     datePublished: '2026-06-02',
     author: 'Beach House Moving',
     heroImage: '/images/move-inlet-beach.jpg',
+    heroAlt:
+      'Beach House Moving crew staging a residential move at an Inlet Beach home along Scenic Highway 30A',
+    relatedServices: [
+      { label: 'Local Moving', href: '/services/local-moving' },
+      { label: 'Packing & Unpacking', href: '/services/packing-unpacking' },
+    ],
     excerpt:
       "Seaside and Rosemary Beach have almost no truck parking. Alys Beach requires floor protection before the first item moves. Blue Mountain's driveways are steeper than they look on a map. Here's the real 30A mover's guide.",
     body: [
@@ -87,44 +104,46 @@ export const POSTS: Post[] = [
   {
     slug: 'military-pcs-move-eglin-hurlburt',
     title:
-      'PCS Moves Near Eglin AFB & Hurlburt Field: What Emerald Coast Military Families Should Know',
+      'On-Base or Off-Base at Eglin & Hurlburt: How Your Housing Choice Changes Move Day',
     description:
-      "PCS moves have tight timelines and real stakes. Here's what military families relocating near Eglin AFB or Hurlburt Field should know about moving on the Emerald Coast.",
+      'Base housing or off-base near Eglin AFB and Hurlburt Field — how your choice changes timeline, inspections, and what kind of crew you need on move day.',
     datePublished: '2026-06-02',
+    dateModified: '2026-06-12',
     author: 'Beach House Moving',
     heroImage: '/images/truck-dolly.jpg',
+    heroAlt: 'Beach House Moving mover wheeling boxes on a dolly toward the truck',
+    relatedServices: [
+      { label: 'Long-Distance Moving', href: '/services/long-distance-moving' },
+      { label: 'Storage Solutions', href: '/services/storage' },
+      { label: 'Military PCS Moving', href: '/services/military-pcs-moving' },
+    ],
     excerpt:
       "PCS orders don't wait. Neither do we. Here's what families moving near Eglin AFB or Hurlburt Field need to know about the Emerald Coast housing market and how we handle military relocations.",
     body: [
       {
-        heading: 'The Reality of a Military Move on the Panhandle',
-        paragraph:
-          "A PCS move isn't like a civilian relocation. The timeline is set by orders, not by convenience. Base housing waitlists are real. The gap between reporting date and finding a rental off-base can be tight. We've helped military families navigate all of it.",
+        heading: 'The decision that shapes the whole move',
+        body:
+          "Every PCS family landing at Eglin AFB or Hurlburt Field makes one call that changes everything downstream: base housing or off-base. It changes your timeline, your inspection requirements, what you can move when, and what kind of crew you need. Here's the ground-level difference, from the movers who work both sides of the gate every month.",
       },
       {
-        paragraph:
-          "We've helped families where the orders changed the reporting date mid-process — two days' notice to move out of base lodging into a Niceville rental. We had the Sprinter out same afternoon. That kind of flexibility is something a scheduling call center can't offer. We're a small crew and we pick up the phone.",
-        isOwnerNote: false,
+        heading: 'Moving into base housing',
+        body:
+          "Base housing runs on its own clock. You don't pick your move-in date so much as receive it, the unit comes with a documented condition inspection, and the housing office cares — in writing — about wall scuffs and floor damage on the way in. That makes protection the whole game: floor runners, door-frame guards, padded stair rails, furniture wrapped before it crosses the threshold. The other base-housing reality is the waitlist gap. If your report date beats your housing date, your household needs somewhere to live that isn't a relative's garage — short-term storage between the truck and the keys is the single most common thing we do for incoming base families.",
       },
       {
-        heading: 'On-Base vs. Off-Base Housing',
-        paragraph:
-          "Families arriving at Eglin or Hurlburt often spend time in temporary lodging or short-term rentals before a permanent address is secured. We're available for phased moves — storage between temporary and permanent housing is something we handle.",
+        heading: 'Moving off-base',
+        body:
+          "Off-base buys flexibility and trades it for logistics you own. Your timeline is the landlord's or the closing table's, not the housing office's — which sounds better until the closing slips a week past your report date. Off-base also means the Emerald Coast's actual housing stock: elevated homes with full flights of exterior stairs in Niceville and Shalimar, condos with service-elevator reservations in Fort Walton and Destin, gated communities that want your mover's name at the gate. A local crew that knows which is which quotes it right the first time.",
       },
       {
-        paragraph:
-          "Phased moves — temporary lodging to storage to permanent address — are something we handle regularly for Eglin and Hurlburt families. We've stored household goods for families waiting on base housing assignment and then completed the delivery when the address was confirmed. One call at the start covers the whole sequence.",
-        isOwnerNote: false,
+        heading: "If you're doing a PPM",
+        body:
+          "A personally procured move means documentation is money. Keep every receipt; your reimbursement paperwork will ask for an itemized record of what you paid for moving services, and we provide exactly that — itemized, dated, on company paperwork — without being asked twice. Confirm current PPM requirements with your TMO before move day; the program's rules belong to them, and they change.",
       },
       {
-        heading: 'Niceville, Fort Walton Beach & Shalimar',
-        paragraph:
-          "These three communities absorb the majority of the Eglin/Hurlburt population. Niceville's Bluewater Bay is particularly common for families who want a neighborhood feel close to base. Fort Walton Beach has the most inventory range. Shalimar is the closest to Hurlburt.",
-      },
-      {
-        heading: 'What to Have Ready Before You Call',
-        paragraph:
-          "Your reporting date, your current location, an approximate home size, and whether you'll need storage. That's all we need to give you a real estimate. We won't ask you for a deposit to start the conversation.",
+        heading: 'The straight answer',
+        body:
+          "There's no universally right choice — base housing trades control for simplicity, off-base trades simplicity for control. What's universal: a report date that won't move, an inspection somebody will scrutinize, and a window that's shorter than you'd like. Build the move around the date first. We're available 24/7 at (850) 842-1962 because military moves don't keep business hours, and neither do we.",
       },
     ],
     faq: [
@@ -149,6 +168,12 @@ export const POSTS: Post[] = [
     datePublished: '2026-06-02',
     author: 'Beach House Moving',
     heroImage: '/images/clean-entry.jpg',
+    heroAlt:
+      'Beach House Moving protecting a home entry with floor runners during a new-construction move-in',
+    relatedServices: [
+      { label: 'Residential Moving', href: '/services/residential-moving' },
+      { label: 'Packing & Unpacking', href: '/services/packing-unpacking' },
+    ],
     excerpt:
       "Move-in day is also the highest-risk day for a new build. Here's how we protect finished floors, paint, and trim from the first carry to the last.",
     body: [
@@ -209,6 +234,12 @@ export const POSTS: Post[] = [
     datePublished: '2026-05-15',
     author: 'Beach House Moving',
     heroImage: '/images/move-inlet-beach.jpg',
+    heroAlt:
+      'Beach House Moving truck staged for a move at an Inlet Beach home on the eastern end of 30A',
+    relatedServices: [
+      { label: 'Local Moving', href: '/services/local-moving' },
+      { label: 'Packing & Unpacking', href: '/services/packing-unpacking' },
+    ],
     excerpt:
       'Moving along 30A or into Destin comes with logistics that a generic moving checklist completely ignores. Here is what we have learned from doing these moves.',
     body: [
@@ -289,6 +320,13 @@ export const POSTS: Post[] = [
     datePublished: '2026-04-22',
     author: 'Beach House Moving',
     heroImage: '/images/move-niceville.jpg',
+    heroAlt:
+      'Beach House Moving crew handling a residential move in Niceville near Eglin AFB',
+    relatedServices: [
+      { label: 'Long-Distance Moving', href: '/services/long-distance-moving' },
+      { label: 'Storage Solutions', href: '/services/storage' },
+      { label: 'Military PCS Moving', href: '/services/military-pcs-moving' },
+    ],
     excerpt:
       'PCS orders to Eglin or Hurlburt come with a short timeline and a long to-do list. Here is what local movers who do these moves every season know about making it work.',
     body: [
@@ -378,6 +416,12 @@ export const POSTS: Post[] = [
     datePublished: '2026-03-18',
     author: 'Beach House Moving',
     heroImage: '/images/move-pcb.jpg',
+    heroAlt:
+      'Beach House Moving truck staged for a Panama City Beach condo move along the Gulf coast',
+    relatedServices: [
+      { label: 'Local Moving', href: '/services/local-moving' },
+      { label: 'Delivery Services', href: '/services/delivery' },
+    ],
     excerpt:
       'Beach condos on the Emerald Coast have a specific set of logistics that most moving checklists skip entirely. Elevators, parking decks, HOA freight rules, and seasonal timing all matter.',
     body: [

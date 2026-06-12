@@ -27,6 +27,8 @@ Service area: Walton County, Okaloosa County, and Bay County, Florida, plus long
 
 **Junk Removal** — Furniture removal, appliance disposal, and cleanout services. Available as a standalone service or combined with a move.
 
+**Military PCS Moving** — PCS moves scheduled around report dates for Eglin AFB and Hurlburt Field families. Short-notice availability 24/7, on/off-base experience, PPM documentation, storage for housing gaps.
+
 ## Service Areas
 
 **Walton County, FL** — Home base. Primary service area. Neighborhoods and cities: Santa Rosa Beach, 30A corridor (Seaside, Rosemary Beach, WaterColor, WaterSound, Alys Beach, Inlet Beach, Grayton Beach, Blue Mountain Beach, Dune Allen Beach), Miramar Beach, Destin (overlap with Okaloosa County), Freeport, DeFuniak Springs, Point Washington, Seagrove Beach, Seacrest Beach.
@@ -90,6 +92,7 @@ Florida Mover Reg. #IM4125
 - Storage: https://beachhousemoving.xyz/services/storage
 - Delivery: https://beachhousemoving.xyz/services/delivery
 - Junk Removal: https://beachhousemoving.xyz/services/junk-removal
+- Military PCS Moving: https://beachhousemoving.xyz/services/military-pcs-moving
 - Service Areas: https://beachhousemoving.xyz/service-areas
 - Walton County: https://beachhousemoving.xyz/service-areas/walton-county
 - Okaloosa County: https://beachhousemoving.xyz/service-areas/okaloosa-county

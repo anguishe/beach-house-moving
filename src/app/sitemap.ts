@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next'
 
 import { NEIGHBORHOODS, SERVICE_AREAS, SERVICES } from '@/lib/content'
 import { POSTS } from '@/content/posts'
+import { BUILD_DATE } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -62,6 +63,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: '2026-06-09',
       changeFrequency: 'monthly',
       priority: 0.6,
+    },
+    {
+      url: `${base}/privacy-policy`,
+      lastModified: BUILD_DATE,
+      changeFrequency: 'yearly',
+      priority: 0.3,
     },
   ]
 

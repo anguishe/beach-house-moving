@@ -36,7 +36,7 @@ export function FAQSection({ faqs = FAQS, className }: FAQSectionProps) {
           </p>
         </div>
 
-        <Accordion keepMounted className="rounded-brand-lg bg-white px-6 shadow-brand">
+        <Accordion className="rounded-brand-lg bg-white px-6 shadow-brand">
           {faqs.map((faq, index) => (
             <AccordionItem key={faq.q} value={`faq-${index}`}>
               <AccordionTrigger>{faq.q}</AccordionTrigger>

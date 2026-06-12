@@ -49,14 +49,18 @@ async function fetchPlaceDetails(): Promise<PlaceDetailsResponse | null> {
   const placeId = getPlaceId()
 
   if (!apiKey) {
-    console.warn('[google-reviews] GOOGLE_PLACES_API_KEY is not set — returning empty reviews')
+    if (process.env.NODE_ENV === 'development') {
+      console.warn('[google-reviews] GOOGLE_PLACES_API_KEY is not set — returning empty reviews')
+    }
     return null
   }
 
   if (!placeId) {
-    console.warn(
-      '[google-reviews] NEXT_PUBLIC_GOOGLE_PLACE_ID is not set. See src/lib/google-reviews.ts for setup instructions.',
-    )
+    if (process.env.NODE_ENV === 'development') {
+      console.warn(
+        '[google-reviews] NEXT_PUBLIC_GOOGLE_PLACE_ID is not set. See src/lib/google-reviews.ts for setup instructions.',
+      )
+    }
     return null
   }
 

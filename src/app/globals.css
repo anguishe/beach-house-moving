@@ -66,6 +66,7 @@ html {
   .ken-burns,
   [class*="ken-burns"],
   .marquee-track,
+  .reviews-marquee-track,
   .ticker-locations {
     animation: none !important;
   }
@@ -207,7 +208,17 @@ body {
 .marquee-track {
   animation: marquee 35s linear infinite;
 }
-.marquee-track:hover {
+.marquee-track:hover,
+.marquee-track:focus-within {
+  animation-play-state: paused;
+}
+
+/* Marquee for Google reviews carousel */
+.reviews-marquee-track {
+  animation: marquee 60s linear infinite;
+}
+.reviews-marquee-track:hover,
+.reviews-marquee-track:focus-within {
   animation-play-state: paused;
 }
 

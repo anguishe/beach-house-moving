@@ -16,7 +16,7 @@ export const FLAGS = {
 
 export const BUSINESS = {
   name: 'Beach House Moving',
-  legalName: 'Beach House Moving',
+  legalName: 'Beach House Moving LLC',
   tagline: 'Simply A Better Choice.',
   headline: 'Your Move, Our Mission.',
   subheadline:
@@ -39,7 +39,7 @@ export const BUSINESS = {
     displayAddress: false,
   },
   // Approximate geo (Santa Rosa Beach) — schema centroid only, not a public street address.
-  geo: { lat: 30.396, lng: -86.2288 },
+  geo: { lat: 30.39614, lng: -86.22884 },
   serviceAreaLabel: 'Serving 30A & the Emerald Coast — Walton, Okaloosa & Bay Counties',
   hours: 'Available 24/7, seven days a week',
   established: '2025',
@@ -90,7 +90,7 @@ export const HERO_CONTENT = {
     'Destin, FL',
     'Fort Walton Beach, FL',
   ] as const,
-  socialProofTagline: 'Florida Panhandle\u2019s Premier Movers',
+  socialProofTagline: 'Owner-Operated — The Owners Are the Movers',
 } as const
 
 export const SERVICE_AREAS = [
@@ -106,6 +106,24 @@ export const SERVICE_AREAS = [
     metaTitle: 'Walton County Movers | Beach House Moving — 30A & Santa Rosa Beach',
     metaDescription:
       'Licensed local movers serving Walton County, 30A, Santa Rosa Beach, Miramar Beach, Freeport, and DeFuniak Springs. Free estimates — call (850) 842-1962.',
+    faqs: [
+      {
+        q: 'Do gated 30A communities allow moving trucks?',
+        a: 'Yes — with coordination. Communities like Rosemary Beach, WaterSound, and Alys Beach hold trucks at the gate until your name is on the list, and some restrict truck size on interior streets. We handle the gate coordination before move day and bring the Sprinter when the streets demand it.',
+      },
+      {
+        q: 'Can you move homes with boardwalk-only access?',
+        a: "Yes. Boardwalk-only and stilted properties are normal Walton County work — we plan the carry, stage where needed, and use the right vehicle for the access instead of forcing a 26-foot truck where it doesn't fit.",
+      },
+      {
+        q: "When's the best time to schedule a 30A move?",
+        a: 'Outside summer Saturdays if you can. Vacation-rental turnover owns Saturday mornings on 30A — roads, elevators, and parking all tighten up. Mid-week moves run noticeably smoother, and being available 24/7 means we can work odd hours when that helps.',
+      },
+      {
+        q: 'Do you cover inland Walton County — Freeport and DeFuniak Springs?',
+        a: 'All of it. Freeport, DeFuniak Springs, and Point Washington get the same crew and the same pricing model as the beach.',
+      },
+    ],
   },
   {
     county: 'Okaloosa County',
@@ -119,6 +137,24 @@ export const SERVICE_AREAS = [
     metaTitle: 'Okaloosa County Movers | Beach House Moving — Destin & Fort Walton Beach',
     metaDescription:
       'Professional movers in Okaloosa County — Destin, Fort Walton Beach, Niceville, Crestview, and Eglin AFB. Licensed & insured. Free quote: (850) 842-1962.',
+    faqs: [
+      {
+        q: 'Can you handle a short-notice PCS move near Eglin or Hurlburt?',
+        a: "That's a regular week for us. Report dates don't negotiate, so we build the move around yours — including odd hours and weekends. Available 24/7 at (850) 842-1962.",
+      },
+      {
+        q: 'How do Destin condo moves work?',
+        a: "Most Destin and Okaloosa Island buildings run one service elevator with a reservation window, and some require a building escort. We reserve the elevator, coordinate with management, and plan the load around the window so your hours aren't burned waiting in a hallway.",
+      },
+      {
+        q: 'Do you move families on and off base housing?',
+        a: "Yes — both directions. We work with the inspection and turnover timelines base housing runs on, and we can hold your household in storage if the next address isn't ready.",
+      },
+      {
+        q: 'Do you serve Crestview and Niceville?',
+        a: 'Fully — Crestview, Niceville, Shalimar, Valparaiso, and Fort Walton Beach are all standard service area, not edge cases.',
+      },
+    ],
   },
   {
     county: 'Bay County',
@@ -126,12 +162,30 @@ export const SERVICE_AREAS = [
     cities: ['Panama City', 'Panama City Beach', 'Lynn Haven', 'Callaway', 'Springfield'],
     image: '/images/move-pcb.jpg',
     description:
-      'Bay County means Panama City and Panama City Beach, plus Lynn Haven, Callaway and Springfield. PCB is mostly elevated beach homes and condos — liftgate trucks, ramps and careful stair work are the norm, not the exception. Whether it\u2019s a full house or a single oversized item, we handle your Bay County move with the same crew and the same care we bring to every job on the coast.',
+      "Bay County moving splits into two different jobs, and we do both. On the beach side, Panama City Beach is towers and elevated homes — service-elevator reservations, loading-dock windows, building escorts, and parking decks that won't clear a box truck, which is exactly when the Sprinter and a staged carry earn their keep. Front Beach Road traffic sets the clock in summer, so we schedule around it instead of sitting in it. Inland, Panama City, Lynn Haven, Callaway, and Springfield are family neighborhoods rebuilt hard since Hurricane Michael — a county full of new floors, new paint, and new stair rails that deserve runner-and-guard protection from the first box in. Liftgate trucks handle the appliances and gym equipment; the owners handle everything else, same as every county we serve.",
     whatWeMoveIntro:
       'Elevated beach homes, PCB condos, and inland houses — liftgates and stair carries are routine here.',
     metaTitle: 'Bay County Movers | Beach House Moving — Panama City & PCB',
     metaDescription:
       'Licensed movers serving Bay County — Panama City, Panama City Beach, Lynn Haven, Callaway, and Springfield. Get your free estimate: (850) 842-1962.',
+    faqs: [
+      {
+        q: 'How do Panama City Beach high-rise moves work?',
+        a: "Tower moves run on the building's rules: reserved service elevators, set loading-dock windows, and sometimes a management escort. We handle the building coordination in advance so move day is carrying, not negotiating.",
+      },
+      {
+        q: 'When should I schedule a PCB move?',
+        a: "Early in the day, and off summer Saturdays when rental turnover jams Front Beach Road and every freight elevator on the strip. We'll steer you to the window that saves you hours.",
+      },
+      {
+        q: 'Can you move into new construction without wrecking the finishes?',
+        a: 'Yes — much of Bay County is new builds since Hurricane Michael, and new floors, fresh paint, and untouched stair rails need protection from day one. Floor runners, door-frame guards, and padded rails are standard on our new-construction moves.',
+      },
+      {
+        q: 'Do you cover Lynn Haven and Callaway?',
+        a: 'Yes — Panama City, Lynn Haven, Callaway, Springfield, and Parker are all regular service area.',
+      },
+    ],
   },
 ] as const
 
@@ -139,9 +193,8 @@ export const SERVICES = [
   {
     slug: 'residential-moving',
     title: 'Residential Moving',
+    linkLabel: 'Residential Moving Services',
     shortDescription: 'Full home moves, done with care and no drama.',
-    fullDescription:
-      'Across the street or across the county, we handle the whole move — wrap and pad the furniture, protect your floors and door frames, load it tight, and set it back up at the new place. Licensed, insured, and used to coastal homes with stairs and tight access.',
     icon: 'Home',
     featured: true,
     metaTitle: 'Residential Moving | Beach House Moving — Santa Rosa Beach, FL',
@@ -151,9 +204,8 @@ export const SERVICES = [
   {
     slug: 'local-moving',
     title: 'Local Moving',
+    linkLabel: 'Local Moving on 30A',
     shortDescription: 'Local crews who actually know these roads.',
-    fullDescription:
-      'We run the 30A corridor and the greater Emerald Coast every day, so we know the beach-access routes, the gated-community rules, and which driveways need the van instead of the truck. Billed by the hour, no hidden fees, fuel included in the quote.',
     icon: 'MapPin',
     featured: true,
     metaTitle: 'Local Movers 30A & Emerald Coast | Beach House Moving',
@@ -163,9 +215,8 @@ export const SERVICES = [
   {
     slug: 'long-distance-moving',
     title: 'Long-Distance Moving',
+    linkLabel: 'Long-Distance Moving',
     shortDescription: 'Leaving the Panhandle? We\'ll get you there.',
-    fullDescription:
-      'Moving out of the area takes coordination — we plan the timeline, load it to travel safely, and keep you posted along the way. Same crew, same care you\'d get on a local job, just a longer drive.',
     icon: 'Truck',
     featured: true,
     metaTitle: 'Long-Distance Moving | Beach House Moving — Florida Panhandle',
@@ -175,10 +226,9 @@ export const SERVICES = [
   {
     slug: 'packing-unpacking',
     title: 'Packing & Unpacking',
+    linkLabel: 'Packing & Unpacking',
     shortDescription:
       'Boxes, bubble wrap, breakables — packed right and unpacked just as carefully.',
-    fullDescription:
-      'We bring the boxes, paper, and bubble wrap, and we pack room by room so nothing rattles in the truck. Fragile stuff gets wrapped properly, not just tossed in a box. On the other end, we unpack and place it where you want it and haul the empty boxes away.',
     icon: 'Package',
     featured: true,
     metaTitle: 'Packing & Unpacking Services | Beach House Moving',
@@ -188,9 +238,8 @@ export const SERVICES = [
   {
     slug: 'storage',
     title: 'Storage Solutions',
+    linkLabel: 'Storage Solutions',
     shortDescription: 'A safe place to park your stuff between moves.',
-    fullDescription:
-      'Between closings, mid-renovation, or waiting on a rental to turn over — we\'ve got secure storage on flexible terms. We document what goes in and get it back to you when you\'re ready.',
     icon: 'Warehouse',
     image: '/images/mover-storage-corridor.jpg',
     featured: false,
@@ -201,9 +250,8 @@ export const SERVICES = [
   {
     slug: 'delivery',
     title: 'Delivery Services',
+    linkLabel: 'Delivery Services',
     shortDescription: 'Furniture and appliance delivery, single items included.',
-    fullDescription:
-      'New sofa, a fridge swap, a washer-dryer set, or one oversized piece up three flights — we deliver and place it, and we\'ll help with the hookup. Same care as a full move, scaled to one item.',
     icon: 'PackageCheck',
     image: '/images/crew-gym-equipment-liftgate.jpg',
     featured: false,
@@ -214,15 +262,27 @@ export const SERVICES = [
   {
     slug: 'junk-removal',
     title: 'Junk Removal',
+    linkLabel: 'Junk Removal Services',
     shortDescription: 'Fast, responsible junk removal across the Emerald Coast — no haul too big or too small.',
-    fullDescription:
-      'Clearing out before a move, after a renovation, or just reclaiming your space? Our junk removal crew hauls away furniture, appliances, debris, and more. Fast, affordable, and handled with the same professionalism as every job we take.',
     icon: 'Trash2',
     image: '/images/truck-loaded.jpg',
     featured: false,
     metaTitle: 'Junk Removal Services | Beach House Moving — Florida Panhandle',
     metaDescription:
       'Professional junk removal across Walton, Okaloosa & Bay Counties. Furniture, appliances, debris and more. Free quote — (850) 842-1962.',
+  },
+  {
+    slug: 'military-pcs-moving',
+    title: 'Military PCS Moving',
+    linkLabel: 'Military PCS Moving',
+    shortDescription:
+      'PCS moves built around report dates — Eglin AFB, Hurlburt Field, and every base family on the Emerald Coast.',
+    icon: 'Truck',
+    image: '/images/crew-team-furniture-move.jpg',
+    featured: false,
+    metaTitle: 'Military PCS Moving | Beach House Moving — Eglin AFB & Hurlburt Field',
+    metaDescription:
+      'PCS moves for Eglin AFB and Hurlburt Field families. Report-date scheduling, PPM documentation, storage for housing gaps. Licensed #IM4125. (850) 842-1962.',
   },
 ] as const
 
@@ -520,7 +580,7 @@ export const REVIEWS_PAGE_META = {
   path: '/reviews',
   aggregateRating: {
     ratingValue: 5,
-    reviewCount: 8,
+    reviewCount: 9,
     bestRating: 5,
     worstRating: 1,
   },
@@ -571,7 +631,7 @@ export const REVIEWS_PAGE = {
 /** Static page metadata — used with buildMetadata(). */
 export const PAGE_META = {
   home: {
-    title: `Beach House Moving | Movers in ${BUSINESS.address.city}, FL`,
+    title: 'Movers in Santa Rosa Beach, Destin & 30A | Beach House Moving',
     description: `Locally owned & fully licensed movers serving Walton, Okaloosa & Bay Counties. 3-truck fleet. FL Mover Reg. #IM4125. Free quote — ${BUSINESS.phone.display}.`,
     path: '/',
   },
@@ -663,6 +723,14 @@ export const SERVICE_INCLUDES: Record<(typeof SERVICES)[number]['slug'], readonl
     'Responsible disposal handled by our crew',
     'Same professional standards as every job we take',
   ],
+  'military-pcs-moving': [
+    'Report-date-first scheduling for PCS timelines',
+    'On-base and off-base move experience',
+    'PPM/DITY documentation on company paperwork',
+    'Short-term storage for housing gaps',
+    '24/7 availability for short-notice orders',
+    'Floor and doorway protection for move-out inspections',
+  ],
 }
 
 /** FAQ indices per service slug — subset of FAQS. */
@@ -674,6 +742,7 @@ export const SERVICE_FAQ_INDICES: Record<(typeof SERVICES)[number]['slug'], read
   storage: [1, 4, 5],
   delivery: [0, 6, 2],
   'junk-removal': [9, 0, 2, 10, 11],
+  'military-pcs-moving': [8, 5, 4],
 }
 
 /** Counties for junk removal Service JSON-LD (SAB — no street address). */
@@ -762,6 +831,7 @@ export const ABOUT_CONTENT = {
       'Beach House Moving was established in 2025 on the Emerald Coast of Northwest Florida. We started with one truck and a clear standard: treat every home the way we would want ours treated, and treat what is inside it like it matters.',
       'We watched moving companies get worse as they scaled — more trucks, more volume, less personal accountability. Owners moved into offices while strangers handled the work on site. We built Beach House Moving differently. We stayed hands-on, kept the owners on the truck, and grew only as far as we could maintain that standard.',
       'Today we run a three-truck fleet across Walton, Okaloosa, and Bay Counties. We know the stilted beach homes, the tight 30A driveways, the PCS timelines near Eglin and Hurlburt, and the delivery windows on new construction sites. We live here, we move here, and we built this company for how moves actually work on the Panhandle.',
+      "Joshua B McGrew leads the crew day to day — the same name customers mention in our reviews, because he's on the truck for the jobs, not behind a desk. When you call, you're talking to an owner; when we show up, you're getting the same four people who built the company.",
     ],
   },
   whyLocalMatters: {
@@ -947,6 +1017,18 @@ export const SERVICE_AREAS_HUB = {
   mapHeadline: 'Our Service Region',
 } as const
 
+export type Neighborhood = {
+  slug: string
+  name: string
+  county: string
+  image: string
+  intro: string
+  introExtended?: string[]
+  landmarks: readonly string[]
+  metaTitle: string
+  metaDescription: string
+}
+
 export const NEIGHBORHOODS = [
   // ---- WALTON COUNTY ----
   {
@@ -1025,6 +1107,10 @@ export const NEIGHBORHOODS = [
     county: 'Walton County',
     image: '/images/move-inlet-beach.jpg',
     intro: 'Seacrest Beach sits on the eastern end of 30A near Alys and Rosemary Beach, known for its large lagoon pool and closely clustered rental cottages. Tight spacing and shared access make a coordinated crew the difference between a smooth move and a stressful one.',
+    introExtended: [
+      'Seacrest runs on the rental calendar. Saturday is turnover day, the lagoon-pool parking fills fast, and golf-cart paths thread between homes that were built close on purpose — so we stage at the property, time the move off-peak, and keep the truck out of the path of fifteen arriving renters.',
+      'Sitting between Alys Beach and Rosemary, Seacrest inherits the neighborhood rules of both: floor protection expected, parking deliberate, gate-adjacent coordination handled in advance. We treat it that way by default.',
+    ],
     landmarks: ['the Seacrest lagoon pool', 'Alys Beach', 'Rosemary Beach'],
     metaTitle: 'Seacrest Beach Movers | Beach House Moving — 30A, FL',
     metaDescription: 'Movers serving Seacrest Beach on 30A. Tight layouts, handled. Owner-operated & insured. Free quote — (850) 842-1962.',
@@ -1065,6 +1151,10 @@ export const NEIGHBORHOODS = [
     county: 'Walton County',
     image: '/images/move-srb.jpg',
     intro: 'Dune Allen is the westernmost 30A community, shaped by the rare coastal dune lakes that meet the Gulf here. Older beach homes and tight lakeside lots mean access planning is the first step of every move — we do that planning before we arrive.',
+    introExtended: [
+      'Dune Allen sits at the quiet west end of 30A, and the homes show it — stilted construction, steep short driveways, and narrow loops off Allen Loop Road where a full-size box truck has nowhere to turn around. This is Sprinter-and-stage territory: right vehicle to the door, box truck positioned where it actually fits.',
+      'The coastal dune lakes shape the access here — some properties back to Oyster Lake with boardwalk approaches, which means a planned carry, not an improvised one. We\'ve done enough of these streets to quote them honestly.',
+    ],
     landmarks: ['Oyster Lake', 'Stallworth Lake', 'coastal dune lakes', 'Ed Walline Beach Access'],
     metaTitle: 'Dune Allen Movers | Beach House Moving — West 30A, FL',
     metaDescription: 'Local movers for Dune Allen Beach on west 30A. Owner-operated & insured. Free quote — (850) 842-1962.',
@@ -1126,6 +1216,10 @@ export const NEIGHBORHOODS = [
     county: 'Okaloosa County',
     image: '/images/fleet-box-truck.jpg',
     intro: 'Destin packs harborfront condos, gated golf communities, and beachfront towers into one of the most active real-estate markets on the coast. Elevator reservations, harbor-area traffic windows, and high-rise logistics are part of the plan on every Destin job.',
+    introExtended: [
+      'Destin moves come in three flavors, and they\'re priced and planned differently. Harbor-district and Holiday Isle condos mean building rules: one service elevator on a reservation window, sometimes a management escort, and loading zones that disappear by mid-morning — we book the elevator and stage the load around it. Crystal Beach and the older cottage streets are tighter access and shorter carries, where the Sprinter often beats a box truck to the door.',
+      'Then there are the gated communities — Kelly Plantation, Regatta Bay, Destiny — where the gate wants your mover\'s name in advance and the HOA has opinions about where a truck parks. We handle that coordination before move day. One more local truth: Highway 98 and the Marler Bridge set the schedule in summer. We plan Destin moves early or late on purpose, because an hour saved in traffic is an hour off your clock.',
+    ],
     landmarks: ['Destin Harbor', 'HarborWalk Village', 'Crab Island', 'Kelly Plantation', 'Regatta Bay'],
     metaTitle: 'Destin FL Movers | Beach House Moving — Okaloosa County',
     metaDescription: 'Movers for Destin condos, gated communities & beachfront homes. Owner-operated, licensed & insured. Free quote — (850) 842-1962.',
@@ -1166,6 +1260,10 @@ export const NEIGHBORHOODS = [
     county: 'Okaloosa County',
     image: '/images/truck-dolly.jpg',
     intro: 'Shalimar is a quiet town tucked between Fort Walton Beach and Eglin AFB, with bayside neighborhoods and a mix of military and civilian families. Short, well-coordinated local moves are the norm here.',
+    introExtended: [
+      'Shalimar is one of the smallest towns we serve and one of the most military — minutes from Eglin\'s gates, full of established bayou-side neighborhoods and families moving on PCS timelines. Most Shalimar jobs are report-date driven, which is why being available around the clock matters more here than almost anywhere.',
+      'The homes are mature-neighborhood Florida: carports, mid-century floor plans, big trees over narrow drives. Straightforward work for a crew that shows up with the right truck and a plan.',
+    ],
     landmarks: ['Eglin AFB', 'Garnier Bayou', 'Poquito Bayou'],
     metaTitle: 'Shalimar FL Movers | Beach House Moving — Okaloosa County',
     metaDescription: 'Movers serving Shalimar near Eglin AFB. Owner-operated, licensed & insured. Free quote — (850) 842-1962.',
@@ -1176,6 +1274,10 @@ export const NEIGHBORHOODS = [
     county: 'Okaloosa County',
     image: '/images/move-niceville.jpg',
     intro: 'Bluewater Bay is a large master-planned community in Niceville with golf, a marina, and homes ranging from townhomes to bayfront estates. We know the community layout and treat the finished interiors of every home here with full protection from door to door.',
+    introExtended: [
+      'Bluewater Bay is Niceville\'s golf-and-marina community — winding parkway streets, garage-forward family homes, and HOA standards that appreciate a crew that parks thoughtfully and protects the driveway. It\'s some of the most straightforward moving in Okaloosa County, and we keep it that way.',
+      'A lot of Bluewater Bay moves are Eglin families putting down roots after years of PCS orders — which means we\'re often the crew on both ends: out of base housing, into the bay.',
+    ],
     landmarks: ['Bluewater Bay Marina', 'golf courses', 'Boggy Bayou'],
     metaTitle: 'Bluewater Bay Movers | Beach House Moving — Niceville, FL',
     metaDescription: 'Movers serving Bluewater Bay in Niceville. Townhomes to bayfront estates. Owner-operated & insured. Free quote — (850) 842-1962.',
@@ -1207,8 +1309,12 @@ export const NEIGHBORHOODS = [
     county: 'Bay County',
     image: '/images/move-pcb.jpg',
     intro: 'Lynn Haven sits just north of Panama City on North Bay — a steady residential community of family neighborhoods with a mix of established homes and new development. Straightforward residential moves with the same attention to floors, walls, and furniture protection we bring to every job.',
+    introExtended: [
+      'Lynn Haven is Bay County\'s family-neighborhood core, and like most of the county it was rebuilt hard after Hurricane Michael — new roofs, new floors, fresh interiors that haven\'t met a couch yet. New-construction protection is standard on our Lynn Haven jobs: floor runners down before the first box, guards on door frames and stair rails.',
+      'North of Panama City and out of the beach traffic, Lynn Haven moves run on a friendlier clock — and the liftgate trucks make quick work of the appliance-heavy jobs these family homes tend to be.',
+    ],
     landmarks: ['North Bay', 'Sheffield Park', 'Highway 77', 'Cedar Grove'],
     metaTitle: 'Lynn Haven FL Movers | Beach House Moving — Bay County',
     metaDescription: 'Movers serving Lynn Haven & North Bay. Residential moves done right. Owner-operated & insured. Free quote — (850) 842-1962.',
   },
-] as const
+] as const satisfies readonly Neighborhood[]
