@@ -98,7 +98,7 @@ export function movingCompanySchema(origin: string, includeRating = false) {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: [...DAYS_OF_WEEK],
         opens: '00:00',
-        closes: '00:00',
+        closes: '23:59',
       },
     ],
     ...(includeRating
@@ -136,8 +136,23 @@ export function movingCompanySchema(origin: string, includeRating = false) {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
         opens: '00:00',
-        closes: '00:00',
+        closes: '23:59',
       },
+    },
+    founder: {
+      '@type': 'Person',
+      '@id': `${base}/#owner`,
+      name: 'Joshua B McGrew',
+    },
+    hasCredential: {
+      '@type': 'EducationalOccupationalCredential',
+      credentialCategory: 'license',
+      name: 'Florida Intrastate Mover Registration',
+      recognizedBy: {
+        '@type': 'GovernmentOrganization',
+        name: 'Florida Department of Agriculture and Consumer Services (FDACS)',
+      },
+      identifier: BUSINESS.registration.number,
     },
   }
 }
@@ -298,20 +313,29 @@ export function aboutPageSchema(origin: string) {
     url: `${base}/about`,
     description:
       'Owner-operated moving company on Florida\'s Emerald Coast. Licensed FL Mover Reg. #IM4125, fully insured, available 24/7.',
-    dateModified: BUILD_DATE,
+    dateModified: '2025-12-01',
     inLanguage: 'en-US',
     isPartOf: { '@id': `${base}/#website` },
-    mainEntity: {
-      '@type': 'MovingCompany',
-      '@id': `${base}/#business`,
-      name: BUSINESS.name,
-      foundingDate: '2025',
-      numberOfEmployees: {
-        '@type': 'QuantitativeValue',
-        value: BUSINESS.teamSize,
+    mainEntity: [
+      {
+        '@type': 'MovingCompany',
+        '@id': `${base}/#business`,
+        name: BUSINESS.name,
+        foundingDate: '2025',
+        numberOfEmployees: {
+          '@type': 'QuantitativeValue',
+          value: BUSINESS.teamSize,
+        },
+        description: `Owner-operated moving company on Florida's Emerald Coast. Licensed FL Mover Reg. #${BUSINESS.registration.number}, fully insured, available 24/7.`,
       },
-      description: `Owner-operated moving company on Florida's Emerald Coast. Licensed FL Mover Reg. #${BUSINESS.registration.number}, fully insured, available 24/7.`,
-    },
+      {
+        '@type': 'Person',
+        '@id': `${base}/#owner`,
+        name: 'Joshua B McGrew',
+        jobTitle: 'Owner',
+        worksFor: { '@id': `${base}/#business` },
+      },
+    ],
   }
 }
 

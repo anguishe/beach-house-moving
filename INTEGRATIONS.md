@@ -18,6 +18,7 @@
 | Google Business Profile | Local SEO / NAP consistency | Verified (service-area business) | N/A — link in `SOCIAL_LINKS.google` |
 | Vercel | Hosting, deployment | Required | Vercel dashboard |
 | Facebook Page | Social proof link in footer | Active | N/A |
+| Ahrefs Analytics | Web analytics and SEO performance tracking | Live | N/A (script tag in layout) |
 
 ---
 
@@ -198,6 +199,31 @@ Link to the business's Facebook page for social proof in the footer.
 - **Handle:** `@beachhousemovingfl`
 - **No API key needed** — just a link
 - Defined in `/src/lib/content.ts` under `SOCIAL_LINKS.facebook` and `SOCIAL_LINKS.facebookHandle`
+
+---
+
+## 9. Ahrefs Analytics
+
+### Purpose
+Web analytics and organic search performance tracking via the Ahrefs platform.
+
+### Setup
+Script is loaded in `src/app/layout.tsx` via Next.js `<Script>` with `strategy="afterInteractive"` — it never blocks page rendering:
+
+```tsx
+<Script
+  src="https://analytics.ahrefs.com/analytics.js"
+  data-key="j2BL/k+yqwVjkOmeUgLn+A"
+  strategy="afterInteractive"
+/>
+```
+
+A matching `<link rel="preconnect" href="https://analytics.ahrefs.com" crossOrigin="" />` warms the connection in `<head>`.
+
+### Key facts
+- Runs after hydration — zero render-blocking impact
+- `data-key` is the public site token; no environment variable needed
+- **Do not remove or delay this script** — it is intentional and non-blocking
 
 ---
 

@@ -8,7 +8,7 @@ import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { BUSINESS, FAQS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES, TRUST_BADGES } from '@/lib/content'
+import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES, TRUST_BADGES } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { faqPageSchema, webPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
@@ -95,9 +95,6 @@ export default async function NeighborhoodPage({ params }: PageProps) {
   const origin = await getSiteOrigin()
   const base = origin.origin
 
-  const nbIndex = NEIGHBORHOODS.findIndex((n) => n.slug === nb.slug)
-  const altFaq = nbIndex % 2 === 0 ? FAQS[1] : FAQS[13]
-
   const serviceSlugs = getServiceSlugs(nb.slug)
   const featuredServices = serviceSlugs
     .map((slug) => SERVICES.find((s) => s.slug === slug))
@@ -107,13 +104,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
 
   const pageUrl = `${base}/service-areas/${area.slug}/${nb.slug}`
 
-  const neighborhoodFaqs = [
-    {
-      q: `Does Beach House Moving serve ${nb.name}?`,
-      a: `Yes — Beach House Moving serves ${nb.name} and surrounding ${nb.county}. We are locally owned, owner-operated, and licensed under Florida Mover Reg. #${BUSINESS.registration.number}. Call ${BUSINESS.phone.display} for a free quote.`,
-    },
-    altFaq,
-  ] as const
+  const neighborhoodFaqs = nb.localFaqs.map(({ question: q, answer: a }) => ({ q, a }))
 
   const businessSchema = {
     '@context': 'https://schema.org',
@@ -146,17 +137,16 @@ export default async function NeighborhoodPage({ params }: PageProps) {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
         opens: '00:00',
-        closes: '00:00',
+        closes: '23:59',
       },
     ],
-    branchOf: { '@id': `${base}/#business` },
   }
 
   const serviceSchema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: `Moving Services in ${nb.name}`,
-    provider: { '@id': `${pageUrl}#business` },
+    provider: { '@id': `${base}/#business` },
   }
 
   const breadcrumbSchema = {
@@ -185,12 +175,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
       {/* Direct-answer paragraph — AEO */}
       <div className="bg-brand-sand px-6 py-6">
         <div className="mx-auto max-w-4xl">
-          <p className="font-body text-base leading-relaxed text-ink-muted">
-            Yes — Beach House Moving serves {nb.name}, FL. We are a locally owned, owner-operated moving
-            company offering residential moving, packing, and delivery in {nb.name} and the surrounding{' '}
-            {nb.county} area. Licensed (FL Mover Reg. #{BUSINESS.registration.number}), insured, and
-            available {BUSINESS.hours}.
-          </p>
+          <p className="font-body text-base leading-relaxed text-ink-muted">{nb.localBody}</p>
         </div>
       </div>
 

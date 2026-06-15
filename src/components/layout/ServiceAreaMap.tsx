@@ -7,7 +7,7 @@ type ServiceAreaMapProps = {
 export function ServiceAreaMap({ className }: ServiceAreaMapProps) {
   return (
     <div
-      className={`overflow-hidden rounded-brand-lg border border-brand-navy/10 shadow-brand ${className ?? ''}`}
+      className={`min-h-[400px] overflow-hidden rounded-brand-lg border border-brand-navy/10 shadow-brand ${className ?? ''}`}
     >
       <iframe
         src={MAP_EMBED.src}

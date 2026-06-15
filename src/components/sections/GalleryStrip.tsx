@@ -67,8 +67,8 @@ export function GalleryStrip() {
                     <Image
                       src={photo.src}
                       fill
-                      unoptimized
                       loading="lazy"
+                      sizes="(max-width: 768px) 288px, 384px"
                       alt=""
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />

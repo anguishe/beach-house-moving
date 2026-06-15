@@ -53,26 +53,20 @@ const pricingFactors = [
   },
 ]
 
-const typicalMoveRows = [
+const pricingOtherRows = [
   {
-    size: 'Studio / 1-bedroom',
-    time: 'Call for info',
-    pricing: 'Hourly — crew + truck, fuel included',
+    label: 'Long-distance moves',
+    detail:
+      'Fixed written quote before the truck rolls — based on your inventory and the miles. The number you sign is the number you pay.',
   },
   {
-    size: '2–3 bedroom home',
-    time: 'Call for info',
-    pricing: 'Hourly — crew + truck, fuel included',
+    label: 'Free estimates',
+    detail: `Always free — no deposit, no commitment, no pressure. Call ${BUSINESS.phone.display} and we'll walk through your move and give you a real number.`,
   },
   {
-    size: '4+ bedroom / large home',
-    time: 'Call for info',
-    pricing: 'Hourly — crew + truck, fuel included',
-  },
-  {
-    size: 'Long-distance',
-    time: 'n/a',
-    pricing: 'Fixed written quote before the truck rolls',
+    label: 'No brokering',
+    detail:
+      'Your job is never sold to a third-party carrier. The crew that loads your home is our crew, licensed under FL Mover Reg. #IM4125, door to door.',
   },
 ]
 
@@ -126,62 +120,30 @@ export default async function PricingPage() {
             give you a real number, not a range designed to get in the door.
           </p>
 
-          {/* Typical move, hour-wise */}
+          {/* How our pricing works */}
           <div className="mt-14">
             <h2 className="font-heading text-2xl font-bold text-brand-navy">
-              What a Typical Move Looks Like, Hour-Wise
+              How Our Pricing Works
             </h2>
-            <p className="mt-4 font-body text-base leading-relaxed text-ink-muted">
-              Local moves are billed hourly, so the honest way to talk price is time. Every home is
-              different — stairs, walk distance, and packing readiness move the number — but
-              here&apos;s the realistic range we see, so you have a framework before you ever pick up
-              the phone.
-            </p>
-            {/* TODO: restore confirmed hour ranges once owner confirms — Studio/1BR, 2-3BR, 4BR+ */}
-            <div className="mt-6 overflow-x-auto rounded-brand-lg border border-brand-navy/8 bg-white shadow-brand">
-              <table className="w-full min-w-[480px] border-collapse font-body text-sm">
-                <thead>
-                  <tr className="border-b border-brand-navy/8 bg-brand-sand/40">
-                    <th
-                      scope="col"
-                      className="px-6 py-4 text-left font-semibold text-brand-navy"
-                    >
-                      Move size
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-4 text-left font-semibold text-brand-navy"
-                    >
-                      Typical time on the clock
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-6 py-4 text-left font-semibold text-brand-navy"
-                    >
-                      How it&apos;s priced
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {typicalMoveRows.map(({ size, time, pricing }, i) => (
-                    <tr
-                      key={size}
-                      className={
-                        i < typicalMoveRows.length - 1 ? 'border-b border-brand-navy/8' : undefined
-                      }
-                    >
-                      <td className="px-6 py-4 font-medium text-brand-navy">{size}</td>
-                      <td className="px-6 py-4 text-ink-muted">{time}</td>
-                      <td className="px-6 py-4 text-ink-muted">{pricing}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="mt-6 divide-y divide-brand-navy/8 overflow-hidden rounded-brand-lg border border-brand-navy/8 bg-white shadow-brand">
+              {/* Local moves — isolated slot for owner to add confirmed hour ranges */}
+              <div className="grid gap-1 px-6 py-5 sm:grid-cols-[220px_1fr] sm:gap-4">
+                <p className="font-body text-sm font-semibold text-brand-navy">Local moves</p>
+                <div>
+                  <p className="font-body text-sm leading-relaxed text-ink-muted">
+                    Billed hourly at $165/hr — crew and truck, fuel included in the rate. No fuel
+                    surcharges, no stair fees, no line items that appear only on the final invoice.
+                  </p>
+                  {/* OWNER: paste confirmed hour ranges per home size here — e.g. "Studio/1BR: 2–4 hrs · 2–3BR: 4–7 hrs · 4BR+: 7–10 hrs" */}
+                </div>
+              </div>
+              {pricingOtherRows.map(({ label, detail }) => (
+                <div key={label} className="grid gap-1 px-6 py-5 sm:grid-cols-[220px_1fr] sm:gap-4">
+                  <p className="font-body text-sm font-semibold text-brand-navy">{label}</p>
+                  <p className="font-body text-sm leading-relaxed text-ink-muted">{detail}</p>
+                </div>
+              ))}
             </div>
-            <p className="mt-4 font-body text-base leading-relaxed text-ink-muted">
-              Your free estimate turns this range into your number — call (850) 842-1962 and
-              we&apos;ll talk through your actual home.
-            </p>
           </div>
 
           {/* What affects cost */}

@@ -2,7 +2,6 @@ import type { MetadataRoute } from 'next'
 
 import { NEIGHBORHOODS, SERVICE_AREAS, SERVICES } from '@/lib/content'
 import { POSTS } from '@/content/posts'
-import { BUILD_DATE } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -54,7 +53,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${base}/pricing`,
-      lastModified: '2026-05-01',
+      lastModified: '2026-06-14',
       changeFrequency: 'monthly',
       priority: 0.8,
     },
@@ -66,7 +65,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${base}/privacy-policy`,
-      lastModified: BUILD_DATE,
+      lastModified: '2026-06-01',
       changeFrequency: 'yearly',
       priority: 0.3,
     },
@@ -90,8 +89,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const area = SERVICE_AREAS.find((sa) => sa.county === nb.county)
     return {
       url: `${base}/service-areas/${area?.slug ?? 'walton-county'}/${nb.slug}`,
-      lastModified: '2026-05-01',
-      changeFrequency: 'weekly' as const,
+      lastModified: '2026-06-14',
+      changeFrequency: 'monthly' as const,
       priority: 0.7,
     }
   })

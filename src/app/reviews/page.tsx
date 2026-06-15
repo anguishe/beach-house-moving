@@ -10,7 +10,7 @@ import { JsonLd } from '@/components/seo/JsonLd'
 import { IMAGES, REVIEWS_PAGE, REVIEWS_PAGE_META } from '@/lib/content'
 import { fetchGoogleReviews, fetchPlaceSummary } from '@/lib/google-reviews'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema, reviewsAggregateRatingSchema, reviewsWithTextSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, reviewsAggregateRatingSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export const revalidate = 86400
@@ -50,7 +50,6 @@ export default async function ReviewsPage() {
   const ratingValue = placeSummary?.rating ?? REVIEWS_PAGE_META.aggregateRating.ratingValue
   const ratingSummary = `${reviewCount} Reviews · ${ratingValue.toFixed(1)} Average`
 
-  const reviewSchemas = reviewsWithTextSchema()
   const breadcrumbs = breadcrumbSchema(
     [
       { name: 'Home', path: '/' },
@@ -68,7 +67,6 @@ export default async function ReviewsPage() {
             ratingValue,
             reviewCount,
           }),
-          ...reviewSchemas,
         ]}
       />
 

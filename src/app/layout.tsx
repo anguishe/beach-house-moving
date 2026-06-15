@@ -49,6 +49,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WNFSB7NT');`}
         </Script>
+        {/* Ahrefs web analytics — afterInteractive, non-blocking. See INTEGRATIONS.md §9. */}
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="j2BL/k+yqwVjkOmeUgLn+A"

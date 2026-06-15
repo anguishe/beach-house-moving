@@ -571,6 +571,22 @@ export const TESTIMONIALS = [
     source: 'Google',
     date: '2026',
   },
+  {
+    name: 'K Ferdinandez',
+    location: null,
+    rating: 5,
+    text: "Beach House Moving took all the stress of our move. We needed a professional company to load my grandmother's possessions, which consisted of various sentimental items and several valuables. I was not given much notice for the move, and this company went above and beyond to work within the deadline I was given.\n\nZach and Les very well represented the company. They were very friendly and hardworking and handled all the furniture with a delicate hand, as though it was their own. Everything was very well placed, nothing broken. It is quite difficult to find movers to trust in your family's possessions but they are guys you can trust and will certainly use for our future storage and moving needs.",
+    source: 'Google',
+    date: '2026',
+  },
+  {
+    name: 'Debra Harto',
+    location: null,
+    rating: 5,
+    text: "I highly recommend this company for your moves. They are professional, prompt, and very conscientious. I've used them twice and will definitely be using them for my future moves.",
+    source: 'Google',
+    date: '2026',
+  },
 ] as const
 
 export const REVIEWS_PAGE_META = {
@@ -580,7 +596,7 @@ export const REVIEWS_PAGE_META = {
   path: '/reviews',
   aggregateRating: {
     ratingValue: 5,
-    reviewCount: 9,
+    reviewCount: 10,
     bestRating: 5,
     worstRating: 1,
   },
@@ -598,7 +614,7 @@ export const REVIEWS_PAGE = {
   reviewsSection: {
     heading: 'Google Reviews',
     intro:
-      'Beach House Moving is a four-person, owner-operated crew licensed in Florida (Mover Reg. #IM4125) and serving Walton, Okaloosa, and Bay Counties around the clock. The owners show up on every job — not a dispatch center, not a franchise crew you have never met. Our three-vehicle fleet — two box trucks with lift gates and a Sprinter van — is built for the Emerald Coast: gated 30A communities, beach condos with elevator rules, and military PCS timelines near Eglin AFB and Hurlburt Field. When neighbors leave a review, they are describing a real move with real people who answered the phone at 2 a.m. because that is how we operate.',
+      'Beach House Moving is a 4-person, owner-operated crew licensed in Florida (Mover Reg. #IM4125) and serving Walton, Okaloosa, and Bay Counties around the clock. The owners show up on every job — not a dispatch center, not a franchise crew you have never met. Our 3-truck fleet — two box trucks with lift gates and a Sprinter van — is built for the Emerald Coast: gated 30A communities, beach condos with elevator rules, and military PCS timelines near Eglin AFB and Hurlburt Field. When neighbors leave a review, they are describing a real move with real people who answered the phone at 2 a.m. because that is how we operate.',
   },
   whyReviewsMatter: {
     heading: 'Why Reviews Matter on the Emerald Coast',
@@ -801,11 +817,11 @@ export const MAP_EMBED = {
 export const ABOUT_FAQS = [
   {
     q: 'Are the owners the actual movers?',
-    a: 'Yes — the owners of Beach House Moving are the movers on every job. Beach House Moving is a four-person, owner-operated team, not a staffing agency that sends a different crew each time. The same people who answer your call, load the truck, and carry your furniture are the owners who built this company. That means direct accountability: if something matters to you on moving day, it matters to the person whose name is on the company.',
+    a: 'Yes — the owners of Beach House Moving are the movers on every job. Beach House Moving is a 4-person, owner-operated team, not a staffing agency that sends a different crew each time. The same people who answer your call, load the truck, and carry your furniture are the owners who built this company. That means direct accountability: if something matters to you on moving day, it matters to the person whose name is on the company.',
   },
   {
     q: 'How long has Beach House Moving been in business?',
-    a: 'Beach House Moving was established in 2025 and is locally owned and operated on the Florida Panhandle. We built the company around a simple belief: moving companies got worse when they scaled up and sent strangers to your home. We stayed hands-on instead — growing to a three-truck fleet while keeping the owners on every job.',
+    a: 'Beach House Moving was established in 2025 and is locally owned and operated on the Florida Panhandle. We built the company around a simple belief: moving companies got worse when they scaled up and sent strangers to your home. We stayed hands-on instead — growing to a 3-truck fleet while keeping the owners on every job.',
   },
   {
     q: 'What counties does Beach House Moving serve?',
@@ -821,7 +837,7 @@ export const ABOUT_CONTENT = {
   pageTitle: 'About Beach House Moving',
   opening: {
     paragraphs: [
-      'Beach House Moving is a locally owned moving company on the Florida Panhandle, built by four owners who are also the movers on every job. When you hire us, the people carrying your furniture are the same people who answer the phone, quote your move, and show up on moving day — not a rotating crew dispatched by a staffing agency.',
+      'Beach House Moving is a locally owned moving company on the Florida Panhandle, built by 4 owners who are also the movers on every job. When you hire us, the people carrying your furniture are the same people who answer the phone, quote your move, and show up on moving day — not a rotating crew dispatched by a staffing agency.',
       'That owner-operated model is the core difference. National chains and franchise operations often send whoever is available that morning. We do not work that way. Your belongings pass through hands that have a direct stake in doing the job right, because our reputation and our name are on every box, every appliance, and every piece of furniture we touch.',
     ],
   },
@@ -830,7 +846,7 @@ export const ABOUT_CONTENT = {
     paragraphs: [
       'Beach House Moving was established in 2025 on the Emerald Coast of Northwest Florida. We started with one truck and a clear standard: treat every home the way we would want ours treated, and treat what is inside it like it matters.',
       'We watched moving companies get worse as they scaled — more trucks, more volume, less personal accountability. Owners moved into offices while strangers handled the work on site. We built Beach House Moving differently. We stayed hands-on, kept the owners on the truck, and grew only as far as we could maintain that standard.',
-      'Today we run a three-truck fleet across Walton, Okaloosa, and Bay Counties. We know the stilted beach homes, the tight 30A driveways, the PCS timelines near Eglin and Hurlburt, and the delivery windows on new construction sites. We live here, we move here, and we built this company for how moves actually work on the Panhandle.',
+      'Today we run a 3-truck fleet across Walton, Okaloosa, and Bay Counties. We know the stilted beach homes, the tight 30A driveways, the PCS timelines near Eglin and Hurlburt, and the delivery windows on new construction sites. We live here, we move here, and we built this company for how moves actually work on the Panhandle.',
       "Joshua B McGrew leads the crew day to day — the same name customers mention in our reviews, because he's on the truck for the jobs, not behind a desk. When you call, you're talking to an owner; when we show up, you're getting the same four people who built the company.",
     ],
   },
@@ -1027,6 +1043,8 @@ export type Neighborhood = {
   landmarks: readonly string[]
   metaTitle: string
   metaDescription: string
+  localBody: string
+  localFaqs: { question: string; answer: string }[]
 }
 
 export const NEIGHBORHOODS = [
@@ -1040,72 +1058,177 @@ export const NEIGHBORHOODS = [
     landmarks: ['30A', 'Highway 98', 'Choctawhatchee Bay', 'Gulf Place', 'Point Washington'],
     metaTitle: 'Movers in Santa Rosa Beach, FL | Beach House Moving',
     metaDescription: 'Licensed, insured movers in Santa Rosa Beach & 30A. Residential, local & long-distance moving, packing, storage. Free quote — (850) 842-1962.',
+    localBody: `Santa Rosa Beach isn't one place — it's two. South of US-98 you've got the 30A side: beach cottages, gulf-front rentals, and gated lanes off Scenic 30A where access is the whole job. North of 98 it's a different world — woodland lots, Point Washington, Hammock Bay's edge, longer driveways and more room to stage a truck. We plan the move around which side you're on before we ever load a dolly. On the south side that often means a smaller truck or the Sprinter van for the tight, tree-lined lanes around Gulf Place, plus a parking plan for streets where there's nowhere to leave a box truck for six hours. North of 98 the trucks fit fine, but the hauls from house to curb run long. Either way, Santa Rosa Beach is our home base, so we're not guessing — we know which roads flood after a summer storm, which HOAs want a certificate of insurance on file before move day, and where the gate codes change with the season.`,
+    localFaqs: [
+      {
+        question: `Do you serve both sides of US-98 in Santa Rosa Beach?`,
+        answer: `Yes — the 30A/gulf side and the north-of-98 woodland neighborhoods like Point Washington and Hammock Bay's edge. They're very different moves, and we plan truck size and parking around which side you're on before move day.`,
+      },
+      {
+        question: `Can a full-size moving truck get into the 30A neighborhoods off Scenic 30A?`,
+        answer: `Sometimes, sometimes not. Many gulf-side lanes near Gulf Place are narrow and tree-lined with no long-term parking, so we'll often bring the Sprinter van and stage a shorter carry rather than block the road for hours.`,
+      },
+      {
+        question: `Do Santa Rosa Beach HOAs require anything before a move?`,
+        answer: `Several do — a certificate of insurance on file, a reserved move window, or a gate code that rotates seasonally. We're licensed and insured (FL Mover Reg. #IM4125) and handle the COI paperwork so the gate isn't a surprise on move morning.`,
+      },
+    ],
   },
   {
     slug: '30a',
     name: '30A',
     county: 'Walton County',
-    image: '/images/move-inlet-beach.jpg',
+    image: '/images/loaded-liftgate-coastal-home.jpg',
     intro: 'Scenic Highway 30A links a string of distinct beach communities, each with its own gates, HOA rules, parking limits, and beach-access logistics. Moving along 30A rewards a crew that already knows the roads, the carriage-home alleys, and where the trucks can actually park — not one learning it on the day.',
     landmarks: ['Seaside', 'WaterColor', 'Rosemary Beach', 'Alys Beach', 'Grayton Beach', 'Inlet Beach'],
     metaTitle: '30A Movers | Beach House Moving — Santa Rosa Beach, FL',
     metaDescription: 'Local movers who know every 30A community — Seaside, WaterColor, Rosemary, Alys & more. Licensed & insured. Free quote — (850) 842-1962.',
+    localBody: `"30A" isn't a town — it's the 24-mile scenic corridor stitching together sixteen beach neighborhoods from Dune Allen in the west to Inlet Beach in the east, and every one of them moves differently. Seaside won't let a box truck idle on its narrow streets; WaterSound and Alys Beach run guard gates with their own move-in rules; Grayton's roads are literally sand. A move "on 30A" is really a question of which community, and we've worked all of them. What they share is the bottleneck: Scenic 30A is the only road, it's two lanes, and in season it's bumper-to-bumper with beach traffic and cyclists. That sets the clock. We schedule loads for early morning when 30A is quiet, keep the truck off the corridor itself wherever a side lane allows, and use the Sprinter van for the communities where a 26-footer is a liability rather than an asset. If you're moving between 30A towns — and a lot of people here do — we already know the access quirks on both ends.`,
+    localFaqs: [
+      {
+        question: `I'm moving between two 30A communities — is that easier than a long-distance move?`,
+        answer: `Usually, but the access quirks double. Both ends might have gates, narrow lanes, or beach-access carries. We know the rules on each 30A community, so we plan one truck plan that works for both your old and new addresses.`,
+      },
+      {
+        question: `Why do you start 30A moves so early in the morning?`,
+        answer: `Scenic 30A is the only road through, it's two lanes, and in season it fills with beach traffic and cyclists by mid-morning. Early loads keep the truck moving instead of stuck — which keeps your hourly cost down.`,
+      },
+      {
+        question: `Do you cover every neighborhood on 30A?`,
+        answer: `Yes — all sixteen, Dune Allen to Inlet Beach, including the gated and golf-cart-only communities. Each has its own page on this site, but if you're not sure which one you're in, just call (850) 842-1962 and we'll sort it out.`,
+      },
+    ],
   },
   {
     slug: 'grayton-beach',
     name: 'Grayton Beach',
     county: 'Walton County',
-    image: '/images/move-srb.jpg',
+    image: '/images/liftgate-blankets-coastal-home.jpg',
     intro: 'Grayton Beach is the oldest townsite on 30A, known for its sandy unpaved streets, cottage character, and proximity to Grayton Beach State Park. Those soft-sand roads and older lots make access and equipment choices matter — something we plan for before the truck arrives.',
     landmarks: ['Grayton Beach State Park', 'Western Lake', 'Red Bar', 'Hotz Avenue'],
     metaTitle: 'Grayton Beach Movers | Beach House Moving — 30A, FL',
     metaDescription: 'Movers serving Grayton Beach on 30A. We know the sandy roads and cottage lots. Licensed & insured. Free quote — (850) 842-1962.',
+    localBody: `Grayton Beach is the oldest townsite on 30A, and it moves like it. The streets are sand — unpaved, soft, and unforgiving to a loaded box truck that sinks where a lighter vehicle rolls right through. That single fact drives every decision here: we scout the approach first, often stage with the Sprinter van, and keep weight off the softest stretches near Western Lake and the state park. The cottages themselves are older and smaller-doored than the new builds east of here, so oversized furniture frequently means a door-off or a careful angle through a porch rather than a straight shot. Add the weekend crowd around Red Bar and the limited parking on lanes like Hotz Avenue, and timing matters as much as muscle. We've learned Grayton the only way you can — by doing it — which is why we don't show up with the wrong truck and improvise. Coastal dune-lake humidity also means we wrap and pad early; nothing sits exposed on a Grayton porch longer than it has to.`,
+    localFaqs: [
+      {
+        question: `Can you get a moving truck down Grayton Beach's sand roads?`,
+        answer: `Carefully, and not always with a full-size truck. The unpaved sand near Western Lake and the state park can bog a loaded 26-footer, so we frequently stage with the Sprinter van and keep weight off the softest stretches.`,
+      },
+      {
+        question: `My Grayton cottage is older with narrow doors — can you still move big furniture?`,
+        answer: `Yes. Older Grayton cottages often need a door taken off its hinges or a measured angle through a porch rather than a straight carry. We bring the tools to do that and reset everything before we leave.`,
+      },
+      {
+        question: `Is weekend traffic around Red Bar a problem for moving?`,
+        answer: `It can be — parking on lanes like Hotz Avenue is tight when Grayton fills up. We schedule Grayton loads for quieter windows so the crew isn't fighting the crowd for curb space.`,
+      },
+    ],
   },
   {
     slug: 'blue-mountain-beach',
     name: 'Blue Mountain Beach',
     county: 'Walton County',
-    image: '/images/move-srb.jpg',
+    image: '/images/mover-carry-wrapped-estate.jpg',
     intro: 'Blue Mountain Beach sits on the highest coastal dune elevation in Florida, meaning steep driveways and elevated homes that frequently require stairs, long carries, and careful equipment choices. We bring the ramps, dollies, and lift gates that make hillside beach moves go smoothly.',
     landmarks: ['Blue Mountain Beach Creamery', 'Redfish Lake', 'coastal dune ridge'],
     metaTitle: 'Blue Mountain Beach Movers | Beach House Moving — 30A, FL',
     metaDescription: 'Elevated homes, stairs, long carries — Blue Mountain Beach moves handled by the owners themselves. Licensed & insured. Free quote — (850) 842-1962.',
+    localBody: `Blue Mountain Beach sits on the highest coastal dune in Florida, and that elevation is the move. Homes here climb the rise, which means stairs — lots of them — and gravity working against you on the way up and with you on the way down, where control matters more than speed. The lanes off 30A are short and steep, and the dune-top builds often have the living space up top to catch the gulf view, so the heaviest pieces travel the most stairs. We bring extra crew and stair-savvy equipment for Blue Mountain moves and pad the turns where a tired arm gets careless. Down near Redfish Lake and the Blue Mountain Beach Creamery the lots flatten out and the carries shorten, but the elevation change between the highway and the gulf-front homes is real, and we plan the load order around it — last on, first off for whatever lives at the top. It's a small community, so we also keep the truck footprint tight; there's rarely room to sprawl.`,
+    localFaqs: [
+      {
+        question: `Why does Blue Mountain Beach take longer than a flat move?`,
+        answer: `Elevation. Blue Mountain sits on Florida's highest coastal dune, so homes climb the rise and the main living spaces are often up top for the view. More stairs means more crew and careful pacing — we plan the load order around it.`,
+      },
+      {
+        question: `Do you bring extra movers for stair-heavy Blue Mountain homes?`,
+        answer: `Yes. Dune-top builds put the heaviest furniture at the top of the most stairs, so we staff Blue Mountain jobs to keep the carry controlled instead of rushed — that's how furniture and walls stay undamaged.`,
+      },
+      {
+        question: `Is there room to park a truck on the lanes off 30A here?`,
+        answer: `Barely, on the steeper short lanes. Blue Mountain is a small community with tight curb space, so we keep the truck footprint minimal and stage the carry rather than block a narrow road.`,
+      },
+    ],
   },
   {
     slug: 'seaside',
     name: 'Seaside',
     county: 'Walton County',
-    image: '/images/move-inlet-beach.jpg',
+    image: '/images/loaded-liftgate-coastal-home.jpg',
     intro: 'Seaside is the founding New Urbanist town on 30A — pastel cottages, pedestrian-first streets, and notoriously limited vehicle access and parking. A move here lives or dies on timing and coordination, which is exactly where a local owner-operator crew earns its keep.',
     landmarks: ['Seaside Amphitheater', 'Central Square', 'Ruskin Place', 'Airstream food court'],
     metaTitle: 'Seaside FL Movers | Beach House Moving — 30A',
     metaDescription: "Movers who know Seaside's narrow streets and parking limits. Owner-operated, licensed & insured. Free quote — (850) 842-1962.",
+    localBody: `Seaside is the town that started New Urbanism, and it's built for pedestrians, not box trucks. The streets are narrow by design, parking is scarce and tightly managed, and you cannot simply leave a truck sitting outside a house for the day — Central Square and the cottage lanes around Ruskin Place stay busy with foot traffic and cyclists year-round. Moving here is a staging problem first and a lifting problem second. We coordinate the shortest legal approach, often shuttle from a staging point with the Sprinter van or hand carts, and schedule for the early, quiet hours before the square wakes up. The cottages are charming and compact, with porches, picket fences, and tucked-away entries that reward a crew that's done it before and punish one that hasn't. Because Seaside is a flagship vacation-rental community, turn timing can be strict too; we work around check-in/check-out windows so we're not competing with a rental changeover for the same ten feet of curb.`,
+    localFaqs: [
+      {
+        question: `Can a moving truck park in Seaside?`,
+        answer: `Not for long. Seaside is designed for pedestrians with narrow streets and tightly managed parking, so we stage nearby and shuttle in with the Sprinter van or hand carts rather than leaving a box truck on the street all day.`,
+      },
+      {
+        question: `When is the best time to schedule a Seaside move?`,
+        answer: `Early morning, before Central Square and the lanes around Ruskin Place fill with foot traffic and cyclists. A quiet street is a faster, safer move — which also keeps your hourly cost down.`,
+      },
+      {
+        question: `Do you work around vacation-rental turnovers in Seaside?`,
+        answer: `Yes. Seaside runs on rentals, so curb space and timing can be strict around check-in and check-out. We plan the move so we're not competing with a changeover for the same parking and access.`,
+      },
+    ],
   },
   {
     slug: 'watercolor',
     name: 'WaterColor',
     county: 'Walton County',
-    image: '/images/move-inlet-beach.jpg',
+    image: '/images/liftgate-blankets-coastal-home.jpg',
     intro: 'WaterColor is an upscale planned community adjacent to Seaside, with the WaterColor Inn, parks on Western Lake, and a community road network with its own access points and HOA rules. Move days here go best with a crew that already knows the routine.',
     landmarks: ['WaterColor Inn', 'Cerulean Park', 'Western Lake', 'the Boathouse'],
     metaTitle: 'WaterColor FL Movers | Beach House Moving — 30A',
     metaDescription: 'Local movers serving WaterColor on 30A. Community access handled. Owner-operated & insured. Free quote — (850) 842-1962.',
+    localBody: `WaterColor is master-planned and amenity-dense, which makes it one of the smoother 30A communities to move in — if you know the rules. The neighborhood wraps Western Lake and the WaterColor Inn, with planned streets, designated parking, and a community that pays attention to who's driving a truck through it. We follow the posted access points and quiet hours, and we check whether your street near Cerulean Park or the Boathouse has a service route that keeps us off the busiest pedestrian paths. Homes range from compact carriage units to large gulf-adjacent builds, so we size the truck and crew to the address rather than the zip code. WaterColor's HOA is organized, which usually means a heads-up on move-in windows and sometimes a COI request — both of which we handle in advance so nothing stalls at the entrance. The upside of a planned community is predictability; the trade-off is rules, and we'd rather know them going in than discover them with a truck full of your furniture parked in the wrong spot.`,
+    localFaqs: [
+      {
+        question: `Does WaterColor have rules about moving trucks?`,
+        answer: `Yes — as a master-planned community, WaterColor has designated access points, parking, and quiet hours, and the HOA may ask for a certificate of insurance. We confirm all of that before move day so the entrance isn't a holdup.`,
+      },
+      {
+        question: `Is there a service route that avoids the busy paths near Cerulean Park?`,
+        answer: `Usually. We check whether your WaterColor street has a designated service approach that keeps the truck off the busiest pedestrian and bike paths, which makes the carry safer and the move faster.`,
+      },
+      {
+        question: `How do you decide truck size for a WaterColor home?`,
+        answer: `By the actual home, not the neighborhood. WaterColor ranges from compact carriage units to large gulf-adjacent builds, so we match truck and crew to your specific address and access.`,
+      },
+    ],
   },
   {
     slug: 'watersound',
     name: 'WaterSound',
     county: 'Walton County',
-    image: '/images/move-inlet-beach.jpg',
+    image: '/images/mover-carry-wrapped-estate.jpg',
     intro: 'WaterSound spans gated beachside enclaves and the growing WaterSound Origins community inland, with guard check-ins and resort-community rules at both. We coordinate gate access ahead of time so the move day itself is straightforward.',
     landmarks: ['WaterSound Beach Club', 'WaterSound Origins', 'Camp Creek', 'Lake Powell'],
     metaTitle: 'WaterSound Movers | Beach House Moving — 30A, FL',
     metaDescription: 'Gated-community movers for WaterSound Beach & Origins on 30A. Owner-operated & insured. Free quote — (850) 842-1962.',
+    localBody: `WaterSound is gated, private, and particular — and that's the entire planning conversation for a move here. The WaterSound Beach Club, the Origins golf community, and the residential enclaves near Camp Creek and Lake Powell all sit behind controlled access, which means we don't roll up unannounced. We coordinate the gate, get the crew and vehicle on the approved list ahead of time, and confirm any move-in window the community enforces. Inside, the homes are high-end, the finishes are unforgiving, and the expectation is that nothing touches a wall or a floor that shouldn't — so we runner-and-pad the path before the first box moves. WaterSound's roads are well-kept and the access is orderly once you're cleared, but the clearance is the bottleneck, not the carry. We've moved families in and out of WaterSound's gates before, so we know to handle the credentials early; the worst outcome here is a loaded truck idling at a gate because nobody told security a move was happening today.`,
+    localFaqs: [
+      {
+        question: `Can you get a moving crew through WaterSound's gate?`,
+        answer: `Yes, with advance coordination. WaterSound is gated and private, so we get the crew and vehicle on the approved access list ahead of time and confirm any move-in window — we don't show up unannounced.`,
+      },
+      {
+        question: `How do you protect high-end WaterSound finishes during a move?`,
+        answer: `We runner-and-pad the entire path — floors, corners, door frames — before the first box moves. WaterSound homes have unforgiving finishes, so floor and wall protection goes down first, every time.`,
+      },
+      {
+        question: `What's the biggest delay risk for a WaterSound move?`,
+        answer: `The gate, not the lifting. The most common holdup is a crew arriving without being cleared by security, so we handle credentials early and confirm the day with the community before we load.`,
+      },
+    ],
   },
   {
     slug: 'seacrest-beach',
     name: 'Seacrest Beach',
     county: 'Walton County',
-    image: '/images/move-inlet-beach.jpg',
+    image: '/images/loaded-liftgate-coastal-home.jpg',
     intro: 'Seacrest Beach sits on the eastern end of 30A near Alys and Rosemary Beach, known for its large lagoon pool and closely clustered rental cottages. Tight spacing and shared access make a coordinated crew the difference between a smooth move and a stressful one.',
     introExtended: [
       'Seacrest runs on the rental calendar. Saturday is turnover day, the lagoon-pool parking fills fast, and golf-cart paths thread between homes that were built close on purpose — so we stage at the property, time the move off-peak, and keep the truck out of the path of fifteen arriving renters.',
@@ -1114,26 +1237,71 @@ export const NEIGHBORHOODS = [
     landmarks: ['the Seacrest lagoon pool', 'Alys Beach', 'Rosemary Beach'],
     metaTitle: 'Seacrest Beach Movers | Beach House Moving — 30A, FL',
     metaDescription: 'Movers serving Seacrest Beach on 30A. Tight layouts, handled. Owner-operated & insured. Free quote — (850) 842-1962.',
+    localBody: `Seacrest Beach is dense — a tight grid of rental cottages built close together around the community's famous 12,000-square-foot lagoon pool, with golf-cart paths threading between them. That density is the move. Homes share narrow lanes, driveways are short or shared, and the golf-cart culture means the paths aren't sized for a 26-foot truck. We stage carefully, often working from the nearest legal truck position and carrying in, and we time the job so we're not boxing in a neighbor or blocking a cart path during a busy rental week. Seacrest also sits right against Alys and Rosemary Beach, so move-in rules can borrow from those stricter neighbors depending on exactly where your home is. The cottages are typically multi-story to fit the lot, which puts stairs in the mix on top of the access squeeze. None of it is hard once you've done it — but it punishes a crew that treats Seacrest like an open suburban street, because it isn't one.`,
+    localFaqs: [
+      {
+        question: `Why is parking a moving truck hard in Seacrest Beach?`,
+        answer: `Density. Seacrest packs rental cottages close together around the lagoon pool with shared, short driveways and golf-cart paths that aren't truck-sized. We stage from the nearest legal spot and carry in rather than force the truck down a narrow lane.`,
+      },
+      {
+        question: `Are Seacrest's move-in rules like Alys and Rosemary Beach?`,
+        answer: `Sometimes — Seacrest sits right against both, so depending on exactly where your home is, the rules can be similar. We confirm your specific street's requirements before move day.`,
+      },
+      {
+        question: `Do Seacrest cottages usually have stairs?`,
+        answer: `Most do. The cottages are built multi-story to fit tight lots, so a Seacrest move typically combines stair carries with a tight-access approach — we staff and equip for both.`,
+      },
+    ],
   },
   {
     slug: 'alys-beach',
     name: 'Alys Beach',
     county: 'Walton County',
-    image: '/images/move-inlet-beach.jpg',
+    image: '/images/mover-carry-wrapped-estate.jpg',
     intro: 'Alys Beach is the all-white, Bermuda-inspired community on eastern 30A and one of the most architecturally precise neighborhoods on the coast. Protecting finished surfaces, courtyard entries, and white stucco is non-negotiable here — floor, wall, and corner protection is part of our standard setup before the first item moves.',
     landmarks: ['Caliza Pool', 'white courtyard homes', 'Fonville Press'],
     metaTitle: 'Alys Beach Movers | Beach House Moving — 30A, FL',
     metaDescription: 'White-glove-level care for Alys Beach moves. Owner-operated crew, full surface protection. Licensed & insured. Free quote — (850) 842-1962.',
+    localBody: `Alys Beach is the white-walled, courtyard-home community on 30A's east end, and it is among the most exacting places we move. The Bermuda-inspired architecture means tall, enclosed courtyards, narrow pedestrian passages, and pristine white surfaces that show every scuff — so protection isn't optional, it's the job. Vehicle access is tightly controlled around Caliza Pool and the town center near Fonville Press, and the community enforces who drives in and when. We coordinate access in advance, keep the truck where it's permitted, and move through the courtyards on padded paths with extra hands so nothing brushes a wall. Furniture often has to be brought through a single controlled entry rather than a wide driveway, which changes the carry plan entirely. Alys homes are high-value and the owners expect a crew that treats the space accordingly; we do. The bottleneck here is never strength — it's discipline: slow, padded, planned, and cleared through the gate before we arrive.`,
+    localFaqs: [
+      {
+        question: `How do you protect Alys Beach's white walls and courtyards?`,
+        answer: `Obsessively. Alys's white surfaces show every mark, so we pad the courtyard passages and door frames and move with extra hands to keep furniture off the walls. Protection goes down before anything is carried.`,
+      },
+      {
+        question: `Can moving trucks drive freely in Alys Beach?`,
+        answer: `No. Vehicle access around Caliza Pool and the town center is tightly controlled, with rules on who drives in and when. We coordinate access ahead of time and keep the truck only where it's permitted.`,
+      },
+      {
+        question: `My Alys home has a single courtyard entry — can you still move large furniture?`,
+        answer: `Yes. Many Alys homes funnel everything through one controlled entry instead of a wide driveway, so we plan the carry and the piece angles around that single point — it's a routine part of moving here.`,
+      },
+    ],
   },
   {
     slug: 'rosemary-beach',
     name: 'Rosemary Beach',
     county: 'Walton County',
-    image: '/images/move-inlet-beach.jpg',
+    image: '/images/mover-carry-wrapped-estate.jpg',
     intro: 'Rosemary Beach anchors the eastern end of 30A with cobblestone streets, carriage homes, and Dutch West Indies architecture. The narrow alleys and rear carriage entries demand a crew that knows exactly where to stage and where a truck can physically fit — something we confirm before the day of.',
     landmarks: ['Rosemary Beach Town Center', 'cobblestone footpaths', 'Barrett Square', 'carriage homes'],
     metaTitle: 'Rosemary Beach Movers | Beach House Moving — 30A, FL',
     metaDescription: "Movers who know Rosemary Beach's cobblestone alleys and carriage homes. Owner-operated & insured. Free quote — (850) 842-1962.",
+    localBody: `Rosemary Beach is cobblestone footpaths, carriage houses, and a tight European-style town center around Barrett Square — beautiful, and built to keep cars at the edges. Many homes here sit on pedestrian lanes with the living quarters above a carriage unit, which means the real furniture often travels a flight or two from a footpath the truck can't reach. We stage at the nearest vehicle access and carry in over the cobblestones with the right wheels and pads, because the wrong cart bounces a dresser apart on that surface. The carriage-house layout also means tight interior stairs and turns, so we measure and plan the awkward pieces before we commit to a path. Rosemary's town center stays active, so we schedule around the busy hours near Barrett Square and keep the staging tidy. It's a premium community with premium expectations; the crew that does well here is the one that slows down, protects the cobblestone-to-door path, and doesn't try to muscle a sofa up a carriage stair the wrong way.`,
+    localFaqs: [
+      {
+        question: `Can a moving truck reach my home on Rosemary Beach's cobblestone lanes?`,
+        answer: `Often not directly — Rosemary keeps cars at the edges, so many homes sit on pedestrian footpaths. We stage at the nearest vehicle access and carry in over the cobblestones with proper carts and padding.`,
+      },
+      {
+        question: `My Rosemary place is a carriage house with stairs — is that a problem?`,
+        answer: `It's normal here. Carriage-house layouts put the living quarters above with tight interior stairs and turns, so we measure the awkward pieces and plan the path before lifting. It's a routine Rosemary move for us.`,
+      },
+      {
+        question: `When should I avoid scheduling a Rosemary Beach move?`,
+        answer: `Peak hours around Barrett Square, when the town center is busy. We schedule for quieter windows so the crew has room to stage and carry without working around crowds.`,
+      },
+    ],
   },
   {
     slug: 'inlet-beach',
@@ -1144,12 +1312,27 @@ export const NEIGHBORHOODS = [
     landmarks: ['30Avenue', 'Camp Helen State Park', 'Lake Powell', '30A eastern gateway'],
     metaTitle: 'Inlet Beach Movers | Beach House Moving — 30A, FL',
     metaDescription: 'Movers serving Inlet Beach at the east end of 30A. Cottages to new builds. Owner-operated & insured. Free quote — (850) 842-1962.',
+    localBody: `Inlet Beach is 30A's easternmost community and one of its fastest-changing — new builds going up around 30Avenue and the Rosemary edge, older homes near Camp Helen State Park and Lake Powell, and a mix that makes every street a little different. The growth means construction traffic and partially built lanes in spots, so we check the current road state before move day rather than trusting last month's map. Closer to the highway and 30Avenue, access is straightforward and the trucks fit; down toward the inlet and Lake Powell, the lots get tighter and the dune access more sensitive. Inlet Beach also catches a lot of cross-county moves because it sits right on the Walton-Bay line near Phillips Inlet — folks moving between 30A and Panama City Beach often pass through here, and we handle both ends. The constant in Inlet Beach is change, so we treat each move as current: confirm the access, confirm the construction, confirm the parking, then load.`,
+    localFaqs: [
+      {
+        question: `Is construction a problem for moves in Inlet Beach?`,
+        answer: `It can be — Inlet Beach is growing fast, with new builds and partially finished lanes around 30Avenue. We check the current road and construction state before move day instead of trusting an old map.`,
+      },
+      {
+        question: `Do you handle moves between Inlet Beach and Panama City Beach?`,
+        answer: `Yes. Inlet Beach sits right on the Walton-Bay line near Phillips Inlet, so cross-county moves to and from PCB are common — we cover both ends without handing you off to anyone.`,
+      },
+      {
+        question: `Are the older homes near Camp Helen and Lake Powell harder to move?`,
+        answer: `A little. Lots get tighter and dune access is more sensitive down toward the inlet than up by the highway, so we plan a careful approach and protect the access path on those addresses.`,
+      },
+    ],
   },
   {
     slug: 'dune-allen',
     name: 'Dune Allen',
     county: 'Walton County',
-    image: '/images/move-srb.jpg',
+    image: '/images/liftgate-blankets-coastal-home.jpg',
     intro: 'Dune Allen is the westernmost 30A community, shaped by the rare coastal dune lakes that meet the Gulf here. Older beach homes and tight lakeside lots mean access planning is the first step of every move — we do that planning before we arrive.',
     introExtended: [
       'Dune Allen sits at the quiet west end of 30A, and the homes show it — stilted construction, steep short driveways, and narrow loops off Allen Loop Road where a full-size box truck has nowhere to turn around. This is Sprinter-and-stage territory: right vehicle to the door, box truck positioned where it actually fits.',
@@ -1158,16 +1341,46 @@ export const NEIGHBORHOODS = [
     landmarks: ['Oyster Lake', 'Stallworth Lake', 'coastal dune lakes', 'Ed Walline Beach Access'],
     metaTitle: 'Dune Allen Movers | Beach House Moving — West 30A, FL',
     metaDescription: 'Local movers for Dune Allen Beach on west 30A. Owner-operated & insured. Free quote — (850) 842-1962.',
+    localBody: `Dune Allen is 30A's western anchor, defined by its coastal dune lakes — Oyster Lake and Stallworth Lake among them — and a quieter, more spread-out feel than the town-center communities to the east. Homes here string along Allen Loop Road and the lanes near the Ed Walline access, often with the dune lakes on one side and the gulf on the other, which makes for narrow approaches and sensitive ground. We keep heavy trucks off the softest lakeside shoulders and stage where the surface holds. The spread-out layout means longer carries from curb to door in places, so we plan crew and equipment for distance, not just weight. Dune Allen's mix of older beach houses and newer builds also means doors and stairwells vary a lot house to house — we measure rather than assume. Because it's the western end, a Dune Allen move often connects toward Miramar Beach and Sandestin, and we know that stretch of 30A and 98 well enough to time the drive around the seasonal crawl.`,
+    localFaqs: [
+      {
+        question: `Are the coastal dune lakes a factor when moving in Dune Allen?`,
+        answer: `Yes. Homes near Oyster Lake, Stallworth Lake, and Allen Loop Road sit on narrow approaches with sensitive ground, so we keep heavy trucks off soft lakeside shoulders and stage where the surface holds.`,
+      },
+      {
+        question: `Why might a Dune Allen move take longer per item?`,
+        answer: `The community is spread out, so carries from curb to door can run long compared to a dense town center. We plan crew and equipment for the distance, which keeps the move steady instead of slow.`,
+      },
+      {
+        question: `Do you connect Dune Allen moves to Miramar Beach or Sandestin?`,
+        answer: `Often. As 30A's western end, Dune Allen flows naturally toward Miramar and Sandestin, and we know that 30A-to-98 stretch well enough to time the drive around the seasonal traffic crawl.`,
+      },
+    ],
   },
   {
     slug: 'seagrove-beach',
     name: 'Seagrove Beach',
     county: 'Walton County',
-    image: '/images/move-srb.jpg',
+    image: '/images/loaded-liftgate-coastal-home.jpg',
     intro: 'Seagrove Beach sits between Seaside and Seacrest with a classic old-Florida feel — mature canopy, original cottages, and newer homes mixed throughout. Shaded, narrow streets reward a crew that plans truck placement before backing in.',
     landmarks: ['Seagrove Plaza', 'Eastern Lake', '30A'],
     metaTitle: 'Seagrove Beach Movers | Beach House Moving — 30A, FL',
     metaDescription: 'Movers serving Seagrove Beach on 30A. Old-Florida character, owner-operator care. Licensed & insured. Free quote — (850) 842-1962.',
+    localBody: `Seagrove Beach sits in the middle of 30A with a personality of its own — a tree-canopied, established neighborhood around Seagrove Plaza and Eastern Lake, less polished than its master-planned neighbors and a little more lived-in. That canopy is the first thing we plan around: low limbs and tight tree-lined lanes mean a tall box truck has to pick its approach, and sometimes the Sprinter van is the smarter tool. The homes range from original Seagrove cottages to renovated builds, so interior access varies and we measure the awkward pieces up front. Eastern Lake's edge brings the same soft-ground and narrow-lane considerations as the other dune-lake areas. Seagrove's central location is a genuine advantage — it's an easy reach from our base and connects in both directions on 30A — but the established tree cover and older street layout reward local knowledge over brute force. We've worked these canopy lanes, so we know which approaches clear and which ones will scrape a truck's roofline.`,
+    localFaqs: [
+      {
+        question: `Do Seagrove Beach's trees affect how you move in?`,
+        answer: `Yes. Seagrove's tree canopy means low limbs and tight lanes that a tall box truck has to approach carefully — and sometimes the Sprinter van clears where a 26-footer won't. We pick the approach before move day.`,
+      },
+      {
+        question: `Are Seagrove homes harder to move than the newer 30A builds?`,
+        answer: `They can be. Seagrove mixes original cottages with renovated homes, so interior doors, stairs, and turns vary house to house. We measure the awkward pieces up front instead of assuming a standard layout.`,
+      },
+      {
+        question: `Is Seagrove's central 30A location an advantage for moving?`,
+        answer: `It is. Seagrove sits mid-corridor near Seagrove Plaza and Eastern Lake, an easy reach from our Santa Rosa Beach base and a quick connection in both directions on 30A — which keeps drive time and cost down.`,
+      },
+    ],
   },
   {
     slug: 'miramar-beach',
@@ -1178,16 +1391,46 @@ export const NEIGHBORHOODS = [
     landmarks: ['Sandestin', 'Silver Sands Premium Outlets', 'Scenic Gulf Drive', 'Baytowne Wharf'],
     metaTitle: 'Miramar Beach Movers | Beach House Moving — Walton County, FL',
     metaDescription: 'Movers for Miramar Beach condos, gated homes & Sandestin. Owner-operated, licensed & insured. Free quote — (850) 842-1962.',
+    localBody: `Miramar Beach is where 30A's cottage world gives way to high-density gulf-front living — the Scenic Gulf Drive condo towers, the Sandestin resort edge, Silver Sands and the outlet corridor, and Baytowne nearby. Moving here is often a condo problem: service elevators that must be reserved, loading docks with time windows, building escorts, and parking decks that won't clear a box truck. We handle the building's rules first — book the elevator, confirm the dock window, get on the security list — because in a Miramar tower the building controls the clock, not the crew. For the single-family side off Scenic Gulf Drive, the access is friendlier but summer traffic on 98 and the Silver Sands stretch sets the timing. We've moved enough Miramar condos to know the difference between a building that runs a tight, helpful dock and one where you'll lose an hour if the reservation isn't locked in. Either way, we plan the vertical move — elevator, dock, escort — before a single box leaves the unit.`,
+    localFaqs: [
+      {
+        question: `Do you handle condo moves in the Miramar Beach towers?`,
+        answer: `Yes — that's a big part of what we do here. We reserve the service elevator, confirm the loading-dock window, and get the crew on the building's security list before move day, because the building controls the timeline.`,
+      },
+      {
+        question: `Will a moving truck fit in a Miramar Beach condo parking deck?`,
+        answer: `Often not — many decks won't clear a box truck. We confirm clearance ahead of time and bring the Sprinter van or work the loading dock instead, so we're not stuck at the entrance on move day.`,
+      },
+      {
+        question: `When's the worst time to move in Miramar Beach?`,
+        answer: `Peak summer, when US-98 and the Silver Sands outlet stretch are jammed. We time Miramar moves around the traffic so the drive between truck and building doesn't eat your hourly budget.`,
+      },
+    ],
   },
   {
     slug: 'sandestin',
     name: 'Sandestin',
     county: 'Walton County',
-    image: '/images/fleet-box-truck.jpg',
+    image: '/images/mover-carry-wrapped-estate.jpg',
     intro: 'Sandestin Golf and Beach Resort is a large gated resort community with guard gates, internal road rules, and a wide span between bayside and beachside neighborhoods. We handle the gate clearance and internal routing so the move day stays on track.',
     landmarks: ['Baytowne Wharf', 'Sandestin gate', 'Burnt Pine', 'Village of Baytowne'],
     metaTitle: 'Sandestin Movers | Beach House Moving — Miramar Beach, FL',
     metaDescription: 'Gated-resort movers for Sandestin. Guard-gate access and resort logistics handled. Free quote — (850) 842-1962.',
+    localBody: `Sandestin is a gated golf-and-beach resort community, and the guard gate is the first and most important step of any move here. Burnt Pine, the Baytowne Wharf neighborhoods, the gulf-front and bay-front enclaves — all of it sits behind controlled access with its own rules about move vehicles, hours, and who's cleared to enter. We coordinate the gate well ahead, get the crew and truck on the approved list, and confirm any move-in window the community enforces. Inside, Sandestin runs on golf carts and pedestrian paths as much as roads, so the truck stays where it's permitted and we plan the carry from there. The homes and condos range from Baytowne lofts to large gulf-front residences, so we size the job to the specific address. The resort setting means a polished expectation — escorts, tidy staging, and protection on every finish — and a real cost to getting the gate wrong: a loaded truck turned away at security is the one delay we plan hardest to avoid.`,
+    localFaqs: [
+      {
+        question: `How do you get a moving truck into gated Sandestin?`,
+        answer: `With advance gate coordination. We get the crew and vehicle on Sandestin's approved access list ahead of time and confirm the move-in window, because an uncleared truck gets turned away at the guard gate.`,
+      },
+      {
+        question: `Can the truck drive right up to my Sandestin home?`,
+        answer: `Not always — Sandestin runs heavily on golf-cart and pedestrian paths, so the truck stays where it's permitted and we plan the carry from the nearest approved position. We confirm your home's access before move day.`,
+      },
+      {
+        question: `Do you move both Baytowne condos and the larger Sandestin residences?`,
+        answer: `Yes. Sandestin ranges from Baytowne Wharf lofts to large gulf-front and bay-front homes, so we size truck and crew to your specific address rather than treating the whole resort the same.`,
+      },
+    ],
   },
   {
     slug: 'freeport',
@@ -1198,6 +1441,21 @@ export const NEIGHBORHOODS = [
     landmarks: ['Choctawhatchee Bay', 'Hammock Bay', 'Highway 20', 'new-construction subdivisions'],
     metaTitle: 'Freeport FL Movers | Beach House Moving — North Walton County',
     metaDescription: 'Movers serving Freeport & Hammock Bay. New-construction move-ins, floor protection standard. Free quote — (850) 842-1962.',
+    localBody: `Freeport is the inland counterpart to the 30A beach towns — a fast-growing community on the north side of Choctawhatchee Bay, anchored by the Hammock Bay master-planned development and the Highway 20 corridor. Moving here is, frankly, easier than the beach: lots are larger, driveways are real, and a full-size truck fits where it would never fit in Grayton or Seaside. That said, Freeport's growth means new subdivisions with fresh, easily-scuffed finishes and HOAs that increasingly ask for a certificate of insurance, so we treat new-construction moves with floor and wall protection from the first box. Hammock Bay has its own community access and move guidelines worth confirming in advance. The Highway 20 stretch into Freeport carries commuter and construction traffic, so we time longer hauls around it. Because Freeport sits between 30A and DeFuniak/Niceville, it's a common origin or destination for cross-area moves, and we cover the whole route. For a lot of Freeport families, the move is straightforward — and we'd rather it stay that way by planning the easy job well instead of taking it for granted.`,
+    localFaqs: [
+      {
+        question: `Are moves in Freeport easier than the 30A beach towns?`,
+        answer: `Generally yes — Freeport's larger lots and real driveways fit a full-size truck that would never work in Grayton or Seaside. The bigger thing to plan for is new-construction finishes and HOA insurance requirements.`,
+      },
+      {
+        question: `Does Hammock Bay have its own move-in rules?`,
+        answer: `As a master-planned community, Hammock Bay can have community access and move guidelines, so we confirm them in advance. It keeps the entrance from being a holdup on move morning.`,
+      },
+      {
+        question: `Do you move between Freeport and the beach or other counties?`,
+        answer: `Yes. Freeport sits between 30A, DeFuniak Springs, and Niceville, so it's a common start or end point for cross-area moves — we cover the full route without subcontracting any leg of it.`,
+      },
+    ],
   },
   {
     slug: 'defuniak-springs',
@@ -1208,13 +1466,28 @@ export const NEIGHBORHOODS = [
     landmarks: ['Lake DeFuniak', 'Chautauqua district', 'historic downtown', 'Interstate 10'],
     metaTitle: 'DeFuniak Springs Movers | Beach House Moving — Walton County, FL',
     metaDescription: 'Movers serving DeFuniak Springs & inland Walton County. Historic homes, handled with care. Free quote — (850) 842-1962.',
+    localBody: `DeFuniak Springs is the historic heart of Walton County, built around one of the few near-perfectly round natural lakes in the world and the old Chautauqua district, with a downtown of late-1800s and early-1900s homes. That history is the move: the historic district's older houses come with narrow doorways, steep original staircases, plaster walls, and porches that weren't designed for a modern sectional. We move slowly and measure carefully in those homes, and we protect the older surfaces that don't forgive a bump. Out from the historic core, DeFuniak spreads into newer subdivisions and rural lots off I-10 where access is open and trucks fit easily. The I-10 interchange makes DeFuniak a natural hub for longer moves — north-south and east-west traffic both pass through — and we use that to our advantage on cross-county jobs. It's the farthest-inland community we serve regularly, so we plan the drive time honestly and bring the right crew for whichever DeFuniak you're moving in: the careful historic carry, or the easy open-lot suburban one.`,
+    localFaqs: [
+      {
+        question: `Can you move furniture in DeFuniak Springs' historic district homes?`,
+        answer: `Yes, carefully. The historic district's older homes have narrow doorways, steep original stairs, and plaster walls that don't forgive a bump, so we measure, move slowly, and protect those surfaces. It's a different pace than a new build.`,
+      },
+      {
+        question: `Is DeFuniak Springs too far inland for Beach House Moving?`,
+        answer: `No — it's the farthest-inland community we serve regularly, and the I-10 interchange makes it an easy hub to reach. We plan the drive time honestly upfront so there are no surprises.`,
+      },
+      {
+        question: `Are the newer DeFuniak subdivisions easier to move in?`,
+        answer: `Much easier. Outside the historic core, DeFuniak spreads into newer subdivisions and rural lots off I-10 with open access and room for a full-size truck — a straightforward move compared to the downtown historic homes.`,
+      },
+    ],
   },
   // ---- OKALOOSA COUNTY ----
   {
     slug: 'destin',
     name: 'Destin',
     county: 'Okaloosa County',
-    image: '/images/fleet-box-truck.jpg',
+    image: '/images/loaded-liftgate-coastal-home.jpg',
     intro: 'Destin packs harborfront condos, gated golf communities, and beachfront towers into one of the most active real-estate markets on the coast. Elevator reservations, harbor-area traffic windows, and high-rise logistics are part of the plan on every Destin job.',
     introExtended: [
       'Destin moves come in three flavors, and they\'re priced and planned differently. Harbor-district and Holiday Isle condos mean building rules: one service elevator on a reservation window, sometimes a management escort, and loading zones that disappear by mid-morning — we book the elevator and stage the load around it. Crystal Beach and the older cottage streets are tighter access and shorter carries, where the Sprinter often beats a box truck to the door.',
@@ -1223,6 +1496,21 @@ export const NEIGHBORHOODS = [
     landmarks: ['Destin Harbor', 'HarborWalk Village', 'Crab Island', 'Kelly Plantation', 'Regatta Bay'],
     metaTitle: 'Destin FL Movers | Beach House Moving — Okaloosa County',
     metaDescription: 'Movers for Destin condos, gated communities & beachfront homes. Owner-operated, licensed & insured. Free quote — (850) 842-1962.',
+    localBody: `Destin packs more move-types into one city than anywhere else we serve. There's the Harbor and Holiday Isle high-rise condos with their service elevators, dock windows, and building escorts; the gated golf communities like Kelly Plantation with guard-gate clearances; the older mainland neighborhoods with normal driveways; and the relentless seasonal traffic over the Marler Bridge that sets the clock on all of it. We plan a Destin move around which Destin you're in. A Holiday Isle condo is a vertical, building-controlled job — reserve the elevator, confirm the dock, get on the list. Kelly Plantation is a gate-and-clearance job. The mainland is a parking-and-timing job, because US-98 through Destin in season can turn a ten-minute hop into forty. We also move a steady stream of military families through Destin near the Eglin footprint, so PCS timing and short-notice report dates are familiar territory. The throughline is traffic and access: in Destin, the lifting is rarely the hard part — getting the truck to the door at the right time is.`,
+    localFaqs: [
+      {
+        question: `Do you move Destin Harbor and Holiday Isle high-rise condos?`,
+        answer: `Yes. Those are vertical, building-controlled moves — we reserve the service elevator, confirm the loading-dock window, and get the crew on the building's list before move day, because the building sets the timeline.`,
+      },
+      {
+        question: `Can you get into gated Destin communities like Kelly Plantation?`,
+        answer: `Yes, with advance coordination. Gated golf communities require crew and vehicle clearance at the guard gate, so we handle the access list ahead of time rather than getting turned away on move morning.`,
+      },
+      {
+        question: `How does Destin traffic affect my move?`,
+        answer: `A lot. US-98 and the Marler Bridge jam in season, turning short hops long, so we time Destin moves around the traffic and start early. It keeps the drive between truck and door from eating your hourly cost.`,
+      },
+    ],
   },
   {
     slug: 'fort-walton-beach',
@@ -1233,6 +1521,21 @@ export const NEIGHBORHOODS = [
     landmarks: ['Eglin AFB', 'Hurlburt Field', 'Okaloosa Island', 'Brooks Bridge'],
     metaTitle: 'Fort Walton Beach Movers | Beach House Moving — Okaloosa County, FL',
     metaDescription: 'Movers for Fort Walton Beach & military families near Eglin/Hurlburt. PCS moves welcome. Free quote — (850) 842-1962.',
+    localBody: `Fort Walton Beach is a military town first and a beach town second, and both shape how we move here. Eglin AFB and nearby Hurlburt Field mean a steady flow of PCS moves, so we work around report dates, short-notice orders, and the reality that a service member doesn't always control the timeline. Across the Brooks Bridge on Okaloosa Island the homes turn coastal — condos and gulf-front rentals with the same access and parking considerations as the rest of the Emerald Coast. On the mainland, Fort Walton's older established neighborhoods have mature trees, tighter mid-century lots, and the occasional narrow driveway that a 26-foot truck has to think about. We size the truck to the street and time longer hauls around the Brooks Bridge and US-98 congestion that builds through town. Being a base community, we keep our credentials in order and our scheduling flexible, because a Fort Walton move often has to flex with the military calendar — and we'd rather build that flexibility in than promise a date the orders won't honor.`,
+    localFaqs: [
+      {
+        question: `Do you handle military PCS moves in Fort Walton Beach?`,
+        answer: `Yes — with Eglin AFB and Hurlburt Field right here, PCS moves are routine for us. We work around report dates and short-notice orders, because we know a service member doesn't always control the timeline.`,
+      },
+      {
+        question: `Are Okaloosa Island moves different from mainland Fort Walton?`,
+        answer: `Yes. Across the Brooks Bridge, Okaloosa Island is coastal — condos and gulf-front rentals with beach-style access and parking. Mainland Fort Walton has older neighborhoods with mature trees and tighter mid-century lots. We plan each differently.`,
+      },
+      {
+        question: `Can a full-size truck handle Fort Walton's older neighborhoods?`,
+        answer: `Usually, but not always — some established streets have mature trees and narrow driveways. We size the truck to your actual street and bring the Sprinter van where a 26-footer would be a liability.`,
+      },
+    ],
   },
   {
     slug: 'niceville',
@@ -1243,6 +1546,21 @@ export const NEIGHBORHOODS = [
     landmarks: ['Bluewater Bay', 'Boggy Bayou', 'Eglin AFB', 'Rocky Bayou', 'Northwest Florida State College'],
     metaTitle: 'Niceville FL Movers | Beach House Moving — Okaloosa County',
     metaDescription: 'Movers serving Niceville & Bluewater Bay. Family and PCS moves. Owner-operated & insured. Free quote — (850) 842-1962.',
+    localBody: `Niceville is a family town anchored by Eglin commuters, Northwest Florida State College, and the bayous — Boggy Bayou and Rocky Bayou — that wind through it, with the master-planned Bluewater Bay community on its edge. Moving here is mostly the friendly kind: established residential streets, real driveways, and homes built for families rather than vacation turnover. That makes Niceville one of the smoother Okaloosa moves, but two things shape it. First, the Eglin connection means military and defense-contractor families move through regularly, so PCS and relocation timing is common and we plan for it. Second, the bayou-front and Rocky Bayou-area homes can have sloped lots, dock-side access, and longer carries from the street down to a waterside house. We plan crew and equipment for those grades. Bluewater Bay has its own community feel and occasional move guidelines worth confirming. For most of Niceville, though, the move is straightforward family work done right — and because it's close to our base and easy to reach, the drive time stays low and the quote stays honest.`,
+    localFaqs: [
+      {
+        question: `Is Niceville an easy place to move?`,
+        answer: `Mostly — Niceville has established family neighborhoods with real driveways and room for a full-size truck. The exceptions are sloped bayou-front lots near Boggy and Rocky Bayou, where we plan for longer, graded carries.`,
+      },
+      {
+        question: `Do you move military and Eglin-connected families in Niceville?`,
+        answer: `Often. Niceville is full of Eglin commuters and defense families, so relocation and PCS timing is routine for us — we plan around report dates and short-notice orders just like we do in Fort Walton.`,
+      },
+      {
+        question: `Does Bluewater Bay have special move rules?`,
+        answer: `As a master-planned community on Niceville's edge, Bluewater Bay can have its own move guidelines, so we confirm them in advance. For most of Niceville proper, access is open and straightforward.`,
+      },
+    ],
   },
   {
     slug: 'crestview',
@@ -1253,6 +1571,21 @@ export const NEIGHBORHOODS = [
     landmarks: ['Interstate 10', 'Highway 85', 'downtown Crestview'],
     metaTitle: 'Crestview FL Movers | Beach House Moving — Okaloosa County',
     metaDescription: 'Movers serving Crestview & inland Okaloosa County. Honest, efficient, owner-operated. Free quote — (850) 842-1962.',
+    localBody: `Crestview earned its nickname "Hub City" honestly — it sits at the crossroads of I-10 and State Road 85, the inland gateway to the whole Okaloosa area and the north gate route to Eglin. That location defines the moves we do here: a lot of Crestview jobs are longer-distance or cross-county, with families relocating to or from the coast, and a steady military flow tied to Eglin's north end. The good news is access — Crestview's newer subdivisions and rural lots have open driveways and room for a full-size truck, so the lifting is usually the straightforward part. The planning is about the drive: Crestview is the farthest-north stretch of our regular service area, so we quote the mileage and time honestly and route around I-10 and SR-85 congestion. New-construction neighborhoods here, like everywhere, mean fresh finishes that get full protection. For a Crestview family moving down to the beach or out of state, the value we bring is owning the whole move start to finish — no handoff to a broker at the county line, the same owners loading and unloading both ends.`,
+    localFaqs: [
+      {
+        question: `Is Crestview within Beach House Moving's service area?`,
+        answer: `Yes. Crestview is the inland "Hub City" at I-10 and SR-85, and it's the farthest-north part of our regular service area. We quote the mileage and drive time honestly so there are no surprises.`,
+      },
+      {
+        question: `Are Crestview moves usually local or long-distance?`,
+        answer: `A lot are longer-distance or cross-county — families relocating to or from the coast, plus military moves tied to Eglin's north gate. We own the whole move both ends rather than handing it to a broker.`,
+      },
+      {
+        question: `Is access easy in Crestview neighborhoods?`,
+        answer: `Generally yes. Crestview's newer subdivisions and rural lots have open driveways with room for a full-size truck, so the lifting is straightforward — the planning is mostly about the drive and protecting new-construction finishes.`,
+      },
+    ],
   },
   {
     slug: 'shalimar',
@@ -1267,6 +1600,21 @@ export const NEIGHBORHOODS = [
     landmarks: ['Eglin AFB', 'Garnier Bayou', 'Poquito Bayou'],
     metaTitle: 'Shalimar FL Movers | Beach House Moving — Okaloosa County',
     metaDescription: 'Movers serving Shalimar near Eglin AFB. Owner-operated, licensed & insured. Free quote — (850) 842-1962.',
+    localBody: `Shalimar is a small, quiet town tucked along Garnier Bayou and Poquito Bayou, right against the Eglin footprint between Fort Walton Beach and Niceville. It's an older community with a lot of mid-century homes, which is the main thing we plan around: those houses tend to have narrower doorways, original hardwood or terrazzo floors, tighter hallways, and carports rather than wide garages. We protect the floors and measure the awkward pieces before committing to a path. The bayou-side lots can slope toward the water with longer carries, and some have dock or waterside access that changes the approach. Shalimar's proximity to Eglin means the same military-relocation rhythm as its neighbors — PCS timing, report dates, short-notice orders — and we keep our scheduling flexible for it. The streets are calm and trucks fit, so access is rarely the obstacle here; it's the older-home interiors that reward a careful crew. Because Shalimar is small and central between our Fort Walton and Niceville work, it's an easy reach, and we treat the quieter move with the same care as a complicated one.`,
+    localFaqs: [
+      {
+        question: `What's the main thing to plan for in a Shalimar move?`,
+        answer: `The older mid-century homes. Shalimar's houses often have narrower doorways, original floors, and tight hallways, so we protect the floors and measure awkward furniture before choosing a path — it's an interior-access job more than a parking one.`,
+      },
+      {
+        question: `Do bayou-front Shalimar homes need special handling?`,
+        answer: `Some do. Lots along Garnier and Poquito Bayou can slope toward the water with longer carries and occasional dockside access, so we plan crew and equipment for the grade and distance.`,
+      },
+      {
+        question: `Do you move Eglin-connected families in Shalimar?`,
+        answer: `Yes. Shalimar sits right against the Eglin footprint, so military relocation and PCS timing is common, and we keep scheduling flexible around report dates and short-notice orders.`,
+      },
+    ],
   },
   {
     slug: 'bluewater-bay',
@@ -1281,17 +1629,47 @@ export const NEIGHBORHOODS = [
     landmarks: ['Bluewater Bay Marina', 'golf courses', 'Boggy Bayou'],
     metaTitle: 'Bluewater Bay Movers | Beach House Moving — Niceville, FL',
     metaDescription: 'Movers serving Bluewater Bay in Niceville. Townhomes to bayfront estates. Owner-operated & insured. Free quote — (850) 842-1962.',
+    localBody: `Bluewater Bay is a master-planned community within Niceville — marina, golf courses, parkway-style streets, and tree-lined residential pods built around amenities, with deep Eglin and defense-industry roots in who lives here. Moving in Bluewater Bay is mostly comfortable: the parkways are wide, driveways are real, and a full-size truck moves freely. The two things we plan for are the community layout and the resident profile. The neighborhood is laid out in connected pods off the main parkways, and street names repeat in ways that confuse a GPS, so we confirm the exact address and approach rather than trusting the route blindly. The marina and golf-adjacent homes can sit on tighter cul-de-sacs or sloped lots near the water. And because Bluewater Bay draws a lot of Eglin commuters and contractors, relocation and PCS timing comes up often — we build flexibility in for it. As a master-planned community, Bluewater Bay may post its own move guidelines, so we confirm those up front. It's an easy, close reach from our base, which keeps Bluewater Bay drive time and cost low.`,
+    localFaqs: [
+      {
+        question: `Is Bluewater Bay easy to move in?`,
+        answer: `Mostly yes — wide parkways, real driveways, and room for a full-size truck. The main planning notes are the pod-style layout (which can confuse GPS) and any community move guidelines, both of which we confirm before move day.`,
+      },
+      {
+        question: `Why do you confirm the exact Bluewater Bay address ahead of time?`,
+        answer: `The community is laid out in connected pods off the main parkways, and some street names repeat in ways that throw off navigation. Confirming the exact address and approach keeps the crew from circling on move morning.`,
+      },
+      {
+        question: `Do you move Eglin and defense-industry families in Bluewater Bay?`,
+        answer: `Frequently. Bluewater Bay has deep Eglin and contractor roots, so relocation and PCS timing comes up often — we build scheduling flexibility in around report dates and orders.`,
+      },
+    ],
   },
   // ---- BAY COUNTY ----
   {
     slug: 'panama-city',
     name: 'Panama City',
     county: 'Bay County',
-    image: '/images/move-pcb.jpg',
+    image: '/images/truck-loaded.jpg',
     intro: "Panama City is the Bay County seat, with the revitalizing St. Andrews district, a rebuilt downtown, and established neighborhoods spread around the bay. We handle the range — from older bungalows with tight stairwells to new builds that need floor protection from the start.",
     landmarks: ['St. Andrews', 'downtown Panama City', 'St. Andrews Bay', 'the Marina'],
     metaTitle: 'Panama City FL Movers | Beach House Moving — Bay County',
     metaDescription: 'Movers serving Panama City & St. Andrews. Owner-operated, licensed & insured. Free quote — (850) 842-1962.',
+    localBody: `Panama City — the mainland city, not the beach — is a different job from PCB across the bridge. This is St. Andrews, the Marina district, and the downtown core, much of it rebuilt hard since Hurricane Michael, which means a county full of new floors, new paint, new stair rails, and renovated interiors that deserve protection from the first box in. We runner-and-guard the path on rebuilt homes as a default here. The older St. Andrews neighborhoods bring mature trees, tighter historic lots, and bayfront homes with sloped access toward the water; the newer rebuilds have fresh, easily-marked finishes. Downtown and Marina-area access can be tight on certain streets, so we plan parking and the carry rather than assume curb space. Panama City sits at the eastern edge of our regular service area, so we quote the drive honestly, and the bay separates it from the beach work — different routes, different timing. For families putting a home back together after the storm years, a careful move that protects the new finishes is the whole point, and that's how we run Panama City jobs.`,
+    localFaqs: [
+      {
+        question: `Is Panama City different from Panama City Beach for a move?`,
+        answer: `Yes — they're separated by the bay and they move differently. Panama City is the mainland city (St. Andrews, the Marina, downtown), while PCB is the beach side with condo towers. We plan routes and timing for each separately.`,
+      },
+      {
+        question: `Do you take extra care with rebuilt post-Hurricane-Michael homes?`,
+        answer: `Yes, by default. So much of Panama City was rebuilt with new floors, paint, and stair rails that we runner-and-guard the carry path from the first box — protecting fresh finishes is the standard here, not an add-on.`,
+      },
+      {
+        question: `Are the older St. Andrews neighborhoods harder to move in?`,
+        answer: `They can be. St. Andrews has mature trees, tighter historic lots, and bayfront homes with sloped, waterside access, so we plan parking and the carry carefully rather than assuming open curb space.`,
+      },
+    ],
   },
   {
     slug: 'panama-city-beach',
@@ -1302,12 +1680,27 @@ export const NEIGHBORHOODS = [
     landmarks: ['Pier Park', 'Front Beach Road', 'beachfront condo towers', 'Camp Helen'],
     metaTitle: 'Panama City Beach Movers | Beach House Moving — Bay County, FL',
     metaDescription: 'Movers for Panama City Beach condos & rental homes. Elevator moves handled. Owner-operated & insured. Free quote — (850) 842-1962.',
+    localBody: `Panama City Beach is towers and traffic. The gulf side is dominated by high-rise condos along Front Beach Road and Thomas Drive, which makes a PCB move a building-logistics job: service-elevator reservations, loading-dock windows, building escorts, and parking decks that won't clear a box truck. We handle the building first — book the elevator, confirm the dock, get on the security list — because in a PCB tower the building owns the clock. Then there's Front Beach Road itself, which in summer is one of the most congested stretches on the whole coast; we schedule around it instead of sitting in it, because an hour lost in beach traffic is an hour on your bill. Away from the towers, PCB has single-family neighborhoods and the area near Pier Park and Camp Helen with friendlier access. The Sprinter van and a staged carry earn their keep here when a deck or a dock won't take a full truck. PCB is the eastern anchor of our service area, and we know the building-by-building difference between a tower that runs a tight, helpful dock and one that'll cost you an hour if the reservation slips.`,
+    localFaqs: [
+      {
+        question: `Do you move high-rise condos in Panama City Beach?`,
+        answer: `Yes — it's a core part of PCB work. We reserve the service elevator, confirm the loading-dock window, and get the crew on the building's list first, because in a Front Beach Road or Thomas Drive tower the building controls the timeline.`,
+      },
+      {
+        question: `Will a moving truck fit in a PCB condo parking deck?`,
+        answer: `Often not. Many PCB decks won't clear a box truck, so we confirm clearance ahead of time and use the Sprinter van or the loading dock with a staged carry instead of getting stuck at the entrance.`,
+      },
+      {
+        question: `How do you deal with Front Beach Road summer traffic?`,
+        answer: `We schedule around it. Front Beach Road is one of the most congested stretches on the coast in season, so we time PCB moves for quieter windows — an hour lost in beach traffic is an hour added to your bill.`,
+      },
+    ],
   },
   {
     slug: 'lynn-haven',
     name: 'Lynn Haven',
     county: 'Bay County',
-    image: '/images/move-pcb.jpg',
+    image: '/images/truck-loaded.jpg',
     intro: 'Lynn Haven sits just north of Panama City on North Bay — a steady residential community of family neighborhoods with a mix of established homes and new development. Straightforward residential moves with the same attention to floors, walls, and furniture protection we bring to every job.',
     introExtended: [
       'Lynn Haven is Bay County\'s family-neighborhood core, and like most of the county it was rebuilt hard after Hurricane Michael — new roofs, new floors, fresh interiors that haven\'t met a couch yet. New-construction protection is standard on our Lynn Haven jobs: floor runners down before the first box, guards on door frames and stair rails.',
@@ -1316,5 +1709,20 @@ export const NEIGHBORHOODS = [
     landmarks: ['North Bay', 'Sheffield Park', 'Highway 77', 'Cedar Grove'],
     metaTitle: 'Lynn Haven FL Movers | Beach House Moving — Bay County',
     metaDescription: 'Movers serving Lynn Haven & North Bay. Residential moves done right. Owner-operated & insured. Free quote — (850) 842-1962.',
+    localBody: `Lynn Haven is the residential, family side of Bay County — north of Panama City along North Bay, threaded by US-98 and Highway 77, with neighborhoods like Sheffield Park and Cedar Grove and a lot of homes rebuilt or repaired since Hurricane Michael. Moving here is mostly straightforward suburban work: established streets, real driveways, and room for a full-size truck. The two things we plan around are the rebuild finishes and the water. Like much of Bay County, Lynn Haven has new floors and fresh interiors in a lot of homes, so floor and wall protection is the default. And the North Bay-front lots can slope toward the water with longer carries and occasional dockside access that changes the approach. Highway 77 and US-98 carry commuter traffic, so we time longer hauls around it. Lynn Haven sits at the eastern edge of our service area and is separated from the beach by the bay, so we quote the drive honestly and route the bay crossing into the timing. For most Lynn Haven families it's a clean, efficient move — and we keep it that way by planning the easy job, not coasting on it.`,
+    localFaqs: [
+      {
+        question: `Is Lynn Haven an easy place to move?`,
+        answer: `Generally yes — Lynn Haven's established family neighborhoods like Sheffield Park and Cedar Grove have real driveways and room for a full-size truck. The main planning notes are rebuilt-home finishes and North Bay-front lots with longer, sloped carries.`,
+      },
+      {
+        question: `Do you protect newly rebuilt Lynn Haven homes during a move?`,
+        answer: `Yes, by default. Many Lynn Haven homes were rebuilt or repaired after Hurricane Michael with new floors and fresh interiors, so floor and wall protection goes down before the first box — it's standard here.`,
+      },
+      {
+        question: `How far is Lynn Haven from your service area, and do you quote the drive?`,
+        answer: `Lynn Haven is at the eastern edge of our area, separated from the beach by the bay. We quote the mileage and the bay-crossing drive time honestly upfront, so the travel is built into the estimate with no surprises.`,
+      },
+    ],
   },
 ] as const satisfies readonly Neighborhood[]
