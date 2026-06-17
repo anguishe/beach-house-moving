@@ -11,6 +11,7 @@ export const SERVICE_IMAGE_MAP: Record<string, ServiceImage> = {
   storage: IMAGES.moverStorageCorridor,
   delivery: IMAGES.crewGymEquipmentLiftgate,
   'junk-removal': IMAGES.truckLoading,
+  'military-pcs-moving': IMAGES.crewTeamFurnitureMove,
 }
 
 /** Optional secondary/gallery image per service — must not duplicate the primary src. */
