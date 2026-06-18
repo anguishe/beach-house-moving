@@ -107,10 +107,10 @@
       "Bash(grep -rn \"href=[\\\\\"'\\\\`]/pricing\\\\|'/pricing'\\\\|\\\\\"/pricing\\\\\"\" src --include=\"*.tsx\" --include=\"*.ts\")",
       "Bash(grep -rohE \"href=[\\\\\"'\\\\`]/pricing\" src --include=\"*.tsx\")",
       "Bash(gzip -c .next/server/app/index.html)",
-      "Bash(curl -s 'https://maps.googleapis.com/maps/api/place/details/json?place_id=0x5c504eb0f4ca7c79&fields=rating,user_ratings_total&key=__TRACKED_VAR__')",
-      "Bash(curl -s 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Beach%20House%20Moving%20Santa%20Rosa%20Beach%20FL&inputtype=textquery&fields=place_id,name,formatted_address,rating,user_ratings_total&key=__TRACKED_VAR__')",
+      "Bash(curl -s \"https://maps.googleapis.com/maps/api/place/details/json?place_id=0x5c504eb0f4ca7c79&fields=rating,user_ratings_total&key=$GOOGLE_PLACES_API_KEY\")",
+      "Bash(curl -s \"https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Beach%20House%20Moving%20Santa%20Rosa%20Beach%20FL&inputtype=textquery&fields=place_id,name,formatted_address,rating,user_ratings_total&key=$GOOGLE_PLACES_API_KEY\")",
       "Bash(python3 -c \"print\\(int\\('5c504eb0f4ca7c79',16\\)\\)\")",
-      "Bash(curl -s -X POST https://places.googleapis.com/v1/places:searchText -H 'Content-Type: application/json' -H 'X-Goog-Api-Key: __TRACKED_VAR__' -H 'X-Goog-FieldMask: places.id,places.displayName,places.formattedAddress,places.rating,places.userRatingCount' -d '{\"textQuery\":\"Beach House Moving Santa Rosa Beach FL\"}')",
+      "Bash(curl -s -X POST https://places.googleapis.com/v1/places:searchText -H 'Content-Type: application/json' -H \"X-Goog-Api-Key: $GOOGLE_PLACES_API_KEY\" -H 'X-Goog-FieldMask: places.id,places.displayName,places.formattedAddress,places.rating,places.userRatingCount' -d '{\"textQuery\":\"Beach House Moving Santa Rosa Beach FL\"}')",
       "Bash(curl -s -I \"https://maps.google.com/?cid=6651903171554344057\")",
       "Bash(tee /tmp/bhm_build.log)",
       "Bash(grep -o '\"itemReviewed\":{\"@type\":\"MovingCompany\",\"@id\":\"[^\"]*\"' .next/server/app/index.html)",
@@ -128,7 +128,13 @@
       "Bash(grep -rnE \"AIza[0-9A-Za-z_\\\\-]{20,}\" --include=\"*.ts\" --include=\"*.tsx\" --include=\"*.js\" --include=\"*.jsx\" --include=\"*.json\" --include=\"*.env*\" --include=\"*.md\" --include=\"*.mdx\" --include=\"*.html\" .)",
       "Bash(grep -rniE \"google.{0,20}\\(api|maps\\).{0,5}key\" --include=\"*.ts\" --include=\"*.tsx\" --include=\"*.js\" --include=\"*.jsx\" --include=\"*.json\" --include=\"*.env*\" .)",
       "Bash(git check-ignore *)",
-      "Bash(python3 -m json.tool /home/angsec/Projects/beach-house-moving/.claude/settings.json)"
+      "Bash(python3 -m json.tool /home/angsec/Projects/beach-house-moving/.claude/settings.json)",
+      "Bash(echo \"=== exit: $? ===\")",
+      "Bash(git fetch *)",
+      "Bash(grep -nc \"__TRACKED_VAR__\" .claude/settings.json)",
+      "Bash(grep -n \"__TRACKED_VAR__\" .claude/settings.json)",
+      "Bash(grep -n \"key=__TRACKED_VAR__\\\\|X-Goog-Api-Key: __TRACKED_VAR__\" .claude/settings.json)",
+      "Bash(python3 -m json.tool .claude/settings.json)"
     ],
     "additionalDirectories": [
       "/home/angsec/Projects/beach-house-moving/src/app/service-areas/[county]",
