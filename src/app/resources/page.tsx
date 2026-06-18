@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
     title: 'Moving Resources & Local Guides | Beach House Moving',
     description:
-      'Expert moving guides from a locally owned 30A crew. Floor protection, gated community logistics, PCS moves near Eglin AFB, and more from the people who actually do the work.',
+      'Moving guides from a locally owned 30A crew — floor protection, gated-community logistics, PCS moves near Eglin AFB & more, from the people who do the work.',
     path: '/resources',
   })
 }

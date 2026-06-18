@@ -110,7 +110,7 @@ export const SERVICE_AREAS = [
       'Walton County is home base. We run 30A end to end — Inlet Beach, Rosemary Beach, Alys Beach, Seacrest, Seagrove, WaterColor, WaterSound, Seaside, Grayton Beach, Blue Mountain Beach and Dune Allen — plus Santa Rosa Beach, Miramar Beach, Freeport and DeFuniak Springs. We know which gulf-front rentals only have boardwalk access, which gated communities hold you at the gate until your name\u2019s on the list, and which stilted driveways a box truck can\u2019t fit so we bring the Sprinter van instead. It\u2019s the kind of thing you only learn by doing it every week. From 30A home moves to full-property junk removal, we handle it all.',
     whatWeMoveIntro:
       'Beach rentals, gated communities, and full-home moves from 30A to DeFuniak Springs — we match the truck to the driveway.',
-    metaTitle: 'Walton County Movers | Beach House Moving — 30A & Santa Rosa Beach',
+    metaTitle: 'Walton County Movers — 30A & Santa Rosa Beach | BHM',
     metaDescription:
       'Licensed local movers serving Walton County, 30A, Santa Rosa Beach, Miramar Beach, Freeport, and DeFuniak Springs. Free estimates — call (850) 842-1962.',
     faqs: [
@@ -141,7 +141,7 @@ export const SERVICE_AREAS = [
       'In Okaloosa we cover Destin, Fort Walton Beach, Niceville, Crestview, Shalimar and the bases. We move a lot of military families in and out near Eglin AFB and Hurlburt Field, so we work around PCS timelines and short-notice report dates. From a Destin Pointe condo to a Niceville ranch house with a long stair carry, we bring the dollies, ramps and blankets to do it right.',
     whatWeMoveIntro:
       'Condos, ranch houses, and PCS moves near Eglin and Hurlburt — we bring the right equipment for stair carries and tight timelines.',
-    metaTitle: 'Okaloosa County Movers | Beach House Moving — Destin & Fort Walton Beach',
+    metaTitle: 'Okaloosa County Movers — Destin & Fort Walton Beach | BHM',
     metaDescription:
       'Professional movers in Okaloosa County — Destin, Fort Walton Beach, Niceville, Crestview, and Eglin AFB. Licensed & insured. Free quote: (850) 842-1962.',
     faqs: [
@@ -204,7 +204,7 @@ export const SERVICES = [
     shortDescription: 'Full home moves, done with care and no drama.',
     icon: 'Home',
     featured: true,
-    metaTitle: 'Residential Moving | Beach House Moving — Santa Rosa Beach, FL',
+    metaTitle: 'Residential Moving | Beach House Moving — Santa Rosa, FL',
     metaDescription:
       'Full-service residential moving on the Florida Panhandle. Packing, loading, transport, and unloading. Licensed & insured. Free estimate: (850) 842-1962.',
   },
@@ -226,7 +226,7 @@ export const SERVICES = [
     shortDescription: 'Leaving the Panhandle? We\'ll get you there.',
     icon: 'Truck',
     featured: true,
-    metaTitle: 'Long-Distance Moving | Beach House Moving — Florida Panhandle',
+    metaTitle: 'Long-Distance Moving | Beach House Moving — FL Panhandle',
     metaDescription:
       'Long-distance moving from the Florida Panhandle with licensed, insured crews. Same care as a local move. Request a free quote: (850) 842-1962.',
   },
@@ -274,7 +274,7 @@ export const SERVICES = [
     icon: 'Trash2',
     image: '/images/truck-loaded.jpg',
     featured: false,
-    metaTitle: 'Junk Removal Services | Beach House Moving — Florida Panhandle',
+    metaTitle: 'Junk Removal Services | Beach House Moving — FL Panhandle',
     metaDescription:
       'Professional junk removal across Walton, Okaloosa & Bay Counties. Furniture, appliances, debris and more. Free quote — (850) 842-1962.',
   },
@@ -287,7 +287,7 @@ export const SERVICES = [
     icon: 'Truck',
     image: '/images/crew-team-furniture-move.jpg',
     featured: false,
-    metaTitle: 'Military PCS Moving | Beach House Moving — Eglin AFB & Hurlburt Field',
+    metaTitle: 'Military PCS Moving — Eglin AFB & Hurlburt | BHM',
     metaDescription:
       'PCS moves for Eglin AFB and Hurlburt Field families. Report-date scheduling, PPM documentation, storage for housing gaps. Licensed #IM4125. (850) 842-1962.',
   },
@@ -346,7 +346,7 @@ export const FAQS = [
   },
   {
     q: 'How much does a move cost?',
-    a: `Local moves are billed by the hour with no hidden fees and fuel included in the quote. Long-distance and large jobs are quoted up front. Estimates are always free — call ${BUSINESS.phone.display} and we\u2019ll walk through it.`,
+    a: `Local moves are $${PRICING.hourlyRate}/hour — crew and truck, fuel included, no hidden fees. You pay only for the hours worked, and we give you a real number before we start, not a teaser range. Long-distance and large jobs are quoted up front. Estimates are always free — call ${BUSINESS.phone.display} and we\u2019ll walk through it.`,
   },
   {
     q: 'Do you offer packing and unpacking?',
@@ -692,26 +692,26 @@ export const REVIEWS_PAGE = {
 /** Static page metadata — used with buildMetadata(). */
 export const PAGE_META = {
   home: {
-    title: 'Movers in Santa Rosa Beach, Destin & 30A | Beach House Moving',
+    title: 'Santa Rosa Beach, Destin & 30A Movers | Beach House Moving',
     description: `Locally owned & fully licensed movers serving Walton, Okaloosa & Bay Counties. 3-truck fleet. FL Mover Reg. #IM4125. Free quote — ${BUSINESS.phone.display}.`,
     path: '/',
   },
   services: {
     title: 'Moving Services | Beach House Moving — Santa Rosa Beach, FL',
     description:
-      'Full-service moving including packing, residential moving, local & long distance, storage, and delivery. Serving the Florida Panhandle.',
+      'Full-service movers on the Florida Panhandle — packing, residential, local & long-distance, storage & delivery. Free quote: (850) 842-1962.',
     path: '/services',
   },
   serviceAreas: {
-    title: 'Service Areas | Beach House Moving — Walton, Okaloosa & Bay Counties',
+    title: 'Service Areas | Beach House Moving — Walton, Okaloosa & Bay',
     description:
       'Licensed movers serving Walton, Okaloosa, and Bay Counties along Florida\u2019s Emerald Coast. We come to you — free estimates at (850) 842-1962.',
     path: '/service-areas',
   },
   about: {
-    title: 'About Beach House Moving | Locally Owned Florida Panhandle Movers',
+    title: 'About Beach House Moving | Florida Panhandle Movers',
     description:
-      'The owners are the movers. Beach House Moving is a locally owned, fully licensed moving company serving Walton, Okaloosa & Bay Counties. FL Mover Reg. #IM4125.',
+      'The owners are the movers — locally owned & fully licensed (FL Reg. #IM4125) across Walton, Okaloosa & Bay Counties. Free quote: (850) 842-1962.',
     path: '/about',
   },
   contact: {
@@ -721,9 +721,9 @@ export const PAGE_META = {
     path: '/contact',
   },
   getAQuote: {
-    title: 'Get a Free Moving Quote | Beach House Moving — (850) 842-1962',
+    title: 'Free Moving Quote | Beach House Moving — (850) 842-1962',
     description:
-      'Request a free moving quote from Beach House Moving. Serving Walton, Okaloosa & Bay Counties. Licensed, insured, locally owned. Call (850) 842-1962 or submit online.',
+      'Request a free moving quote from Beach House Moving — licensed, insured & locally owned across Walton, Okaloosa & Bay Counties. Call (850) 842-1962.',
     path: '/get-a-quote',
   },
   thankYou: {
@@ -1438,7 +1438,7 @@ export const NEIGHBORHOODS = [
     image: '/images/move-miramar-beach.jpg',
     intro: 'Miramar Beach runs along the western end of Walton County between Destin and Sandestin — a dense mix of beachfront condos, gated communities, and large homes. High-rise condo moves with elevator reservations and lift-gate box trucks are routine work for our crew.',
     landmarks: ['Sandestin', 'Silver Sands Premium Outlets', 'Scenic Gulf Drive', 'Baytowne Wharf'],
-    metaTitle: 'Miramar Beach Movers | Beach House Moving — Walton County, FL',
+    metaTitle: 'Miramar Beach Movers — Walton County | BHM',
     metaDescription: 'Movers for Miramar Beach condos, gated homes & Sandestin. Owner-operated, licensed & insured. Free quote — (850) 842-1962.',
     localBody: `Miramar Beach is where 30A's cottage world gives way to high-density gulf-front living — the Scenic Gulf Drive condo towers, the Sandestin resort edge, Silver Sands and the outlet corridor, and Baytowne nearby. Moving here is often a condo problem: service elevators that must be reserved, loading docks with time windows, building escorts, and parking decks that won't clear a box truck. We handle the building's rules first — book the elevator, confirm the dock window, get on the security list — because in a Miramar tower the building controls the clock, not the crew. For the single-family side off Scenic Gulf Drive, the access is friendlier but summer traffic on 98 and the Silver Sands stretch sets the timing. We've moved enough Miramar condos to know the difference between a building that runs a tight, helpful dock and one where you'll lose an hour if the reservation isn't locked in. Either way, we plan the vertical move — elevator, dock, escort — before a single box leaves the unit.`,
     localFaqs: [
@@ -1488,7 +1488,7 @@ export const NEIGHBORHOODS = [
     image: '/images/truck-loaded.jpg',
     intro: 'Freeport sits at the north end of Walton County on Choctawhatchee Bay and is one of the fastest-growing residential areas on the Panhandle. New-construction move-ins with fresh hardwood and tile floors to protect are common here — and protecting them is standard with us, not optional.',
     landmarks: ['Choctawhatchee Bay', 'Hammock Bay', 'Highway 20', 'new-construction subdivisions'],
-    metaTitle: 'Freeport FL Movers | Beach House Moving — North Walton County',
+    metaTitle: 'Freeport FL Movers — North Walton County | BHM',
     metaDescription: 'Movers serving Freeport & Hammock Bay. New-construction move-ins, floor protection standard. Free quote — (850) 842-1962.',
     localBody: `Freeport is the inland counterpart to the 30A beach towns — a fast-growing community on the north side of Choctawhatchee Bay, anchored by the Hammock Bay master-planned development and the Highway 20 corridor. Moving here is, frankly, easier than the beach: lots are larger, driveways are real, and a full-size truck fits where it would never fit in Grayton or Seaside. That said, Freeport's growth means new subdivisions with fresh, easily-scuffed finishes and HOAs that increasingly ask for a certificate of insurance, so we treat new-construction moves with floor and wall protection from the first box. Hammock Bay has its own community access and move guidelines worth confirming in advance. The Highway 20 stretch into Freeport carries commuter and construction traffic, so we time longer hauls around it. Because Freeport sits between 30A and DeFuniak/Niceville, it's a common origin or destination for cross-area moves, and we cover the whole route. For a lot of Freeport families, the move is straightforward — and we'd rather it stay that way by planning the easy job well instead of taking it for granted.`,
     localFaqs: [
@@ -1513,7 +1513,7 @@ export const NEIGHBORHOODS = [
     image: '/images/beach-house-moving-loaded-box-truck.jpg',
     intro: 'DeFuniak Springs is the Walton County seat — an inland historic town built around one of the few near-perfectly round natural lakes in the world. Historic homes here often have narrow staircases and tight rooms that reward experienced hands and careful planning.',
     landmarks: ['Lake DeFuniak', 'Chautauqua district', 'historic downtown', 'Interstate 10'],
-    metaTitle: 'DeFuniak Springs Movers | Beach House Moving — Walton County, FL',
+    metaTitle: 'DeFuniak Springs Movers — Walton County | BHM',
     metaDescription: 'Movers serving DeFuniak Springs & inland Walton County. Historic homes, handled with care. Free quote — (850) 842-1962.',
     localBody: `DeFuniak Springs is the historic heart of Walton County, built around one of the few near-perfectly round natural lakes in the world and the old Chautauqua district, with a downtown of late-1800s and early-1900s homes. That history is the move: the historic district's older houses come with narrow doorways, steep original staircases, plaster walls, and porches that weren't designed for a modern sectional. We move slowly and measure carefully in those homes, and we protect the older surfaces that don't forgive a bump. Out from the historic core, DeFuniak spreads into newer subdivisions and rural lots off I-10 where access is open and trucks fit easily. The I-10 interchange makes DeFuniak a natural hub for longer moves — north-south and east-west traffic both pass through — and we use that to our advantage on cross-county jobs. It's the farthest-inland community we serve regularly, so we plan the drive time honestly and bring the right crew for whichever DeFuniak you're moving in: the careful historic carry, or the easy open-lot suburban one.`,
     localFaqs: [
@@ -1568,7 +1568,7 @@ export const NEIGHBORHOODS = [
     image: '/images/truck-dolly.jpg',
     intro: "Fort Walton Beach is the largest city in Okaloosa County and home to many military families connected to nearby Eglin AFB and Hurlburt Field. We understand PCS timelines, base housing requirements, and the pressure of a military move — and we treat every one of them with the same urgency we'd want for our own family.",
     landmarks: ['Eglin AFB', 'Hurlburt Field', 'Okaloosa Island', 'Brooks Bridge'],
-    metaTitle: 'Fort Walton Beach Movers | Beach House Moving — Okaloosa County, FL',
+    metaTitle: 'Fort Walton Beach Movers — Okaloosa County | BHM',
     metaDescription: 'Movers for Fort Walton Beach & military families near Eglin/Hurlburt. PCS moves welcome. Free quote — (850) 842-1962.',
     localBody: `Fort Walton Beach is a military town first and a beach town second, and both shape how we move here. Eglin AFB and nearby Hurlburt Field mean a steady flow of PCS moves, so we work around report dates, short-notice orders, and the reality that a service member doesn't always control the timeline. Across the Brooks Bridge on Okaloosa Island the homes turn coastal — condos and gulf-front rentals with the same access and parking considerations as the rest of the Emerald Coast. On the mainland, Fort Walton's older established neighborhoods have mature trees, tighter mid-century lots, and the occasional narrow driveway that a 26-foot truck has to think about. We size the truck to the street and time longer hauls around the Brooks Bridge and US-98 congestion that builds through town. Being a base community, we keep our credentials in order and our scheduling flexible, because a Fort Walton move often has to flex with the military calendar — and we'd rather build that flexibility in than promise a date the orders won't honor.`,
     localFaqs: [
@@ -1727,7 +1727,7 @@ export const NEIGHBORHOODS = [
     image: '/images/beach-house-moving-rug-placement-condo.jpg',
     intro: "Panama City Beach is a dense resort strip of beachfront condos, towers, and rental homes along Front Beach Road. High-rise elevator moves with loading-zone time windows are routine for us here — and we coordinate the building's requirements before move day, not the morning of.",
     landmarks: ['Pier Park', 'Front Beach Road', 'beachfront condo towers', 'Camp Helen'],
-    metaTitle: 'Panama City Beach Movers | Beach House Moving — Bay County, FL',
+    metaTitle: 'Panama City Beach Movers — Bay County | BHM',
     metaDescription: 'Movers for Panama City Beach condos & rental homes. Elevator moves handled. Owner-operated & insured. Free quote — (850) 842-1962.',
     localBody: `Panama City Beach is towers and traffic. The gulf side is dominated by high-rise condos along Front Beach Road and Thomas Drive, which makes a PCB move a building-logistics job: service-elevator reservations, loading-dock windows, building escorts, and parking decks that won't clear a box truck. We handle the building first — book the elevator, confirm the dock, get on the security list — because in a PCB tower the building owns the clock. Then there's Front Beach Road itself, which in summer is one of the most congested stretches on the whole coast; we schedule around it instead of sitting in it, because an hour lost in beach traffic is an hour on your bill. Away from the towers, PCB has single-family neighborhoods and the area near Pier Park and Camp Helen with friendlier access. The Sprinter van and a staged carry earn their keep here when a deck or a dock won't take a full truck. PCB is the eastern anchor of our service area, and we know the building-by-building difference between a tower that runs a tight, helpful dock and one that'll cost you an hour if the reservation slips.`,
     localFaqs: [

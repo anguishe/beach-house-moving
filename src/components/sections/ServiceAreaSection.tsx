@@ -4,9 +4,20 @@ import { Phone } from 'lucide-react'
 
 import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { MotionReveal } from '@/components/ui/MotionReveal'
-import { BUSINESS, SERVICE_AREAS } from '@/lib/content'
+import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS } from '@/lib/content'
+
+// High-intent geo pages we deep-link from the homepage to feed them link equity.
+const KEY_NEIGHBORHOOD_SLUGS = ['santa-rosa-beach', 'destin', 'fort-walton-beach']
 
 export function ServiceAreaSection() {
+  const popularAreas = KEY_NEIGHBORHOOD_SLUGS.flatMap((slug) => {
+    const nb = NEIGHBORHOODS.find((n) => n.slug === slug)
+    if (!nb) return []
+    const area = SERVICE_AREAS.find((a) => a.county === nb.county)
+    if (!area) return []
+    return [{ name: nb.name, href: `/service-areas/${area.slug}/${nb.slug}` }]
+  })
+
   return (
     <section id="areas" className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-8">
@@ -70,6 +81,23 @@ export function ServiceAreaSection() {
             </MotionReveal>
           ))}
         </div>
+
+        {popularAreas.length > 0 && (
+          <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+            <span className="font-body text-sm font-semibold text-brand-navy">
+              Popular areas:
+            </span>
+            {popularAreas.map((area) => (
+              <Link
+                key={area.href}
+                href={area.href}
+                className="rounded-full border border-brand-navy/10 bg-brand-sand px-4 py-1.5 font-body text-sm font-medium text-brand-navy no-underline transition-colors hover:bg-brand-teal/10"
+              >
+                Movers in {area.name}
+              </Link>
+            ))}
+          </div>
+        )}
 
         <p className="mx-auto mt-12 max-w-3xl text-center font-body text-[17px] leading-relaxed text-ink-muted">
           Beach House Moving is based in Santa Rosa Beach and runs the whole Panhandle — 30A,

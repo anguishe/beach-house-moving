@@ -102,6 +102,13 @@ export default async function NeighborhoodPage({ params }: PageProps) {
 
   const ownerClosing = getOwnerClosing(nb.intro)
 
+  // Sibling neighborhoods in the same county — generated from the data layer
+  // so every geo page cross-links to its peers (internal-link equity) and the
+  // county hub, instead of dead-ending with a single inbound link.
+  const nearbyAreas = NEIGHBORHOODS.filter(
+    (n) => n.county === nb.county && n.slug !== nb.slug,
+  ).slice(0, 4)
+
   const pageUrl = `${base}/service-areas/${area.slug}/${nb.slug}`
 
   const neighborhoodFaqs = nb.localFaqs.map(({ question: q, answer: a }) => ({ q, a }))
@@ -308,6 +315,34 @@ export default async function NeighborhoodPage({ params }: PageProps) {
               ))}
             </div>
           </div>
+
+          {/* Nearby areas — sibling + hub internal links generated from data */}
+          {nearbyAreas.length > 0 && (
+            <div className="mt-12">
+              <h2 className="font-heading text-2xl font-bold text-brand-navy">
+                Nearby areas we serve
+              </h2>
+              <div className="mt-6 flex flex-wrap gap-3">
+                {nearbyAreas.map((sibling) => (
+                  <Link
+                    key={sibling.slug}
+                    href={`/service-areas/${area.slug}/${sibling.slug}`}
+                    className="inline-flex items-center gap-1 rounded-full border border-brand-navy/10 bg-white px-4 py-2 font-body text-sm font-medium text-brand-navy shadow-brand transition-shadow hover:shadow-brand-hover"
+                  >
+                    {sibling.name}, FL
+                    <ArrowRight className="size-3.5 text-brand-teal" aria-hidden />
+                  </Link>
+                ))}
+                <Link
+                  href={`/service-areas/${area.slug}`}
+                  className="inline-flex items-center gap-1 rounded-full border border-brand-teal/30 bg-brand-teal/5 px-4 py-2 font-body text-sm font-semibold text-brand-teal transition-colors hover:bg-brand-teal/10"
+                >
+                  All of {area.county}
+                  <ArrowRight className="size-3.5" aria-hidden />
+                </Link>
+              </div>
+            </div>
+          )}
         </div>
       </section>
 

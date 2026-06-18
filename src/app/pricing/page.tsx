@@ -13,7 +13,7 @@ import { getSiteOrigin } from '@/lib/site-url'
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
-    title: 'How Much Do Movers Cost on 30A & the Emerald Coast? | Beach House Moving',
+    title: 'How Much Do Movers Cost on 30A & Emerald Coast? | BHM',
     description:
       'Honest answers about moving costs on the Florida Panhandle. No hidden fees. Free estimates. Owner-operated crew — (850) 842-1962.',
     path: '/pricing',

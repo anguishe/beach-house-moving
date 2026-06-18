@@ -59,6 +59,24 @@ function absoluteUrl(origin: string, path: string): string {
   return new URL(path, origin).toString()
 }
 
+/**
+ * Aggregate rating derived from the static first-party TESTIMONIALS so the
+ * schema stays truthful and self-maintaining as reviews are added to content.ts.
+ * `reviewCount` counts every genuine review entry (incl. the rating-only one);
+ * `ratingValue` is the averaged rating. When the live Places source is wired
+ * (see google-reviews.ts TODO), callers pass live values via overrides and this
+ * computed path becomes the honest fallback — no schema change required.
+ */
+export function computeTestimonialsAggregate(): {
+  ratingValue: number
+  reviewCount: number
+} {
+  const reviewCount = TESTIMONIALS.length
+  const sum = TESTIMONIALS.reduce((acc, t) => acc + t.rating, 0)
+  const ratingValue = reviewCount > 0 ? Number((sum / reviewCount).toFixed(1)) : 0
+  return { ratingValue, reviewCount }
+}
+
 /** Sitewide MovingCompany schema — SAB: no street address in public output. */
 export function movingCompanySchema(origin: string, includeRating = false) {
   const base = origin.replace(/\/$/, '')
@@ -106,8 +124,7 @@ export function movingCompanySchema(origin: string, includeRating = false) {
       ? {
           aggregateRating: {
             '@type': 'AggregateRating',
-            ratingValue: REVIEWS_PAGE_META.aggregateRating.ratingValue,
-            reviewCount: REVIEWS_PAGE_META.aggregateRating.reviewCount,
+            ...computeTestimonialsAggregate(),
             bestRating: REVIEWS_PAGE_META.aggregateRating.bestRating,
             worstRating: REVIEWS_PAGE_META.aggregateRating.worstRating,
           },
@@ -320,17 +337,19 @@ export function reviewsAggregateRatingSchema(overrides?: {
   reviewCount?: number
 }) {
   const base = BUSINESS.website.replace(/\/$/, '')
+  const aggregate = computeTestimonialsAggregate()
 
   return {
     '@context': 'https://schema.org',
     '@type': 'MovingCompany',
+    '@id': `${base}/#business`,
     name: BUSINESS.name,
     url: base,
     telephone: BUSINESS.phone.e164,
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: overrides?.ratingValue ?? REVIEWS_PAGE_META.aggregateRating.ratingValue,
-      reviewCount: overrides?.reviewCount ?? REVIEWS_PAGE_META.aggregateRating.reviewCount,
+      ratingValue: overrides?.ratingValue ?? aggregate.ratingValue,
+      reviewCount: overrides?.reviewCount ?? aggregate.reviewCount,
       bestRating: REVIEWS_PAGE_META.aggregateRating.bestRating,
       worstRating: REVIEWS_PAGE_META.aggregateRating.worstRating,
     },
@@ -441,8 +460,16 @@ export function servicesItemListSchema(origin: string) {
   }
 }
 
-/** Individual Review JSON-LD for testimonials with written text. */
-export function reviewsWithTextSchema() {
+/**
+ * Individual Review JSON-LD for the first-party testimonials that carry written
+ * text. Each Review's `itemReviewed` is @id-linked to the `/#business` entity so
+ * the AggregateRating on that node is review-backed (Google suppresses star rich
+ * results for a self-applied org rating with no Review markup). The rating-only
+ * testimonial is intentionally excluded — never emit a Review with an empty body.
+ */
+export function reviewsWithTextSchema(origin: string) {
+  const base = origin.replace(/\/$/, '')
+
   return TESTIMONIALS.filter((t) => t.text !== null).map((t) => ({
     '@context': 'https://schema.org',
     '@type': 'Review',
@@ -459,6 +486,7 @@ export function reviewsWithTextSchema() {
     reviewBody: t.text,
     itemReviewed: {
       '@type': 'MovingCompany',
+      '@id': `${base}/#business`,
       name: BUSINESS.name,
     },
   }))

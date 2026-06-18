@@ -8,9 +8,13 @@ import { ReviewsGrid } from '@/components/sections/ReviewsGrid'
 import { WrittenReviewsSection } from '@/components/sections/WrittenReviewsSection'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { IMAGES, REVIEWS_PAGE, REVIEWS_PAGE_META } from '@/lib/content'
-import { fetchGoogleReviews, fetchPlaceSummary } from '@/lib/google-reviews'
+import { getReviewsData } from '@/lib/google-reviews'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema, reviewsAggregateRatingSchema } from '@/lib/structured-data'
+import {
+  breadcrumbSchema,
+  reviewsAggregateRatingSchema,
+  reviewsWithTextSchema,
+} from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export const revalidate = 86400
@@ -40,14 +44,9 @@ function HeroStars() {
 
 export default async function ReviewsPage() {
   const origin = await getSiteOrigin()
-  const [googleReviews, placeSummary] = await Promise.all([
-    fetchGoogleReviews(),
-    fetchPlaceSummary(),
-  ])
+  const { reviews: googleReviews, totalCount: reviewCount, averageRating: ratingValue } =
+    await getReviewsData()
 
-  const reviewCount =
-    placeSummary?.user_ratings_total ?? REVIEWS_PAGE_META.aggregateRating.reviewCount
-  const ratingValue = placeSummary?.rating ?? REVIEWS_PAGE_META.aggregateRating.ratingValue
   const ratingSummary = `${reviewCount} Reviews · ${ratingValue.toFixed(1)} Average`
 
   const breadcrumbs = breadcrumbSchema(
@@ -67,6 +66,7 @@ export default async function ReviewsPage() {
             ratingValue,
             reviewCount,
           }),
+          ...reviewsWithTextSchema(origin.origin),
         ]}
       />
 
