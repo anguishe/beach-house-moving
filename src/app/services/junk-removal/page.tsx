@@ -17,7 +17,7 @@ import {
 import { buildMetadata } from '@/lib/seo'
 import { SERVICE_DETAILS } from '@/lib/service-details'
 import { SERVICE_IMAGE_MAP } from '@/lib/service-images'
-import { breadcrumbSchema, junkRemovalServiceSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, faqPageSchema, junkRemovalServiceSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 const haulIconMap = {
@@ -64,7 +64,13 @@ export default async function JunkRemovalPage() {
 
   return (
     <PageShell>
-      <JsonLd data={[breadcrumbs, junkRemovalServiceSchema(fullDescription)]} />
+      <JsonLd
+        data={[
+          breadcrumbs,
+          junkRemovalServiceSchema(fullDescription),
+          faqPageSchema(junkRemovalFaqs, `${origin.origin}/services/junk-removal`),
+        ]}
+      />
 
       <PageHero
         title={service.title}

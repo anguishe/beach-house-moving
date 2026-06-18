@@ -87,11 +87,25 @@
       "Bash(grep -rn '\\\\${pageUrl}#business' src/)",
       "Bash(git -C /home/angsec/Projects/beach-house-moving status)",
       "Bash(git -C /home/angsec/Projects/beach-house-moving diff --stat)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git -C /home/angsec/Projects/beach-house-moving commit -m ' *)",
+      "Bash(git -C /home/angsec/Projects/beach-house-moving push origin main)",
+      "mcp__plugin_vercel_vercel__list_teams",
+      "mcp__plugin_vercel_vercel__list_projects",
+      "mcp__plugin_vercel_vercel__list_deployments",
+      "Bash(node --env-file=.env.local scripts/ping-indexnow.mjs)",
+      "Bash(awk 'NR>=1050 && NR<=1075' src/lib/content.ts)",
+      "Bash(awk '/slug:|title:|image:|hero/{print NR\": \"$0}' src/content/posts.ts)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(node -e \"const c=require\\('fs'\\).readFileSync\\('src/lib/content.ts','utf8'\\); const m=c.match\\(/export const FAQS = \\\\[\\([\\\\s\\\\S]*?\\)\\\\n\\\\] as const/\\); if\\(!m\\){console.log\\('no as const match, trying without'\\);} const start=c.indexOf\\('export const FAQS = ['\\); const slice=c.slice\\(start, c.indexOf\\('export const', start+10\\)\\); const qs=\\(slice.match\\(/\\\\n    q:/g\\)||[]\\).length; console.log\\('FAQS q: count =', qs\\);\")",
+      "Bash(echo \"=== services/[slug] canonicalUrl + JsonLd ===\" ; sed -n '60,95p' src/app/services/[slug]/page.tsx)",
+      "Bash(python3 -m json.tool)"
     ],
     "additionalDirectories": [
       "/home/angsec/Projects/beach-house-moving/src/app/service-areas/[county]",
-      "/home/angsec/Downloads"
+      "/home/angsec/Downloads",
+      "/home/angsec/Projects/beach-house-moving/src/app/services/[slug]"
     ]
   }
 }

@@ -2,6 +2,7 @@ import {
   BUSINESS,
   IMAGES,
   JUNK_REMOVAL_AREA_SERVED,
+  PRICING,
   REVIEWS_PAGE_META,
   SERVICES,
   SOCIAL_LINKS,
@@ -153,6 +154,41 @@ export function movingCompanySchema(origin: string, includeRating = false) {
         name: 'Florida Department of Agriculture and Consumer Services (FDACS)',
       },
       identifier: BUSINESS.registration.number,
+    },
+  }
+}
+
+/**
+ * Priced Offer for the published hourly local-moving rate. Ties to the MovingCompany
+ * entity via offeredBy { @id }. Rate is single-sourced from PRICING.hourlyRate.
+ */
+export function pricingOfferSchema(origin: string) {
+  const base = origin.replace(/\/$/, '')
+  const price = String(PRICING.hourlyRate)
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Offer',
+    '@id': `${base}/pricing#hourly-rate`,
+    name: 'Local moving — hourly rate',
+    description:
+      'Local moves billed hourly — crew and truck, fuel included. No fuel surcharges, stair fees, or hidden line items.',
+    priceCurrency: PRICING.currency,
+    price,
+    availability: 'https://schema.org/InStock',
+    url: `${base}/pricing`,
+    areaServed: SCHEMA_COUNTIES.map((county) => ({
+      '@type': 'AdministrativeArea' as const,
+      name: county,
+    })),
+    offeredBy: { '@id': `${base}/#business` },
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      priceCurrency: PRICING.currency,
+      price,
+      unitCode: 'HUR',
+      unitText: 'HOUR',
+      description: 'Hourly rate — crew and truck, fuel included',
     },
   }
 }

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
 
-import { NEIGHBORHOODS, SERVICE_AREAS, SERVICES } from '@/lib/content'
+import { NEIGHBORHOODS, SERVICE_AREAS, SERVICES, type Neighborhood } from '@/lib/content'
 import { POSTS } from '@/content/posts'
 import { getSiteOrigin } from '@/lib/site-url'
 
@@ -8,6 +8,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const origin = await getSiteOrigin()
   const base = origin.origin
 
+  // MANUAL lastModified dates: these routes have no per-record date source.
+  // Bump the date on a route by hand when that page's content meaningfully
+  // changes. Do not invent dates — leave as-is if the page is unchanged.
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: `${base}/`,
@@ -71,6 +74,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
+  // MANUAL date — SERVICES records carry no date field. Bump when service
+  // page content changes site-wide.
   const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({
     url: `${base}/services/${service.slug}`,
     lastModified: '2026-06-09',
@@ -78,6 +83,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: service.slug === 'junk-removal' ? 0.7 : 0.9,
   }))
 
+  // MANUAL date — SERVICE_AREAS records carry no date field. Bump when area
+  // page content changes site-wide.
   const areaRoutes: MetadataRoute.Sitemap = SERVICE_AREAS.map((area) => ({
     url: `${base}/service-areas/${area.slug}`,
     lastModified: '2026-06-09',
@@ -85,11 +92,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.9,
   }))
 
-  const neighborhoodRoutes: MetadataRoute.Sitemap = NEIGHBORHOODS.map((nb) => {
+  // nb is typed as the wider Neighborhood (a supertype of the `as const`
+  // element type) so the optional updatedAt field is accessible here.
+  const neighborhoodRoutes: MetadataRoute.Sitemap = NEIGHBORHOODS.map((nb: Neighborhood) => {
     const area = SERVICE_AREAS.find((sa) => sa.county === nb.county)
     return {
       url: `${base}/service-areas/${area?.slug ?? 'walton-county'}/${nb.slug}`,
-      lastModified: '2026-06-14',
+      // Prefer the per-neighborhood updatedAt when set; otherwise fall back to
+      // the curated date below. Bump this fallback only on a site-wide
+      // neighborhood content refresh — set Neighborhood.updatedAt for one-offs.
+      lastModified: nb.updatedAt ?? '2026-06-14',
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     }
@@ -97,7 +109,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const resourcePostRoutes: MetadataRoute.Sitemap = POSTS.map((post) => ({
     url: `${base}/resources/${post.slug}`,
-    lastModified: post.datePublished,
+    // Data-driven: reflects the post's last edit when present, else publish date.
+    lastModified: post.dateModified ?? post.datePublished,
     changeFrequency: 'monthly' as const,
     priority: 0.65,
   }))

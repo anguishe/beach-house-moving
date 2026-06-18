@@ -6,9 +6,9 @@ import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { BUSINESS, FAQS } from '@/lib/content'
+import { BUSINESS, FAQS, PRICING } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
-import { breadcrumbSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, faqPageSchema, pricingOfferSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -79,6 +79,7 @@ const howToSteps = [
 
 export default async function PricingPage() {
   const origin = await getSiteOrigin()
+  const canonicalUrl = `${origin.origin}/pricing`
   const breadcrumbs = breadcrumbSchema(
     [
       { name: 'Home', path: '/' },
@@ -96,7 +97,13 @@ export default async function PricingPage() {
 
   return (
     <PageShell>
-      <JsonLd data={[breadcrumbs]} />
+      <JsonLd
+        data={[
+          breadcrumbs,
+          pricingOfferSchema(origin.origin),
+          faqPageSchema(pricingFaqs, canonicalUrl),
+        ]}
+      />
 
       <section className="px-6 py-16 md:py-24">
         <div className="mx-auto max-w-4xl">
@@ -131,8 +138,9 @@ export default async function PricingPage() {
                 <p className="font-body text-sm font-semibold text-brand-navy">Local moves</p>
                 <div>
                   <p className="font-body text-sm leading-relaxed text-ink-muted">
-                    Billed hourly at $165/hr — crew and truck, fuel included in the rate. No fuel
-                    surcharges, no stair fees, no line items that appear only on the final invoice.
+                    Billed hourly at ${PRICING.hourlyRate}/hr — crew and truck, fuel included in the
+                    rate. No fuel surcharges, no stair fees, no line items that appear only on the
+                    final invoice.
                   </p>
                   {/* OWNER: paste confirmed hour ranges per home size here — e.g. "Studio/1BR: 2–4 hrs · 2–3BR: 4–7 hrs · 4BR+: 7–10 hrs" */}
                 </div>

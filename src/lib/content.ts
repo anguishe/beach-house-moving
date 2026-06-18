@@ -58,6 +58,13 @@ export const BUSINESS = {
   niches: ['luxury beach-home & new-construction', 'appliance & specialty-item delivery', 'military PCS near Eglin AFB & Hurlburt Field'],
 } as const
 
+/** Single source of truth for published rates. Referenced by /pricing UI and the Offer schema. */
+export const PRICING = {
+  /** Local moves — hourly rate in USD. Crew + truck, fuel included; no surcharges. */
+  hourlyRate: 165,
+  currency: 'USD',
+} as const
+
 /** Public license copy — SAB-safe, no street address. */
 export const LICENSE_DISPLAY = {
   heroTrustBadge: `Licensed & Insured · FL Mover Reg. #${BUSINESS.registration.number}`,
@@ -1083,6 +1090,10 @@ export type Neighborhood = {
   metaDescription: string
   localBody: string
   localFaqs: { question: string; answer: string }[]
+  // ISO date (YYYY-MM-DD). Set this when a neighborhood's content changes so
+  // sitemap.ts can emit an accurate <lastmod>. Falls back to the curated
+  // neighborhood date in sitemap.ts when omitted.
+  updatedAt?: string
 }
 
 export const NEIGHBORHOODS = [
