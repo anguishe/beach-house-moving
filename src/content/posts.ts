@@ -167,9 +167,9 @@ export const POSTS: Post[] = [
       'New construction on 30A and across the Panhandle comes with fresh floors, tight stairwells, and finishes that are easy to damage on move-in day. Here\'s how we approach it.',
     datePublished: '2026-06-02',
     author: 'Beach House Moving',
-    heroImage: '/images/clean-entry.jpg',
+    heroImage: '/images/beach-house-moving-great-room-staged-furniture.jpg',
     heroAlt:
-      'Beach House Moving protecting a home entry with floor runners during a new-construction move-in',
+      'Fully furnished new-construction great room staged by Beach House Moving with sofas, ottoman, and dining set on 30A',
     relatedServices: [
       { label: 'Residential Moving', href: '/services/residential-moving' },
       { label: 'Packing & Unpacking', href: '/services/packing-unpacking' },
@@ -233,9 +233,9 @@ export const POSTS: Post[] = [
       'A real moving checklist built for 30A and Destin — parking logistics, beach access restrictions, HOA rules, and seasonal timing. From movers who work here every week.',
     datePublished: '2026-05-15',
     author: 'Beach House Moving',
-    heroImage: '/images/move-inlet-beach.jpg',
+    heroImage: '/images/loaded-liftgate-coastal-home.jpg',
     heroAlt:
-      'Beach House Moving truck staged for a move at an Inlet Beach home on the eastern end of 30A',
+      'Beach House Moving truck loaded for a local move at a 30A coastal home on the Emerald Coast',
     relatedServices: [
       { label: 'Local Moving', href: '/services/local-moving' },
       { label: 'Packing & Unpacking', href: '/services/packing-unpacking' },

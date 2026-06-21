@@ -535,20 +535,50 @@ export const IMAGES = {
     src: '/images/beach-house-moving-mattress-stairwell-move.jpg',
     alt: 'Two Beach House Moving crew members carrying a shrink-wrapped king mattress up a condo stairwell on 30A',
   },
+  greatRoomRug: {
+    src: '/images/beach-house-moving-great-room-rug-placement.jpg',
+    alt: 'Beach House Moving laying the rug in an empty new-construction great room with a vaulted shiplap ceiling on 30A',
+  },
+  greatRoomStaged: {
+    src: '/images/beach-house-moving-great-room-staged-furniture.jpg',
+    alt: 'Fully furnished new-construction great room staged by Beach House Moving with sofas, ottoman, and dining set on 30A',
+  },
+  newConstructionRugs: {
+    src: '/images/beach-house-moving-new-construction-rug-delivery.jpg',
+    alt: 'Wrapped rugs labeled by floor staged in an empty new-construction beach home on 30A by Beach House Moving',
+  },
+  denStaged: {
+    src: '/images/beach-house-moving-furniture-placement-den.jpg',
+    alt: 'A new-construction den staged by Beach House Moving with a blue sofa, striped rug, and live-edge bench on 30A',
+  },
+  rugCarryStairs: {
+    src: '/images/beach-house-moving-rug-carry-staircase.jpg',
+    alt: 'Beach House Moving crew member carrying a rolled wool rug up the stairs of a new-construction beach home on 30A',
+  },
+  balconyView: {
+    src: '/images/beach-house-moving-beach-home-balcony-view.jpg',
+    alt: 'Balcony view over a 30A beach community from a new-construction home served by Beach House Moving',
+  },
+  dresserPlacement: {
+    src: '/images/beach-house-moving-dresser-placement-bedroom.jpg',
+    alt: 'Beach House Moving crew member Les with a whitewashed coastal dresser placed and leveled in a Santa Rosa Beach bedroom',
+  },
 } as const
 
-/** Homepage gallery marquee — every slot must use a unique `src`. */
+/** Homepage gallery marquee — owner-operator shots lead; carousel may repeat photos used elsewhere. */
 export const GALLERY_PHOTOS = [
-  IMAGES.fleetTruckVan,
-  IMAGES.luxuryHomeMove,
-  IMAGES.liftgatePadded,
-  IMAGES.mattressStairwell,
-  IMAGES.golfCart,
-  IMAGES.artInstall,
-  IMAGES.loadedBoxTruck,
-  IMAGES.rugPlacement,
-  IMAGES.condoStairCarry,
-  IMAGES.fineArtHandling,
+  IMAGES.crewBrandedAntiqueMove,  // owner-operator lead
+  IMAGES.crewTeamFurnitureMove,   // owner-operator lead
+  IMAGES.greatRoomStaged,         // new-construction showcase
+  IMAGES.luxuryHomeMove,          // owner carrying into luxury home
+  IMAGES.dresserPlacement,        // Les — owner crew portrait
+  IMAGES.denStaged,               // new-construction den staged
+  IMAGES.artInstall,              // white-glove specialty
+  IMAGES.fineArtHandling,         // white-glove specialty
+  IMAGES.newConstructionRugs,     // delivery & staging
+  IMAGES.rugCarryStairs,          // physical work on 30A stairs
+  IMAGES.golfCart,                // unique service
+  IMAGES.balconyView,             // 30A ambiance closer
 ] as const
 
 export const TESTIMONIALS = [
@@ -1127,7 +1157,7 @@ export const NEIGHBORHOODS = [
     slug: '30a',
     name: '30A',
     county: 'Walton County',
-    image: '/images/loaded-liftgate-coastal-home.jpg',
+    image: '/images/beach-house-moving-beach-home-balcony-view.jpg',
     intro: 'Scenic Highway 30A links a string of distinct beach communities, each with its own gates, HOA rules, parking limits, and beach-access logistics. Moving along 30A rewards a crew that already knows the roads, the carriage-home alleys, and where the trucks can actually park — not one learning it on the day.',
     landmarks: ['Seaside', 'WaterColor', 'Rosemary Beach', 'Alys Beach', 'Grayton Beach', 'Inlet Beach'],
     metaTitle: '30A Movers | Beach House Moving — Santa Rosa Beach, FL',
@@ -1202,7 +1232,7 @@ export const NEIGHBORHOODS = [
     slug: 'seaside',
     name: 'Seaside',
     county: 'Walton County',
-    image: '/images/loaded-liftgate-coastal-home.jpg',
+    image: '/images/clean-entry.jpg',
     intro: 'Seaside is the founding New Urbanist town on 30A — pastel cottages, pedestrian-first streets, and notoriously limited vehicle access and parking. A move here lives or dies on timing and coordination, which is exactly where a local owner-operator crew earns its keep.',
     landmarks: ['Seaside Amphitheater', 'Central Square', 'Ruskin Place', 'Airstream food court'],
     metaTitle: 'Seaside FL Movers | Beach House Moving — 30A',
@@ -1227,7 +1257,7 @@ export const NEIGHBORHOODS = [
     slug: 'watercolor',
     name: 'WaterColor',
     county: 'Walton County',
-    image: '/images/beach-house-moving-art-installation.jpg',
+    image: '/images/beach-house-moving-great-room-staged-furniture.jpg',
     intro: 'WaterColor is an upscale planned community adjacent to Seaside, with the WaterColor Inn, parks on Western Lake, and a community road network with its own access points and HOA rules. Move days here go best with a crew that already knows the routine.',
     landmarks: ['WaterColor Inn', 'Cerulean Park', 'Western Lake', 'the Boathouse'],
     metaTitle: 'WaterColor FL Movers | Beach House Moving — 30A',
@@ -1277,7 +1307,7 @@ export const NEIGHBORHOODS = [
     slug: 'seacrest-beach',
     name: 'Seacrest Beach',
     county: 'Walton County',
-    image: '/images/loaded-liftgate-coastal-home.jpg',
+    image: '/images/beach-house-moving-golf-cart-transport.jpg',
     intro: 'Seacrest Beach sits on the eastern end of 30A near Alys and Rosemary Beach, known for its large lagoon pool and closely clustered rental cottages. Tight spacing and shared access make a coordinated crew the difference between a smooth move and a stressful one.',
     introExtended: [
       'Seacrest runs on the rental calendar. Saturday is turnover day, the lagoon-pool parking fills fast, and golf-cart paths thread between homes that were built close on purpose — so we stage at the property, time the move off-peak, and keep the truck out of the path of fifteen arriving renters.',
@@ -1306,7 +1336,7 @@ export const NEIGHBORHOODS = [
     slug: 'alys-beach',
     name: 'Alys Beach',
     county: 'Walton County',
-    image: '/images/beach-house-moving-luxury-beach-home-move.jpg',
+    image: '/images/beach-house-moving-art-installation.jpg',
     intro: 'Alys Beach is the all-white, Bermuda-inspired community on eastern 30A and one of the most architecturally precise neighborhoods on the coast. Protecting finished surfaces, courtyard entries, and white stucco is non-negotiable here — floor, wall, and corner protection is part of our standard setup before the first item moves.',
     landmarks: ['Caliza Pool', 'white courtyard homes', 'Fonville Press'],
     metaTitle: 'Alys Beach Movers | Beach House Moving — 30A, FL',
@@ -1381,7 +1411,7 @@ export const NEIGHBORHOODS = [
     slug: 'dune-allen',
     name: 'Dune Allen',
     county: 'Walton County',
-    image: '/images/liftgate-blankets-coastal-home.jpg',
+    image: '/images/collage-moves.jpg',
     intro: 'Dune Allen is the westernmost 30A community, shaped by the rare coastal dune lakes that meet the Gulf here. Older beach homes and tight lakeside lots mean access planning is the first step of every move — we do that planning before we arrive.',
     introExtended: [
       'Dune Allen sits at the quiet west end of 30A, and the homes show it — stilted construction, steep short driveways, and narrow loops off Allen Loop Road where a full-size box truck has nowhere to turn around. This is Sprinter-and-stage territory: right vehicle to the door, box truck positioned where it actually fits.',
@@ -1410,7 +1440,7 @@ export const NEIGHBORHOODS = [
     slug: 'seagrove-beach',
     name: 'Seagrove Beach',
     county: 'Walton County',
-    image: '/images/loaded-liftgate-coastal-home.jpg',
+    image: '/images/team-packing.jpg',
     intro: 'Seagrove Beach sits between Seaside and Seacrest with a classic old-Florida feel — mature canopy, original cottages, and newer homes mixed throughout. Shaded, narrow streets reward a crew that plans truck placement before backing in.',
     landmarks: ['Seagrove Plaza', 'Eastern Lake', '30A'],
     metaTitle: 'Seagrove Beach Movers | Beach House Moving — 30A, FL',
@@ -1615,7 +1645,7 @@ export const NEIGHBORHOODS = [
     slug: 'crestview',
     name: 'Crestview',
     county: 'Okaloosa County',
-    image: '/images/truck-loaded.jpg',
+    image: '/images/fleet-box-truck.jpg',
     intro: 'Crestview is the inland Okaloosa County seat — the "Hub City" at the crossroads of I-10 and Highway 85 — and a common destination for Eglin-connected families and Panhandle transplants. We handle the longer inland routing without padding the clock.',
     landmarks: ['Interstate 10', 'Highway 85', 'downtown Crestview'],
     metaTitle: 'Crestview FL Movers | Beach House Moving — Okaloosa County',
@@ -1640,7 +1670,7 @@ export const NEIGHBORHOODS = [
     slug: 'shalimar',
     name: 'Shalimar',
     county: 'Okaloosa County',
-    image: '/images/truck-dolly.jpg',
+    image: '/images/team-stairs.jpg',
     intro: 'Shalimar is a quiet town tucked between Fort Walton Beach and Eglin AFB, with bayside neighborhoods and a mix of military and civilian families. Short, well-coordinated local moves are the norm here.',
     introExtended: [
       'Shalimar is one of the smallest towns we serve and one of the most military — minutes from Eglin\'s gates, full of established bayou-side neighborhoods and families moving on PCS timelines. Most Shalimar jobs are report-date driven, which is why being available around the clock matters more here than almost anywhere.',
@@ -1699,7 +1729,7 @@ export const NEIGHBORHOODS = [
     slug: 'panama-city',
     name: 'Panama City',
     county: 'Bay County',
-    image: '/images/truck-loaded.jpg',
+    image: '/images/mover-carry-estate.jpg',
     intro: "Panama City is the Bay County seat, with the revitalizing St. Andrews district, a rebuilt downtown, and established neighborhoods spread around the bay. We handle the range — from older bungalows with tight stairwells to new builds that need floor protection from the start.",
     landmarks: ['St. Andrews', 'downtown Panama City', 'St. Andrews Bay', 'the Marina'],
     metaTitle: 'Panama City FL Movers | Beach House Moving — Bay County',

@@ -17,12 +17,14 @@ import { MotionReveal } from '@/components/ui/MotionReveal'
 import { BUSINESS, IMAGES, SERVICES } from '@/lib/content'
 
 const serviceImageMap: Record<string, { src: string; alt: string }> = {
-  'residential-moving': IMAGES.truckLoading,
-  'local-moving': IMAGES.dolly,
-  'long-distance-moving': IMAGES.fleet,
-  'packing-unpacking': IMAGES.dresserPack,
+  'residential-moving': IMAGES.dresserPlacement,
+  'local-moving': IMAGES.loadedLiftgateCoastalHome,
+  'long-distance-moving': IMAGES.moverCarryWrappedEstate,
+  'packing-unpacking': IMAGES.newConstructionRugs,
   storage: IMAGES.moverStorageCorridor,
   delivery: IMAGES.fridge,
+  'junk-removal': IMAGES.truckLoading,
+  'military-pcs-moving': IMAGES.crewTeamFurnitureMove,
 }
 
 const serviceIconMap: Record<string, React.ElementType> = {
