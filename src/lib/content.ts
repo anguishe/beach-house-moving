@@ -563,6 +563,42 @@ export const IMAGES = {
     src: '/images/beach-house-moving-dresser-placement-bedroom.jpg',
     alt: 'Beach House Moving crew member Les with a whitewashed coastal dresser placed and leveled in a Santa Rosa Beach bedroom',
   },
+  brandedCrewPlacement: {
+    src: '/images/beach-house-moving-branded-crew-furniture-placement-luxury-home.jpg',
+    alt: 'Beach House Moving branded crew member placing furniture and a designer rug during a luxury home move-in',
+  },
+  luxuryPrimaryBedroom: {
+    src: '/images/beach-house-moving-luxury-primary-bedroom-white-glove-move-in.jpg',
+    alt: 'Luxury primary bedroom fully set up by Beach House Moving after a white-glove move-in on the Emerald Coast',
+  },
+  stagedGuestBedroom: {
+    src: '/images/beach-house-moving-staged-guest-bedroom-designer-move-in.jpg',
+    alt: 'Designer guest bedroom staged and set up by Beach House Moving on the Emerald Coast',
+  },
+  areaRugInstallWetBar: {
+    src: '/images/beach-house-moving-area-rug-delivery-installation-wet-bar.jpg',
+    alt: 'Beach House Moving delivering and installing a designer area rug in a new-construction home',
+  },
+  bedFrameAssembly: {
+    src: '/images/beach-house-moving-bed-frame-assembly-service-primary-bedroom.jpg',
+    alt: 'Beach House Moving assembling a bed frame during a primary-bedroom move-in',
+  },
+  rugCredenzaPlacement: {
+    src: '/images/beach-house-moving-rug-and-credenza-placement-new-construction.jpg',
+    alt: 'Beach House Moving furniture and area-rug placement in a new-construction home',
+  },
+  rugInstallEntry: {
+    src: '/images/beach-house-moving-designer-rug-installation-new-construction-entry.jpg',
+    alt: 'Beach House Moving installing a designer area rug in a new-construction entry',
+  },
+  rugPadDelivery: {
+    src: '/images/beach-house-moving-area-rug-pad-and-delivery-luxury-home.jpg',
+    alt: 'Beach House Moving laying a rug pad and delivering an area rug at a luxury home',
+  },
+  livingRoomSetup: {
+    src: '/images/beach-house-moving-living-room-furniture-setup-luxury-home.jpg',
+    alt: 'Beach House Moving setting up living-room furniture during a luxury home move-in',
+  },
 } as const
 
 /** Homepage gallery marquee — owner-operator shots lead; carousel may repeat photos used elsewhere. */
@@ -579,6 +615,14 @@ export const GALLERY_PHOTOS = [
   IMAGES.rugCarryStairs,          // physical work on 30A stairs
   IMAGES.golfCart,                // unique service
   IMAGES.balconyView,             // 30A ambiance closer
+  IMAGES.luxuryPrimaryBedroom,    // white-glove move-in result
+  IMAGES.stagedGuestBedroom,      // designer guest bedroom
+  IMAGES.areaRugInstallWetBar,    // rug delivery & install
+  IMAGES.bedFrameAssembly,        // bed frame assembly service
+  IMAGES.rugCredenzaPlacement,    // new-construction placement
+  IMAGES.rugInstallEntry,         // entry rug install
+  IMAGES.rugPadDelivery,          // rug pad & delivery
+  IMAGES.livingRoomSetup,         // living-room setup
 ] as const
 
 export const TESTIMONIALS = [

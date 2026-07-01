@@ -17,6 +17,7 @@ export const SERVICE_IMAGE_MAP: Record<string, ServiceImage> = {
 /** Optional secondary/gallery image per service — must not duplicate the primary src. */
 export const SERVICE_SECONDARY_IMAGE_MAP: Partial<Record<string, ServiceImage>> = {
   'residential-moving': IMAGES.moverCarryEstate,
+  'local-moving': IMAGES.brandedCrewPlacement,
   'long-distance-moving': IMAGES.greatRoomRug,
   'packing-unpacking': IMAGES.rugCarryStairs,
   delivery: IMAGES.crewHomeGymAssembly,
