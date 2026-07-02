@@ -104,6 +104,7 @@ export const SERVICE_AREAS = [
   {
     county: 'Walton County',
     slug: 'walton-county',
+    featuredNeighborhoodSlugs: ['santa-rosa-beach'] as readonly string[],
     cities: ['Santa Rosa Beach', '30A', 'Miramar Beach', 'Freeport', 'DeFuniak Springs'],
     image: '/images/move-inlet-beach.jpg',
     description:
@@ -135,6 +136,7 @@ export const SERVICE_AREAS = [
   {
     county: 'Okaloosa County',
     slug: 'okaloosa-county',
+    featuredNeighborhoodSlugs: ['fort-walton-beach', 'destin'] as readonly string[],
     cities: ['Destin', 'Fort Walton Beach', 'Niceville', 'Crestview', 'Shalimar', 'Eglin AFB', 'Hurlburt Field'],
     image: '/images/move-niceville.jpg',
     description:
@@ -166,6 +168,7 @@ export const SERVICE_AREAS = [
   {
     county: 'Bay County',
     slug: 'bay-county',
+    featuredNeighborhoodSlugs: [] as readonly string[],
     cities: ['Panama City', 'Panama City Beach', 'Lynn Haven', 'Callaway', 'Springfield'],
     image: '/images/move-pcb.jpg',
     description:
@@ -766,8 +769,8 @@ export const REVIEWS_PAGE = {
 /** Static page metadata — used with buildMetadata(). */
 export const PAGE_META = {
   home: {
-    title: 'Santa Rosa Beach, Destin & 30A Movers | Beach House Moving',
-    description: `Locally owned & fully licensed movers serving Walton, Okaloosa & Bay Counties. 3-truck fleet. FL Mover Reg. #IM4125. Free quote — ${BUSINESS.phone.display}.`,
+    title: "Beach House Moving | Movers on Florida's Emerald Coast",
+    description: 'Owner-operated, licensed & insured movers serving Santa Rosa Beach, 30A, Destin & the Emerald Coast — Walton, Okaloosa & Bay Counties. Free quote: (850) 842-1962.',
     path: '/',
   },
   services: {

@@ -71,6 +71,9 @@ export default async function CountyPage({ params }: PageProps) {
   )
 
   const countyNeighborhoods = NEIGHBORHOODS.filter((nb) => nb.county === area.county)
+  const featuredNbs = area.featuredNeighborhoodSlugs
+    .map((slug) => NEIGHBORHOODS.find((nb) => nb.slug === slug))
+    .filter((nb): nb is (typeof NEIGHBORHOODS)[number] => nb !== undefined)
 
   return (
     <PageShell>
@@ -149,9 +152,25 @@ export default async function CountyPage({ params }: PageProps) {
       {countyNeighborhoods.length > 0 && (
         <section className="bg-brand-sand px-6 py-12 md:py-16">
           <div className="mx-auto max-w-6xl">
-            <h2 className="mb-8 font-heading text-2xl font-bold text-brand-navy md:text-3xl">
+            <h2 className="mb-4 font-heading text-2xl font-bold text-brand-navy md:text-3xl">
               Communities We Serve in {area.county}
             </h2>
+            {featuredNbs.length > 0 && (
+              <p className="mb-8 font-body text-base leading-relaxed text-ink-muted">
+                {'Most-requested: '}
+                {featuredNbs.map((nb, i) => (
+                  <span key={nb.slug}>
+                    <Link
+                      href={`/service-areas/${area.slug}/${nb.slug}`}
+                      className="font-semibold text-brand-teal hover:underline"
+                    >
+                      Movers in {nb.name}
+                    </Link>
+                    {i < featuredNbs.length - 1 ? ', ' : '.'}
+                  </span>
+                ))}
+              </p>
+            )}
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {countyNeighborhoods.map((nb) => {
                 const teaser = nb.intro.split('.')[0] + '.'
