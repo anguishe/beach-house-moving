@@ -602,6 +602,42 @@ export const IMAGES = {
     src: '/images/beach-house-moving-living-room-furniture-setup-luxury-home.jpg',
     alt: 'Beach House Moving setting up living-room furniture during a luxury home move-in',
   },
+  applianceStagingWarehouse: {
+    src: '/images/beach-house-moving-appliance-staging-box-truck-warehouse.jpg',
+    alt: 'Beach House Moving box truck staged at a warehouse dock with packed inventory',
+  },
+  localMoveDresserUnload: {
+    src: '/images/beach-house-moving-local-move-dresser-unload.jpg',
+    alt: 'Beach House Moving crew unloading a dresser from the box truck on a local Emerald Coast move',
+  },
+  luxuryFoyerMattress: {
+    src: '/images/beach-house-moving-luxury-foyer-mattress-move.jpg',
+    alt: 'Beach House Moving crew carrying a mattress through a luxury Emerald Coast home foyer',
+  },
+  shrinkWrappedSofa: {
+    src: '/images/beach-house-moving-shrink-wrapped-sofa-protection.jpg',
+    alt: 'Sofa fully shrink-wrapped for protection by Beach House Moving before transport',
+  },
+  luxuryHomeFleet: {
+    src: '/images/beach-house-moving-luxury-home-fleet-truck-and-van.jpg',
+    alt: 'Beach House Moving box truck and Sprinter van staged at a luxury Florida Panhandle home',
+  },
+  brandedCrewBoxSpring: {
+    src: '/images/beach-house-moving-branded-crew-box-spring-stairs.jpg',
+    alt: 'Beach House Moving crew member carrying a box spring through a luxury home',
+  },
+  curvedStaircaseMattress: {
+    src: '/images/beach-house-moving-curved-staircase-mattress-carry.jpg',
+    alt: 'Beach House Moving crew carrying a mattress up a curved iron staircase',
+  },
+  crewBoxCarryNeighborhood: {
+    src: '/images/beach-house-moving-crew-box-carry-neighborhood.jpg',
+    alt: 'Beach House Moving crew carrying boxes on a neighborhood local move',
+  },
+  newConstructionChair: {
+    src: '/images/beach-house-moving-new-construction-chair-delivery.jpg',
+    alt: 'Beach House Moving crew delivering a protected chair to a new-construction home',
+  },
 } as const
 
 /** Homepage gallery marquee — owner-operator shots lead; carousel may repeat photos used elsewhere. */
@@ -626,6 +662,14 @@ export const GALLERY_PHOTOS = [
   IMAGES.rugInstallEntry,         // entry rug install
   IMAGES.rugPadDelivery,          // rug pad & delivery
   IMAGES.livingRoomSetup,         // living-room setup
+  IMAGES.localMoveDresserUnload,  // local move — dresser unload
+  IMAGES.luxuryFoyerMattress,     // luxury foyer mattress carry
+  IMAGES.shrinkWrappedSofa,       // shrink-wrapped sofa protection
+  IMAGES.luxuryHomeFleet,         // luxury home fleet — truck & van
+  IMAGES.brandedCrewBoxSpring,    // branded crew — box spring
+  IMAGES.curvedStaircaseMattress, // curved staircase mattress carry
+  IMAGES.crewBoxCarryNeighborhood,// neighborhood box carry
+  IMAGES.newConstructionChair,    // new-construction chair delivery
 ] as const
 
 export const TESTIMONIALS = [
