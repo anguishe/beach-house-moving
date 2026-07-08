@@ -179,14 +179,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
         ]}
       />
 
-      {/* Direct-answer paragraph — AEO */}
-      <div className="bg-brand-sand px-6 py-6">
-        <div className="mx-auto max-w-4xl">
-          <p className="font-body text-base leading-relaxed text-ink-muted">{nb.localBody}</p>
-        </div>
-      </div>
-
-      <section className="px-6 py-12 md:py-16">
+      <section className="px-6 pt-28 pb-12 md:pt-32 md:pb-16">
         <div className="mx-auto max-w-4xl">
           <Breadcrumbs
             items={[
@@ -206,7 +199,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
             <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal">
               Your Neighborhood, Our Home Turf
             </p>
-            <div className="relative aspect-[16/7] overflow-hidden rounded-brand-lg">
+            <div className="relative aspect-[16/9] overflow-hidden rounded-brand-lg">
               <Image
                 src={nb.image}
                 alt={`Beach House Moving serving ${nb.name}, FL`}
@@ -231,18 +224,29 @@ export default async function NeighborhoodPage({ params }: PageProps) {
               {ownerClosing}
             </p>
           </div>
+        </div>
+      </section>
 
+      {/* Direct-answer paragraph — AEO */}
+      <div className="bg-brand-sand px-6 py-6">
+        <div className="mx-auto max-w-4xl">
+          <p className="font-body text-base leading-relaxed text-ink-muted">{nb.localBody}</p>
+        </div>
+      </div>
+
+      <section className="px-6 py-12 md:py-16">
+        <div className="mx-auto max-w-4xl">
           {/* Landmarks callout */}
           <div className="mt-8 rounded-brand-lg border border-brand-teal/20 bg-brand-teal/5 p-5">
             <div className="flex flex-wrap items-center gap-2">
               <MapPin className="size-4 shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
               <span className="font-body text-sm font-semibold text-brand-teal">Familiar territory:</span>
-              {nb.landmarks.map((landmark, i) => (
+              {nb.landmarks.map((landmark) => (
                 <span
                   key={landmark}
                   className="rounded-full bg-brand-teal/10 px-3 py-1 font-body text-xs font-medium text-brand-navy"
                 >
-                  {landmark}{i < nb.landmarks.length - 1 ? '' : ''}
+                  {landmark}
                 </span>
               ))}
             </div>

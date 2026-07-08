@@ -62,7 +62,7 @@ export type ReviewsData = {
 }
 
 /** One concise, honest line emitted when we fall back to the static reviews. */
-const STATIC_FALLBACK_LOG = '[reviews] live source unavailable — using 10 static reviews'
+const STATIC_FALLBACK_LOG = `[reviews] live source unavailable — using ${TESTIMONIALS.length} static reviews`
 
 function getPlacesApiKey(): string | undefined {
   return process.env.GOOGLE_PLACES_API_KEY

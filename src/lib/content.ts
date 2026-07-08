@@ -753,6 +753,14 @@ export const TESTIMONIALS = [
     source: 'Google',
     date: '2026',
   },
+  {
+    name: 'Dede McClure',
+    location: null,
+    rating: 5,
+    text: "There is none better. And if you're considering someone else, please consider Beach House first. Excellent service, prompt, timely, fair, and one of the nicest men you'll ever meet. Talk to Josh.",
+    source: 'Google',
+    date: '2026',
+  },
 ] as const
 
 export const REVIEWS_PAGE_META = {
@@ -762,7 +770,7 @@ export const REVIEWS_PAGE_META = {
   path: '/reviews',
   aggregateRating: {
     ratingValue: 5,
-    reviewCount: 10,
+    reviewCount: 11,
     bestRating: 5,
     worstRating: 1,
   },

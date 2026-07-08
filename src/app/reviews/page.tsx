@@ -13,7 +13,6 @@ import { buildMetadata } from '@/lib/seo'
 import {
   breadcrumbSchema,
   reviewsAggregateRatingSchema,
-  reviewsWithTextSchema,
 } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
@@ -66,7 +65,6 @@ export default async function ReviewsPage() {
             ratingValue,
             reviewCount,
           }),
-          ...reviewsWithTextSchema(origin.origin),
         ]}
       />
 

@@ -1,3 +1,12 @@
+// ponytail: 'unsafe-eval' only in dev (React refresh eval); prod script-src stays without it
+const scriptSrc = [
+  "'self'",
+  "'unsafe-inline'",
+  ...(process.env.NODE_ENV !== 'production' ? ["'unsafe-eval'"] : []),
+  'https://www.googletagmanager.com',
+  'https://analytics.ahrefs.com',
+].join(' ');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
@@ -14,7 +23,7 @@ const nextConfig = {
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
           { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()' },
-          { key: 'Content-Security-Policy', value: "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://analytics.ahrefs.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://maps.googleapis.com https://analytics.ahrefs.com; frame-src https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self';" },
+          { key: 'Content-Security-Policy', value: `default-src 'self'; script-src ${scriptSrc}; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://*.google-analytics.com https://maps.googleapis.com https://analytics.ahrefs.com; frame-src https://www.google.com https://www.googletagmanager.com; object-src 'none'; base-uri 'self';` },
         ],
       },
       {

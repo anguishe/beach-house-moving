@@ -460,38 +460,6 @@ export function servicesItemListSchema(origin: string) {
   }
 }
 
-/**
- * Individual Review JSON-LD for the first-party testimonials that carry written
- * text. Each Review's `itemReviewed` is @id-linked to the `/#business` entity so
- * the AggregateRating on that node is review-backed (Google suppresses star rich
- * results for a self-applied org rating with no Review markup). The rating-only
- * testimonial is intentionally excluded — never emit a Review with an empty body.
- */
-export function reviewsWithTextSchema(origin: string) {
-  const base = origin.replace(/\/$/, '')
-
-  return TESTIMONIALS.filter((t) => t.text !== null).map((t) => ({
-    '@context': 'https://schema.org',
-    '@type': 'Review',
-    author: {
-      '@type': 'Person',
-      name: t.name,
-    },
-    reviewRating: {
-      '@type': 'Rating',
-      ratingValue: t.rating,
-      bestRating: 5,
-      worstRating: 1,
-    },
-    reviewBody: t.text,
-    itemReviewed: {
-      '@type': 'MovingCompany',
-      '@id': `${base}/#business`,
-      name: BUSINESS.name,
-    },
-  }))
-}
-
 /** BlogPosting schema for /resources/[slug] articles. */
 export function blogPostingSchema(
   post: {

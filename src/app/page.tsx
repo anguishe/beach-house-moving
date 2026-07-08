@@ -16,7 +16,6 @@ import { getReviewsData } from '@/lib/google-reviews'
 import {
   faqPageSchema,
   movingCompanySchema,
-  reviewsWithTextSchema,
   webPageSchema,
   webSiteSchema,
 } from '@/lib/structured-data'
@@ -46,7 +45,6 @@ export default async function HomePage() {
             'Locally owned moving company serving Walton, Okaloosa, and Bay Counties.',
           ),
           faqPageSchema(homepageFaqs, siteUrl),
-          ...reviewsWithTextSchema(origin.origin),
         ]}
       />
       <main id="main-content" tabIndex={-1} className="pb-[64px] outline-none md:pb-0">
