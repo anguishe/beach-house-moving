@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Clock, Mail, MapPin, Phone } from 'lucide-react'
+import { Clock, Mail, MapPin, Phone, Star } from 'lucide-react'
 
 import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { BrandLogo } from '@/components/layout/BrandLogo'
@@ -54,11 +54,22 @@ export function Footer() {
                 <FacebookIcon className="size-[15px]" />
                 {SOCIAL_LINKS.facebookHandle}
               </a>
+              <a
+                href={SOCIAL_LINKS.yelp}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${BUSINESS.name} on Yelp`}
+                className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+              >
+                <Star className="size-[15px] shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
+                Yelp
+              </a>
               {SOCIAL_LINKS.google ? (
                 <a
                   href={SOCIAL_LINKS.google}
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label={`${BUSINESS.name} on Google`}
                   className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
                 >
                   <MapPin className="size-[15px] shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />

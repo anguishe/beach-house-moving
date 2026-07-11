@@ -76,7 +76,7 @@ export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/beachhousemovingfl/',
   facebookHandle: '@beachhousemovingfl',
   google: 'https://g.page/r/CXl8yvSwTlBcEAI',
-  yelp: '', // Add Yelp URL when verification is complete
+  yelp: 'https://www.yelp.com/biz/beach-house-moving-santa-rosa-beach',
   bbb: 'https://www.bbb.org/us/fl/santa-rosa-beach/profile/moving-companies/beach-house-moving-llc-0683-90102540',
   leaveGoogleReviewLabel: '⭐ Leave us a Google review',
 } as const
