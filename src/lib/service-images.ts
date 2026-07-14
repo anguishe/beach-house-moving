@@ -20,6 +20,6 @@ export const SERVICE_SECONDARY_IMAGE_MAP: Partial<Record<string, ServiceImage>> 
   'local-moving': IMAGES.brandedCrewPlacement,
   'long-distance-moving': IMAGES.greatRoomRug,
   'packing-unpacking': IMAGES.rugCarryStairs,
-  delivery: IMAGES.crewHomeGymAssembly,
+  delivery: IMAGES.slotMachineSpecialtyMove,
   storage: IMAGES.applianceStagingWarehouse,
 }

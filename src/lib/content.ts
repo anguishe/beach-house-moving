@@ -638,6 +638,22 @@ export const IMAGES = {
     src: '/images/beach-house-moving-new-construction-chair-delivery.jpg',
     alt: 'Beach House Moving crew delivering a protected chair to a new-construction home',
   },
+  slotMachineSpecialtyMove: {
+    src: '/images/beach-house-moving-antique-slot-machine-specialty-move-santa-rosa-beach.jpg',
+    alt: 'Beach House Moving owner transporting an antique slot machine on a specialty single-item move in Santa Rosa Beach, FL',
+  },
+  graytonBeachGulfFrontTruck: {
+    src: '/images/beach-house-moving-grayton-beach-gulf-front-new-construction-box-truck.jpg',
+    alt: 'Beach House Moving box truck at a gulf-front new-construction home in Grayton Beach, FL',
+  },
+  graytonStaircaseMirrorCarry: {
+    src: '/images/beach-house-moving-grayton-beach-luxury-staircase-mirror-carry.jpg',
+    alt: 'Beach House Moving owners carrying a large framed mirror up a staircase during a luxury new-construction move-in on 30A',
+  },
+  crewSpecialtyCarry: {
+    src: '/images/beach-house-moving-crew-specialty-item-carry-30a.jpg',
+    alt: 'Beach House Moving crew member in branded shirt carrying a specialty item up a driveway on 30A',
+  },
 } as const
 
 /** Homepage gallery marquee — owner-operator shots lead; carousel may repeat photos used elsewhere. */
@@ -670,6 +686,9 @@ export const GALLERY_PHOTOS = [
   IMAGES.curvedStaircaseMattress, // curved staircase mattress carry
   IMAGES.crewBoxCarryNeighborhood,// neighborhood box carry
   IMAGES.newConstructionChair,    // new-construction chair delivery
+  IMAGES.graytonStaircaseMirrorCarry, // 30A luxury staircase mirror carry
+  IMAGES.crewHomeGymAssembly,     // displaced from delivery secondary
+  IMAGES.crewSpecialtyCarry,      // branded crew specialty item carry on 30A
 ] as const
 
 export const TESTIMONIALS = [
@@ -1281,7 +1300,7 @@ export const NEIGHBORHOODS = [
     slug: 'grayton-beach',
     name: 'Grayton Beach',
     county: 'Walton County',
-    image: '/images/liftgate-blankets-coastal-home.jpg',
+    image: '/images/beach-house-moving-grayton-beach-gulf-front-new-construction-box-truck.jpg',
     intro: 'Grayton Beach is the oldest townsite on 30A, known for its sandy unpaved streets, cottage character, and proximity to Grayton Beach State Park. Those soft-sand roads and older lots make access and equipment choices matter — something we plan for before the truck arrives.',
     landmarks: ['Grayton Beach State Park', 'Western Lake', 'Red Bar', 'Hotz Avenue'],
     metaTitle: 'Grayton Beach Movers | Beach House Moving — 30A, FL',
