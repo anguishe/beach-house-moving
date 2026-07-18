@@ -1,36 +1,25 @@
 /*
- * Google Reviews API — SETUP STATUS (DORMANT, but READY)
+ * Google Reviews — LIVE (Places API New) with static fallback.
  *
- * Current state: the live Google Places fetch is intentionally dormant. The
- * 10 first-party reviews in `TESTIMONIALS` (src/lib/content.ts) are the
- * CANONICAL source of truth for count + rating across the site today.
+ * `getReviewsData()` fetches live reviews from the Places API (New) Place
+ * Details endpoint and degrades to the first-party `TESTIMONIALS`
+ * (src/lib/content.ts) on ANY failure — missing/invalid key or Place ID,
+ * network error, non-2xx (including a 429 daily-quota exhaustion), or zero
+ * live reviews. Count + rating are always derived from whichever array we
+ * return, so the number on the page can never drift from the reviews shown.
  *
- * Why dormant: the GBP listing is only ~weeks old and a stable Place ID has
- * not reliably populated. The value currently in NEXT_PUBLIC_GOOGLE_PLACE_ID
- * is a CID (e.g. the "0x..." hex / the base64 "CXl8yvSwTlBcEAI" from the
- * g.page review link) — a CID is NOT a Place ID. The Places Details endpoint
- * rejects it with `INVALID_REQUEST — Invalid 'placeid' parameter`. We guard
- * for that BEFORE calling the API (see `isValidPlaceId`) so the build stays
- * clean and we fall back to the static reviews honestly.
+ * Env (see .env.local / .env.example):
+ *   NEXT_PUBLIC_GOOGLE_PLACE_ID — the `ChIJ…` Place ID (NOT a CID / "0x…" hex).
+ *     `isValidPlaceId` rejects a CID before we ever call the API.
+ *   GOOGLE_PLACES_API_KEY — key with "Places API (New)" enabled + billing.
  *
- * ──────────────────────────────────────────────────────────────────────────
- * TODO (enable live reviews): once the listing matures, obtain the REAL Place
- * ID — it is the `ChIJ…` token, never the CID. Three ways to get it:
+ * Note: the LEGACY Details endpoint (maps.googleapis.com/.../place/details)
+ * returns NOT_FOUND for this listing; the New endpoint resolves it. Do not
+ * revert to legacy without re-verifying the Place ID against it.
  *
- *   (a) Google Place ID Finder — search the business and copy the `ChIJ…` id:
- *       https://developers.google.com/maps/documentation/javascript/examples/places-placeid-finder
- *   (b) Places Text Search (New) — POST to places.googleapis.com/v1/places:searchText
- *       with textQuery "Beach House Moving Santa Rosa Beach FL" and read the
- *       returned resource `id` (the Place ID).
- *   (c) GBP API — accounts.locations.list on the owned, verified listing and
- *       read the location's Place ID.
- *
- * Then set NEXT_PUBLIC_GOOGLE_PLACE_ID=ChIJ… in Vercel env and redeploy.
- * `isValidPlaceId` will accept it, the live fetch will resolve, and
- * `getReviewsData()` will return live reviews automatically.
- * ──────────────────────────────────────────────────────────────────────────
- *
- * The GOOGLE_PLACES_API_KEY is already set. Only a valid Place ID is missing.
+ * Quota: responses are ISR-cached 24h (revalidate: 86400), so upstream is hit
+ * ~once/day per build node — the free tier is never a concern, and a 429 still
+ * falls back to static cleanly.
  */
 
 import { TESTIMONIALS } from './content'
@@ -52,6 +41,35 @@ type PlaceDetailsResponse = {
   }
   status?: string
   error_message?: string
+}
+
+// Places API (New) response subset — matches X-Goog-FieldMask below.
+type PlacesNewReview = {
+  rating?: number
+  text?: { text?: string }
+  originalText?: { text?: string }
+  relativePublishTimeDescription?: string
+  publishTime?: string
+  authorAttribution?: { displayName?: string; photoUri?: string }
+}
+
+type PlacesNewResponse = {
+  rating?: number
+  userRatingCount?: number
+  reviews?: PlacesNewReview[]
+}
+
+/** Map one Places API (New) review onto the GoogleReview shape the UI renders. */
+function normalizeReview(r: PlacesNewReview): GoogleReview {
+  const publishMs = r.publishTime ? Date.parse(r.publishTime) : NaN
+  return {
+    author_name: r.authorAttribution?.displayName ?? 'Google user',
+    rating: r.rating ?? 0,
+    text: r.text?.text ?? r.originalText?.text ?? '',
+    time: Number.isNaN(publishMs) ? 0 : Math.floor(publishMs / 1000),
+    profile_photo_url: r.authorAttribution?.photoUri,
+    relative_time_description: r.relativePublishTimeDescription ?? '',
+  }
 }
 
 export type ReviewsData = {
@@ -110,32 +128,38 @@ async function fetchPlaceDetails(): Promise<PlaceDetailsResponse | null> {
     return null
   }
 
-  const url = new URL('https://maps.googleapis.com/maps/api/place/details/json')
-  url.searchParams.set('place_id', placeId)
-  url.searchParams.set('fields', 'reviews,rating,user_ratings_total')
-  url.searchParams.set('key', apiKey)
-  url.searchParams.set('reviews_sort', 'newest')
+  // Places API (New) Place Details. Field mask limits us to the 3 fields we
+  // render, which keeps this on the cheapest SKU.
+  const url = `https://places.googleapis.com/v1/places/${encodeURIComponent(placeId)}`
 
   try {
-    const response = await fetch(url.toString(), {
+    const response = await fetch(url, {
+      headers: {
+        'X-Goog-Api-Key': apiKey,
+        'X-Goog-FieldMask': 'rating,userRatingCount,reviews',
+      },
       next: { revalidate: 86400 },
     })
 
+    // Any non-2xx (incl. 429 RESOURCE_EXHAUSTED = daily quota) → caller falls
+    // back to the static TESTIMONIALS.
     if (!response.ok) {
-      console.error(`[google-reviews] Places API HTTP error: ${response.status}`)
+      console.error(`[google-reviews] Places API (New) HTTP ${response.status}`)
       return null
     }
 
-    const data = (await response.json()) as PlaceDetailsResponse
+    const place = (await response.json()) as PlacesNewResponse
 
-    if (data.status !== 'OK') {
-      console.error(
-        `[google-reviews] Places API error: ${data.status ?? 'unknown'}${data.error_message ? ` — ${data.error_message}` : ''}`,
-      )
-      return null
+    // Normalize into the legacy-style shape the rest of this module speaks, so
+    // getReviewsData() and all consumers stay untouched.
+    return {
+      status: 'OK',
+      result: {
+        rating: place.rating,
+        user_ratings_total: place.userRatingCount,
+        reviews: (place.reviews ?? []).map(normalizeReview),
+      },
     }
-
-    return data
   } catch (error) {
     console.error('[google-reviews] Failed to fetch place details:', error)
     return null
