@@ -28,7 +28,7 @@ export async function buildMetadata({
   const canonicalPath = normalizePath(path)
   const url =
     canonicalPath === '/'
-      ? `${metadataBase.origin}/`
+      ? metadataBase.origin
       : new URL(canonicalPath, metadataBase).toString()
   return {
     metadataBase,

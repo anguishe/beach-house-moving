@@ -13,7 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // changes. Do not invent dates — leave as-is if the page is unchanged.
   const staticRoutes: MetadataRoute.Sitemap = [
     {
-      url: `${base}/`,
+      url: base,
       lastModified: '2026-06-04',
       changeFrequency: 'weekly',
       priority: 1,

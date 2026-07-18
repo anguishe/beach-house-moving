@@ -10,7 +10,7 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/thank-you', '/_next/'],
+        disallow: ['/api/', '/_next/'],
       },
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'OAI-SearchBot', allow: '/' },
@@ -23,6 +23,5 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       { userAgent: 'Applebot', allow: '/' },
     ],
     sitemap: `${origin.origin}/sitemap.xml`,
-    host: origin.origin,
   }
 }
