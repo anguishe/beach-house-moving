@@ -275,7 +275,7 @@ export const SERVICES = [
     linkLabel: 'Junk Removal Services',
     shortDescription: 'Fast, responsible junk removal across the Emerald Coast — no haul too big or too small.',
     icon: 'Trash2',
-    image: '/images/truck-loaded.jpg',
+    image: '/images/team-washer-dryer.jpg',
     featured: false,
     metaTitle: 'Junk Removal Services | Beach House Moving — FL Panhandle',
     metaDescription:
