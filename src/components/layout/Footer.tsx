@@ -8,9 +8,12 @@ import {
   IMAGES,
   LICENSE_DISPLAY,
   NAV_LINKS,
+  NEIGHBORHOODS,
   REVIEWS_PAGE_META,
+  SERVICE_AREAS,
   SOCIAL_LINKS,
 } from '@/lib/content'
+import { POSTS } from '@/content/posts'
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -23,10 +26,30 @@ function FacebookIcon({ className }: { className?: string }) {
 export function Footer() {
   const year = new Date().getFullYear()
 
+  // Deep links — hrefs resolved from data, no hardcoded slugs.
+  const areaLinks = [
+    ...SERVICE_AREAS.map((area) => ({ label: area.county, href: `/service-areas/${area.slug}` })),
+    ...['santa-rosa-beach', 'miramar-beach', 'destin', 'fort-walton-beach', 'panama-city-beach']
+      .map((slug) => {
+        const nb = NEIGHBORHOODS.find((n) => n.slug === slug)
+        const area = nb && SERVICE_AREAS.find((a) => a.county === nb.county)
+        return nb && area ? { label: nb.name, href: `/service-areas/${area.slug}/${nb.slug}` } : null
+      })
+      .filter((l): l is NonNullable<typeof l> => l !== null),
+  ]
+  const guideLinks = [
+    'moving-checklist-30a-destin-florida',
+    'pcs-move-eglin-afb-hurlburt-field-guide',
+    'moving-to-30a-neighborhood-guide',
+  ]
+    .map((slug) => POSTS.find((p) => p.slug === slug))
+    .filter((p): p is (typeof POSTS)[number] => p !== undefined)
+    .map((p) => ({ label: p.title, href: `/resources/${p.slug}` }))
+
   return (
     <footer id="contact-footer" className="bg-brand-navy pt-16 pb-10 text-on-dark">
       <div className="mx-auto max-w-7xl px-8">
-        <div className="footer-grid mb-12 grid gap-12 md:grid-cols-3">
+        <div className="footer-grid mb-12 grid gap-12 md:grid-cols-3 lg:grid-cols-5">
           <div className="flex flex-col gap-4">
             <Link
               href="/"
@@ -101,6 +124,52 @@ export function Footer() {
                   {link.label}
                 </Link>
               ))}
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-5 font-body text-xs font-semibold uppercase tracking-[0.18em] text-white">
+              Areas We Serve
+            </p>
+            <div className="flex flex-col gap-3">
+              {areaLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="font-body text-sm text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm w-fit"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/service-areas"
+                className="font-body text-sm font-semibold text-brand-teal transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm w-fit"
+              >
+                All service areas
+              </Link>
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-5 font-body text-xs font-semibold uppercase tracking-[0.18em] text-white">
+              Guides
+            </p>
+            <div className="flex flex-col gap-3">
+              {guideLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="font-body text-sm text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm w-fit"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href="/resources"
+                className="font-body text-sm font-semibold text-brand-teal transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm w-fit"
+              >
+                All guides
+              </Link>
             </div>
           </div>
 

@@ -107,7 +107,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
   // county hub, instead of dead-ending with a single inbound link.
   const nearbyAreas = NEIGHBORHOODS.filter(
     (n) => n.county === nb.county && n.slug !== nb.slug,
-  ).slice(0, 4)
+  )
 
   const pageUrl = `${base}/service-areas/${area.slug}/${nb.slug}`
 

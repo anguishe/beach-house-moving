@@ -13,6 +13,8 @@ import { TrustStrip } from '@/components/TrustStrip'
 import { JsonLd } from '@/components/seo/JsonLd'
 import {
   FAQS,
+  NEIGHBORHOODS,
+  SERVICE_AREAS,
   SERVICE_FAQ_INDICES,
   SERVICE_INCLUDES,
   SERVICES,
@@ -63,6 +65,29 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const relatedServices = (SERVICE_RELATED[service.slug] ?? [])
     .map((slug) => SERVICES.find((s) => s.slug === slug))
     .filter((s): s is (typeof SERVICES)[number] => s !== undefined)
+
+  // Service → geography deep links. County hubs + a curated set of towns,
+  // hrefs resolved from data (never hardcoded) so slugs stay in one place.
+  const countyHubs = SERVICE_AREAS.map((area) => ({
+    label: area.county,
+    href: `/service-areas/${area.slug}`,
+  }))
+  const geoTownSlugs = [
+    'santa-rosa-beach',
+    'miramar-beach',
+    'destin',
+    'fort-walton-beach',
+    'panama-city-beach',
+    'niceville',
+  ]
+  const geoTowns = geoTownSlugs
+    .map((townSlug) => {
+      const nb = NEIGHBORHOODS.find((n) => n.slug === townSlug)
+      const area = nb && SERVICE_AREAS.find((a) => a.county === nb.county)
+      return nb && area ? { label: nb.name, href: `/service-areas/${area.slug}/${nb.slug}` } : null
+    })
+    .filter((t): t is NonNullable<typeof t> => t !== null)
+  const geoLinks = [...countyHubs, ...geoTowns]
 
   const canonicalUrl = `${origin.origin}/services/${service.slug}`
   const breadcrumbs = breadcrumbSchema(
@@ -191,6 +216,28 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           </div>
         </section>
       ) : null}
+
+      <section className="px-6 pb-12 md:pb-16">
+        <div className="mx-auto max-w-4xl">
+          <p className="font-body text-sm font-semibold text-brand-navy">
+            Where we do this work:
+          </p>
+          <p className="mt-2 font-body text-base leading-relaxed text-ink-muted">
+            Beach House Moving handles {service.title} across Walton, Okaloosa, and Bay Counties.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+            {geoLinks.map((geo) => (
+              <Link
+                key={geo.href}
+                href={geo.href}
+                className="font-body text-sm font-medium text-brand-teal underline-offset-4 hover:text-brand-teal-dark hover:underline"
+              >
+                {geo.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <ServiceCTA serviceTitle={service.title} />
       <FAQSection faqs={serviceFaqs} />
