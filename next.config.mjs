@@ -14,6 +14,9 @@ const nextConfig = {
     formats: ["image/webp", "image/avif"],
     minimumCacheTTL: 2592000,
   },
+  async redirects() {
+    return [{ source: '/go/gbp', destination: '/', permanent: true }];
+  },
   async headers() {
     return [
       {
