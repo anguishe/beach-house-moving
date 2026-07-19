@@ -5,6 +5,10 @@ import { useReducedMotion } from 'framer-motion'
 
 import { GALLERY_PHOTOS } from '@/lib/content'
 
+// Cap the rendered strip at the first 12 photos: fewer full-ladder _next/image
+// URLs in the RSC payload. Slice at the component boundary, not in the data.
+const PHOTOS = GALLERY_PHOTOS.slice(0, 12)
+
 export function GalleryStrip() {
   const prefersReducedMotion = useReducedMotion()
 
@@ -20,18 +24,18 @@ export function GalleryStrip() {
             className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scroll-smooth [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden"
             aria-label="Gallery of real moves"
           >
-            {GALLERY_PHOTOS.map((photo, index) => (
+            {PHOTOS.map((photo, index) => (
               <div
                 key={`gallery-${index}`}
                 className="group relative mx-3 h-52 w-72 shrink-0 snap-start overflow-hidden rounded-brand md:h-64 md:w-96"
               >
                 <Image
                   src={photo.src}
-                  fill
+                  width={384}
+                  height={256}
                   loading="lazy"
-                  sizes="(max-width: 768px) 288px, 384px"
                   alt={photo.alt}
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-brand-navy/20 transition-colors duration-300 group-hover:bg-transparent" />
               </div>
@@ -41,36 +45,36 @@ export function GalleryStrip() {
           <div className="overflow-hidden" aria-label="Gallery of real moves">
             <div className="flex w-max marquee-track">
               <div className="flex">
-                {GALLERY_PHOTOS.map((photo, index) => (
+                {PHOTOS.map((photo, index) => (
                   <div
                     key={`gallery-${index}`}
                     className="group relative mx-3 h-52 w-72 shrink-0 overflow-hidden rounded-brand md:h-64 md:w-96"
                   >
                     <Image
                       src={photo.src}
-                      fill
+                      width={384}
+                      height={256}
                       loading="lazy"
-                      sizes="(max-width: 768px) 288px, 384px"
                       alt={photo.alt}
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-brand-navy/20 transition-colors duration-300 group-hover:bg-transparent" />
                   </div>
                 ))}
               </div>
               <div className="flex" aria-hidden="true">
-                {GALLERY_PHOTOS.map((photo, index) => (
+                {PHOTOS.map((photo, index) => (
                   <div
                     key={`gallery-dup-${index}`}
                     className="group relative mx-3 h-52 w-72 shrink-0 overflow-hidden rounded-brand md:h-64 md:w-96"
                   >
                     <Image
                       src={photo.src}
-                      fill
+                      width={384}
+                      height={256}
                       loading="lazy"
-                      sizes="(max-width: 768px) 288px, 384px"
                       alt=""
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-brand-navy/20 transition-colors duration-300 group-hover:bg-transparent" />
                   </div>
