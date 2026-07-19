@@ -1,4 +1,5 @@
 # Maps Intelligence Analysis — beachhousemoving.xyz
+> Historical snapshot. Review-count figures below are superseded — canonical count is TESTIMONIALS.length (11 as of 2026-07-19).
 
 **Date:** 2026-06-04 | **Scope:** Full codebase + live HTTP checks | **Analyst:** Cursor (seo-maps skill, Tier 0)
 

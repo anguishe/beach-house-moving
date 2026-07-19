@@ -1,6 +1,14 @@
 import type { MetadataRoute } from 'next'
 
-import { NEIGHBORHOODS, SERVICE_AREAS, SERVICES, type Neighborhood } from '@/lib/content'
+import {
+  CONTENT_REVISION,
+  NEIGHBORHOODS,
+  SERVICE_AREAS,
+  SERVICES,
+  type Neighborhood,
+  type Service,
+  type ServiceArea,
+} from '@/lib/content'
 import { POSTS } from '@/content/posts'
 import { getSiteOrigin } from '@/lib/site-url'
 
@@ -14,19 +22,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes: MetadataRoute.Sitemap = [
     {
       url: base,
-      lastModified: '2026-06-04',
+      lastModified: CONTENT_REVISION,
       changeFrequency: 'weekly',
       priority: 1,
     },
     {
       url: `${base}/services`,
-      lastModified: '2026-06-09',
+      lastModified: CONTENT_REVISION,
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
       url: `${base}/service-areas`,
-      lastModified: '2026-06-09',
+      lastModified: CONTENT_REVISION,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
@@ -74,20 +82,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
   ]
 
-  // MANUAL date — SERVICES records carry no date field. Bump when service
-  // page content changes site-wide.
-  const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service) => ({
+  // Per-record updatedAt when set; else the template-wide CONTENT_REVISION.
+  const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((service: Service) => ({
     url: `${base}/services/${service.slug}`,
-    lastModified: '2026-06-09',
+    lastModified: service.updatedAt ?? CONTENT_REVISION,
     changeFrequency: 'monthly',
     priority: service.slug === 'junk-removal' ? 0.7 : 0.9,
   }))
 
-  // MANUAL date — SERVICE_AREAS records carry no date field. Bump when area
-  // page content changes site-wide.
-  const areaRoutes: MetadataRoute.Sitemap = SERVICE_AREAS.map((area) => ({
+  // Per-record updatedAt when set; else the template-wide CONTENT_REVISION.
+  const areaRoutes: MetadataRoute.Sitemap = SERVICE_AREAS.map((area: ServiceArea) => ({
     url: `${base}/service-areas/${area.slug}`,
-    lastModified: '2026-06-09',
+    lastModified: area.updatedAt ?? CONTENT_REVISION,
     changeFrequency: 'monthly',
     priority: 0.9,
   }))
@@ -99,9 +105,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     return {
       url: `${base}/service-areas/${area?.slug ?? 'walton-county'}/${nb.slug}`,
       // Prefer the per-neighborhood updatedAt when set; otherwise fall back to
-      // the curated date below. Bump this fallback only on a site-wide
-      // neighborhood content refresh — set Neighborhood.updatedAt for one-offs.
-      lastModified: nb.updatedAt ?? '2026-06-14',
+      // the template-wide CONTENT_REVISION — set Neighborhood.updatedAt for one-offs.
+      lastModified: nb.updatedAt ?? CONTENT_REVISION,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
     }

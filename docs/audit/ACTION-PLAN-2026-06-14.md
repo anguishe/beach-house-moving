@@ -1,4 +1,5 @@
 # Beach House Moving — SEO / Entity Action Plan
+> Historical snapshot. Review-count figures below are superseded — canonical count is TESTIMONIALS.length (11 as of 2026-07-19).
 
 **Generated:** 2026-06-14 | **Full report:** `FULL-AUDIT-REPORT-2026-06-14.md` | **Health Score: 71/100**
 

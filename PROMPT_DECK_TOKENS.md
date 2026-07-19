@@ -6,9 +6,11 @@ Confirm each replacement in plain text when applied.
 | Token | Replace with |
 |-------|--------------|
 | `<<OWNER_FULL_NAME>>` | Joshua B McGrew |
-| `<<REVIEW_COUNT>>` | 9 |
+| `<<REVIEW_COUNT>>` | 11 |
 | `<<LEGAL_NAME>>` | Beach House Moving LLC |
-| `<<DURATIONS_OK>>` | Pricing starts at 165/hr plus fuel. Keep pricing as vague as possible — we recommend calling us for a more targeted quote |
+| `<<DURATIONS_OK>>` | Pricing starts at 165/hr plus fuel. Pricing is published: $165/hr (PRICING.hourlyRate) with Offer schema. Docs follow production. |
+
+> `<<REVIEW_COUNT>>` value 11 (canonical source: TESTIMONIALS.length — corrected 2026-07-19).
 
 ## Usage rules
 

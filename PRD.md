@@ -50,7 +50,7 @@ Beach House Moving is a new, fully licensed moving company serving the Florida P
 - As a potential customer, I want to see that Beach House Moving is licensed, insured, and professional so I feel safe trusting them with my belongings.
 - As a mobile user, I want to tap a phone number and call immediately so I don't have to type a number.
 - As someone in Destin or Fort Walton, I want to confirm they serve my area before I fill out the quote form.
-- As a skeptical consumer, I want to read real reviews before committing to a quote request (testimonials hidden until verified reviews exist).
+- As a skeptical consumer, I want to read real reviews before committing to a quote request (11 verified first-party testimonials render on-site via `FLAGS.SHOW_TESTIMONIALS = true`).
 - As a busy person, I want to fill out a quick quote form and land on a thank-you page so I know someone will follow up.
 
 ### Business Owner
@@ -68,7 +68,7 @@ Beach House Moving is a new, fully licensed moving company serving the Florida P
 - Services overview (6 services with icons)
 - Service area section (Walton, Okaloosa, Bay Counties + long-distance)
 - Gallery strip
-- Testimonials section — **only when `FLAGS.SHOW_TESTIMONIALS` is `true`** (currently hidden)
+- Testimonials section — **only when `FLAGS.SHOW_TESTIMONIALS` is `true`** (currently live — 11 first-party testimonials)
 - Inline quote form
 - FAQ section
 - Final CTA banner

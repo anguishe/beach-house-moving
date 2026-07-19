@@ -11,7 +11,7 @@
 
 ## Executive Summary
 
-Beach House Moving has a technically sound foundation. The build produces zero TypeScript errors, all 51 indexable routes generate correctly, SAB compliance is airtight (no street address anywhere in source or DOM), and the structured-data library is unusually complete for a site this new. The score gap is driven by three clusters: (1) a live-environment issue where the Google Places Place ID is invalid and `llms.txt` exists in the repo but 404s in production, both requiring only a Vercel env/deploy fix; (2) schema type bugs where individual Review items use `String(t.rating)` instead of the number type and the WebSite entity carries a non-functional `SearchAction`; and (3) content/citation gaps — 8 reviews, no off-platform citations, and no AI-discoverable brand mentions outside the site itself.
+Beach House Moving has a technically sound foundation. The build produces zero TypeScript errors, all 51 indexable routes generate correctly, SAB compliance is airtight (no street address anywhere in source or DOM), and the structured-data library is unusually complete for a site this new. The score gap is driven by three clusters: (1) a live-environment issue where the Google Places Place ID is invalid and `llms.txt` exists in the repo but 404s in production, both requiring only a Vercel env/deploy fix; (2) schema type bugs where individual Review items use `String(t.rating)` instead of the number type and the WebSite entity carries a non-functional `SearchAction`; and (3) content/citation gaps — 11 reviews, no off-platform citations, and no AI-discoverable brand mentions outside the site itself.
 
 ### Top 5 Critical Issues
 
@@ -172,7 +172,7 @@ Grep confirms zero hardcoded phone numbers (`850.842`, `850-842`, `8508421962` p
 
 ### PASS — No unverified claims
 
-No fabricated review counts, years in business, or move counts found in JSX or schema. The `REVIEWS_PAGE_META.aggregateRating.reviewCount: 8` is a numeric literal in content.ts that must stay synchronized with actual Google review count (see Structured Data section).
+No fabricated review counts, years in business, or move counts found in JSX or schema. `REVIEWS_PAGE_META.aggregateRating.reviewCount` is `11` (count single-sourced to `TESTIMONIALS.length` as of 2026-07-19), so it cannot drift from the reviews actually rendered (see Structured Data section).
 
 ### MEDIUM — `/about` thin-content risk
 
@@ -193,7 +193,7 @@ The about page renders personal story content, fleet info, license info, and FAQ
 - `geo`: lat/lng to 5 decimal places
 - `openingHoursSpecification`: 24/7 coverage (Mo–Su, 00:00–23:59)
 - `identifier`: `FL Mover Registration #IM4125`
-- `aggregateRating`: sourced from `REVIEWS_PAGE_META.aggregateRating` where `ratingValue: 5` and `reviewCount: 8` are number literals — **correctly typed**
+- `aggregateRating`: sourced from `REVIEWS_PAGE_META.aggregateRating` where `ratingValue: 5` is a number literal and `reviewCount` is `11` (single-sourced to `TESTIMONIALS.length`) — **correctly typed**
 
 ### PASS — `BreadcrumbList` on all interior pages
 
@@ -257,9 +257,9 @@ Per `SCHEMA-REPORT.md` (the existing internal audit): `/about`, `/contact`, and 
 
 The sitewide `movingCompanySchema()` does not include an `aggregateRating` by default (it accepts an optional override). The aggregate rating is only emitted on the `/reviews` page where real reviews are shown. This is the correct, safe pattern.
 
-**MEDIUM — `aggregateRating.reviewCount: 8` must stay synchronized**
+**PASS — `aggregateRating.reviewCount` single-sourced to `TESTIMONIALS.length` (11)**
 
-`src/lib/content.ts:524` hardcodes `reviewCount: 8`. As new Google reviews accumulate, this value must be manually updated. If it drifts above the actual count, this constitutes fabricated schema data (CRITICAL). Current value of 8 should be confirmed against the live Google Business Profile.
+`src/lib/content.ts` sets `reviewCount: TESTIMONIALS.length` (currently `11` — count single-sourced to `TESTIMONIALS.length` as of 2026-07-19), so the schema count cannot drift above the reviews actually rendered. It stays honest automatically as testimonials are added or removed.
 
 **MEDIUM — Neighborhood `areaServed` uses plain strings**
 
@@ -500,7 +500,7 @@ The `[google-reviews] Places API error` during build indicates `NEXT_PUBLIC_GOOG
 | `width: 'fit-content'` build warning | `src/app/opengraph-image.tsx` | 90 | Medium |
 | `FAQPage` schema (restricted) | `src/lib/structured-data.ts` faqSchema() | — | Medium |
 | Possible duplicate FAQPage | `src/components/sections/FAQSection.tsx` | — | Concern |
-| `reviewCount: 8` manual sync | `src/lib/content.ts` | 524 | Medium |
+| `reviewCount` single-sourced to `TESTIMONIALS.length` (11) | `src/lib/content.ts` | — | Info |
 | Neighborhood `areaServed` plain strings | `src/lib/structured-data.ts` | neighborhood fns | Medium |
 | `dateModified` missing | `src/lib/structured-data.ts` | — | Medium |
 | `www` redirect unverified | Vercel dashboard / DNS | — | Concern |
@@ -510,6 +510,6 @@ The `[google-reviews] Places API error` during build indicates `NEXT_PUBLIC_GOOG
 | Ahrefs key hardcoded | `src/app/layout.tsx` | ~line 20 | Low |
 | `ken-burns` `prefers-reduced-motion` | `src/app/globals.css` | ken-burns rule | Low |
 | Off-site citations absent | GBP / Bing Places / Apple BC / Yelp / BBB | — | Info |
-| Review velocity (8 reviews) | GBP listing | — | Info |
+| Review velocity (11 reviews) | GBP listing | — | Info |
 | Definition-first para on homepage | `src/lib/content.ts` hero copy | — | Medium |
 | SAB `SOCIAL_LINKS.google` URL | `src/lib/content.ts` | 71 | Info (g.page/r/ is acceptable) |

@@ -134,8 +134,8 @@ Pages to update: `src/app/page.tsx`, `src/app/about/page.tsx`, `src/app/contact/
 ### M2 — Keep `reviewCount` in `content.ts` in sync with actual Google reviews
 
 **File:** `src/lib/content.ts:524`
-**Impact:** `reviewCount: 8` is a manually maintained number. If it drifts above the actual count, the `aggregateRating` schema on `/reviews` constitutes fabricated data — a Critical violation. Establish a team habit: every time a new Google review is acknowledged, update `reviewCount` in `content.ts` and redeploy.
-**Fix (short-term):** Verify the current value of 8 against the live GBP listing. Correct if needed.
+**Impact:** `reviewCount: 11` (canonical source: TESTIMONIALS.length — corrected 2026-07-19) is a manually maintained number. If it drifts above the actual count, the `aggregateRating` schema on `/reviews` constitutes fabricated data — a Critical violation. Establish a team habit: every time a new Google review is acknowledged, update `reviewCount` in `content.ts` and redeploy.
+**Fix (short-term):** Verify the current value of 11 against the live GBP listing. Correct if needed.
 **Fix (long-term):** Dynamically pull `userRatingsTotal` from the Google Places API response in `google-reviews.ts` and pass it into the schema via ISR rather than hardcoding.
 
 ---

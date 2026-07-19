@@ -16,7 +16,7 @@
 | Local Link & Authority | 10% | 3/10 | 30% |
 | **TOTAL** | 100% | **62/100** | — |
 
-> **Context:** Beach House Moving (est. 2025) has a strong technical and on-page local foundation for a new SAB: county + neighborhood programmatic pages, correct SAB NAP handling, GBP-linked map embed, and rich `MovingCompany` schema. The main gaps are off-site (review velocity, Tier-1 citations, local authority links) and two schema/content wiring issues (`FAQPage` never emitted; sitewide `aggregateRating`).
+> **Context:** Beach House Moving (est. 2025) has a strong technical and on-page local foundation for a new SAB: county + neighborhood programmatic pages, correct SAB NAP handling, GBP-linked map embed, and rich `MovingCompany` schema. The main gaps are off-site (review velocity, Tier-1 citations, local authority links) and one schema/content wiring note on sitewide `aggregateRating` (`FAQPage` **is** emitted — home, service, county, neighborhood, pricing, and junk-removal pages).
 
 ---
 
@@ -65,7 +65,7 @@
 ### Gaps
 
 - **No live GBP review widget** — reviews are sourced from `TESTIMONIALS` in `content.ts` (static), not a Google embed.
-- **GBP posts / Q&A** — not detectable on-site (Q&A deprecated on GBP Dec 2025; migrate to on-site FAQ — partially done in HTML, not in JSON-LD).
+- **GBP posts / Q&A** — not detectable on-site (Q&A deprecated on GBP Dec 2025; migrated to on-site FAQ — rendered in HTML and emitted as `FAQPage` JSON-LD).
 - **GBP dashboard fields** (secondary categories, services list, appointment URL, photo count) — require GBP login or DataForSEO Tier 1.
 
 ### Recommendation (GBP dashboard — off-site)

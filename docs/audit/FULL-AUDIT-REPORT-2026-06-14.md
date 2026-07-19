@@ -1,4 +1,5 @@
 # Beach House Moving — Full Entity / SEO Audit Report
+> Historical snapshot. Review-count figures below are superseded — canonical count is TESTIMONIALS.length (11 as of 2026-07-19).
 
 **Date:** 2026-06-14
 **Auditor:** Claude Code (claude-opus-4-8) — DPOS senior audit team, read-only pass

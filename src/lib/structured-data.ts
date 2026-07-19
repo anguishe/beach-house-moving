@@ -10,8 +10,6 @@ import {
 } from '@/lib/content'
 import { siteUrl } from '@/lib/site-url'
 
-export const BUILD_DATE = new Date().toISOString().split('T')[0]
-
 type Service = (typeof SERVICES)[number]
 
 /** Lean schema-only service area data — avoids importing full SERVICE_AREAS descriptions. */
