@@ -5,6 +5,9 @@
 // Service-Area Business: street address is intentionally NOT public.
 // ============================================================
 
+// Bump when a deploy changes rendered copy/links on templated pages.
+export const CONTENT_REVISION = '2026-07-19'
+
 // Feature flags.
 // SHOW_TESTIMONIALS: true = show static Google reviews from TESTIMONIALS[].
 // When NEXT_PUBLIC_GOOGLE_PLACE_ID is set and Google Places API is live,
@@ -199,6 +202,11 @@ export const SERVICE_AREAS = [
   },
 ] as const
 
+// Widening of a SERVICE_AREAS record exposing optional updatedAt (YYYY-MM-DD)
+// for sitemap <lastmod>. Set on a record when its county page content changes;
+// sitemap falls back to CONTENT_REVISION otherwise.
+export type ServiceArea = (typeof SERVICE_AREAS)[number] & { updatedAt?: string }
+
 export const SERVICES = [
   {
     slug: 'residential-moving',
@@ -255,7 +263,7 @@ export const SERVICES = [
     featured: false,
     metaTitle: 'Moving Storage Solutions | Beach House Moving',
     metaDescription:
-      'Secure short-term and long-term storage between moves or during renovations on the Florida Panhandle. Call (850) 842-1962.',
+      "Between homes in Santa Rosa Beach? We load once, hold your things safely, and deliver when you're ready — one licensed crew, no double move, no storage-unit Saturdays.",
   },
   {
     slug: 'delivery',
@@ -295,6 +303,10 @@ export const SERVICES = [
       'PCS moves for Eglin AFB and Hurlburt Field families. Report-date scheduling, PPM documentation, storage for housing gaps. Licensed #IM4125. (850) 842-1962.',
   },
 ] as const
+
+// Same pattern as ServiceArea — optional updatedAt (YYYY-MM-DD) for accurate
+// sitemap <lastmod> when a service page's content changes.
+export type Service = (typeof SERVICES)[number] & { updatedAt?: string }
 
 export const TRUST_BADGES = [
   {
@@ -789,7 +801,7 @@ export const REVIEWS_PAGE_META = {
   path: '/reviews',
   aggregateRating: {
     ratingValue: 5,
-    reviewCount: 11,
+    reviewCount: TESTIMONIALS.length,
     bestRating: 5,
     worstRating: 1,
   },
@@ -802,7 +814,6 @@ export const REVIEWS_PAGE = {
     title: 'Trusted by Families Across the Emerald Coast',
     subtext:
       'Every review below is a verified Google review from a real customer. We are proud of every single one.',
-    ratingSummary: `${REVIEWS_PAGE_META.aggregateRating.reviewCount} Reviews · ${REVIEWS_PAGE_META.aggregateRating.ratingValue}.0 Average`,
   },
   reviewsSection: {
     heading: 'Google Reviews',
@@ -1214,6 +1225,22 @@ export const NOT_FOUND_CONTENT = {
 export const SERVICES_HUB = {
   eyebrow: 'What We Do',
   headline: 'Full-Service Moving, Start to Finish',
+  bodyIntro:
+    'Eight services, four owners, no subcontractors. Every job on this page is performed by Josh, Zach, Les, or Keith — the same four names on the license. We handle full residential moves across Walton, Okaloosa, and Bay Counties, local and long-distance, plus the work most crews turn down: appliance and specialty delivery, packing and unpacking, storage runs, junk removal, and PCS moves in and out of Eglin and Hurlburt. Pick the service that fits, or call (850) 842-1962 and describe the job. We\'ll tell you straight what it takes and what it costs.',
+  faqs: [
+    {
+      q: 'Do you subcontract any of your services?',
+      a: 'No. Every service listed here is performed by the four owners — Josh, Zach, Les, and Keith. No day labor, no third-party crews, no handing your move to strangers on the day.',
+    },
+    {
+      q: 'Can I combine services in one job?',
+      a: 'Yes, and most customers do. Packing plus the move, a storage run on the same trip, junk removal after the unload — tell us the whole scope when you call and we\'ll quote it as one job with one crew.',
+    },
+    {
+      q: 'How fast can you schedule?',
+      a: 'Usually within the week for local moves, and faster for deliveries. Call (850) 842-1962 with your dates. If we can fit you in sooner, we will.',
+    },
+  ],
   intro:
     'From the first box packed to the last item placed — we handle every detail so you don\u2019t have to. Licensed, insured, and ready when you are.',
 } as const
@@ -1221,6 +1248,8 @@ export const SERVICES_HUB = {
 export const SERVICE_AREAS_HUB = {
   eyebrow: 'Where We Work',
   headline: 'We Come to You',
+  bodyIntro:
+    'Three counties, one crew. Beach House Moving covers the full Emerald Coast corridor — every 30A neighborhood from Dune Allen to Inlet Beach, the Destin and Fort Walton Beach corridor through Okaloosa County, and Bay County from Panama City Beach to Lynn Haven. We drive these roads every day, so we know which gated communities want a COI on file before the truck arrives, where a 26-foot box truck can\'t turn around, and which beach access roads jam by mid-morning in June. Find your town below, or call (850) 842-1962 and tell us where you\'re headed.',
   intro:
     'Beach House Moving is a service-area business — we bring professional crews directly to your home or business across Walton, Okaloosa, and Bay Counties. No storefront. No hassle. Just reliable local movers who know the Panhandle.',
   mapHeadline: 'Our Service Region',
