@@ -14,11 +14,12 @@ import {
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageHero } from '@/components/layout/PageHero'
 import { PageShell } from '@/components/layout/PageShell'
+import { FAQSection } from '@/components/sections/FAQSection'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { BUSINESS, PAGE_META, SERVICES, SERVICES_HUB } from '@/lib/content'
+import { PAGE_META, SERVICES, SERVICES_HUB } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { SERVICE_IMAGE_MAP } from '@/lib/service-images'
-import { breadcrumbSchema, servicesItemListSchema } from '@/lib/structured-data'
+import { breadcrumbSchema, faqPageSchema, servicesItemListSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
 
 const serviceIconMap = {
@@ -46,7 +47,13 @@ export default async function ServicesPage() {
 
   return (
     <PageShell>
-      <JsonLd data={[breadcrumbs, servicesItemListSchema(origin.origin)]} />
+      <JsonLd
+        data={[
+          breadcrumbs,
+          servicesItemListSchema(origin.origin),
+          faqPageSchema(SERVICES_HUB.faqs, `${origin.origin}/services`),
+        ]}
+      />
       <PageHero
         eyebrow={SERVICES_HUB.eyebrow}
         title={SERVICES_HUB.headline}
@@ -57,10 +64,7 @@ export default async function ServicesPage() {
       <div className="bg-brand-sand px-6 py-6">
         <div className="mx-auto max-w-4xl">
           <p className="font-body text-base leading-relaxed text-ink-muted">
-            Beach House Moving offers seven moving services across Walton, Okaloosa, and Bay Counties:
-            residential moving, local moving, long-distance moving, packing and unpacking, storage,
-            delivery, and junk removal. Our crew is owner-operated — the {BUSINESS.teamSize} people who own this company are
-            the ones on every job.
+            {SERVICES_HUB.bodyIntro}
           </p>
         </div>
       </div>
@@ -122,6 +126,8 @@ export default async function ServicesPage() {
           </div>
         </div>
       </section>
+
+      <FAQSection faqs={SERVICES_HUB.faqs} />
     </PageShell>
   )
 }

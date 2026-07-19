@@ -38,6 +38,14 @@ export default async function ServiceAreasPage() {
         description={SERVICE_AREAS_HUB.intro}
       />
 
+      <div className="bg-brand-sand px-6 py-6">
+        <div className="mx-auto max-w-4xl">
+          <p className="font-body text-base leading-relaxed text-ink-muted">
+            {SERVICE_AREAS_HUB.bodyIntro}
+          </p>
+        </div>
+      </div>
+
       <section className="px-6 py-12 md:py-16">
         <div className="mx-auto max-w-6xl">
           <Breadcrumbs
