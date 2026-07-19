@@ -61,10 +61,7 @@ export default async function ReviewsPage() {
       <JsonLd
         data={[
           breadcrumbs,
-          reviewsAggregateRatingSchema({
-            ratingValue,
-            reviewCount,
-          }),
+          reviewsAggregateRatingSchema(),
         ]}
       />
 
