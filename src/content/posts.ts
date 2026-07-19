@@ -26,6 +26,144 @@ export type Post = {
 
 export const POSTS: Post[] = [
   {
+    slug: 'what-movers-cost-santa-rosa-beach-30a',
+    title: 'What Movers Cost in Santa Rosa Beach & 30A (2026)',
+    description:
+      "Real numbers from a licensed Santa Rosa Beach mover: our published $165/hr rate, what typical local moves run, and what actually changes the price on 30A.",
+    datePublished: '2026-07-19',
+    author: 'Beach House Moving',
+    heroImage: '/images/move-srb.jpg',
+    heroAlt:
+      'Beach House Moving crew loading a local move at a Santa Rosa Beach home along Scenic Highway 30A',
+    relatedServices: [
+      { label: 'Local Moving', href: '/services/local-moving' },
+      { label: 'Packing & Unpacking', href: '/services/packing-unpacking' },
+    ],
+    excerpt:
+      "Real numbers from a licensed Santa Rosa Beach mover: our published $165/hr rate, what typical local moves run, and what actually changes the price on 30A.",
+    body: [
+      {
+        body:
+          "Most moving companies make you call three people before anyone says a number. We publish ours: $165 per hour, and it's on our [pricing page](/pricing) for anyone to check. This guide shows what that works out to for typical moves in Santa Rosa Beach and along 30A, and what actually moves the number up or down.",
+      },
+      {
+        heading: 'The short answer',
+        body:
+          "A local move in Santa Rosa Beach billed at our published $165 per hour typically works out to a few hundred dollars for a small place and climbs with size and access. Most one-bedroom moves run two to four hours of truck time. Most two- and three-bedroom homes run four to six. Large homes, stairs, and long carries push past that. The rate doesn't change. The hours do.",
+      },
+      {
+        heading: 'What the hours look like in practice',
+        body:
+          "Every home is different, so treat these as honest ranges, not quotes. A studio or one-bedroom with easy access usually lands between two and four hours — $330 to $660 at our rate. A typical two- or three-bedroom home runs four to six hours, or $660 to $990. Larger homes, beach houses with three flights of stairs, and moves with a long walk from door to truck can run six to eight hours or more. When you [call](/contact), describe the home and the access and we'll tell you straight where your move likely falls.",
+      },
+      {
+        heading: 'What actually changes the price',
+        body:
+          "Access is the biggest one on 30A. A house on a narrow beach access road where a 26-foot truck can't stage close means longer carries, and longer carries mean hours. Stairs matter — a top-floor unit in Miramar Beach with no elevator is a different job than a single-story in Freeport. Packing is the other lever: a fully packed, labeled home loads fast; a home we pack ourselves adds time but saves your back and your dishes. Specialty items — pianos, gun safes, bronze work, oversized furniture — take extra hands and care, and we plan those into the estimate up front. And season is real here: late spring through summer is peak on the Emerald Coast, so booking two to three weeks out beats calling the week of.",
+      },
+      {
+        heading: 'How to keep the number down',
+        body:
+          "Pack everything you can and label the boxes by room. Empty the drawers. Reserve the closest legal parking to your door for the truck. If your community is gated or has an HOA, get the certificate of insurance requirement to us before move day, not during it — we keep COIs on file for most 30A communities already. And be straight about the inventory when you call. Surprises on move day are the most expensive item on any truck.",
+      },
+      {
+        heading: 'Why hourly beats a lowball flat quote',
+        body:
+          "A flat quote from a company that hasn't seen your home is a guess, and guesses get corrected on move day when your furniture is already on the truck. Hourly at a published rate means you can do the math yourself, watch the clock yourself, and never wonder what the number on the invoice will be. Four owners do every job — Josh, Zach, Les, and Keith — so the crew quoting the work is the crew doing it.",
+      },
+      {
+        body:
+          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Is $165 per hour the whole price?',
+        answer:
+          "That's our published hourly rate, and it's the number we build every job around. Scope that adds time — packing, stairs, specialty items, long carries — shows up as hours, not surprise fees. Call (850) 842-1962, describe the job, and we'll tell you what it takes.",
+      },
+      {
+        question: 'Do you charge more on 30A than elsewhere?',
+        answer:
+          "No. The rate is the same across Walton, Okaloosa, and Bay Counties. 30A moves sometimes take longer because of access and parking, and that shows up in hours — the rate never changes by zip code.",
+      },
+      {
+        question: 'How far out should I book?',
+        answer:
+          "Two to three weeks ahead is comfortable most of the year. In peak season — late spring through summer — book as early as you can. If we can fit you in sooner, we will.",
+      },
+    ],
+  },
+  {
+    slug: 'moving-and-storage-santa-rosa-beach',
+    title: 'Moving & Storage in Santa Rosa Beach: How It Works Between Homes',
+    description:
+      "Sold before your next place is ready? How mover-held storage works in Santa Rosa Beach — one crew loads, stores, and delivers, versus renting a unit and moving twice.",
+    datePublished: '2026-07-19',
+    author: 'Beach House Moving',
+    heroImage: '/images/mover-storage-corridor.jpg',
+    heroAlt:
+      'Beach House Moving crew wheeling wrapped furniture through a climate-controlled storage corridor between homes in Santa Rosa Beach',
+    relatedServices: [
+      { label: 'Storage Solutions', href: '/services/storage' },
+      { label: 'Residential Moving', href: '/services/residential-moving' },
+    ],
+    excerpt:
+      "Sold before your next place is ready? How mover-held storage works in Santa Rosa Beach — one crew loads, stores, and delivers, versus renting a unit and moving twice.",
+    body: [
+      {
+        body:
+          "Half the people searching for storage in Santa Rosa Beach don't actually want a storage unit. They want the gap solved — the stretch between the home they just sold and the home that isn't ready yet. Those are two different problems, and they have two different answers. This guide covers both, straight.",
+      },
+      {
+        heading: 'The short answer',
+        body:
+          "If you need long-term space for overflow, rent a self-storage unit — that's what they're for. If you're between homes, [mover-held storage](/services/storage) usually wins: one crew loads your home, holds everything safely, and delivers when your new place is ready. You handle nothing twice, and you never spend a Saturday shuttling a rented truck to a unit and back.",
+      },
+      {
+        heading: "The problem with the storage-unit route when you're moving",
+        body:
+          "Renting a unit between homes means moving everything twice, and usually means you doing at least one of those moves. Load the house, drive to the unit, stack it, then weeks later pull it all back out and do the whole job again in reverse. Every touch is a chance to ding furniture, and stacking a unit yourself to the ceiling is how mattresses warp and boxes crush. It works for overflow. It's the hard way to bridge a closing gap.",
+      },
+      {
+        heading: 'How mover-held storage works',
+        body:
+          "We load your home once, on our truck, wrapped and inventoried the same way we'd load any move. Your things stay in our care until your new home is ready — a week, a month, whatever the gap turns out to be — and then the same crew delivers and places everything. Four owners handle every job, so the people who wrapped your furniture are the people who unwrap it. Call (850) 842-1962, tell us your closing dates, and we'll walk through duration, access, and cost for your situation.",
+      },
+      {
+        heading: 'The 30A version of this problem',
+        body:
+          "Around here the gap is usually construction. You sold, the new build in Watersound or Inlet Beach pushed its completion date, and now you're weeks out with a house full of furniture and nowhere to put it. We move into [new construction](/services/residential-moving) on 30A regularly — clean entries, floor protection, builder walkthrough schedules — so bridging from your old home into a just-finished one is a job we already know. Military families around Eglin and Hurlburt hit the same gap on [PCS](/resources/pcs-move-eglin-afb-hurlburt-field-guide) timelines, and the answer works the same way.",
+      },
+      {
+        heading: 'What to ask any mover about storage',
+        body:
+          "Ask how your things are protected while held. Ask whether the crew that loads is the crew that delivers. Ask how scheduling works if your dates slip — because on 30A, construction dates slip. And ask for the mover's Florida registration number, then [verify it](/resources). Ours is FL Mover Reg. #IM4125, and we'd rather you check it than take our word.",
+      },
+      {
+        body:
+          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Do you offer storage without a move?',
+        answer:
+          "Our storage is built around moves — load, hold, deliver. If all you need is a rented unit you visit yourself, a self-storage facility is the better fit, and we'll tell you so on the phone.",
+      },
+      {
+        question: 'How long can you hold my things?',
+        answer:
+          "Gaps from a few days to a few months are the normal range. Tell us your dates when you call and we'll confirm what works — and what it costs — before anything goes on a truck.",
+      },
+      {
+        question: 'What if my new construction date slips?',
+        answer:
+          "It happens constantly here. Because the same crew holds and delivers, sliding the delivery date is a phone call, not a crisis.",
+      },
+    ],
+  },
+  {
     slug: 'moving-to-30a-neighborhood-guide',
     title: "Moving to 30A: A Local Mover's Neighborhood-by-Neighborhood Guide",
     description:
