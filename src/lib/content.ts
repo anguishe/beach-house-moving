@@ -666,10 +666,29 @@ export const IMAGES = {
     src: '/images/beach-house-moving-crew-specialty-item-carry-30a.jpg',
     alt: 'Beach House Moving crew member in branded shirt carrying a specialty item up a driveway on 30A',
   },
+  seacrestOutdoorFurnitureDelivery: {
+    src: '/images/beach-house-moving-seacrest-beach-outdoor-furniture-delivery.jpg',
+    alt: 'Beach House Moving crew delivering outdoor furniture to a beachfront home in Seacrest Beach, FL',
+  },
+  graytonFurnitureDelivery: {
+    src: '/images/beach-house-moving-grayton-beach-furniture-delivery.jpg',
+    alt: 'Beach House Moving team placing a custom furniture piece during a same-day delivery in Grayton Beach, FL',
+  },
+  residentialMoveLoading: {
+    src: '/images/beach-house-moving-residential-move-loading-box-truck.jpg',
+    alt: 'Beach House Moving loading a residential move into a box truck on the Emerald Coast',
+  },
+  gulfFrontCrew: {
+    src: '/images/beach-house-moving-30a-gulf-front-crew.jpg',
+    alt: 'Beach House Moving crew member on a Gulf-front deck on 30A',
+  },
 } as const
 
 /** Homepage gallery marquee — owner-operator shots lead; carousel may repeat photos used elsewhere. */
 export const GALLERY_PHOTOS = [
+  IMAGES.seacrestOutdoorFurnitureDelivery, // Seacrest Beach outdoor furniture delivery
+  IMAGES.graytonFurnitureDelivery,         // Grayton Beach same-day furniture delivery
+  IMAGES.residentialMoveLoading,           // residential move — loading box truck
   IMAGES.crewBrandedAntiqueMove,  // owner-operator lead
   IMAGES.crewTeamFurnitureMove,   // owner-operator lead
   IMAGES.greatRoomStaged,         // new-construction showcase
