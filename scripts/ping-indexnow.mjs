@@ -1,6 +1,17 @@
-// IndexNow batch submit — runs after every production build
+// IndexNow batch submit — runs on production CI builds only (npm postbuild)
 // Fetches the live sitemap, parses every <loc>, and POSTs the full URL list
 // to IndexNow (covers Bing + Yandex). Non-fatal on any network error.
+
+// Gate: local builds were resubmitting the whole URL set on every run, which wastes IndexNow trust.
+const isProductionBuild =
+  process.env.VERCEL_ENV === 'production' ||
+  (process.env.CI === 'true' && process.env.NODE_ENV === 'production')
+
+if (!isProductionBuild) {
+  console.log('[IndexNow] skipped — not a production build')
+  process.exit(0)
+}
+
 const KEY = '11781a711fe74e7d385896e222cbd2ad'
 const HOST = 'beachhousemoving.xyz'
 const KEY_LOCATION = `https://${HOST}/${KEY}.txt`
