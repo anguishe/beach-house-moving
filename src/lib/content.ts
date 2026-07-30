@@ -6,7 +6,7 @@
 // ============================================================
 
 // Bump when a deploy changes rendered copy/links on templated pages.
-export const CONTENT_REVISION = '2026-07-19'
+export const CONTENT_REVISION = '2026-07-29'
 
 // Feature flags.
 // SHOW_TESTIMONIALS: true = show static Google reviews from TESTIMONIALS[].
@@ -682,6 +682,26 @@ export const IMAGES = {
     src: '/images/beach-house-moving-30a-gulf-front-crew.jpg',
     alt: 'Beach House Moving crew member on a Gulf-front deck on 30A',
   },
+  kitchenPackCrew: {
+    src: '/images/beach-house-moving-inlet-beach-kitchen-pack-crew.jpg',
+    alt: 'Beach House Moving crew packing a kitchen in Inlet Beach, Florida',
+  },
+  kitchenDishPack: {
+    src: '/images/beach-house-moving-inlet-beach-kitchen-dish-pack-paper.jpg',
+    alt: 'Movers wrapping dishes in packing paper during an Inlet Beach, FL kitchen pack',
+  },
+  liftgateUnloadCrew: {
+    src: '/images/beach-house-moving-new-construction-box-truck-unload-crew.jpg',
+    alt: 'Beach House Moving crew unloading flat-packed furniture from a box truck lift gate',
+  },
+  crateUncratingDriveway: {
+    src: '/images/beach-house-moving-new-construction-crate-uncrating-driveway.jpg',
+    alt: 'Movers uncrating a king bed set in the driveway before carrying it inside',
+  },
+  kingHeadboardCarry: {
+    src: '/images/beach-house-moving-new-construction-king-headboard-two-man-carry.jpg',
+    alt: 'Two Beach House Moving crew carrying an oversized king headboard box',
+  },
 } as const
 
 /** Homepage gallery marquee — owner-operator shots lead; carousel may repeat photos used elsewhere. */
@@ -720,6 +740,9 @@ export const GALLERY_PHOTOS = [
   IMAGES.graytonStaircaseMirrorCarry, // 30A luxury staircase mirror carry
   IMAGES.crewHomeGymAssembly,     // displaced from delivery secondary
   IMAGES.crewSpecialtyCarry,      // branded crew specialty item carry on 30A
+  IMAGES.liftgateUnloadCrew,      // box truck lift gate unload
+  IMAGES.crateUncratingDriveway,  // driveway uncrating
+  IMAGES.kingHeadboardCarry,      // oversized two-man carry
 ] as const
 
 export const TESTIMONIALS = [
