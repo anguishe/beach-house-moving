@@ -19,6 +19,7 @@ import {
   SERVICE_INCLUDES,
   SERVICES,
 } from '@/lib/content'
+import { renderBody } from '@/lib/render-body'
 import { buildMetadata } from '@/lib/seo'
 import { SERVICE_DETAILS, SERVICE_RELATED } from '@/lib/service-details'
 import { SERVICE_IMAGE_MAP, SERVICE_SECONDARY_IMAGE_MAP } from '@/lib/service-images'
@@ -143,7 +144,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
           )}
 
           <p className="font-body text-base leading-relaxed text-ink-muted md:text-lg">
-            {fullDescription}
+            {renderBody(fullDescription)}
           </p>
 
           {sections?.map((section) => (
@@ -156,7 +157,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   key={index}
                   className="mt-4 font-body text-base leading-relaxed text-ink-muted md:text-lg"
                 >
-                  {paragraph}
+                  {renderBody(paragraph)}
                 </p>
               ))}
             </div>

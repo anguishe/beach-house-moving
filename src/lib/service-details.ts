@@ -185,7 +185,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       {
         heading: 'Full packing or just the hard parts',
         body: [
-          'We pack whole homes, or just the rooms nobody wants to face — the kitchen, the garage, the china cabinet. All materials supplied: boxes, paper, tape, and the dish packs and wardrobe boxes that actually protect what matters.',
+          'We pack whole homes, or just the rooms nobody wants to face — the kitchen, the garage, the china cabinet — and [a documented kitchen pack in Inlet Beach](/resources/field-notes-inlet-beach-pack-day) walks through one of those days box by box. All materials supplied: boxes, paper, tape, and the dish packs and wardrobe boxes that actually protect what matters.',
           'Everything gets labeled by room and contents, so unloading at the new house is placement, not archaeology.',
         ],
       },
@@ -300,7 +300,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       {
         heading: 'Store pickups and estate pieces',
         body: [
-          "Bought furniture locally and the store doesn't deliver on your timeline? Found a marketplace piece across the county? Handling a single estate item that needs more care than a pickup truck and two friends? We coordinate the pickup, protect the piece, and place it where it goes.",
+          "Bought furniture locally and the store doesn't deliver on your timeline? Found a marketplace piece across the county? Handling a single estate item that needs more care than a pickup truck and two friends? We coordinate the pickup, protect the piece, and place it where it goes — the same routine as [a documented install day on 30A](/resources/field-notes-30a-install-day-design-dwell), scaled up to a truckload of new furniture.",
         ],
       },
     ],
