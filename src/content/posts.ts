@@ -7,6 +7,8 @@ export type PostBlock = {
   paragraph?: string
   subheading?: string
   isOwnerNote?: boolean
+  image?: string
+  imageAlt?: string
 }
 
 export type Post = {
@@ -69,7 +71,7 @@ export const POSTS: Post[] = [
       {
         heading: 'Why hourly beats a lowball flat quote',
         body:
-          "A flat quote from a company that hasn't seen your home is a guess, and guesses get corrected on move day when your furniture is already on the truck. Hourly at a published rate means you can do the math yourself, watch the clock yourself, and never wonder what the number on the invoice will be. Four owners do every job — Josh, Zach, Les, and Keith — so the crew quoting the work is the crew doing it.",
+          "A flat quote from a company that hasn't seen your home is a guess, and guesses get corrected on move day when your furniture is already on the truck. Hourly at a published rate means you can do the math yourself, watch the clock yourself, and never wonder what the number on the invoice will be. Four owners do every job — Josh, Zack, Les, and Keith — so the crew quoting the work is the crew doing it.",
       },
       {
         body:
@@ -639,6 +641,263 @@ export const POSTS: Post[] = [
         question: 'Do you provide the elevator pads and floor protection required by my HOA?',
         answer:
           'Yes. We carry furniture blankets, elevator pads, and hallway floor protection on every job. If your HOA has specific requirements, send us the document and we will confirm we meet them before move day.',
+      },
+    ],
+  },
+  {
+    slug: 'field-notes-inlet-beach-pack-day',
+    title: 'Pack Day in Inlet Beach, FL: A Full Kitchen',
+    description:
+      "A documented pack job in Inlet Beach, off Lake Powell: how we packed a full kitchen, wrapped a settee as one piece, and prepped an antique table.",
+    datePublished: '2026-07-27',
+    author: 'Beach House Moving',
+    heroImage: '/images/beach-house-moving-inlet-beach-kitchen-dish-pack-paper.jpg',
+    heroAlt:
+      'Movers wrapping dishes in packing paper during an Inlet Beach, FL kitchen pack',
+    excerpt:
+      "A documented pack job in Inlet Beach, off Lake Powell: how we packed a full kitchen, wrapped a settee as one piece, and prepped an antique table.",
+    relatedServices: [
+      { label: 'Packing & Unpacking', href: '/services/packing-unpacking' },
+      { label: 'Residential Moving', href: '/services/residential-moving' },
+    ],
+    body: [
+      {
+        body:
+          'Field Notes from the Truck — a job log we write the same week the job happens. This one: [Inlet Beach](/service-areas/walton-county/inlet-beach), Florida. Crew: Zack and Josh.',
+      },
+      {
+        body:
+          'On a Monday in July we packed an apartment in Inlet Beach, just off Lake Powell. A full kitchen, a living room, and a few pieces that needed more than a box.',
+      },
+      {
+        body:
+          "This one was booked as [packing](/services/packing-unpacking) only. That's worth saying out loud, because a lot of people assume packing is something you can only get bundled into a move. You don't have to book a move to get us to pack.",
+      },
+      {
+        heading: 'The kitchen took the longest, and it always does',
+        body:
+          'Every cabinet gets emptied — uppers, lowers, pantry. Plates go into paper. Glasses get wrapped one at a time. Nothing goes into a box loose and nothing gets stacked on an edge, because a plate that shifts two inches in transit is a plate that arrives in pieces.',
+      },
+      {
+        body:
+          "Zack and Josh worked this one from opposite ends of the counter. One took the uppers, the other took the lowers and the pantry. That split matters more than it sounds like it does: it means nothing gets handled twice, and nothing gets left sitting behind a cabinet door after the truck pulls out. On a kitchen with as much glassware and stoneware as this one had, working it in one direction from one end is how you lose an afternoon.",
+      },
+      {
+        body:
+          "The homeowner did two things right. She set out a tray of snacks, which we appreciated more than we let on. And she left the coffee maker out until the last box. We recommend both.",
+      },
+      {
+        body:
+          "If you take one thing from this: the kitchen is the room to hand off. It's the slowest, it's the most fragile, and it's the one where rushing shows up later.",
+      },
+      {
+        heading: 'The living room got wrapped as one piece instead of three',
+        body:
+          'There was a settee in the living room with seven throw pillows on it. Cushions and pillows that ride loose end up in one of two places — flat on the truck floor under something heavier, or in a box that then has to be found again at the other end while somebody stands there holding a bare frame.',
+        image: '/images/beach-house-moving-inlet-beach-living-room-pack-staging.jpg',
+        imageAlt:
+          'Living room staged for packing during a Beach House Moving job in Inlet Beach, FL',
+      },
+      {
+        body:
+          'So the settee got stood on end and every one of those pillows got sealed inside the wrap with it. It travels as one unit and it unwraps in one motion.',
+        image: '/images/beach-house-moving-inlet-beach-chaise-shrink-wrapped-upright.jpg',
+        imageAlt:
+          'Upholstered settee shrink-wrapped upright with cushions sealed inside for transport',
+      },
+      {
+        body:
+          "The blue pads in the room are labeled in marker by room and by item. \"LR Speaker,\" and so on. That labeling isn't for us — we know what's in our own pads. It's so the load comes off in the right rooms instead of stacking up inside the front door while somebody plays a guessing game with a Sharpie.",
+      },
+      {
+        heading: 'One small antique table, and the two minutes that decide it',
+        body:
+          "The round drum table is the piece we'd point to if somebody asked what care actually looks like. It's veneer over edges, which is the worst combination there is.",
+        image: '/images/beach-house-moving-inlet-beach-antique-drum-table-blanket-staged.jpg',
+        imageAlt:
+          'Antique drum side table staged on a moving blanket before pad-wrapping',
+      },
+      {
+        body:
+          'The pad goes down flat on the floor first, before the piece is ever lifted. Then the table gets wrapped and taped into a cylinder with nothing exposed. Two minutes, on a piece most people would not think twice about.',
+        image: '/images/beach-house-moving-inlet-beach-antique-drum-table-pad-wrapped.jpg',
+        imageAlt:
+          'Antique drum table pad-wrapped and taped by Beach House Moving in Inlet Beach, FL',
+      },
+      {
+        body:
+          "Here's why it's worth those two minutes. Furniture almost never gets damaged in the truck. It gets damaged in a doorway, in a hallway, on a stair turn, or against the corner of something else that wasn't wrapped either. By the time a piece is in the truck it has already survived the dangerous part. So it goes out the door already covered.",
+      },
+      {
+        heading: 'What we would tell you to do before pack day',
+        body:
+          "Empty the fridge and run down anything perishable in the days before. It's the one thing we can't pack for you.",
+      },
+      {
+        body:
+          "Pull your own first-night box — medications, chargers, a change of clothes, whatever you'd be annoyed to dig for. Keep it with you, not on the truck.",
+      },
+      {
+        body:
+          "Point out anything fragile or sentimental before we start, not while we're standing in front of it. Tell us it was your grandmother's and it gets handled like it.",
+      },
+      {
+        body: 'Leave the coffee maker out.',
+      },
+      {
+        body:
+          "We're licensed and insured in Florida under Mover Registration #IM4125, and we're owner-operated — the people in these photos are the people who own the company. Inlet Beach is the east end of our home turf, along with the rest of Walton County, Okaloosa County, and Bay County. The day after this job we were on 30A doing the opposite kind of work: [an install day, carrying furniture into a house instead of out of one](/resources/field-notes-30a-install-day-design-dwell).",
+      },
+    ],
+    faq: [
+      {
+        question: 'Do you pack the kitchen, or should I do that myself before you arrive?',
+        answer:
+          'We pack it, and it is the room we would most encourage you to hand off. A kitchen is the slowest room in any house and the one with the highest concentration of fragile items — plates, stemware, stoneware, small appliances. Every cabinet has to be emptied, every fragile piece has to be wrapped individually in paper, and nothing can go into a box loose. When a kitchen gets rushed, that is where damage shows up.',
+      },
+      {
+        question: 'Do you wrap furniture, or only box up the small items?',
+        answer:
+          'Both. Upholstered pieces get shrink-wrapped, with loose cushions and pillows sealed inside the piece so it travels as one unit. Wood and antique pieces get pad-wrapped and taped before they leave the room they are standing in. We wrap before the lift rather than at the truck, because damage happens in doorways and hallways, not in the trailer.',
+      },
+      {
+        question: 'Why wrap something before carrying it out instead of at the truck?',
+        answer:
+          'Because the walk out is the dangerous part. Door casings, stair turns, hallway corners, and the exposed corner of an unwrapped piece nearby are what actually cause damage on a move. A piece that is covered before it is lifted is protected for the whole trip, not just the drive.',
+      },
+      {
+        question: 'Do you supply the boxes, paper, and wrapping materials?',
+        answer:
+          'Yes, as long as you tell us in advance. Boxes, packing paper, and wrap are all things we bring — we just need to know before the day, because what a full kitchen takes is not what a single bedroom takes and we would rather load the truck right than run out halfway through a cabinet. If you have already bought your own, that is fine too and we will work with what is there.',
+      },
+      {
+        question: 'Can you pack just one room instead of the whole house?',
+        answer:
+          'Yes. A single room is a normal booking for us. Most often it is the kitchen, sometimes a garage or a home office, sometimes just the fragile things somebody does not want to be responsible for. We would rather fill the gap in what you actually need than tell you we only take whole houses — we are a local company and that means being useful at whatever size the job is. Tell us which rooms when you book and we will scope it to that.',
+      },
+      {
+        question: 'Do you serve Inlet Beach?',
+        answer:
+          'Yes. Inlet Beach sits at the east end of 30A in Walton County, which is our home service area along with Santa Rosa Beach, Miramar Beach, Panama City Beach, and the rest of Walton, Okaloosa, and Bay Counties. We are a locally owned, owner-operated company based on the Emerald Coast.',
+      },
+    ],
+  },
+  {
+    slug: 'field-notes-30a-install-day-design-dwell',
+    title: 'Install Day on 30A: Furnishing a New Build',
+    description:
+      'A documented install day on 30A for Design & Dwell Homes: a truckload of furniture into a new build, uncrated outside and checked in at the door.',
+    datePublished: '2026-07-28',
+    author: 'Beach House Moving',
+    heroImage: '/images/beach-house-moving-new-construction-box-truck-unload-crew.jpg',
+    heroAlt:
+      'Beach House Moving crew unloading flat-packed furniture from a box truck lift gate',
+    excerpt:
+      'A documented install day on 30A for Design & Dwell Homes: a truckload of furniture into a new build, uncrated outside and checked in at the door.',
+    relatedServices: [
+      { label: 'Delivery', href: '/services/delivery' },
+      { label: 'Residential Moving', href: '/services/residential-moving' },
+      { label: 'Junk Removal', href: '/services/junk-removal' },
+    ],
+    body: [
+      {
+        body:
+          'Field Notes from the Truck — a job log we write the same week the job happens. This one: [30A](/service-areas/walton-county/30a), in the [Santa Rosa Beach](/service-areas/walton-county/santa-rosa-beach) area. Crew: Zack and Josh.',
+      },
+      {
+        body:
+          'The day after [the Inlet Beach pack job](/resources/field-notes-inlet-beach-pack-day), Zack and Josh were on 30A doing the opposite kind of work: a truckload of furniture going into a house instead of out of one.',
+      },
+      {
+        body:
+          'This was an install day for Design & Dwell Homes, a 30A interior design and staging firm we work with. New construction, nobody living in it yet, and the job was to get the property move-in ready.',
+      },
+      {
+        heading: "An install day isn't a delivery, and the difference is the whole job",
+        body:
+          'A delivery ends when the item is inside the door. An install day ends when the house is finished — pieces uncrated, assembled where they need assembling, set in the room they belong in, positioned the way the designer drew it, and the packaging gone.',
+      },
+      {
+        body:
+          "That means the sequence matters. You can't carry in the bed frame before the rug is down. You can't set a dresser against a wall you're about to move a mirror onto. On a job like this the designer has a plan, and our job is to unload in the order that plan needs rather than the order the truck happens to be packed in.",
+      },
+      {
+        heading: 'We uncrate in the driveway, not in the room',
+        body:
+          'This is the part we would want any builder or designer to know about us, and you can see it in the photos: the boxes come off the lift gate and get opened out on the pavers. Only furniture crosses the threshold.',
+        image: '/images/beach-house-moving-new-construction-crate-uncrating-driveway.jpg',
+        imageAlt:
+          'Movers uncrating a king bed set in the driveway before carrying it inside',
+      },
+      {
+        body:
+          'The reason is simple. On a brand-new build, the floors and the trim are the two things you cannot un-scratch. Cardboard has staples in it. Crates have banding and splinters. Foam blocks slide underfoot on a finished floor. Every one of those things is a punch-list item waiting to happen, and every one of them is avoidable by opening the box twenty feet further away.',
+      },
+      {
+        body:
+          'It also means the house does not fill up with debris while the crew is still working in it, which matters when a designer is trying to see the room. Worth noting: it was July on the Panhandle and the air was not running in the house yet. We bring our own fans. That is not a complaint, it is just what working a new build in summer actually involves.',
+      },
+      {
+        heading: 'The king bed came in four boxes, and one of them needed two people',
+        body:
+          'Headboard, footboard, rails, and slats, all separate. The headboard was the piece that needed a plan. It is not heavy. It is wide, flat, and rigid, which is a different problem. Wind catches a flat panel like a sail. The corners lead, so they find door casings before you do. And a paver drive is not a flat surface, which you notice the moment you are carrying something you cannot see past.',
+        image: '/images/beach-house-moving-new-construction-headboard-lift-paver-drive.jpg',
+        imageAlt:
+          'Beach House Moving crew lifting a king headboard box off a furniture dolly',
+      },
+      {
+        body:
+          'So it comes up off the four-wheel dolly with two sets of hands, gets walked at an angle rather than square, and the person walking backwards calls the pace. Nothing gets dragged, nothing gets set down on a corner, and nothing touches a casing.',
+        image: '/images/beach-house-moving-new-construction-king-headboard-two-man-carry.jpg',
+        imageAlt: 'Two Beach House Moving crew carrying an oversized king headboard box',
+      },
+      {
+        heading: 'Every piece gets checked in at the door',
+        body:
+          'On an install day the inventory list matters as much as the carry. Pieces come in one at a time and get confirmed against the manifest at the threshold.',
+        image: '/images/beach-house-moving-new-construction-interior-delivery-front-door.jpg',
+        imageAlt:
+          'Furniture delivery carried through the front door of a new-construction home',
+      },
+      {
+        body:
+          'This is unglamorous and it is the thing that separates a clean install from a phone call three days later. When a designer is coordinating deliveries from four vendors into one house, the question that comes up is not "did it arrive" — it is "which of the six boxes that arrived was the one that is now missing a part." Confirming at the door, as it goes through, is how that question never gets asked.',
+      },
+      {
+        heading: 'If you are a designer, builder, or rental owner reading this',
+        body:
+          'This is a large part of what we do, and it is the work we are best set up for: install days, staging [deliveries](/services/delivery), [new-construction move-ins](/services/residential-moving), and single oversized pieces that a two-person crew and a lift gate can handle but a delivery service cannot. We are owner-operated, so the crew that shows up is the crew that owns the company, and there are no subcontractors on your job site.',
+      },
+      {
+        body:
+          'Licensed and insured in Florida under Mover Registration #IM4125, serving 30A, Santa Rosa Beach, Miramar Beach, Destin, Panama City Beach, and the rest of Walton, Okaloosa, and Bay Counties.',
+      },
+    ],
+    faq: [
+      {
+        question: 'What is an install day?',
+        answer:
+          'An install day is when a truckload of furniture and furnishings goes into a property to make it complete — usually a new build, a renovation, or a vacation rental being furnished for the first time. Unlike a standard delivery, which ends at the front door, an install day ends with pieces uncrated, assembled, placed in their rooms, and positioned to the designer plan, with the packaging removed.',
+      },
+      {
+        question: 'Do you work with interior designers and home stagers?',
+        answer:
+          'Yes, regularly. Install days for design and staging firms are a core part of our work on 30A — we handle the truck, the carry, the uncrating, the placement, and the check-in against the inventory list so the designer can focus on the room instead of the logistics. We also handle staging deliveries and builder spec and model-home furnishings.',
+      },
+      {
+        question: 'Why do you unpack furniture outside instead of in the room?',
+        answer:
+          'Because on a new build the floors and trim cannot be repaired invisibly, and packaging is what damages them. Cardboard has staples, crates have banding and splinters, and foam slides underfoot on a finished floor. Opening everything on the driveway means only the furniture comes inside, and the finished rooms stay clean while the crew is still working.',
+      },
+      {
+        question: 'Do you haul away the boxes and packaging after an install?',
+        answer:
+          'Yes, if you let us know at booking that you need it. The packaging volume on an install day is substantial — crates, cardboard, foam blocks, banding, plastic — and on a new build there is usually nowhere to put it and no bin service running yet. If debris removal is part of what you need, say so when you book and we will come prepared for it instead of leaving a pile in the garage. It is the same junk removal service we run on its own.',
+      },
+      {
+        question: 'Do you deliver to Santa Rosa Beach and 30A?',
+        answer:
+          'Yes. 30A and Santa Rosa Beach are our home service area, along with Miramar Beach, Destin, Panama City Beach, and the rest of Walton, Okaloosa, and Bay Counties. We are locally owned and owner-operated on the Emerald Coast.',
       },
     ],
   },

@@ -70,7 +70,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${base}/resources`,
-      lastModified: '2026-06-09',
+      lastModified: '2026-07-29',
       changeFrequency: 'monthly',
       priority: 0.6,
     },

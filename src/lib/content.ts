@@ -544,7 +544,7 @@ export const IMAGES = {
   },
   condoStairCarry: {
     src: '/images/beach-house-moving-condo-stair-carry.jpg',
-    alt: 'Beach House Moving mover Zach guiding a wrapped king mattress up a high-rise stairwell during a condo move on the Emerald Coast',
+    alt: 'Beach House Moving mover Zack guiding a wrapped king mattress up a high-rise stairwell during a condo move on the Emerald Coast',
   },
   mattressStairwell: {
     src: '/images/beach-house-moving-mattress-stairwell-move.jpg',
@@ -1268,11 +1268,11 @@ export const SERVICES_HUB = {
   eyebrow: 'What We Do',
   headline: 'Full-Service Moving, Start to Finish',
   bodyIntro:
-    'Eight services, four owners, no subcontractors. Every job on this page is performed by Josh, Zach, Les, or Keith — the same four names on the license. We handle full residential moves across Walton, Okaloosa, and Bay Counties, local and long-distance, plus the work most crews turn down: appliance and specialty delivery, packing and unpacking, storage runs, junk removal, and PCS moves in and out of Eglin and Hurlburt. Pick the service that fits, or call (850) 842-1962 and describe the job. We\'ll tell you straight what it takes and what it costs.',
+    'Eight services, four owners, no subcontractors. Every job on this page is performed by Josh, Zack, Les, or Keith — the same four names on the license. We handle full residential moves across Walton, Okaloosa, and Bay Counties, local and long-distance, plus the work most crews turn down: appliance and specialty delivery, packing and unpacking, storage runs, junk removal, and PCS moves in and out of Eglin and Hurlburt. Pick the service that fits, or call (850) 842-1962 and describe the job. We\'ll tell you straight what it takes and what it costs.',
   faqs: [
     {
       q: 'Do you subcontract any of your services?',
-      a: 'No. Every service listed here is performed by the four owners — Josh, Zach, Les, and Keith. No day labor, no third-party crews, no handing your move to strangers on the day.',
+      a: 'No. Every service listed here is performed by the four owners — Josh, Zack, Les, and Keith. No day labor, no third-party crews, no handing your move to strangers on the day.',
     },
     {
       q: 'Can I combine services in one job?',

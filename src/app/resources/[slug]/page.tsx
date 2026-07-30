@@ -172,6 +172,17 @@ export default async function ResourcePostPage({ params }: PageProps) {
                     </h3>
                   ) : null}
                   <p className="font-body text-base leading-relaxed text-ink-muted">{renderBody(text)}</p>
+                  {block.image ? (
+                    <div className="relative mt-6 aspect-video w-full overflow-hidden rounded-lg">
+                      <Image
+                        src={block.image}
+                        alt={block.imageAlt ?? ''}
+                        fill
+                        sizes="(min-width: 768px) 768px, 100vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ) : null}
                 </div>
               )
             })}
