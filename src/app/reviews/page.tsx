@@ -61,7 +61,8 @@ export default async function ReviewsPage() {
       <JsonLd
         data={[
           breadcrumbs,
-          reviewsAggregateRatingSchema(),
+          // Mirrors the visible `ratingSummary` above — live or static fallback.
+          reviewsAggregateRatingSchema({ ratingValue, reviewCount }),
         ]}
       />
 

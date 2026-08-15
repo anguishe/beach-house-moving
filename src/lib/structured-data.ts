@@ -61,9 +61,9 @@ function absoluteUrl(origin: string, path: string): string {
  * Aggregate rating derived from the static first-party TESTIMONIALS so the
  * schema stays truthful and self-maintaining as reviews are added to content.ts.
  * `reviewCount` counts every genuine review entry (incl. the rating-only one);
- * `ratingValue` is the averaged rating. When the live Places source is wired
- * (see google-reviews.ts TODO), callers pass live values via overrides and this
- * computed path becomes the honest fallback — no schema change required.
+ * `ratingValue` is the averaged rating. This is the fallback path: when the live
+ * Places source answers, callers pass `getReviewsData()`'s totalCount/averageRating
+ * through as overrides instead.
  */
 export function computeTestimonialsAggregate(): {
   ratingValue: number
@@ -75,9 +75,51 @@ export function computeTestimonialsAggregate(): {
   return { ratingValue, reviewCount }
 }
 
-/** Sitewide MovingCompany schema — SAB: no street address in public output. */
-export function movingCompanySchema(origin: string, includeRating = false) {
+export type AggregateOverride = {
+  ratingValue?: number
+  reviewCount?: number
+}
+
+/**
+ * The single AggregateRating node both schema emitters use.
+ *
+ * Callers pass the SAME numbers they render (`getReviewsData()` returns live
+ * values when Places answers and the static TESTIMONIALS aggregate when it does
+ * not), so markup can never claim a count the page doesn't show. Rating is
+ * rounded to the 1dp the UI prints via `.toFixed(1)`. Returns null when there is
+ * nothing to claim — an AggregateRating with reviewCount 0 is invalid.
+ */
+function aggregateRatingNode(overrides?: AggregateOverride) {
+  const fallback = computeTestimonialsAggregate()
+  const reviewCount = overrides?.reviewCount ?? fallback.reviewCount
+  const ratingValue = overrides?.ratingValue ?? fallback.ratingValue
+
+  if (!reviewCount || !ratingValue) {
+    return null
+  }
+
+  return {
+    '@type': 'AggregateRating' as const,
+    ratingValue: Number(ratingValue.toFixed(1)),
+    reviewCount,
+    bestRating: REVIEWS_PAGE_META.aggregateRating.bestRating,
+    worstRating: REVIEWS_PAGE_META.aggregateRating.worstRating,
+  }
+}
+
+/**
+ * Sitewide MovingCompany schema — SAB: no street address in public output.
+ *
+ * `rating` should be the live aggregate from `getReviewsData()` on any page that
+ * renders reviews; omit it and the static TESTIMONIALS aggregate is used.
+ */
+export function movingCompanySchema(
+  origin: string,
+  includeRating = false,
+  rating?: AggregateOverride,
+) {
   const base = origin.replace(/\/$/, '')
+  const aggregateRating = includeRating ? aggregateRatingNode(rating) : null
   const logoUrl = absoluteUrl(base, IMAGES.logo.src)
 
   const areaServed = [
@@ -118,16 +160,7 @@ export function movingCompanySchema(origin: string, includeRating = false) {
         closes: '23:59',
       },
     ],
-    ...(includeRating
-      ? {
-          aggregateRating: {
-            '@type': 'AggregateRating',
-            ...computeTestimonialsAggregate(),
-            bestRating: REVIEWS_PAGE_META.aggregateRating.bestRating,
-            worstRating: REVIEWS_PAGE_META.aggregateRating.worstRating,
-          },
-        }
-      : {}),
+    ...(aggregateRating ? { aggregateRating } : {}),
     identifier: {
       '@type': 'PropertyValue',
       name: 'FDACS Florida Mover Registration',
@@ -330,12 +363,9 @@ export function countyAreaSchema(area: CountyAreaInput, origin: string) {
 }
 
 /** MovingCompany + AggregateRating for /reviews (SAB — no street address). */
-export function reviewsAggregateRatingSchema(overrides?: {
-  ratingValue?: number
-  reviewCount?: number
-}) {
+export function reviewsAggregateRatingSchema(overrides?: AggregateOverride) {
   const base = BUSINESS.website.replace(/\/$/, '')
-  const aggregate = computeTestimonialsAggregate()
+  const aggregateRating = aggregateRatingNode(overrides)
 
   return {
     '@context': 'https://schema.org',
@@ -344,13 +374,7 @@ export function reviewsAggregateRatingSchema(overrides?: {
     name: BUSINESS.name,
     url: base,
     telephone: BUSINESS.phone.e164,
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: overrides?.ratingValue ?? aggregate.ratingValue,
-      reviewCount: overrides?.reviewCount ?? aggregate.reviewCount,
-      bestRating: REVIEWS_PAGE_META.aggregateRating.bestRating,
-      worstRating: REVIEWS_PAGE_META.aggregateRating.worstRating,
-    },
+    ...(aggregateRating ? { aggregateRating } : {}),
   }
 }
 

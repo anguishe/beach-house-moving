@@ -36,7 +36,12 @@ export default async function HomePage() {
     <>
       <JsonLd
         data={[
-          movingCompanySchema(origin.origin, true),
+          // Same numbers the carousel/testimonials render — live when Places
+          // answers, static TESTIMONIALS aggregate when it doesn't.
+          movingCompanySchema(origin.origin, true, {
+            ratingValue: averageRating,
+            reviewCount: totalCount,
+          }),
           webSiteSchema(origin.origin),
           webPageSchema(
             siteUrl,

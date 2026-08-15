@@ -8,6 +8,7 @@
     "postbuild": "node scripts/ping-indexnow.mjs",
     "start": "next start",
     "lint": "eslint",
+    "verify:reviews": "node scripts/verify-review-schema.mjs",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
