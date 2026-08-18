@@ -901,4 +901,184 @@ export const POSTS: Post[] = [
       },
     ],
   },
+  {
+    slug: 'field-notes-30a-wine-storage-delivery',
+    title: 'Delivery Day at 30A Wine Storage: Glassware Into a Brand-New Facility',
+    description:
+      'A documented commercial delivery on 30A: stocking 30A Wine Storage, a new climate-controlled wine storage facility, with glassware and accessories — carts, a pallet jack, and the owner working alongside the crew.',
+    datePublished: '2026-08-18',
+    author: 'Beach House Moving',
+    heroImage: '/images/beach-house-moving-30a-wine-storage-cart-delivery-crew.jpg',
+    heroAlt:
+      'Beach House Moving crew rolling delivery carts through a new wine storage facility on 30A',
+    excerpt:
+      'A documented commercial delivery on 30A: stocking 30A Wine Storage, a new climate-controlled wine storage facility, with glassware and accessories — carts, a pallet jack, and the owner working alongside the crew.',
+    relatedServices: [
+      { label: 'Delivery', href: '/services/delivery' },
+      { label: 'Packing & Unpacking', href: '/services/packing-unpacking' },
+      { label: 'Storage', href: '/services/storage' },
+    ],
+    body: [
+      {
+        body:
+          'Field Notes from the Truck — a job log we write the same week the job happens. This one: [30A](/service-areas/walton-county/30a), out of [Santa Rosa Beach](/service-areas/walton-county/santa-rosa-beach). Crew: Josh.',
+      },
+      {
+        body:
+          'Last Wednesday Josh spent the day at 30A Wine Storage, a climate-controlled wine storage facility getting ready to open its doors. The cargo was everything a place like that needs before the first bottle arrives: wine glasses, accessories, and the small equipment the building runs on. The owner worked the carts alongside him.',
+      },
+      {
+        heading: 'Stocking a new business is a different kind of delivery',
+        body:
+          "A household delivery has one destination and one person deciding where things go. A commercial fit-out has neither. Everything the business ordered from a dozen vendors shows up in the same stretch of days, the boxes all look the same, and the building is brand new — which means the floors, the paint, and in this case a wall of custom wooden lockers have never had a scratch on them. The job is to keep it that way while a truckload of freight rolls through.",
+      },
+      {
+        body:
+          'So nothing gets carried that can ride. Boxes go onto four-wheel carts at the door and stay on wheels until they are standing where they belong. The palletized freight moves on a pallet jack. Nothing gets dragged, stacked against a locker face, or leaned on fresh paint.',
+        image: '/images/beach-house-moving-30a-wine-storage-lockers-pallet-jack.jpg',
+        imageAlt:
+          'Pallet jack staged in front of custom wooden wine lockers at a new 30A storage facility',
+      },
+      {
+        heading: 'Glassware rides upright, and it rides light',
+        body:
+          "Wine glasses ship in divided cartons, and the cartons lie about how sturdy they are. The dividers protect the glass from the glass beside it — they do nothing about weight from above. So glassware cartons never go on the bottom of a stack, never travel on their sides, and never share a cart with anything heavy enough to shift into them. It is slower. It is also why every box opened with everything inside it intact.",
+        image: '/images/beach-house-moving-30a-wine-storage-glassware-crate-delivery.jpg',
+        imageAlt:
+          'Beach House Moving crew unpacking a glassware delivery crate beside wine storage lockers',
+      },
+      {
+        heading: 'When the owner works the floor with you',
+        body:
+          'The owner of the facility was on the carts with Josh the whole time, and that changed the pace of the day. Every "where does this go" got answered in the moment it came up, nothing sat in a staging pile waiting on a decision, and the sequencing — what opens first, what stores until the shelving goes in — came straight from the person who planned the building. We are owner-operated ourselves, so this is our favorite way to work. Two owners on a floor get more done than a crew and a phone number.',
+      },
+      {
+        heading: 'If you run a business on 30A or in Santa Rosa Beach',
+        body:
+          'Commercial [deliveries](/services/delivery) and fit-outs are a growing part of our week — new locations getting stocked, freight that arrives on a pallet but needs to end up on a shelf, and the fragile inventory a courier will not touch. The crew that shows up owns the company, and there are no subcontractors on your floor.',
+      },
+      {
+        body:
+          'Licensed and insured in Florida under Mover Registration #IM4125, serving 30A, Santa Rosa Beach, Miramar Beach, Destin, Panama City Beach, and the rest of Walton, Okaloosa, and Bay Counties.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Do you do commercial deliveries on 30A?',
+        answer:
+          'Yes. We handle commercial deliveries and fit-outs across 30A and Santa Rosa Beach — stocking new locations, receiving palletized freight, and moving inventory a standard courier will not handle. The crew is owner-operated and licensed and insured under FL Mover Registration #IM4125.',
+      },
+      {
+        question: 'How do you move wine glasses and fragile glassware?',
+        answer:
+          'Divided glassware cartons stay upright at all times, never ride on their sides, and never go at the bottom of a stack — the dividers protect glass from glass, not from weight above. We keep glassware on wheeled carts rather than hand-carrying it, and it never shares a cart with anything heavy enough to shift into it.',
+      },
+      {
+        question: 'Can you deliver into a brand-new commercial space without damaging it?',
+        answer:
+          'That is most of the job. In a new build the floors, paint, and millwork have never been touched, so everything moves on soft-wheeled carts or a pallet jack, nothing gets dragged, and nothing leans against finished surfaces. The freight comes in; the punch list stays empty.',
+      },
+      {
+        question: 'Do you work directly with business owners during a delivery?',
+        answer:
+          'Whenever they want to be there. Placement decisions happen fastest when the owner is on the floor, and as an owner-operated company we are set up for exactly that — the people unloading your freight are the owners of the moving company, so decisions get made peer to peer in real time.',
+      },
+      {
+        question: 'Do you serve Santa Rosa Beach and 30A?',
+        answer:
+          'Yes. 30A and Santa Rosa Beach are our home service area, along with Miramar Beach, Destin, Panama City Beach, and the rest of Walton, Okaloosa, and Bay Counties. We are locally owned and owner-operated on the Emerald Coast.',
+      },
+    ],
+  },
+  {
+    slug: 'field-notes-appliance-delivery-destin-pelican-beach',
+    title: 'Appliance Delivery in Destin: A Fridge to a Sixth-Floor Pelican Beach Condo',
+    description:
+      'A documented appliance delivery from The Appliance Spot in Santa Rosa Beach to a sixth-floor condo at Pelican Beach Resort in Destin — resort elevators, a swap-out, and the old unit hauled away.',
+    datePublished: '2026-08-18',
+    author: 'Beach House Moving',
+    heroImage: '/images/beach-house-moving-pelican-beach-resort-fridge-hand-truck.jpg',
+    heroAlt:
+      'Beach House Moving crew wheeling a refrigerator on a hand truck out of a Destin condo tower',
+    excerpt:
+      'A documented appliance delivery from The Appliance Spot in Santa Rosa Beach to a sixth-floor condo at Pelican Beach Resort in Destin — resort elevators, a swap-out, and the old unit hauled away.',
+    relatedServices: [
+      { label: 'Delivery', href: '/services/delivery' },
+      { label: 'Junk Removal', href: '/services/junk-removal' },
+      { label: 'Local Moving', href: '/services/local-moving' },
+    ],
+    body: [
+      {
+        body:
+          'Field Notes from the Truck — a job log we write the same week the job happens. This one: [Destin](/service-areas/okaloosa-county/destin), starting in [Santa Rosa Beach](/service-areas/walton-county/santa-rosa-beach). Crew: Zack.',
+      },
+      {
+        body:
+          'Last Monday The Appliance Spot in Santa Rosa Beach sold a refrigerator, and the kitchen it belonged to was on the sixth floor of a tower at Pelican Beach Resort in Destin. Getting it from the sales floor to that kitchen — and getting the old one out — was our end of the deal.',
+      },
+      {
+        heading: 'A condo appliance delivery is three jobs stacked together',
+        body:
+          'Job one is getting the new unit up. Job two is the swap — old one unplugged and walked out of the alcove, new one in, level, doors on. Job three is the part people forget until it is standing in the living room: the old refrigerator has to leave the building, ride down the same elevator, and go away on the truck. A delivery service that stops at job one leaves a condo owner with a dead fridge and no way to move it.',
+      },
+      {
+        body:
+          "Resort towers have their own rules, and Pelican Beach is no exception. You do not park where you want, you do not monopolize a guest elevator in August, and a refrigerator crosses a tile lobby exactly once in each direction, strapped to a hand truck, with someone watching the corners. The elevator ride is the easy part — it is the doorways, thresholds, and turns on either side of it that decide whether the day goes smoothly.",
+        image: '/images/beach-house-moving-destin-condo-fridge-elevator-carry.jpg',
+        imageAlt:
+          'Beach House Moving crew guiding a refrigerator to the sixth-floor elevator at a Destin resort',
+      },
+      {
+        heading: 'The alcove is the real measurement, not the elevator',
+        body:
+          'A fridge that rides the freight elevator fine can still refuse the condo. Galley kitchens in gulf-front towers are tight, the alcove was framed around whatever unit was standard twenty years ago, and handles add inches the spec sheet buries. So the doors and handles come off when they need to, the driver stays on the counter until the unit is seated, and nothing gets forced past a cabinet face.',
+        image: '/images/beach-house-moving-destin-condo-fridge-swap-kitchen.jpg',
+        imageAlt:
+          'Beach House Moving crew positioning a refrigerator into a condo kitchen alcove in Destin',
+      },
+      {
+        body:
+          'Set, leveled, doors back on, packaging gone, old unit on the truck. The whole visit reads like one line on an invoice, and that is the point — for the store and for the owner, an appliance delivery should be a thing that simply gets handled.',
+        image: '/images/beach-house-moving-destin-condo-fridge-install-complete.jpg',
+        imageAlt:
+          'Beach House Moving crew member beside a newly installed stainless refrigerator in a Destin condo',
+      },
+      {
+        heading: 'If you are a store, a rental owner, or a property manager',
+        body:
+          "This is a run we make constantly: an appliance sold in Walton County that needs to end up inside a Destin, Miramar Beach, or Panama City Beach condo, often for an owner who lives out of state and a rental calendar that does not pause. We handle the [delivery](/services/delivery), the swap, and the [haul-away of the old unit](/services/junk-removal) in one visit, and we know the buildings — which towers want the service elevator booked, which want a certificate of insurance on file, and which loading areas a box truck actually fits.",
+      },
+      {
+        body:
+          'Licensed and insured in Florida under Mover Registration #IM4125, serving Destin, Santa Rosa Beach, 30A, Miramar Beach, Panama City Beach, and the rest of Walton, Okaloosa, and Bay Counties.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Do you deliver appliances for stores in Santa Rosa Beach and Destin?',
+        answer:
+          'Yes. We run appliance deliveries for local retailers — from the sales floor to the customer\u2019s kitchen, including condo towers and gulf-front buildings. The store sells the unit; we handle the truck, the building logistics, the swap, and the haul-away.',
+      },
+      {
+        question: 'Can you deliver a refrigerator to a high-rise condo in Destin?',
+        answer:
+          'Yes, and it is one of the most common jobs we do. Resort towers mean assigned loading areas, elevator rules, tile lobbies, and tight galley kitchens — we strap the unit to a hand truck, protect the path, pull doors and handles when the alcove demands it, and set and level the unit in place.',
+      },
+      {
+        question: 'Do you take away the old appliance?',
+        answer:
+          'Yes. A swap is not finished until the old unit is off the property, and resort buildings do not want a dead refrigerator sitting by the dumpster. The old one rides down the same elevator, goes on the truck, and leaves with us — it is the same junk removal service we run on its own.',
+      },
+      {
+        question: 'Does the new refrigerator get installed or just dropped off?',
+        answer:
+          'It gets set in place, leveled, and put back together — doors and handles reattached if they came off for the doorway. If your swap involves anything extra, like a water line for an ice maker, tell us at booking so we arrive prepared for it.',
+      },
+      {
+        question: 'Which areas do you cover for appliance delivery?',
+        answer:
+          'Destin, Santa Rosa Beach, 30A, Miramar Beach, Fort Walton Beach, Niceville, and Panama City Beach — all of Walton, Okaloosa, and Bay Counties. We are locally owned, owner-operated, and licensed and insured under FL Mover Registration #IM4125.',
+      },
+    ],
+  },
 ]

@@ -35,7 +35,8 @@ export default async function ResourcesPage() {
     ],
     origin.origin,
   )
-  const itemList = resourcesItemListSchema(POSTS, origin.origin)
+  const sortedPosts = [...POSTS].sort((a, b) => b.datePublished.localeCompare(a.datePublished))
+  const itemList = resourcesItemListSchema(sortedPosts, origin.origin)
 
   return (
     <PageShell>
@@ -59,7 +60,7 @@ export default async function ResourcesPage() {
       <section className="bg-brand-sand py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {POSTS.map((post) => (
+            {sortedPosts.map((post) => (
               <article
                 key={post.slug}
                 className="flex flex-col overflow-hidden rounded-brand bg-white shadow-brand"

@@ -702,6 +702,18 @@ export const IMAGES = {
     src: '/images/beach-house-moving-new-construction-king-headboard-two-man-carry.jpg',
     alt: 'Two Beach House Moving crew carrying an oversized king headboard box',
   },
+  apartmentFleetTruckVanStaging: {
+    src: '/images/beach-house-moving-apartment-move-fleet-truck-van-staging.jpg',
+    alt: 'Beach House Moving box truck and Sprinter van staged for an apartment move in Santa Rosa Beach',
+  },
+  apartmentRampUnload: {
+    src: '/images/beach-house-moving-santa-rosa-beach-apartment-ramp-unload.jpg',
+    alt: 'Beach House Moving crew unloading furniture down a lift-gate ramp at a Santa Rosa Beach apartment',
+  },
+  pelicanFridgeHaulAway: {
+    src: '/images/beach-house-moving-pelican-beach-resort-fridge-hand-truck.jpg',
+    alt: 'Beach House Moving crew wheeling an old refrigerator out of a Destin resort on a hand truck',
+  },
 } as const
 
 /** Homepage gallery marquee — owner-operator shots lead; carousel may repeat photos used elsewhere. */
@@ -709,9 +721,11 @@ export const GALLERY_PHOTOS = [
   IMAGES.seacrestOutdoorFurnitureDelivery, // Seacrest Beach outdoor furniture delivery
   IMAGES.graytonFurnitureDelivery,         // Grayton Beach same-day furniture delivery
   IMAGES.residentialMoveLoading,           // residential move — loading box truck
+  IMAGES.apartmentFleetTruckVanStaging,    // apartment move — fleet staged
   IMAGES.crewBrandedAntiqueMove,  // owner-operator lead
   IMAGES.crewTeamFurnitureMove,   // owner-operator lead
   IMAGES.greatRoomStaged,         // new-construction showcase
+  IMAGES.apartmentRampUnload,     // apartment move — lift-gate ramp unload
   IMAGES.luxuryHomeMove,          // owner carrying into luxury home
   IMAGES.dresserPlacement,        // Les — owner crew portrait
   IMAGES.denStaged,               // new-construction den staged
