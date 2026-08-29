@@ -294,7 +294,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       {
         heading: 'Appliance delivery and hook-up',
         body: [
-          "Washers, dryers, refrigerators — we deliver, place, and hook up. The box trucks carry hydraulic lift gates, which is what gets a 300-pound appliance off the truck and up an elevated beach home's stairs without drama.",
+          "Washers, dryers, refrigerators — we deliver, place, and hook up. The box trucks carry hydraulic lift gates, which is what gets a 300-pound appliance off the truck and up an elevated beach home's stairs without drama. Fixtures get the same treatment — freestanding tubs and other oversized pieces are carried in and set in place for the plumber who follows, as [a documented tub delivery in Seacrest Beach](/resources/field-notes-freestanding-tub-delivery-seacrest-beach) shows.",
         ],
       },
       {

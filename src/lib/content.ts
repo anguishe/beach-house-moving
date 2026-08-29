@@ -276,6 +276,7 @@ export const SERVICES = [
     metaTitle: 'Furniture & Appliance Delivery | Beach House Moving',
     metaDescription:
       'Professional furniture and appliance delivery across Walton, Okaloosa, and Bay Counties. Single items or full loads. (850) 842-1962.',
+    updatedAt: '2026-08-28',
   },
   {
     slug: 'junk-removal',
@@ -335,6 +336,7 @@ export const NAV_LINKS = [
   { label: 'Services', href: '/services' },
   { label: 'Service Areas', href: '/service-areas' },
   { label: 'Reviews', href: '/reviews' },
+  { label: 'Resources', href: '/resources' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },
 ] as const
@@ -714,13 +716,27 @@ export const IMAGES = {
     src: '/images/beach-house-moving-pelican-beach-resort-fridge-hand-truck.jpg',
     alt: 'Beach House Moving crew wheeling an old refrigerator out of a Destin resort on a hand truck',
   },
+  seacrestFreestandingTubSetInPlace: {
+    src: '/images/beach-house-moving-seacrest-beach-freestanding-tub-set-in-place.jpg',
+    alt: 'Beach House Moving mover Keith setting a freestanding soaking tub in place in a Seacrest Beach, FL primary bath during construction',
+  },
+  seacrestFreestandingTubDoorwayClearance: {
+    src: '/images/beach-house-moving-seacrest-beach-freestanding-tub-doorway-clearance.jpg',
+    alt: 'Narrow hallway and door opening measured for a freestanding tub delivery in a Seacrest Beach, FL home under construction',
+  },
+  estateSalePrepHandTruck: {
+    src: '/images/beach-house-moving-estate-sale-prep-hand-truck.jpg',
+    alt: 'Beach House Moving mover Zack with a hand truck at the front walk of an Emerald Coast home before an estate sale prep move',
+  },
 } as const
 
 /** Homepage gallery marquee — owner-operator shots lead; carousel may repeat photos used elsewhere. */
 export const GALLERY_PHOTOS = [
   IMAGES.seacrestOutdoorFurnitureDelivery, // Seacrest Beach outdoor furniture delivery
+  IMAGES.seacrestFreestandingTubSetInPlace, // Seacrest Beach tub set-in-place — Keith
   IMAGES.graytonFurnitureDelivery,         // Grayton Beach same-day furniture delivery
   IMAGES.residentialMoveLoading,           // residential move — loading box truck
+  IMAGES.estateSalePrepHandTruck,          // estate sale prep — Zack, hand truck
   IMAGES.apartmentFleetTruckVanStaging,    // apartment move — fleet staged
   IMAGES.crewBrandedAntiqueMove,  // owner-operator lead
   IMAGES.crewTeamFurnitureMove,   // owner-operator lead
