@@ -6,7 +6,7 @@
 // ============================================================
 
 // Bump when a deploy changes rendered copy/links on templated pages.
-export const CONTENT_REVISION = '2026-07-29'
+export const CONTENT_REVISION = '2026-08-31'
 
 // Feature flags.
 // SHOW_TESTIMONIALS: true = show static Google reviews from TESTIMONIALS[].
@@ -23,7 +23,7 @@ export const BUSINESS = {
   tagline: 'Simply A Better Choice.',
   headline: 'Your Move, Our Mission.',
   subheadline:
-    'Beach House Moving is a 4-person, owner-operated team serving Walton, Okaloosa, and Bay Counties. We handle luxury beach homes, appliance delivery, military PCS moves, and everything in between — licensed, insured, and available 24 hours a day.',
+    'Beach House Moving is a 4-person, owner-operated moving company based in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties. We handle luxury beach homes, appliance delivery, military PCS moves, and everything in between — licensed, insured, and available 24 hours a day.',
   phone: {
     display: '(850) 842-1962',
     href: 'tel:+18508421962',
@@ -923,8 +923,8 @@ export const REVIEWS_PAGE = {
 /** Static page metadata — used with buildMetadata(). */
 export const PAGE_META = {
   home: {
-    title: "Beach House Moving | Movers on Florida's Emerald Coast",
-    description: 'Owner-operated, licensed & insured movers serving Santa Rosa Beach, 30A, Destin & the Emerald Coast — Walton, Okaloosa & Bay Counties. Free quote: (850) 842-1962.',
+    title: 'Santa Rosa Beach Movers | Beach House Moving — 30A & Emerald Coast',
+    description: 'Owner-operated Santa Rosa Beach moving company — licensed & insured (FL Reg. #IM4125), serving 30A, Destin & the Emerald Coast. Free quote: (850) 842-1962.',
     path: '/',
   },
   services: {

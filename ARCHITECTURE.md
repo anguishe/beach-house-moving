@@ -213,3 +213,9 @@ JSON-LD helpers live in `/src/lib/structured-data.ts`:
 - **Hosting:** Vercel
 - **Secrets:** `.env.local` locally; Vercel Environment Variables in production
 - See `INTEGRATIONS.md` for the full env var reference
+
+## Edge proxy
+
+`src/proxy.ts` (Next 16 proxy, matcher `/`) — 301s the GBP-tagged homepage
+(`/?utm_source=google&utm_medium=organic&utm_campaign=gbp`) onto the clean `/` so
+Google stops indexing the UTM variant as a duplicate page. Added 2026-08-31.
