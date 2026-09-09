@@ -9,26 +9,31 @@ Shipped and live as of 2026-09-08. Commit `70abbf5`, pushed to `main`, deployed 
 - [x] IndexNow: **200, 64 URLs** submitted to Bing + Yandex
 - [x] `llms.txt`, `sitemap.xml`, and `robots.txt` live and carrying the new routes
 
-## BLOCKED — Google Search Console
+## Google Search Console — 4 of 10 requested
 
-Could not reach the property. Browser 4 is signed into three Google accounts and
-**none of them has `beachhousemoving.xyz`**:
+The property is `sc-domain:beachhousemoving.xyz` and it lives on the **anguisheh1@gmail.com**
+Chrome profile (deviceId `7b769056-f05a-4478-9949-e6f928a2bcda`), not the anguishetv one.
 
-| authuser | Account | Result |
-|---|---|---|
-| 0 | anguishetv@gmail.com (Travis Abadie) | "You don't have access to this property"; no properties at all |
-| 1 | (second account) | No properties — onboarding screen |
-| 2 | (third account, "V") | No properties — onboarding screen |
+**Indexing requested and confirmed** — all four brand-new URLs, each returned
+"Indexing requested — URL was added to a priority crawl queue":
 
-A GSC tab is left open on Browser 4 ready to go. Sign in with whichever account owns
-the property, then request indexing in this order. **The daily quota is roughly 10–12
-URL submissions, so this list is exactly one day's worth and is ordered so the most
-valuable URLs go first if the quota cuts you off.**
+- [x] `/services/mounting-installation`
+- [x] `/services/loading-unloading-help`
+- [x] `/services/design-trade-installation`
+- [x] `/resources/field-notes-design-trade-install-week-emerald-coast`
 
-1. `https://beachhousemoving.xyz/services/mounting-installation`
-2. `https://beachhousemoving.xyz/services/loading-unloading-help`
-3. `https://beachhousemoving.xyz/services/design-trade-installation`
-4. `https://beachhousemoving.xyz/resources/field-notes-design-trade-install-week-emerald-coast`
+All four reported "URL is unknown to Google" beforehand, which is expected for pages
+minutes old.
+
+**Sitemap resubmitted** — `https://beachhousemoving.xyz/sitemap.xml`, "Sitemap submitted
+successfully", submitted date now Sep 9 2026.
+
+### Still to do — 6 URLs
+
+These are already-indexed pages whose content changed. They matter less than the four
+above, and the refreshed `lastmod` in the sitemap will pull Google back to them anyway,
+but requesting speeds it up:
+
 5. `https://beachhousemoving.xyz/services`
 6. `https://beachhousemoving.xyz/`
 7. `https://beachhousemoving.xyz/service-areas/walton-county/miramar-beach`
@@ -36,11 +41,22 @@ valuable URLs go first if the quota cuts you off.**
 9. `https://beachhousemoving.xyz/service-areas/okaloosa-county/niceville`
 10. `https://beachhousemoving.xyz/service-areas/walton-county/sandestin`
 
-1–4 are brand new and not in the index at all — they matter most. 5–6 changed
-structurally. 7–10 gained the new "Recent work in {name}" section.
+A GSC tab is left open on that profile. The URL-inspection search box only reliably
+accepts input from the **Overview** page — from a result page it silently swallows
+typing, which is what stopped the automated run.
 
-Also worth doing while you are in there: **resubmit the sitemap** (Sitemaps →
-`sitemap.xml` → Submit) so Google re-reads the 45 refreshed `lastmod` dates.
+### Two sitemap findings
+
+1. `https://beachhousemoving.xyz/sitemap.xml` showed **"Couldn't fetch", 0 pages**. The
+   file itself is fine — it returns `HTTP 200`, `application/xml`, 11,362 bytes to a
+   Googlebot user-agent, and `robots.txt` points at the right URL. The failed entry was
+   submitted before the deploy finished, so the resubmit above should clear it. **Check
+   the status again in a day**; if it still says "Couldn't fetch", that is a real problem
+   worth chasing.
+2. There is a **duplicate, stale entry** for `https://beachhousemoving.xyz/sitemap.xml/`
+   — with a trailing slash — last read Jul 19 2026, 55 pages. That URL now 308-redirects
+   to the canonical one. Worth deleting from GSC so the reporting is not split across two
+   entries; left in place because removing it is a settings change.
 
 ## Google Business Profile — `docs/GBP-POSTS-2026-09.md`
 
