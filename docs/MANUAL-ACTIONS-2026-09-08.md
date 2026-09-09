@@ -28,14 +28,31 @@ minutes old.
 **Sitemap resubmitted** — `https://beachhousemoving.xyz/sitemap.xml`, "Sitemap submitted
 successfully", submitted date now Sep 9 2026.
 
-### Still to do — 6 URLs
+### 2026-09-09 update
+
+Requested and confirmed: `/services` and `/`. **`/services` was not indexed at all** —
+"URL is unknown to Google", no referring sitemap, no referring page. The third request
+(`/service-areas/walton-county/miramar-beach`) came back **"Quota Exceeded — you've
+exceeded your daily quota"**, so the remaining four wait for tomorrow.
+
+That page is also unknown to Google. Both report "no referring page detected" even though
+the homepage links to them, and the homepage's server-rendered HTML carries 41 internal
+links including both — so discovery, not rendering, is the problem. Google knows 29 of the
+64 URLs in the sitemap, and the sitemap has still never been read.
+
+`sitemap.xml` still shows **"Couldn't fetch", 0 pages, Last read empty** 24h after the
+resubmit. The file is fine: valid XML, 64 `<loc>`s, correct host, no BOM, HTTP 200 as
+`application/xml` to a Googlebot UA, no redirect, and `robots.txt` points at it. The
+likeliest cause is the stale duplicate entry below — Google may be deduplicating the two
+against each other. **Deleting `https://beachhousemoving.xyz/sitemap.xml/` and resubmitting
+the canonical one is the next thing to try**; it is a settings change, so it needs a call.
+
+### Still to do — 4 URLs
 
 These are already-indexed pages whose content changed. They matter less than the four
 above, and the refreshed `lastmod` in the sitemap will pull Google back to them anyway,
 but requesting speeds it up:
 
-5. `https://beachhousemoving.xyz/services`
-6. `https://beachhousemoving.xyz/`
 7. `https://beachhousemoving.xyz/service-areas/walton-county/miramar-beach`
 8. `https://beachhousemoving.xyz/service-areas/walton-county/santa-rosa-beach`
 9. `https://beachhousemoving.xyz/service-areas/okaloosa-county/niceville`
@@ -103,3 +120,39 @@ From `npm run audit:images`, in priority order:
   in-person look rather than claiming it. Worth a direct question.
 - **Rental agreement wording.** Copy says only that authorised-driver terms get settled
   at booking. True and safe, but vague. A concrete process line would convert better.
+
+
+## Photo privacy incident — 2026-09-09
+
+GBP post 1 was published and removed immediately for violating Google's content policy.
+Cause: the photo had a customer's address plaque, **"3508 Burnt Pine Lane"**, legible in
+the bottom-left of the frame. That is personal information under GBP's policy, and it was
+also live on the website.
+
+Fixed in `e051dfd`: address mosaicked and feather-blended at the master, all four variants
+rebuilt from it, pushed and confirmed live (the live URL now serves the redacted bytes).
+
+The same check turned up why nobody caught it: **three files in the batch had their names
+rotated among each other**, so the truck shot was filed as `dining-room-install`, the
+dining room as `drapery-hanging-primary-bedroom`, and the bedroom drapery as
+`box-truck-paver-driveway`. Alt text was written against the filenames, so the live site
+described the wrong photo in all three places. Rotating the contents back into the correct
+names fixed the copy without changing a single public URL.
+
+Guards added so it cannot repeat: `npm run audit:photo-pii` (OCR over every image, fails on
+address/plate/document shapes, our own branding allowlisted) and a photo-privacy gate at
+the top of the batch convention in `CLAUDE.md`. The scanner needs tesseract:
+
+    sudo apt install -y tesseract-ocr
+
+Until that is installed the scanner exits non-zero rather than passing silently, so the
+manual full-size review is the only gate.
+
+Also hardened the GBP copy: **phone numbers removed from all ten post bodies** (a known
+rejection trigger — the profile and the post button already give people a way to call) and
+five openers shortened so the hook survives the ~80-character feed truncation.
+`npm run gbp:kit` now fails on any of those three.
+
+**Repost post 1** — the regenerated `posts/post-01.txt` and `posts/post-01.jpg` are both
+clean. The rest of the audit found no other leak: 99 images triaged, the only other
+readable sign was a "$250.00 FINE" parking notice.
