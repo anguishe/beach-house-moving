@@ -1,5 +1,22 @@
 # Manual actions — Sept 2026 batch
 
+## TODO — 2026-09-10, once the GSC quota resets
+
+- [ ] **Delete the stale sitemap entry** `https://beachhousemoving.xyz/sitemap.xml/`
+      (trailing slash, last read Jul 19, now 308s to the canonical URL), then resubmit
+      `https://beachhousemoving.xyz/sitemap.xml`. Best remaining explanation for the
+      canonical entry sitting on "Couldn't fetch" with an empty Last-read — Google may be
+      deduplicating the two against each other. Everything else about the file checks out.
+- [ ] **Request indexing for the last 4 URLs** (quota ran out partway through 2026-09-09):
+      - [ ] `/service-areas/walton-county/miramar-beach` — confirmed "unknown to Google"
+      - [ ] `/service-areas/walton-county/santa-rosa-beach`
+      - [ ] `/service-areas/okaloosa-county/niceville`
+      - [ ] `/service-areas/walton-county/sandestin`
+- [ ] **Re-check the sitemap status after the resubmit.** If it still says "Couldn't fetch"
+      with the duplicate gone, the dedup theory is dead and it needs a different chase.
+
+Quota is ~10-12 URLs/day per property and it is spent for 2026-09-09.
+
 Shipped and live as of 2026-09-08. Commit `70abbf5`, pushed to `main`, deployed on Vercel.
 
 ## Done automatically
