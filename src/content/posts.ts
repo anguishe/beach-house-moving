@@ -1258,7 +1258,7 @@ export const POSTS: Post[] = [
     description:
       'Three design-trade jobs in one week — drapery for Tracery Interiors, art for Lily Pads Interiors, a furniture install in Burnt Pine. What install day involves.',
     datePublished: '2026-09-08',
-    dateModified: '2026-09-08',
+    dateModified: '2026-09-09',
     author: 'Beach House Moving',
     heroImage: '/images/beach-house-moving-miramar-beach-burnt-pine-dining-room-install.jpg',
     heroAlt:

@@ -789,7 +789,7 @@ export const IMAGES = {
   },
   draperyHangingPrimaryBedroom: {
     src: '/images/beach-house-moving-santa-rosa-beach-drapery-hanging-primary-bedroom.jpg',
-    alt: 'Drapery panels hung beside a made bed in a Santa Rosa Beach, FL primary bedroom on a Beach House Moving design-trade job',
+    alt: 'Beach House Moving mover Zack on a step ladder beside the bed, checking hung drapery panels in a Santa Rosa Beach, FL primary bedroom',
   },
   burntPineBoxTruckPaverDriveway: {
     src: '/images/beach-house-moving-miramar-beach-burnt-pine-box-truck-paver-driveway.jpg',

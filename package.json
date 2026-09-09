@@ -10,7 +10,9 @@
     "lint": "eslint",
     "verify:reviews": "node scripts/verify-review-schema.mjs",
     "audit:images": "node scripts/audit-images.mjs",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "gbp:kit": "node scripts/gbp-kit.mjs docs/GBP-POSTS-2026-09.md ~/Downloads/bhm-image-batch-sep08/gbp",
+    "audit:photo-pii": "node scripts/audit-photo-pii.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",
