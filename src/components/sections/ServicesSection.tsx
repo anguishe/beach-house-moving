@@ -3,10 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {
   ArrowRight,
+  HandHelping,
+  Hammer,
   Home,
   MapPin,
   Package,
   PackageCheck,
+  Paintbrush,
   Phone,
   Truck,
   Warehouse,
@@ -25,6 +28,9 @@ const serviceImageMap: Record<string, { src: string; alt: string }> = {
   delivery: IMAGES.fridge,
   'junk-removal': IMAGES.truckLoading,
   'military-pcs-moving': IMAGES.crewTeamFurnitureMove,
+  'design-trade-installation': IMAGES.burntPineDiningRoomInstall,
+  'mounting-installation': IMAGES.nicevilleEstateSaleArtHanging,
+  'loading-unloading-help': IMAGES.ridgewalkUhaulUnload,
 }
 
 const serviceIconMap: Record<string, React.ElementType> = {
@@ -34,6 +40,9 @@ const serviceIconMap: Record<string, React.ElementType> = {
   Truck,
   Warehouse,
   PackageCheck,
+  Paintbrush,
+  HandHelping,
+  Hammer,
 }
 
 export function ServicesSection() {

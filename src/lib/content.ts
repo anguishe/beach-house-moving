@@ -6,7 +6,7 @@
 // ============================================================
 
 // Bump when a deploy changes rendered copy/links on templated pages.
-export const CONTENT_REVISION = '2026-08-31'
+export const CONTENT_REVISION = '2026-09-08'
 
 // Feature flags.
 // SHOW_TESTIMONIALS: true = show static Google reviews from TESTIMONIALS[].
@@ -303,6 +303,45 @@ export const SERVICES = [
     metaDescription:
       'PCS moves for Eglin AFB and Hurlburt Field families. Report-date scheduling, PPM documentation, storage for housing gaps. Licensed #IM4125. (850) 842-1962.',
   },
+  {
+    slug: 'design-trade-installation',
+    updatedAt: '2026-09-08',
+    title: 'Design Trade Delivery & Installation',
+    linkLabel: 'Design Trade Delivery & Installation',
+    shortDescription:
+      'Receiving, delivery, and final-touch installs for interior designers and their clients.',
+    icon: 'Paintbrush',
+    featured: false,
+    metaTitle: 'Design Trade Delivery & Installation | BHM',
+    metaDescription:
+      'Receiving, delivery, and install days for Emerald Coast interior designers — placement, art hanging, drapery, final touches. Call (850) 842-1962.',
+  },
+  {
+    slug: 'mounting-installation',
+    updatedAt: '2026-09-08',
+    title: 'Mounting & Installation',
+    linkLabel: 'TV Mounting, Art & Shelf Installation',
+    shortDescription:
+      'TV mounts, art and mirrors, shelving — hung level, anchored right, hardware supplied.',
+    icon: 'Hammer',
+    featured: false,
+    metaTitle: 'TV Mounting, Art & Mirror Hanging | Beach House Moving',
+    metaDescription:
+      'TV mounting, art and mirror hanging, and shelf installation on the Emerald Coast. Hardware supplied, installer walks the space first. Call (850) 842-1962.',
+  },
+  {
+    slug: 'loading-unloading-help',
+    updatedAt: '2026-09-08',
+    title: 'Rental Truck Loading, Driving & Unloading',
+    linkLabel: 'U-Haul & Rental Truck Help',
+    shortDescription:
+      'Load it, drive it, unload it — the truck or container you already rented.',
+    icon: 'HandHelping',
+    featured: false,
+    metaTitle: 'U-Haul Loading, Driving & Unloading | BHM',
+    metaDescription:
+      'Rented a U-Haul, Penske, or PODS on the Emerald Coast? We load it, drive it, and unload it — or any part of that. Licensed & insured. Call (850) 842-1962.',
+  },
 ] as const
 
 // Same pattern as ServiceArea — optional updatedAt (YYYY-MM-DD) for accurate
@@ -412,6 +451,10 @@ export const FAQS = [
   {
     q: 'Do you charge for estimates?',
     a: 'No. Estimates are always free — no deposit, no commitment, no pressure. We give you a real number before any work begins. Call (850) 842-1962 and we will walk through your move with you.',
+  },
+  {
+    q: 'Can you drive a U-Haul or rental truck I rented myself?',
+    a: 'Yes. If you have already rented a truck, trailer, or portable container, Beach House Moving can load it, drive it, and unload it — or do any one of those on its own. It is a common request from people who rented to save money and then would rather not drive a 20-foot box truck down US-98 or reverse it into a beach-house driveway, and from military families doing a PPM/DITY move. Whose name is on the rental agreement and who it authorises to drive is worth settling when you book rather than on move morning. Call (850) 842-1962 and tell us what you rented.',
   },
 ] as const
 
@@ -728,14 +771,45 @@ export const IMAGES = {
     src: '/images/beach-house-moving-estate-sale-prep-hand-truck.jpg',
     alt: 'Beach House Moving mover Zack with a hand truck at the front walk of an Emerald Coast home before an estate sale prep move',
   },
+  nicevilleEstateSaleArtHanging: {
+    src: '/images/beach-house-moving-niceville-estate-sale-art-hanging.jpg',
+    alt: 'Beach House Moving owner Les hanging a framed landscape above a four-poster bed at a Lily Pads Interiors estate sale in Niceville, FL',
+  },
+  ridgewalkUhaulUnload: {
+    src: '/images/beach-house-moving-santa-rosa-beach-ridgewalk-uhaul-unload.jpg',
+    alt: 'Beach House Moving crew unloading a customer-rented U-Haul packed with blanket-wrapped furniture at RidgeWalk in Santa Rosa Beach, FL',
+  },
+  draperyHangingComplete: {
+    src: '/images/beach-house-moving-santa-rosa-beach-drapery-hanging-complete.jpg',
+    alt: 'Beach House Moving mover Zack beside finished drapery panels in a Santa Rosa Beach, FL primary bedroom on a Tracery Interiors job',
+  },
+  draperyHangingLadder: {
+    src: '/images/beach-house-moving-santa-rosa-beach-drapery-hanging-ladder.jpg',
+    alt: 'Beach House Moving mover Zack on a ladder hanging drapery panels in a Santa Rosa Beach, FL primary bedroom',
+  },
+  draperyHangingPrimaryBedroom: {
+    src: '/images/beach-house-moving-santa-rosa-beach-drapery-hanging-primary-bedroom.jpg',
+    alt: 'Drapery panels hung beside a made bed in a Santa Rosa Beach, FL primary bedroom on a Beach House Moving design-trade job',
+  },
+  burntPineBoxTruckPaverDriveway: {
+    src: '/images/beach-house-moving-miramar-beach-burnt-pine-box-truck-paver-driveway.jpg',
+    alt: 'Beach House Moving box truck staged on the paver driveway of a Burnt Pine home in Miramar Beach, FL for a furniture install',
+  },
+  burntPineDiningRoomInstall: {
+    src: '/images/beach-house-moving-miramar-beach-burnt-pine-dining-room-install.jpg',
+    alt: 'Beach House Moving crew unwrapping and placing dining room furniture under a chandelier at a Burnt Pine home in Miramar Beach, FL',
+  },
 } as const
 
 /** Homepage gallery marquee — owner-operator shots lead; carousel may repeat photos used elsewhere. */
 export const GALLERY_PHOTOS = [
   IMAGES.seacrestOutdoorFurnitureDelivery, // Seacrest Beach outdoor furniture delivery
+  IMAGES.burntPineDiningRoomInstall,       // Burnt Pine, Miramar Beach — dining room install
   IMAGES.seacrestFreestandingTubSetInPlace, // Seacrest Beach tub set-in-place — Keith
+  IMAGES.draperyHangingComplete,           // Santa Rosa Beach — drapery hung, Tracery Interiors job
   IMAGES.graytonFurnitureDelivery,         // Grayton Beach same-day furniture delivery
   IMAGES.residentialMoveLoading,           // residential move — loading box truck
+  IMAGES.nicevilleEstateSaleArtHanging,    // Niceville — art hung, Lily Pads Interiors estate sale
   IMAGES.estateSalePrepHandTruck,          // estate sale prep — Zack, hand truck
   IMAGES.apartmentFleetTruckVanStaging,    // apartment move — fleet staged
   IMAGES.crewBrandedAntiqueMove,  // owner-operator lead
@@ -773,6 +847,10 @@ export const GALLERY_PHOTOS = [
   IMAGES.liftgateUnloadCrew,      // box truck lift gate unload
   IMAGES.crateUncratingDriveway,  // driveway uncrating
   IMAGES.kingHeadboardCarry,      // oversized two-man carry
+  IMAGES.burntPineBoxTruckPaverDriveway, // Burnt Pine paver driveway staging
+  IMAGES.draperyHangingLadder,    // drapery hanging — ladder work
+  IMAGES.draperyHangingPrimaryBedroom, // drapery hung — primary bedroom
+  IMAGES.ridgewalkUhaulUnload,    // RidgeWalk — customer-rented truck unload
 ] as const
 
 export const TESTIMONIALS = [
@@ -1023,6 +1101,33 @@ export const SERVICE_INCLUDES: Record<(typeof SERVICES)[number]['slug'], readonl
     '24/7 availability for short-notice orders',
     'Floor and doorway protection for move-out inspections',
   ],
+  'design-trade-installation': [
+    'Receiving from showrooms, freight terminals, and warehouses',
+    'Uncrating with condition noted before anything moves',
+    'Room-of-choice placement and final furniture positioning',
+    'Art, mirror, and framed-piece hanging — hardware supplied if needed',
+    'TV mounts taken down and replaced',
+    'Drapery panels and soft goods handled on install day',
+    'Jobsite floor and finish protection in unfinished homes',
+    'Debris, crates, and packing material hauled away',
+  ],
+  'mounting-installation': [
+    'TV mounts taken down, replaced, and re-hung',
+    'Art, mirrors, and framed pieces hung level and anchored',
+    'Mounting hardware supplied when you do not have it',
+    'Shelving and similar builds after an in-person look',
+    'Keith walks the space before we commit to mounting anything',
+    'Wall type checked — stud, block, drywall, or plaster',
+  ],
+  'loading-unloading-help': [
+    'Load, drive, and unload — or any part of it you need',
+    'U-Haul, Penske, Budget, PODS, and portable container experience',
+    'We can drive the rental you already have',
+    'Blanket-wrapping and tie-down so the load rides safely',
+    'Stair carries, elevators, and long walks handled',
+    'Licensed and insured crews — not day labor',
+    'Same-day and short-notice availability when we have it',
+  ],
 }
 
 /** FAQ indices per service slug — subset of FAQS. */
@@ -1035,6 +1140,9 @@ export const SERVICE_FAQ_INDICES: Record<(typeof SERVICES)[number]['slug'], read
   delivery: [0, 6, 2],
   'junk-removal': [9, 0, 2, 10, 11],
   'military-pcs-moving': [8, 5, 4],
+  'design-trade-installation': [6, 7, 1],
+  'mounting-installation': [6, 1, 5],
+  'loading-unloading-help': [15, 2, 5],
 }
 
 /** Counties for junk removal Service JSON-LD (SAB — no street address). */
@@ -1338,6 +1446,13 @@ export type Neighborhood = {
   metaTitle: string
   metaDescription: string
   localBody: string
+  /**
+   * Owner-confirmed jobs actually worked in this community, in specifics.
+   * Only add sentences backed by an owner description or a job photo — this
+   * field exists to be citable, so a claim we cannot point at breaks it.
+   * Append (never replace) as new photo batches land, and bump `updatedAt`.
+   */
+  confirmedWork?: string
   localFaqs: { question: string; answer: string }[]
   // ISO date (YYYY-MM-DD). Set this when a neighborhood's content changes so
   // sitemap.ts can emit an accurate <lastmod>. Falls back to the curated
@@ -1349,11 +1464,13 @@ export const NEIGHBORHOODS = [
   // ---- WALTON COUNTY ----
   {
     slug: 'santa-rosa-beach',
+    updatedAt: '2026-09-08',
     name: 'Santa Rosa Beach',
     county: 'Walton County',
     image: '/images/move-srb.jpg',
     intro: 'Santa Rosa Beach is the largest community along 30A, stretching from the bayside neighborhoods north of Highway 98 down to the beachfront. The mix of full-time homes, vacation rentals, and new construction means every move here is different — and our crews know the difference between a quick north-of-98 relocation and a tight beachside job.',
     landmarks: ['30A', 'Highway 98', 'Choctawhatchee Bay', 'Gulf Place', 'Point Washington'],
+    confirmedWork: `Santa Rosa Beach jobs on the books: a design-trade drapery hanging in a primary bedroom for Tracery Interiors, an unload of a customer-rented U-Haul at RidgeWalk on the Point Washington side north of US-98, and an antique slot machine moved as a specialty item. Apartment buildings here we work off the lift-gate ramp, with the box truck and the Sprinter van staged together when the parking allows.`,
     metaTitle: 'Movers in Santa Rosa Beach, FL | Beach House Moving',
     metaDescription: 'Licensed, insured movers in Santa Rosa Beach & 30A. Residential, local & long-distance moving, packing, storage. Free quote — (850) 842-1962.',
     localBody: `Santa Rosa Beach isn't one place — it's two. South of US-98 you've got the 30A side: beach cottages, gulf-front rentals, and gated lanes off Scenic 30A where access is the whole job. North of 98 it's a different world — woodland lots, Point Washington, Hammock Bay's edge, longer driveways and more room to stage a truck. We plan the move around which side you're on before we ever load a dolly. On the south side that often means a smaller truck or the Sprinter van for the tight, tree-lined lanes around Gulf Place, plus a parking plan for streets where there's nowhere to leave a box truck for six hours. North of 98 the trucks fit fine, but the hauls from house to curb run long. Either way, Santa Rosa Beach is our home base, so we're not guessing — we know which roads flood after a summer storm, which HOAs want a certificate of insurance on file before move day, and where the gate codes change with the season.`,
@@ -1374,11 +1491,13 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: '30a',
+    updatedAt: '2026-09-08',
     name: '30A',
     county: 'Walton County',
     image: '/images/beach-house-moving-beach-home-balcony-view.jpg',
     intro: 'Scenic Highway 30A links a string of distinct beach communities, each with its own gates, HOA rules, parking limits, and beach-access logistics. Moving along 30A rewards a crew that already knows the roads, the carriage-home alleys, and where the trucks can actually park — not one learning it on the day.',
     landmarks: ['Seaside', 'WaterColor', 'Rosemary Beach', 'Alys Beach', 'Grayton Beach', 'Inlet Beach'],
+    confirmedWork: `Along 30A we have delivered a wine storage build-out — lockers, glassware crates, and a pallet jack through a finished house — and worked a full install day with Design & Dwell Homes placing furniture in a new build. Both ran through gated 30A communities where the codes and the parking plan were settled before the truck rolled.`,
     metaTitle: '30A Movers | Beach House Moving — Santa Rosa Beach, FL',
     metaDescription: 'Local movers who know every 30A community — Seaside, WaterColor, Rosemary, Alys & more. Licensed & insured. Free quote — (850) 842-1962.',
     localBody: `"30A" isn't a town — it's the 24-mile scenic corridor stitching together sixteen beach neighborhoods from Dune Allen in the west to Inlet Beach in the east, and every one of them moves differently. Seaside won't let a box truck idle on its narrow streets; WaterSound and Alys Beach run guard gates with their own move-in rules; Grayton's roads are literally sand. A move "on 30A" is really a question of which community, and we've worked all of them. What they share is the bottleneck: Scenic 30A is the only road, it's two lanes, and in season it's bumper-to-bumper with beach traffic and cyclists. That sets the clock. We schedule loads for early morning when 30A is quiet, keep the truck off the corridor itself wherever a side lane allows, and use the Sprinter van for the communities where a 26-footer is a liability rather than an asset. If you're moving between 30A towns — and a lot of people here do — we already know the access quirks on both ends.`,
@@ -1399,11 +1518,13 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'grayton-beach',
+    updatedAt: '2026-09-08',
     name: 'Grayton Beach',
     county: 'Walton County',
     image: '/images/beach-house-moving-grayton-beach-gulf-front-new-construction-box-truck.jpg',
     intro: 'Grayton Beach is the oldest townsite on 30A, known for its sandy unpaved streets, cottage character, and proximity to Grayton Beach State Park. Those soft-sand roads and older lots make access and equipment choices matter — something we plan for before the truck arrives.',
     landmarks: ['Grayton Beach State Park', 'Western Lake', 'Red Bar', 'Hotz Avenue'],
+    confirmedWork: `In Grayton Beach we have worked a gulf-front new-construction delivery out of the box truck, carried an oversized mirror up a luxury staircase, and run a same-day furniture delivery. Grayton's roads are sand, so truck choice here is decided before the job, not on arrival.`,
     metaTitle: 'Grayton Beach Movers | Beach House Moving — 30A, FL',
     metaDescription: 'Movers serving Grayton Beach on 30A. We know the sandy roads and cottage lots. Licensed & insured. Free quote — (850) 842-1962.',
     localBody: `Grayton Beach is the oldest townsite on 30A, and it moves like it. The streets are sand — unpaved, soft, and unforgiving to a loaded box truck that sinks where a lighter vehicle rolls right through. That single fact drives every decision here: we scout the approach first, often stage with the Sprinter van, and keep weight off the softest stretches near Western Lake and the state park. The cottages themselves are older and smaller-doored than the new builds east of here, so oversized furniture frequently means a door-off or a careful angle through a porch rather than a straight shot. Add the weekend crowd around Red Bar and the limited parking on lanes like Hotz Avenue, and timing matters as much as muscle. We've learned Grayton the only way you can — by doing it — which is why we don't show up with the wrong truck and improvise. Coastal dune-lake humidity also means we wrap and pad early; nothing sits exposed on a Grayton porch longer than it has to.`,
@@ -1424,6 +1545,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'blue-mountain-beach',
+    updatedAt: '2026-09-08',
     name: 'Blue Mountain Beach',
     county: 'Walton County',
     image: '/images/mover-carry-wrapped-estate.jpg',
@@ -1449,6 +1571,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'seaside',
+    updatedAt: '2026-09-08',
     name: 'Seaside',
     county: 'Walton County',
     image: '/images/clean-entry.jpg',
@@ -1474,6 +1597,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'watercolor',
+    updatedAt: '2026-09-08',
     name: 'WaterColor',
     county: 'Walton County',
     image: '/images/beach-house-moving-great-room-staged-furniture.jpg',
@@ -1499,6 +1623,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'watersound',
+    updatedAt: '2026-09-08',
     name: 'WaterSound',
     county: 'Walton County',
     image: '/images/beach-house-moving-fine-art-handling.jpg',
@@ -1524,6 +1649,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'seacrest-beach',
+    updatedAt: '2026-09-08',
     name: 'Seacrest Beach',
     county: 'Walton County',
     image: '/images/beach-house-moving-golf-cart-transport.jpg',
@@ -1533,6 +1659,7 @@ export const NEIGHBORHOODS = [
       'Sitting between Alys Beach and Rosemary, Seacrest inherits the neighborhood rules of both: floor protection expected, parking deliberate, gate-adjacent coordination handled in advance. We treat it that way by default.',
     ],
     landmarks: ['the Seacrest lagoon pool', 'Alys Beach', 'Rosemary Beach'],
+    confirmedWork: `In Seacrest Beach we delivered a freestanding soaking tub and set it in place for Home at Ease Interiors in a house still under construction, ahead of the plumber's day. We have also run an outdoor furniture delivery here.`,
     metaTitle: 'Seacrest Beach Movers | Beach House Moving — 30A, FL',
     metaDescription: 'Movers serving Seacrest Beach on 30A. Tight layouts, handled. Owner-operated & insured. Free quote — (850) 842-1962.',
     localBody: `Seacrest Beach is dense — a tight grid of rental cottages built close together around the community's famous 12,000-square-foot lagoon pool, with golf-cart paths threading between them. That density is the move. Homes share narrow lanes, driveways are short or shared, and the golf-cart culture means the paths aren't sized for a 26-foot truck. We stage carefully, often working from the nearest legal truck position and carrying in, and we time the job so we're not boxing in a neighbor or blocking a cart path during a busy rental week. Seacrest also sits right against Alys and Rosemary Beach, so move-in rules can borrow from those stricter neighbors depending on exactly where your home is. The cottages are typically multi-story to fit the lot, which puts stairs in the mix on top of the access squeeze. None of it is hard once you've done it — but it punishes a crew that treats Seacrest like an open suburban street, because it isn't one.`,
@@ -1553,6 +1680,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'alys-beach',
+    updatedAt: '2026-09-08',
     name: 'Alys Beach',
     county: 'Walton County',
     image: '/images/beach-house-moving-art-installation.jpg',
@@ -1578,6 +1706,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'rosemary-beach',
+    updatedAt: '2026-09-08',
     name: 'Rosemary Beach',
     county: 'Walton County',
     image: '/images/beach-house-moving-lift-gate-furniture-padded.jpg',
@@ -1603,11 +1732,13 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'inlet-beach',
+    updatedAt: '2026-09-08',
     name: 'Inlet Beach',
     county: 'Walton County',
     image: '/images/beach-house-moving-fleet-truck-van.jpg',
     intro: 'Inlet Beach is the easternmost community in Walton County, where 30A meets the Bay County line near the 30Avenue shops and Camp Helen State Park. It blends classic beach cottages with newer luxury builds — and we move both with the same care.',
     landmarks: ['30Avenue', 'Camp Helen State Park', 'Lake Powell', '30A eastern gateway'],
+    confirmedWork: `Inlet Beach is where we worked a full pack day — kitchen dish-pack in paper, a chaise shrink-wrapped and stood upright, an antique drum table pad-wrapped and blanket-staged, and the living room staged for load. We have also carried oversized pieces down the beach access boardwalk to the sand here, which is a two-person walk with no shortcut.`,
     metaTitle: 'Inlet Beach Movers | Beach House Moving — 30A, FL',
     metaDescription: 'Movers serving Inlet Beach at the east end of 30A. Cottages to new builds. Owner-operated & insured. Free quote — (850) 842-1962.',
     localBody: `Inlet Beach is 30A's easternmost community and one of its fastest-changing — new builds going up around 30Avenue and the Rosemary edge, older homes near Camp Helen State Park and Lake Powell, and a mix that makes every street a little different. The growth means construction traffic and partially built lanes in spots, so we check the current road state before move day rather than trusting last month's map. Closer to the highway and 30Avenue, access is straightforward and the trucks fit; down toward the inlet and Lake Powell, the lots get tighter and the dune access more sensitive. Inlet Beach also catches a lot of cross-county moves because it sits right on the Walton-Bay line near Phillips Inlet — folks moving between 30A and Panama City Beach often pass through here, and we handle both ends. The constant in Inlet Beach is change, so we treat each move as current: confirm the access, confirm the construction, confirm the parking, then load.`,
@@ -1628,6 +1759,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'dune-allen',
+    updatedAt: '2026-09-08',
     name: 'Dune Allen',
     county: 'Walton County',
     image: '/images/collage-moves.jpg',
@@ -1657,6 +1789,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'seagrove-beach',
+    updatedAt: '2026-09-08',
     name: 'Seagrove Beach',
     county: 'Walton County',
     image: '/images/team-packing.jpg',
@@ -1682,11 +1815,13 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'miramar-beach',
+    updatedAt: '2026-09-08',
     name: 'Miramar Beach',
     county: 'Walton County',
     image: '/images/move-miramar-beach.jpg',
     intro: 'Miramar Beach runs along the western end of Walton County between Destin and Sandestin — a dense mix of beachfront condos, gated communities, and large homes. High-rise condo moves with elevator reservations and lift-gate box trucks are routine work for our crew.',
     landmarks: ['Sandestin', 'Silver Sands Premium Outlets', 'Scenic Gulf Drive', 'Baytowne Wharf'],
+    confirmedWork: `In Miramar Beach we ran a furniture install at a home in Burnt Pine — Zack and Keith set the dining room under the chandelier and finished the final touches, with the box truck staged on the paver driveway rather than blocking the lane. We also work standard residential moves in Miramar Beach homes room by room.`,
     metaTitle: 'Miramar Beach Movers — Walton County | BHM',
     metaDescription: 'Movers for Miramar Beach condos, gated homes & Sandestin. Owner-operated, licensed & insured. Free quote — (850) 842-1962.',
     localBody: `Miramar Beach is where 30A's cottage world gives way to high-density gulf-front living — the Scenic Gulf Drive condo towers, the Sandestin resort edge, Silver Sands and the outlet corridor, and Baytowne nearby. Moving here is often a condo problem: service elevators that must be reserved, loading docks with time windows, building escorts, and parking decks that won't clear a box truck. We handle the building's rules first — book the elevator, confirm the dock window, get on the security list — because in a Miramar tower the building controls the clock, not the crew. For the single-family side off Scenic Gulf Drive, the access is friendlier but summer traffic on 98 and the Silver Sands stretch sets the timing. We've moved enough Miramar condos to know the difference between a building that runs a tight, helpful dock and one where you'll lose an hour if the reservation isn't locked in. Either way, we plan the vertical move — elevator, dock, escort — before a single box leaves the unit.`,
@@ -1707,11 +1842,13 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'sandestin',
+    updatedAt: '2026-09-08',
     name: 'Sandestin',
     county: 'Walton County',
     image: '/images/beach-house-moving-condo-stair-carry.jpg',
     intro: 'Sandestin Golf and Beach Resort is a large gated resort community with guard gates, internal road rules, and a wide span between bayside and beachside neighborhoods. We handle the gate clearance and internal routing so the move day stays on track.',
     landmarks: ['Baytowne Wharf', 'Sandestin gate', 'Burnt Pine', 'Village of Baytowne'],
+    confirmedWork: `Inside Sandestin we have worked a furniture install in Burnt Pine, the gated golf community within the resort. Box truck staged on the paver driveway, dining room set under the chandelier, final touches finished the same day.`,
     metaTitle: 'Sandestin Movers | Beach House Moving — Miramar Beach, FL',
     metaDescription: 'Gated-resort movers for Sandestin. Guard-gate access and resort logistics handled. Free quote — (850) 842-1962.',
     localBody: `Sandestin is a gated golf-and-beach resort community, and the guard gate is the first and most important step of any move here. Burnt Pine, the Baytowne Wharf neighborhoods, the gulf-front and bay-front enclaves — all of it sits behind controlled access with its own rules about move vehicles, hours, and who's cleared to enter. We coordinate the gate well ahead, get the crew and truck on the approved list, and confirm any move-in window the community enforces. Inside, Sandestin runs on golf carts and pedestrian paths as much as roads, so the truck stays where it's permitted and we plan the carry from there. The homes and condos range from Baytowne lofts to large gulf-front residences, so we size the job to the specific address. The resort setting means a polished expectation — escorts, tidy staging, and protection on every finish — and a real cost to getting the gate wrong: a loaded truck turned away at security is the one delay we plan hardest to avoid.`,
@@ -1732,6 +1869,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'freeport',
+    updatedAt: '2026-09-08',
     name: 'Freeport',
     county: 'Walton County',
     image: '/images/truck-loaded.jpg',
@@ -1757,6 +1895,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'defuniak-springs',
+    updatedAt: '2026-09-08',
     name: 'DeFuniak Springs',
     county: 'Walton County',
     image: '/images/beach-house-moving-loaded-box-truck.jpg',
@@ -1783,6 +1922,7 @@ export const NEIGHBORHOODS = [
   // ---- OKALOOSA COUNTY ----
   {
     slug: 'destin',
+    updatedAt: '2026-09-08',
     name: 'Destin',
     county: 'Okaloosa County',
     image: '/images/beach-house-moving-mattress-stairwell-move.jpg',
@@ -1792,6 +1932,7 @@ export const NEIGHBORHOODS = [
       'Then there are the gated communities — Kelly Plantation, Regatta Bay, Destiny — where the gate wants your mover\'s name in advance and the HOA has opinions about where a truck parks. We handle that coordination before move day. One more local truth: Highway 98 and the Marler Bridge set the schedule in summer. We plan Destin moves early or late on purpose, because an hour saved in traffic is an hour off your clock.',
     ],
     landmarks: ['Destin Harbor', 'HarborWalk Village', 'Crab Island', 'Kelly Plantation', 'Regatta Bay'],
+    confirmedWork: `In Destin we handled a refrigerator swap at Pelican Beach Resort — the new unit up the elevator and installed, the old one hand-trucked out and hauled away, all inside a resort condo's access and elevator rules.`,
     metaTitle: 'Destin FL Movers | Beach House Moving — Okaloosa County',
     metaDescription: 'Movers for Destin condos, gated communities & beachfront homes. Owner-operated, licensed & insured. Free quote — (850) 842-1962.',
     localBody: `Destin packs more move-types into one city than anywhere else we serve. There's the Harbor and Holiday Isle high-rise condos with their service elevators, dock windows, and building escorts; the gated golf communities like Kelly Plantation with guard-gate clearances; the older mainland neighborhoods with normal driveways; and the relentless seasonal traffic over the Marler Bridge that sets the clock on all of it. We plan a Destin move around which Destin you're in. A Holiday Isle condo is a vertical, building-controlled job — reserve the elevator, confirm the dock, get on the list. Kelly Plantation is a gate-and-clearance job. The mainland is a parking-and-timing job, because US-98 through Destin in season can turn a ten-minute hop into forty. We also move a steady stream of military families through Destin near the Eglin footprint, so PCS timing and short-notice report dates are familiar territory. The throughline is traffic and access: in Destin, the lifting is rarely the hard part — getting the truck to the door at the right time is.`,
@@ -1812,6 +1953,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'fort-walton-beach',
+    updatedAt: '2026-09-08',
     name: 'Fort Walton Beach',
     county: 'Okaloosa County',
     image: '/images/truck-dolly.jpg',
@@ -1837,11 +1979,13 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'niceville',
+    updatedAt: '2026-09-08',
     name: 'Niceville',
     county: 'Okaloosa County',
     image: '/images/move-niceville.jpg',
     intro: 'Niceville sits on Boggy Bayou near Eglin AFB, with established neighborhoods and the master-planned Bluewater Bay community. Family homes and military relocations are the backbone of the work here, and we bring the same care to a 2-bedroom condo as we do to a full estate.',
     landmarks: ['Bluewater Bay', 'Boggy Bayou', 'Eglin AFB', 'Rocky Bayou', 'Northwest Florida State College'],
+    confirmedWork: `In Niceville we hung framed art at a Lily Pads Interiors estate sale, working to the designer's marks in a furnished home. We also run standard residential moves here off the truck ramp.`,
     metaTitle: 'Niceville FL Movers | Beach House Moving — Okaloosa County',
     metaDescription: 'Movers serving Niceville & Bluewater Bay. Family and PCS moves. Owner-operated & insured. Free quote — (850) 842-1962.',
     localBody: `Niceville is a family town anchored by Eglin commuters, Northwest Florida State College, and the bayous — Boggy Bayou and Rocky Bayou — that wind through it, with the master-planned Bluewater Bay community on its edge. Moving here is mostly the friendly kind: established residential streets, real driveways, and homes built for families rather than vacation turnover. That makes Niceville one of the smoother Okaloosa moves, but two things shape it. First, the Eglin connection means military and defense-contractor families move through regularly, so PCS and relocation timing is common and we plan for it. Second, the bayou-front and Rocky Bayou-area homes can have sloped lots, dock-side access, and longer carries from the street down to a waterside house. We plan crew and equipment for those grades. Bluewater Bay has its own community feel and occasional move guidelines worth confirming. For most of Niceville, though, the move is straightforward family work done right — and because it's close to our base and easy to reach, the drive time stays low and the quote stays honest.`,
@@ -1862,6 +2006,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'crestview',
+    updatedAt: '2026-09-08',
     name: 'Crestview',
     county: 'Okaloosa County',
     image: '/images/fleet-box-truck.jpg',
@@ -1887,6 +2032,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'shalimar',
+    updatedAt: '2026-09-08',
     name: 'Shalimar',
     county: 'Okaloosa County',
     image: '/images/team-stairs.jpg',
@@ -1916,6 +2062,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'bluewater-bay',
+    updatedAt: '2026-09-08',
     name: 'Bluewater Bay',
     county: 'Okaloosa County',
     image: '/images/move-niceville.jpg',
@@ -1946,6 +2093,7 @@ export const NEIGHBORHOODS = [
   // ---- BAY COUNTY ----
   {
     slug: 'panama-city',
+    updatedAt: '2026-09-08',
     name: 'Panama City',
     county: 'Bay County',
     image: '/images/mover-carry-estate.jpg',
@@ -1971,11 +2119,13 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'panama-city-beach',
+    updatedAt: '2026-09-08',
     name: 'Panama City Beach',
     county: 'Bay County',
     image: '/images/beach-house-moving-rug-placement-condo.jpg',
     intro: "Panama City Beach is a dense resort strip of beachfront condos, towers, and rental homes along Front Beach Road. High-rise elevator moves with loading-zone time windows are routine for us here — and we coordinate the building's requirements before move day, not the morning of.",
     landmarks: ['Pier Park', 'Front Beach Road', 'beachfront condo towers', 'Camp Helen'],
+    confirmedWork: `In Panama City Beach we have loaded a residential move out of the box truck — boxes tiered to the ceiling and the appliance dolly working alongside — in a market where high-rise elevator windows set the schedule.`,
     metaTitle: 'Panama City Beach Movers — Bay County | BHM',
     metaDescription: 'Movers for Panama City Beach condos & rental homes. Elevator moves handled. Owner-operated & insured. Free quote — (850) 842-1962.',
     localBody: `Panama City Beach is towers and traffic. The gulf side is dominated by high-rise condos along Front Beach Road and Thomas Drive, which makes a PCB move a building-logistics job: service-elevator reservations, loading-dock windows, building escorts, and parking decks that won't clear a box truck. We handle the building first — book the elevator, confirm the dock, get on the security list — because in a PCB tower the building owns the clock. Then there's Front Beach Road itself, which in summer is one of the most congested stretches on the whole coast; we schedule around it instead of sitting in it, because an hour lost in beach traffic is an hour on your bill. Away from the towers, PCB has single-family neighborhoods and the area near Pier Park and Camp Helen with friendlier access. The Sprinter van and a staged carry earn their keep here when a deck or a dock won't take a full truck. PCB is the eastern anchor of our service area, and we know the building-by-building difference between a tower that runs a tight, helpful dock and one that'll cost you an hour if the reservation slips.`,
@@ -1996,6 +2146,7 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'lynn-haven',
+    updatedAt: '2026-09-08',
     name: 'Lynn Haven',
     county: 'Bay County',
     image: '/images/truck-loaded.jpg',

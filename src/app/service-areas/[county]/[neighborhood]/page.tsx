@@ -8,6 +8,7 @@ import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
+import type { Neighborhood } from '@/lib/content'
 import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES, TRUST_BADGES } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { faqPageSchema, webPageSchema } from '@/lib/structured-data'
@@ -47,17 +48,48 @@ const LUXURY_GATED = new Set(['alys-beach', 'rosemary-beach', 'watercolor', 'wat
 const CONDO_HIGHRISE = new Set(['miramar-beach', 'panama-city-beach', 'destin'])
 const MILITARY = new Set(['fort-walton-beach', 'niceville', 'shalimar', 'crestview', 'bluewater-bay'])
 
+// Six per profile: fills the 2-column grid evenly and puts every geo page one click
+// from the services that actually convert in that kind of community.
 function getServiceSlugs(nbSlug: string): string[] {
   if (LUXURY_GATED.has(nbSlug)) {
-    return ['residential-moving', 'packing-unpacking', 'local-moving', 'storage']
+    return [
+      'residential-moving',
+      'packing-unpacking',
+      'local-moving',
+      'storage',
+      'design-trade-installation',
+      'mounting-installation',
+    ]
   }
   if (CONDO_HIGHRISE.has(nbSlug)) {
-    return ['residential-moving', 'delivery', 'local-moving', 'storage']
+    return [
+      'residential-moving',
+      'delivery',
+      'local-moving',
+      'storage',
+      'mounting-installation',
+      'loading-unloading-help',
+    ]
   }
   if (MILITARY.has(nbSlug)) {
-    return ['residential-moving', 'local-moving', 'packing-unpacking', 'storage']
+    // PPM/DITY moves are rented-truck moves, so rental-truck help belongs here.
+    return [
+      'residential-moving',
+      'military-pcs-moving',
+      'local-moving',
+      'packing-unpacking',
+      'storage',
+      'loading-unloading-help',
+    ]
   }
-  return ['residential-moving', 'local-moving', 'packing-unpacking', 'delivery']
+  return [
+    'residential-moving',
+    'local-moving',
+    'packing-unpacking',
+    'delivery',
+    'loading-unloading-help',
+    'mounting-installation',
+  ]
 }
 
 function getOwnerClosing(intro: string): string {
@@ -81,12 +113,16 @@ const serviceIconMap = {
   Truck: Shield,
   Warehouse: Shield,
   Trash2: Shield,
+  Paintbrush: Package,
+  HandHelping: Shield,
+  Hammer: Package,
 } as const
 
 export default async function NeighborhoodPage({ params }: PageProps) {
   const { county: countySlug, neighborhood: nbSlug } = await params
 
-  const nb = NEIGHBORHOODS.find((n) => n.slug === nbSlug)
+  // Widened to Neighborhood so optional fields (confirmedWork) are readable.
+  const nb: Neighborhood | undefined = NEIGHBORHOODS.find((n) => n.slug === nbSlug)
   if (!nb) notFound()
 
   const area = SERVICE_AREAS.find((sa) => sa.county === nb.county)
@@ -210,15 +246,14 @@ export default async function NeighborhoodPage({ params }: PageProps) {
               />
             </div>
             <p className="mt-6 font-body text-lg leading-relaxed text-ink-muted">{nb.intro}</p>
-            {'introExtended' in nb &&
-              nb.introExtended.map((paragraph) => (
-                <p
-                  key={paragraph.slice(0, 48)}
-                  className="mt-4 font-body text-lg leading-relaxed text-ink-muted"
-                >
-                  {paragraph}
-                </p>
-              ))}
+            {nb.introExtended?.map((paragraph) => (
+              <p
+                key={paragraph.slice(0, 48)}
+                className="mt-4 font-body text-lg leading-relaxed text-ink-muted"
+              >
+                {paragraph}
+              </p>
+            ))}
             <p className="mt-4 font-body text-base leading-relaxed text-ink-muted">
               When you hire Beach House Moving, you get the owners on the job —{' '}
               {ownerClosing}
@@ -233,6 +268,20 @@ export default async function NeighborhoodPage({ params }: PageProps) {
           <p className="font-body text-base leading-relaxed text-ink-muted">{nb.localBody}</p>
         </div>
       </div>
+
+      {/* Owner-confirmed jobs in this community — self-contained passage for AEO/GEO citation */}
+      {nb.confirmedWork && (
+        <section className="px-6 pt-12 md:pt-16">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="font-heading text-2xl font-bold text-brand-navy">
+              Recent work in {nb.name}
+            </h2>
+            <p className="mt-4 font-body text-base leading-relaxed text-ink-muted">
+              {nb.confirmedWork}
+            </p>
+          </div>
+        </section>
+      )}
 
       <section className="px-6 py-12 md:py-16">
         <div className="mx-auto max-w-4xl">

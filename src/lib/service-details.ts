@@ -8,6 +8,9 @@ export const SERVICE_RELATED: Record<string, readonly string[]> = {
   delivery: ['local-moving', 'junk-removal'],
   'military-pcs-moving': ['long-distance-moving', 'storage'],
   'junk-removal': ['delivery', 'local-moving'],
+  'design-trade-installation': ['mounting-installation', 'delivery'],
+  'mounting-installation': ['design-trade-installation', 'delivery'],
+  'loading-unloading-help': ['local-moving', 'packing-unpacking'],
 }
 
 /** Long-form service copy — keyed by slug; kept separate from SERVICES for lean page bundles. */
@@ -384,6 +387,200 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       {
         q: 'Do you serve Hurlburt Field as well as Eglin?',
         a: 'Both, plus the towns base families actually live in — Fort Walton Beach, Niceville, Shalimar, Crestview, Valparaiso, Destin, and across all three counties.',
+      },
+    ],
+  },
+  'design-trade-installation': {
+    fullDescription:
+      'Receiving, delivery, and installation for interior designers on the Emerald Coast. We take furnishings from the showroom, the freight terminal, or a receiving warehouse, bring them to the house, uncrate them, and set them where the design says they go — then haul the crates and packing material away so the room photographs clean.',
+    heroTitle: 'Design Trade Delivery & Installation on the Emerald Coast',
+    sections: [
+      {
+        heading: 'What a design-trade install day looks like',
+        body: [
+          "It is not a move, and treating it like one is how furnishings get damaged. There is no inventory list from a homeowner, no boxes labeled by room, and usually no homeowner on site. There is a designer, a plan, a house that may still have trades working in it, and a truckload of pieces that each have exactly one right place to end up.",
+          "We work off the designer's plan. Pieces come off the truck in the order the rooms get set, not the order they were loaded. Everything is uncrated, checked, placed, and adjusted until the designer signs off — and the crates, blankets, and cardboard leave with us.",
+          "We wrote up a week of this work — drapery in Santa Rosa Beach for Tracery Interiors, art for Lily Pads Interiors in Niceville, and a furniture install in Burnt Pine — in [a week of design trade installs](/resources/field-notes-design-trade-install-week-emerald-coast).",
+        ],
+      },
+      {
+        heading: 'Receiving is the part most people skip',
+        body: [
+          "An owner-supplied piece has usually had a life before install day. It came off a freight truck, sat in a garage or a spare room while other trades worked around it, and got moved at least once by someone who was not thinking about it. A chip found after delivery is nearly impossible to assign to anyone once the crate is gone.",
+          "So we uncrate and look at the piece before it moves, with the designer's rep there when someone is on site, and note anything we find in writing. It costs ten minutes and it has settled more than one conversation that would otherwise have come down to two people remembering a crate differently.",
+        ],
+      },
+      {
+        heading: 'Final touches — art, mirrors, and soft goods',
+        body: [
+          "The last hour of an install is what the client actually sees. Framed art and mirrors get hung to the designer's marks, and we supply the hanging hardware when the piece did not come with the right kind. Drapery panels get handled and hung so nothing is creased or dragged across a finished floor. Rugs get set and furniture gets walked onto them rather than dragged.",
+          "Keith is our installer, and anything that gets mounted or built goes past him first — he looks at the actual wall before we commit to it. A confident answer about a mount from someone who has not seen the space is worth nothing, and the failure mode is a television on the floor.",
+          "This is the work that turns a delivered room into a finished one, and it is the reason designers book a crew rather than a delivery service.",
+        ],
+      },
+      {
+        heading: 'Installing into a house that is not finished',
+        body: [
+          "Most trade work on 30A and in Miramar Beach happens in homes that are not done. The subfloor is exposed and every screw head is a hazard for anything with a finished bottom. Trim is in but unpainted, so a scuff is a callback for the painter. Gate codes at the gated communities change, and a crew sitting at a gate is burning the job's hours.",
+          "We ask for the code, the contact actually on site, and where we can park before the truck rolls. We bring our own floor protection rather than assuming the builder's is where we need it, and we do not leave anything in a traffic path for another trade to work around.",
+        ],
+      },
+      {
+        heading: 'Where our line is',
+        body: [
+          "We place, hang, mount, and set. We do not make plumbing or electrical connections — those are licensed trades in Florida and our mover registration covers moving your belongings, not wiring a sconce or connecting a waste line. Scheduling us ahead of those trades, rather than alongside them, is what keeps an install day short.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Do you work directly with interior designers?',
+        a: 'Regularly. We handle receiving, delivery, and install days for design firms across Walton and Okaloosa Counties — including work for Tracery Interiors in Santa Rosa Beach, Lily Pads Interiors in Niceville, Home at Ease Interiors, and Design & Dwell Homes. We invoice the firm or the client, whichever the designer prefers.',
+      },
+      {
+        q: 'Can you pick up from a showroom, warehouse, or freight terminal?',
+        a: 'Yes. Showroom to site, receiving warehouse to site, and freight terminal to site are standing services, not favors. Give us the pickup contact and the window and we will coordinate it directly.',
+      },
+      {
+        q: 'Do you hang art and mirrors, and do you supply the hardware?',
+        a: 'Yes to both. Framed art, mirrors, and similar wall pieces get hung to the designer’s marks as part of an install, and we supply the hanging hardware when the piece did not come with what it needs. Keith looks at the wall before we commit to a mount. Anything electrical or plumbed is a licensed trade and we schedule around them rather than doing their work.',
+      },
+      {
+        q: 'What happens to the crates and packing material?',
+        a: 'They leave with us. A finished room with a pile of cardboard in the corner is not a finished room, and hauling debris is something we already do every week.',
+      },
+      {
+        q: 'How is a design-trade install priced?',
+        a: 'It depends on the piece count, the access, and how much of the day is receiving versus placement. Call (850) 842-1962 with the scope and we will quote it straight.',
+      },
+    ],
+  },
+  'loading-unloading-help': {
+    fullDescription:
+      'You rent the truck or container; we do the rest of it. Load it, drive it, unload it, or any part of that on its own — with the same wrapping, padding, and load discipline we use on our own trucks. Most people call us for the unload. Plenty end up handing over the whole thing.',
+    heroTitle: 'U-Haul & Rental Truck Help on the Emerald Coast',
+    sections: [
+      {
+        heading: 'When your own rental is the right call',
+        body: [
+          "Plenty of moves do not need a moving company's truck. You rented a U-Haul because the drive is the cheap part, or a container is already sitting in your driveway, or you are moving one household across town in two trips and would rather not pay for a truck you are not using. What you actually need is people who do this every day, for the hours that matter.",
+          "So we work around whatever you have already committed to. No truck charge on our side, and no minimum you did not ask for.",
+          "Military families doing a PPM or DITY move are a big share of this work, because the entitlement is built around exactly this arrangement — see the [PCS guide for Eglin and Hurlburt](/resources/pcs-move-eglin-afb-hurlburt-field-guide) for how the reimbursement side works.",
+        ],
+      },
+      {
+        heading: 'A rental truck loaded badly is a rental truck that damages things',
+        body: [
+          "The most common reason a DIY move goes wrong is not the driving — it is a load that shifts. Furniture goes in blanket-wrapped, not bare against a corrugated wall. Weight goes low and forward. Tiers get built and tied off so nothing is free to move on the first hard stop on US-98.",
+          "Unloading has its own version of the same problem: a couch walked up an exterior stair by two people who have not done it before is how railings and door casings get destroyed. We bring the straps, dollies, and pads, and the crew size the access actually needs.",
+        ],
+      },
+      {
+        heading: 'Containers, trailers, and pods',
+        body: [
+          "Portable containers load differently than a truck — tighter, taller, and with no ramp — and they punish a loose pack because they get lifted and set down again. We load them to be lifted. If a container is being delivered to your driveway on a schedule you do not control, tell us the window and we will work around it.",
+        ],
+      },
+      {
+        heading: 'What we need to know before we show up',
+        body: [
+          "Truck or container size, how many flights of stairs at each end, how far the walk is from the door to where the rental can legally sit, and whether anything is oversized — a gun safe, a piano, a treadmill, an oversized sectional. Those four answers set the crew size, and a crew one person short does not mean a slower day, it means something gets dropped.",
+        ],
+      },
+      {
+        heading: 'We can drive it too',
+        body: [
+          "This is the part people do not expect. If you have rented the truck but do not want to drive a 20-footer down US-98, we will take the wheel. Load, drive, unload — the whole job on a truck that is not ours. Or just the unload at the far end if that is all you need.",
+          "It comes up more than you would think. Somebody rents the truck to save money and then realises they are about to back a box truck into a beach-house driveway they have never seen. Somebody's move-out and their closing land on the same morning. Somebody just does not want to drive it. Any of those is a phone call.",
+          "One thing worth settling when you book rather than on move morning: whose name is on the rental agreement and who it authorises to drive. Tell us what you have rented and we will tell you what the job needs.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Can you help unload a U-Haul or PODS container I already rented?',
+        a: 'Yes. Loading and unloading U-Haul, Penske, Budget, PODS, and rental trailers is standard work for us across Walton, Okaloosa, and Bay Counties. You keep the rental; we bring the crew, the pads, the straps, and the dollies — and we can drive it as well if you would rather not.',
+      },
+      {
+        q: 'Are you licensed and insured for work on my own rental truck?',
+        a: 'Yes — same license and coverage as every job we take. Florida Mover Registration #IM4125, licensed and insured, and the crew is owner-operated rather than day labor pulled off an app.',
+      },
+      {
+        q: 'How much does help with my rental truck cost?',
+        a: 'It comes down to crew size, the access on your end, how long the load will take, and whether we are driving. Call (850) 842-1962 with the truck size and the stair count and we will give you a straight number.',
+      },
+      {
+        q: 'Will you drive my rented U-Haul?',
+        a: 'Yes. We can load it, drive it, and unload it, or do any one of those on its own. It is a common request — people rent the truck to save money and then would rather not drive a 20-footer down US-98 or reverse it into a beach-house driveway. Worth settling when you book: whose name is on the rental agreement and who it authorises to drive. Tell us what you rented and we will sort it before move day.',
+      },
+      {
+        q: 'Can you do the whole move on a truck I rented?',
+        a: 'Yes — load, drive, and unload on your rental. You pay the rental company for the truck and us for the work. Whether that beats booking the move on our own truck depends on the distance and the size of the load, and we will tell you honestly which way comes out better rather than steering you to whichever suits us.',
+      },
+      {
+        q: 'Can you do it same day?',
+        a: 'Sometimes. Rental-truck jobs tend to come up on short notice and we keep room for them when we can. Call and ask — the answer is either yes or a specific alternative, not a maybe.',
+      },
+    ],
+  },
+  'mounting-installation': {
+    fullDescription:
+      'TV mounts, art, mirrors, and shelving — hung level, anchored into something that will actually hold, with the hardware supplied when you do not have it. Keith is our installer and he looks at the space in person before we commit to mounting anything, because the wall decides what is possible, not the catalog.',
+    heroTitle: 'TV Mounting, Art Hanging & Shelf Installation',
+    sections: [
+      {
+        heading: 'What we mount',
+        body: [
+          'Televisions, including taking down an existing mount and replacing it. Art, mirrors, and framed pieces, with the hanging hardware supplied when the piece did not come with the right kind. Shelving and similar builds, once we have seen the wall.',
+          'Most of this comes up on a move or an install day — the TV comes off the wall at the old house and goes back up at the new one, or a designer needs art up before the client walks in. It is also a standalone call. You do not need to be moving to book it.',
+          'A lot of the hanging we do runs alongside [design trade delivery and installation](/services/design-trade-installation) for the firms we work with. There is a write-up of what that looks like in practice in [a week of design trade installs](/resources/field-notes-design-trade-install-week-emerald-coast).',
+        ],
+      },
+      {
+        heading: 'Keith looks first',
+        body: [
+          'Keith is our installer and he has the final say on what we can safely mount or build once he has seen the actual space. That is not a hedge, it is the whole job. A mount is only as good as what is behind the drywall, and coastal construction here runs the gamut — wood stud, metal stud, block, plaster over lath in the older places, and the occasional wall that is mostly window.',
+          'So we look before we quote a mount. Anyone who commits to a TV mount over the phone without asking what the wall is made of is guessing with your television.',
+        ],
+      },
+      {
+        heading: 'Why the wall matters more than the bracket',
+        body: [
+          'A 65-inch television on a full-motion arm puts a few hundred pounds of leverage on its anchors when the arm is extended. Into studs that is nothing. Into drywall anchors alone it is a countdown. Block walls, common in condos from Destin to Panama City Beach, need the right masonry anchor and a bit that will actually cut it — not a wood screw and optimism.',
+          'The same logic runs smaller. A heavy mirror over a console is a two-point hang into something solid, not a single nail. We would rather tell you a wall will not take what you want than hang it and hope.',
+        ],
+      },
+      {
+        heading: 'Where our line is',
+        body: [
+          'We mount and we build. We do not run wire inside a wall, move an outlet, or make any electrical or plumbing connection — those are licensed trades in Florida and our mover registration does not cover them. If your TV needs an outlet moved behind it, that is an electrician before us, and we will happily work around their schedule.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: 'Do you mount TVs?',
+        a: 'Yes, including taking down an existing mount and replacing it. Keith, our installer, looks at the wall in person before we commit — a mount is only as good as what is behind the drywall, and it is not something to guess at over the phone.',
+      },
+      {
+        q: 'Do you supply the mounting hardware?',
+        a: 'We supply hanging hardware for art and mirrors when the piece did not come with the right kind. For a television, tell us the mount you have or want and the size of the set and we will tell you what else the job needs.',
+      },
+      {
+        q: 'Can you hang art and mirrors without a full move?',
+        a: 'Yes. Mounting and installation is a standalone call, not something you have to bundle with a move. It is common work for us on design install days and for homeowners who have just moved in and have a wall of art still leaning against it.',
+      },
+      {
+        q: 'What if the wall will not hold what I want mounted?',
+        a: 'We tell you before we drill. Keith has the final say on what we can safely mount or build once he has seen the space, and a straight no is a better outcome than a television on the floor. Where there is a workable alternative — a different position, a different anchor, a different mount — we will lay it out.',
+      },
+      {
+        q: 'Do you do electrical work for a TV mount?',
+        a: 'No. Running wire inside a wall or moving an outlet is licensed electrical work in Florida and outside our mover registration. Get an electrician in first and we will schedule the mount around them.',
+      },
+      {
+        q: 'How much does TV mounting or art hanging cost?',
+        a: 'It depends on the wall, the piece, and how many of them there are. Call (850) 842-1962 and describe the job — Keith will need to see the space before we commit to a mount, and we would rather give you a real number than a phone guess.',
       },
     ],
   },

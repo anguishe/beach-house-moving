@@ -3,10 +3,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import {
   ArrowRight,
+  HandHelping,
+  Hammer,
   Home,
   MapPin,
   Package,
   PackageCheck,
+  Paintbrush,
   Truck,
   Warehouse,
 } from 'lucide-react'
@@ -29,6 +32,9 @@ const serviceIconMap = {
   Package,
   Warehouse,
   PackageCheck,
+  Paintbrush,
+  HandHelping,
+  Hammer,
 } as const
 
 export async function generateMetadata(): Promise<Metadata> {

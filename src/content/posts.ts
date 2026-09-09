@@ -372,6 +372,7 @@ export const POSTS: Post[] = [
     description:
       'A real moving checklist built for 30A and Destin — parking logistics, beach access restrictions, HOA rules, and seasonal timing. From movers who work here every week.',
     datePublished: '2026-05-15',
+    dateModified: '2026-09-08',
     author: 'Beach House Moving',
     heroImage: '/images/loaded-liftgate-coastal-home.jpg',
     heroAlt:
@@ -395,6 +396,10 @@ export const POSTS: Post[] = [
       {
         paragraph:
           'While you are on that call, ask whether your building has an elevator and, if so, what its interior dimensions are. Most 30A beach houses do not have one. The ones that do — certain WaterColor townhomes and a handful of Miramar Beach condos — often have freight elevators smaller than a standard sofa. Measure your largest pieces against those dimensions now. If a king mattress platform or a sectional will not fit, you want that answer eight weeks out, not when we are standing at a spiral staircase in Seagrove Beach with nowhere else to go.',
+      },
+      {
+        paragraph:
+          'Two jobs people forget until the last week: getting the television off the wall at the old place and getting it back up at the new one, and the wall of art now leaning in the hallway. Both are worth booking rather than improvising at 9pm on move day — we cover them under [TV mounting, art and shelf installation](/services/mounting-installation), and our installer looks at the wall before anything gets drilled.',
       },
       {
         heading: 'Parking and Access',
@@ -458,6 +463,7 @@ export const POSTS: Post[] = [
     description:
       'PCS moves to Eglin Air Force Base and Hurlburt Field — local mover guide to neighborhoods, BAH rates, on-base vs off-base, and how to coordinate your military relocation.',
     datePublished: '2026-04-22',
+    dateModified: '2026-09-08',
     author: 'Beach House Moving',
     heroImage: '/images/move-niceville.jpg',
     heroAlt:
@@ -487,6 +493,10 @@ export const POSTS: Post[] = [
         heading: 'The PPM/DITY Move Option',
         paragraph:
           'Some service members choose a Personally Procured Move — PPM, also called DITY — where the government reimburses a percentage of what it would have paid a contracted carrier. You hire local movers, we load and transport your goods, and you submit documentation to your Transportation Management Office for reimbursement. We handle PPM moves regularly and provide invoices formatted to meet military documentation requirements: itemized labor, mileage where applicable, and dates that align with your orders.',
+      },
+      {
+        paragraph:
+          'A lot of PPM moves are rented-truck moves, and that is its own decision. If you have already reserved a U-Haul or a container, we can load it, drive it, and unload it, or handle any single piece of that — see [U-Haul and rental truck help](/services/loading-unloading-help). Keep the rental receipt and our invoice together; TMO will want both.',
       },
       {
         paragraph:
@@ -1239,6 +1249,172 @@ export const POSTS: Post[] = [
         question: 'How is a single-item fixture delivery priced?',
         answer:
           'It is billed hourly like our other work, with the crew sized to the item and the path. A single fixture is mostly travel, path assessment, and protection rather than carry time, so the hours do not scale down the way people expect. Current rates are on our pricing page.',
+      },
+    ],
+  },
+  {
+    slug: 'field-notes-design-trade-install-week-emerald-coast',
+    title: 'Design Trade Installs: Drapes in Santa Rosa Beach, Art in Niceville, a Dining Room in Burnt Pine',
+    description:
+      'Three design-trade jobs in one week — drapery for Tracery Interiors, art for Lily Pads Interiors, a furniture install in Burnt Pine. What install day involves.',
+    datePublished: '2026-09-08',
+    dateModified: '2026-09-08',
+    author: 'Beach House Moving',
+    heroImage: '/images/beach-house-moving-miramar-beach-burnt-pine-dining-room-install.jpg',
+    heroAlt:
+      'Beach House Moving crew unwrapping and placing dining room furniture under a chandelier at a Burnt Pine home in Miramar Beach, FL',
+    excerpt:
+      'Three jobs, three towns, one kind of work: getting furnishings into a finished house without leaving a mark. Here is what a design-trade install week actually looks like.',
+    relatedServices: [
+      { label: 'Design Trade Delivery & Installation', href: '/services/design-trade-installation' },
+      { label: 'TV Mounting, Art & Shelf Installation', href: '/services/mounting-installation' },
+      { label: 'Miramar Beach Movers', href: '/service-areas/walton-county/miramar-beach' },
+    ],
+    body: [
+      {
+        body:
+          'Last week ran across three towns and three different design firms, and none of it was a move. Zack spent part of a day in a Santa Rosa Beach primary bedroom hanging drapery panels for the designers at Tracery Interiors. Les was in Niceville hanging art at a Lily Pads Interiors estate sale. And Zack and Keith finished a furniture install at a home in Burnt Pine, in Miramar Beach, setting a dining room and walking the house for final touches.',
+      },
+      {
+        body:
+          'Three jobs, one kind of work — and it is the part of what we do that the word "movers" describes worst. Nobody was relocating. There were no labeled boxes, no inventory list from a homeowner, and on two of the three, no homeowner in the house at all. There was a designer, a plan, and furnishings that each had exactly one right place to end up.',
+      },
+      {
+        heading: 'What a design trade install actually is',
+        body:
+          'A [design trade install](/services/design-trade-installation) is the day a room stops being a plan and becomes a room. The furnishings have usually been ordered for months. They have come off a freight truck, sat in a receiving warehouse or a garage, and been handled at least once by somebody who was not thinking about them. Our job is to get them into the house, out of their crates, and into position — and to do it without marking a finished floor, a fresh baseboard, or the piece itself.',
+      },
+      {
+        body:
+          'The order matters more than people expect. Pieces come off the truck in the order the rooms get set, not the order they were loaded. A dining table goes in before the chairs and before the rug is walked on. Art goes up after the furniture is placed, because the furniture is what the art gets centered on. Get the sequence wrong and you are moving the same 200-pound console twice.',
+      },
+      {
+        image: '/images/beach-house-moving-miramar-beach-burnt-pine-box-truck-paver-driveway.jpg',
+        imageAlt:
+          'Beach House Moving box truck staged on the paver driveway of a Burnt Pine home in Miramar Beach, FL for a furniture install',
+      },
+      {
+        body:
+          'That is the Burnt Pine job. The truck is on the paver drive rather than the lane, which is a small decision that matters in a gated community where a blocked road is somebody else’s complaint by lunchtime. Pavers are also the reason we walk pieces rather than roll them — a hand truck wheel on a paver seam is how a joint pops and how a heavy piece gets away from you.',
+      },
+      {
+        heading: 'The last hour is the part the client sees',
+        body:
+          'Most of an install day is unremarkable: carry, unwrap, place, adjust. The last hour is different. That is when the dining chairs get squared to the table, the rug gets straightened, the packing material leaves the house, and somebody walks every room looking for the thing that is a quarter-inch off. Zack and Keith spent the end of the Burnt Pine day doing exactly that.',
+      },
+      {
+        body:
+          'It is also the reason designers book a crew instead of a delivery service. A delivery ends when the item is in the house. An install ends when the designer looks at the room and has nothing left to point at.',
+      },
+      {
+        heading: 'Drapery day in Santa Rosa Beach',
+        body:
+          'Drapery is its own thing. Panels arrive folded or rolled, and every crease you put in them on install day is one somebody has to steam out later. They get carried flat, kept off the floor, and hung without being dragged across anything.',
+      },
+      {
+        image: '/images/beach-house-moving-santa-rosa-beach-drapery-hanging-ladder.jpg',
+        imageAlt:
+          'Beach House Moving mover Zack on a ladder hanging drapery panels in a Santa Rosa Beach, FL primary bedroom',
+      },
+      {
+        body:
+          'The ladder work is the unglamorous half. A primary bedroom with a made bed and a finished floor gives you nowhere to set a ladder that is not either on the bed or on the rug, so the ladder gets padded feet and somebody holds it. The bed gets covered before anything goes up over it. None of that is complicated — it is just the difference between a clean job and a conversation about a mark on a duvet.',
+      },
+      {
+        subheading: 'Who does what on a drapery job',
+        body:
+          'We handle the panels and the labor on install day. If hardware needs to go up, that goes past Keith first — he is our installer and he has the final say on what we can safely mount once he has seen the actual wall. Electrical and plumbing stay with the licensed trades, the same line we draw with [plumbers on a fixture delivery](/resources/field-notes-freestanding-tub-delivery-seacrest-beach). If you are a designer and you want to know exactly where our scope stops before you schedule us, call and ask. We would rather answer it on the phone than on the day.',
+      },
+      {
+        heading: 'Hanging art in an occupied house',
+        body:
+          'The Niceville job was different again — an estate sale for Lily Pads Interiors, in a furnished house, with a four-poster bed already in place and a large framed landscape going up behind it.',
+      },
+      {
+        image: '/images/beach-house-moving-niceville-estate-sale-art-hanging.jpg',
+        imageAlt:
+          'Beach House Moving owner Les hanging a framed landscape above a four-poster bed at a Lily Pads Interiors estate sale in Niceville, FL',
+      },
+      {
+        body:
+          'Art over a bed is a two-person job even when the piece is light, because the reach is long and there is nothing under you to stand on. Les worked that one to the marks the designer set. A framed piece is also the easiest thing on any job to damage and the hardest to hide once you have: the frame corner, the wire, and the wall are three separate ways to get it wrong.',
+      },
+      {
+        body:
+          'We supply the hanging hardware when a piece did not come with the right kind, which is more often than you would think on estate and resale work. And where something needs to be [mounted rather than hung](/services/mounting-installation) — a television, a heavy mirror, shelving — Keith looks at the wall in person before we commit. A mount is only as good as what is behind the drywall, and around here that could be wood stud, metal stud, block, or plaster over lath depending on the decade the house went up.',
+      },
+      {
+        body:
+          'Estate sale work in general is a category we see more of than people would guess. Somebody has to stage a house so it photographs and shows well, and then somebody has to move what sells. Both ends are ours.',
+      },
+      {
+        heading: 'What we ask for before an install day',
+        body:
+          'Gate code, the contact who is actually on site, where the truck can park, and whether other trades will be in the house at the same time. Those four answers set the whole day. A crew sitting at a gate is burning your hours, and an install running alongside a painter is two crews working around each other instead of working.',
+      },
+      {
+        body:
+          'For houses that are not finished yet, we bring our own floor protection rather than assuming the builder’s is where we need it. We wrote up how that goes in the [new-construction move guide](/resources/new-construction-beach-home-move), and there is a companion note from an [install day on 30A with Design & Dwell Homes](/resources/field-notes-30a-install-day-design-dwell) covering the furniture side of the same situation.',
+      },
+      {
+        heading: 'Why designers keep the same crew',
+        body:
+          'Every firm we work with has been burned once by a delivery that showed up with two people for a four-person piece, or a crew that set a console two inches off and left. The value of a crew you have used before is that they already know your marks matter, your floors are finished, and "room of choice" is not the finish line.',
+      },
+      {
+        body:
+          'Josh, Zack, Les, and Keith own the company and we are the ones who show up. There is no subcontractor between a designer and the person carrying their client’s dining table. If you are a designer or a builder on the Emerald Coast and you want to talk about receiving, delivery, and install days, [get in touch](/contact) — we will tell you straight what we handle and what we do not.',
+      },
+      {
+        body:
+          'Licensed and insured. FL Mover Reg. #IM4125. Serving Walton, Okaloosa, and Bay Counties from Santa Rosa Beach.',
+      },
+    ],
+    faq: [
+      {
+        question: 'What is a design trade install?',
+        answer:
+          'A design trade install is the day a designer’s furnishings are brought into a house, uncrated, and set in their final positions rather than simply delivered. It covers receiving from a showroom, freight terminal, or warehouse; placement to the designer’s plan; hanging art and mirrors; handling drapery panels; and hauling away the crates and packing material. It ends when the designer signs off on the room, not when the item is through the door.',
+      },
+      {
+        question: 'Do you work directly with interior designers on the Emerald Coast?',
+        answer:
+          'Regularly. Recent design trade work includes drapery panels in Santa Rosa Beach for Tracery Interiors, art hanging at a Lily Pads Interiors estate sale in Niceville, and a furniture install in Burnt Pine in Miramar Beach. We have also worked install days with Design & Dwell Homes on 30A and a fixture delivery for Home at Ease Interiors in Seacrest Beach. We can invoice the design firm or the client, whichever the designer prefers.',
+      },
+      {
+        question: 'What is the difference between delivery and installation?',
+        answer:
+          'Delivery ends when the item is in the house — curbside, threshold, or room of choice depending on what you booked. Installation means the piece is in its final position, oriented correctly, adjusted, and ready for the room to be photographed or used. On an install we also take the crates and packing material with us, which a delivery service generally will not.',
+      },
+      {
+        question: 'Do you hang art and mirrors, and do you supply the hardware?',
+        answer:
+          'Yes to both. Framed art, mirrors, and similar wall pieces are hung to the designer’s marks as part of an install day, and we supply the hanging hardware when the piece did not come with the right kind. Art over a bed or above a large piece of furniture is a two-person job for us regardless of the weight, because the reach is long and there is nowhere to stand.',
+      },
+      {
+        question: 'Do you hang drapery?',
+        answer:
+          'We handle drapery panels and the labor on install day — carrying them flat, keeping them off the floor, and hanging them without creasing or dragging. If hardware needs to be mounted, Keith looks at the wall in person first and has the final say on what can safely go up. Electrical and plumbing stay with the licensed trades. Call (850) 842-1962 and describe the job if you need the scope pinned down before scheduling.',
+      },
+      {
+        question: 'Do you mount TVs?',
+        answer:
+          'Yes, including taking down an existing mount and replacing it. Keith is our installer and he looks at the wall before we commit, because a mount is only as good as what is behind the drywall — wood stud, metal stud, block, and plaster over lath all behave differently and coastal construction here has all of them. Running wire inside a wall or moving an outlet is licensed electrical work and stays with an electrician.',
+      },
+      {
+        question: 'Can you receive furniture from a showroom or freight terminal?',
+        answer:
+          'Yes. Showroom to site, receiving warehouse to site, and freight terminal to site are standing services across Walton, Okaloosa, and Bay Counties. We uncrate and note condition in writing before anything moves, ideally with the designer’s representative present, because a chip found after delivery is nearly impossible to assign to anyone once the crate is gone.',
+      },
+      {
+        question: 'Can you install into a house that is still under construction?',
+        answer:
+          'Yes, and most trade work on 30A and in Miramar Beach is exactly that. We bring our own floor protection for exposed subfloor, work around unpainted trim, and need the gate code, an on-site contact, and a confirmed parking spot before the truck leaves. We also ask which other trades will be in the house, because an install running alongside a painter is two crews working around each other.',
+      },
+      {
+        question: 'How much does a design trade install cost?',
+        answer:
+          'It depends on the piece count, the access at the property, and how much of the day is receiving versus placement. Call (850) 842-1962 with the scope and we will quote it straight rather than guess at a number that changes on the day.',
       },
     ],
   },

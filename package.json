@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "verify:reviews": "node scripts/verify-review-schema.mjs",
+    "audit:images": "node scripts/audit-images.mjs",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {

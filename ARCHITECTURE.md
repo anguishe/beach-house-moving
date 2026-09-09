@@ -19,12 +19,16 @@
 │   ├── /services/packing-unpacking
 │   ├── /services/storage
 │   ├── /services/delivery
-│   └── /services/junk-removal
+│   ├── /services/junk-removal
+│   ├── /services/military-pcs-moving
+│   ├── /services/design-trade-installation
+│   ├── /services/mounting-installation
+│   └── /services/loading-unloading-help
 ├── /service-areas
 │   ├── /service-areas/[county]  (walton-county, okaloosa-county, bay-county)
 │   └── /service-areas/[county]/[neighborhood]  (26 neighborhood pages)
 ├── /resources
-│   └── /resources/[slug]  (3 blog posts from src/content/posts.ts)
+│   └── /resources/[slug]  (14 posts from src/content/posts.ts)
 ├── /about
 ├── /contact
 ├── /get-a-quote
@@ -35,8 +39,8 @@
 | Route | Purpose | Indexable |
 |---|---|---|
 | `/` | Homepage — hero, trust, services, areas, gallery, live Google reviews carousel (or static testimonials fallback), quote form, FAQ, CTA | Yes |
-| `/services` | Services hub — all 7 services | Yes |
-| `/services/[slug]` | Individual service pages (6 slugs via dynamic route) | Yes |
+| `/services` | Services hub — all 11 services | Yes |
+| `/services/[slug]` | Individual service pages (10 slugs via dynamic route) | Yes |
 | `/services/junk-removal` | Dedicated junk removal page (custom sections + JSON-LD) | Yes |
 | `/reviews` | Social proof hub — live Google reviews grid, SEO content, written testimonials, AggregateRating JSON-LD, Google review funnel | Yes |
 | `/pricing` | Moving cost guidance — factors, how-to-get-a-quote, FAQ | Yes |
@@ -44,7 +48,7 @@
 | `/resources/[slug]` | Individual blog posts (BlogPosting + FAQPage JSON-LD) | Yes |
 | `/service-areas` | Service areas hub — Walton, Okaloosa, Bay Counties | Yes |
 | `/service-areas/[county]` | County landing pages (3 slugs) | Yes |
-| `/service-areas/[county]/[neighborhood]` | Neighborhood landing pages (26 slugs) | Yes |
+| `/service-areas/[county]/[neighborhood]` | Neighborhood landing pages (26 slugs; those with owner-confirmed jobs also render a "Recent work in {name}" section from `Neighborhood.confirmedWork`) | Yes |
 | `/about` | Business story, values, license | Yes |
 | `/contact` | Phone, email, service area, map embed, contact info | Yes |
 | `/get-a-quote` | Dedicated quote form page | Yes |
@@ -53,7 +57,9 @@
 
 ### Service slugs (`/services/[slug]`)
 
-`residential-moving`, `local-moving`, `long-distance-moving`, `packing-unpacking`, `storage`, `delivery`, `junk-removal`
+`residential-moving`, `local-moving`, `long-distance-moving`, `packing-unpacking`, `storage`, `delivery`, `junk-removal`, `military-pcs-moving`, `design-trade-installation`, `mounting-installation`, `loading-unloading-help`
+
+`junk-removal` renders from its own bespoke page rather than the dynamic route; the other ten come from `/services/[slug]`.
 
 ### County slugs (`/service-areas/[county]`)
 
@@ -65,7 +71,9 @@
 
 ### Resource post slugs (`/resources/[slug]`)
 
-`moving-to-30a-neighborhood-guide`, `military-pcs-move-eglin-hurlburt`, `new-construction-beach-home-move`
+14 posts, defined in `POSTS` in `src/content/posts.ts` and rendered newest-first on
+`/resources`. Five of them are "Field Notes from the Truck" — job write-ups built from
+owner photo batches (see the photo-batch convention in `CLAUDE.md`).
 
 ### Sitemap & robots
 
