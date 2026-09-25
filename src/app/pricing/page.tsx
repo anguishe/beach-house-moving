@@ -6,7 +6,7 @@ import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { BUSINESS, FAQS, RATE_LINE } from '@/lib/content'
+import { BUSINESS, CALL_FOR_QUOTE_PARTS, FAQS, RATE_LINE } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { breadcrumbSchema, faqPageSchema, pricingOfferSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
@@ -140,6 +140,16 @@ export default async function PricingPage() {
                   <p className="font-body text-sm leading-relaxed text-ink-muted">
                     Billed hourly, starting at {RATE_LINE}. Fuel included in the rate. No fuel
                     surcharges, no stair fees, no line items that appear only on the final invoice.
+                  </p>
+                  <p className="mt-3 flex items-start gap-2 rounded-brand border border-brand-coral/30 bg-brand-coral/5 px-4 py-3 font-body text-sm font-semibold leading-relaxed text-brand-navy">
+                    <Phone className="mt-0.5 size-4 shrink-0 text-brand-coral" aria-hidden />
+                    <span>
+                      {CALL_FOR_QUOTE_PARTS.before}{' '}
+                      <TrackedPhoneLink location="pricing-rate" className="text-brand-coral underline underline-offset-2">
+                        {BUSINESS.phone.display}
+                      </TrackedPhoneLink>{' '}
+                      {CALL_FOR_QUOTE_PARTS.after}
+                    </span>
                   </p>
                   {/* OWNER: paste confirmed hour ranges per home size here — e.g. "Studio/1BR: 2–4 hrs · 2–3BR: 4–7 hrs · 4BR+: 7–10 hrs" */}
                 </div>

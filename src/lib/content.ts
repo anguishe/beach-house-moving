@@ -77,6 +77,13 @@ export const PRICING = {
 /** "$195/hr for 2 movers, plus drive time" — use wherever the rate is shown. */
 export const RATE_LINE = `$${PRICING.hourlyRate}/hr for ${PRICING.crewSize} movers and a truck, plus drive time`
 
+/** Always shown next to RATE_LINE: the rate is a starting point, a call gets the real number. */
+export const CALL_FOR_QUOTE_PARTS = {
+  before: "That rate is a starting point. Every move is different, so it's always best to call",
+  after: 'for a more accurate quote.',
+} as const
+export const CALL_FOR_QUOTE = `${CALL_FOR_QUOTE_PARTS.before} ${BUSINESS.phone.display} ${CALL_FOR_QUOTE_PARTS.after}`
+
 /** Public license copy — SAB-safe, no street address. */
 export const LICENSE_DISPLAY = {
   heroTrustBadge: `Licensed & Insured · FL Mover Reg. #${BUSINESS.registration.number}`,
@@ -433,7 +440,7 @@ export const FAQS = [
   },
   {
     q: 'How much does a move cost?',
-    a: `Local moves start at ${RATE_LINE} — fuel included, no hidden fees. You pay for the hours worked plus drive time, and we give you a real number before we start, not a teaser range. Long-distance and large jobs are quoted up front. Estimates are always free — call ${BUSINESS.phone.display} and we\u2019ll walk through it.`,
+    a: `Local moves start at ${RATE_LINE} — fuel included, no hidden fees. You pay for the hours worked plus drive time. ${CALL_FOR_QUOTE} We give you a real number before we start, not a teaser range. Long-distance and large jobs are quoted up front. Estimates are always free — call ${BUSINESS.phone.display} and we\u2019ll walk through it.`,
   },
   {
     q: 'Do you offer packing and unpacking?',

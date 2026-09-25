@@ -4,6 +4,7 @@ import {
   JUNK_REMOVAL_AREA_SERVED,
   PRICING,
   RATE_LINE,
+  CALL_FOR_QUOTE,
   REVIEWS_PAGE_META,
   SERVICES,
   SOCIAL_LINKS,
@@ -221,7 +222,7 @@ export function pricingOfferSchema(origin: string) {
     '@id': `${base}/pricing#hourly-rate`,
     name: 'Local moving — starting hourly rate (2 movers)',
     description:
-      `Local moves billed hourly, starting at ${RATE_LINE}. Fuel included. No fuel surcharges, stair fees, or hidden line items.`,
+      `Local moves billed hourly, starting at ${RATE_LINE}. Fuel included. No fuel surcharges, stair fees, or hidden line items. ${CALL_FOR_QUOTE}`,
     priceCurrency: PRICING.currency,
     price,
     availability: 'https://schema.org/InStock',

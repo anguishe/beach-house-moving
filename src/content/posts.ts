@@ -47,7 +47,7 @@ export const POSTS: Post[] = [
     body: [
       {
         body:
-          "Most moving companies make you call three people before anyone says a number. We publish ours: $195 per hour for a two-mover crew and truck, plus drive time, and it's on our [pricing page](/pricing) for anyone to check. This guide shows what that works out to for typical moves in Santa Rosa Beach and along 30A, and what actually moves the number up or down.",
+          "Most moving companies make you call three people before anyone says a number. We publish ours: $195 per hour for a two-mover crew and truck, plus drive time, and it's on our [pricing page](/pricing) for anyone to check. That's a starting point, though. Every move is different, so it's always best to [call us](/contact) at (850) 842-1962 for a more accurate quote. This guide shows what that works out to for typical moves in Santa Rosa Beach and along 30A, and what actually moves the number up or down.",
       },
       {
         heading: 'The short answer',
@@ -57,7 +57,7 @@ export const POSTS: Post[] = [
       {
         heading: 'What the hours look like in practice',
         body:
-          "Every home is different, so treat these as honest ranges, not quotes. A studio or one-bedroom with easy access usually lands between two and four hours — $390 to $780 at our two-mover rate, plus drive time. A typical two- or three-bedroom home runs four to six hours, or $780 to $1,170 plus drive time. Larger homes, beach houses with three flights of stairs, and moves with a long walk from door to truck can run six to eight hours or more. When you [call](/contact), describe the home and the access and we'll tell you straight where your move likely falls.",
+          "Every home is different, so treat these as honest ranges, not quotes. A studio or one-bedroom with easy access usually lands between two and four hours — $390 to $780 at our two-mover rate, plus drive time. A typical two- or three-bedroom home runs four to six hours, or $780 to $1,170 plus drive time. Larger homes, beach houses with three flights of stairs, and moves with a long walk from door to truck can run six to eight hours or more. These ranges are only a guide. It's always best to [call](/contact) (850) 842-1962 for a more accurate quote: describe the home and the access and we'll tell you straight where your move likely falls.",
       },
       {
         heading: 'What actually changes the price',
@@ -83,7 +83,7 @@ export const POSTS: Post[] = [
       {
         question: 'Is $195 per hour the whole price?',
         answer:
-          "$195 per hour is our starting rate for two movers and a truck, and drive time is billed on top — we tell you both before the job starts. Scope that adds time — packing, stairs, specialty items, long carries — shows up as hours, not surprise fees. Call (850) 842-1962, describe the job, and we'll tell you what it takes.",
+          "$195 per hour is our starting rate for two movers and a truck, and drive time is billed on top — we tell you both before the job starts. Scope that adds time — packing, stairs, specialty items, long carries — shows up as hours, not surprise fees. It's always best to call (850) 842-1962 for a more accurate quote. Describe the job and we'll tell you what it takes.",
       },
       {
         question: 'Do you charge more on 30A than elsewhere?',
