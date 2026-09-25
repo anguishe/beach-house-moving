@@ -1,3 +1,4 @@
+import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { BUSINESS } from '@/lib/content'
 
 const items = [
@@ -27,12 +28,12 @@ export function TrustStrip() {
           <span className="text-brand-teal/50" aria-hidden>
             ·
           </span>
-          <a
-            href={BUSINESS.phone.href}
+          <TrackedPhoneLink
+            location="trust-strip"
             className="font-body text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal hover:text-brand-navy"
           >
             {BUSINESS.phone.display}
-          </a>
+          </TrackedPhoneLink>
         </span>
       </div>
     </div>
