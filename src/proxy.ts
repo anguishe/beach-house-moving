@@ -7,6 +7,7 @@ import type { NextRequest } from 'next/server'
  * separate page (2,064 impressions in GSC vs 1,236 for the clean homepage),
  * splitting homepage equity. GBP Insights still counts the website clicks;
  * GA4 sessions fall back to google/organic — accepted trade-off (2026-08-31).
+ * Since 2026-09-25 a `bhm_src=gbp` cookie carries the source into quote emails.
  */
 export function proxy(request: NextRequest) {
   const { nextUrl } = request
@@ -19,7 +20,10 @@ export function proxy(request: NextRequest) {
     clean.searchParams.delete('utm_source')
     clean.searchParams.delete('utm_medium')
     clean.searchParams.delete('utm_campaign')
-    return NextResponse.redirect(clean, 301)
+    const res = NextResponse.redirect(clean, 301)
+    // First-party flag so quote emails can still say "came from GBP" (see src/lib/lead-source.ts).
+    res.cookies.set('bhm_src', 'gbp', { path: '/', maxAge: 60 * 60 * 24 * 30, sameSite: 'lax' })
+    return res
   }
   return NextResponse.next()
 }

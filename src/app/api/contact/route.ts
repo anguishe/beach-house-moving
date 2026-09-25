@@ -3,6 +3,7 @@ import { Resend } from 'resend'
 
 import { contactFormSchema } from '@/lib/schema'
 import { BUSINESS, EMAIL } from '@/lib/content'
+import { backupLead, escapeHtml as e, sourceRows, telHref } from '@/lib/leads'
 
 /*
  * Required Vercel env vars for this route:
@@ -25,15 +26,21 @@ export async function POST(req: NextRequest) {
     const body = await req.json()
     const data = contactFormSchema.parse(body)
 
+    // Honeypot filled → bot. Pretend success so it doesn't retry.
+    if (data.company) return NextResponse.json({ success: true })
+
+    await backupLead('contact', { ...data, company: undefined })
+
     const fromEmail = process.env.RESEND_FROM_EMAIL ?? EMAIL.quotesFrom
 
-    await resend.emails.send({
+    // Resend returns { error } instead of throwing — check it, or a failed send reads as success.
+    const { error: sendError } = await resend.emails.send({
       from: `Beach House Moving <${fromEmail}>`,
       to: [
         process.env.RESEND_TO_EMAIL ?? BUSINESS.email,
         process.env.RESEND_TO_EMAIL_2 ?? '',
       ].filter((email): email is string => Boolean(email)),
-      replyTo: `${data.fullName} <${data.email}>`,
+      replyTo: `${data.fullName.replace(/[<>"\r\n]/g, '')} <${data.email}>`,
       subject: `New Contact Message — Beach House Moving`,
       html: `<!DOCTYPE html>
 <html>
@@ -45,23 +52,28 @@ export async function POST(req: NextRequest) {
   </div>
   <div style="padding: 24px; background: #f9f9f9; border: 1px solid #e2e8f0;">
     <table style="width: 100%; border-collapse: collapse;">
-      <tr><td style="padding: 8px 0; color: #718096; font-size: 13px; width: 140px;">Name</td><td style="padding: 8px 0; font-weight: bold;">${data.fullName}</td></tr>
-      <tr><td style="padding: 8px 0; color: #718096; font-size: 13px;">Phone</td><td style="padding: 8px 0; font-weight: bold;"><a href="tel:${data.phone}" style="color: #E85D3D;">${data.phone}</a></td></tr>
-      <tr><td style="padding: 8px 0; color: #718096; font-size: 13px;">Email</td><td style="padding: 8px 0;"><a href="mailto:${data.email}" style="color: #2A9D8F;">${data.email}</a></td></tr>
+      <tr><td style="padding: 8px 0; color: #718096; font-size: 13px; width: 140px;">Name</td><td style="padding: 8px 0; font-weight: bold;">${e(data.fullName)}</td></tr>
+      <tr><td style="padding: 8px 0; color: #718096; font-size: 13px;">Phone</td><td style="padding: 8px 0; font-weight: bold;"><a href="${telHref(data.phone)}" style="color: #E85D3D;">${e(data.phone)}</a></td></tr>
+      <tr><td style="padding: 8px 0; color: #718096; font-size: 13px;">Email</td><td style="padding: 8px 0;"><a href="mailto:${e(data.email)}" style="color: #2A9D8F;">${e(data.email)}</a></td></tr>
     </table>
     <div style="margin-top: 16px; padding: 12px; background: white; border-left: 3px solid #E85D3D; border-radius: 0 4px 4px 0;">
       <p style="margin: 0; color: #718096; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Message</p>
-      <p style="margin: 8px 0 0;">${data.message}</p>
+      <p style="margin: 8px 0 0;">${e(data.message)}</p>
     </div>
+  </div>
+  <div style="padding: 16px 24px; background: #f9f9f9; border: 1px solid #e2e8f0; border-top: 0;">
+    <p style="margin: 0 0 6px; color: #718096; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em;">Where this lead came from</p>
+    <table style="width: 100%; border-collapse: collapse;">${sourceRows(data.source)}</table>
   </div>
   <div style="padding: 16px 24px; background: white; border-top: 1px solid #e2e8f0;">
     <p style="margin: 0; font-size: 12px; color: #718096;">
-      Submitted via beachhousemoving.xyz · Reply to this email to respond to ${data.fullName} directly.
+      Submitted via beachhousemoving.xyz · Reply to this email to respond to ${e(data.fullName)} directly.
     </p>
   </div>
 </body>
 </html>`,
     })
+    if (sendError) throw new Error(`Resend ${sendError.name}`)
 
     return NextResponse.json({ success: true })
   } catch (error) {

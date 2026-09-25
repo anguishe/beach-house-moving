@@ -21,11 +21,11 @@ const PRIVACY_SECTIONS = [
   },
   {
     heading: 'Analytics and cookies',
-    body: 'Like most websites, this site uses analytics to understand which pages help people — Google Tag Manager and Google Analytics, plus Ahrefs analytics. These tools use cookies to count visits and page views; they don\'t give us your identity. Our reviews section may load review content via Google\'s Places service. You can block cookies in your browser and this site keeps working.',
+    body: 'Like most websites, this site uses analytics to understand which pages help people — Google Tag Manager and Google Analytics, plus Ahrefs analytics. These tools use cookies to count visits and page views; they don\'t give us your identity. Our reviews section may load review content via Google\'s Places service. The site also remembers, on your own device, how you first found us (for example, from our Google listing); that note is only sent to us if you submit a form, so we know which of our listings are working. You can block cookies in your browser and this site keeps working.',
   },
   {
     heading: 'How long we keep it',
-    body: 'Quote and job records are kept as long as Florida business and insurance requirements need them. If you\'d like the contact information you submitted deleted, ask — see below.',
+    body: 'Quote and job records, including a secure backup copy of each form submission, are kept as long as Florida business and insurance requirements need them. If you\'d like the contact information you submitted deleted, ask — see below.',
   },
   {
     heading: 'Your choices',

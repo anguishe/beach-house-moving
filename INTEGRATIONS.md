@@ -44,8 +44,27 @@ Send **owner notification emails only** when the quote form is submitted. The bu
 - **Flow:**
   1. Customer submits quote form
   2. Route Handler validates input with zod
-  3. Resend sends notification email to `RESEND_TO_EMAIL` with all form data
-  4. Return `200` → client fires `generate_lead` → redirect to `/thank-you`
+  3. Honeypot field `company` filled → silent `200`, nothing sent (bot)
+  4. Lead is backed up to the private Blob store (see §Lead backup), best-effort
+  5. Resend sends notification email to `RESEND_TO_EMAIL`; every visitor value is HTML-escaped
+     (`src/lib/leads.ts`). Resend returns `{ error }` rather than throwing, so the route checks it
+     and returns `500` ("please call") on failure — never a false success.
+  6. Return `200` → client fires `generate_lead` → redirect to `/thank-you`
+- `/api/contact` follows the same flow (no redirect; fires `generate_lead` with `event_category: contact_form`).
+
+### Lead source in the owner email (2026-09-25)
+Each email ends with a "Where this lead came from" block: channel (GBP / Google Search / AI
+assistant / Facebook / direct…), the visitor's own "How did you hear about us?", first page seen,
+and the page they submitted on. `src/lib/lead-source.ts` records first touch in localStorage for
+30 days; `src/proxy.ts` sets a first-party `bhm_src=gbp` cookie on the GBP UTM 301, so GBP clicks
+are credited even though the UTMs are stripped.
+
+### Lead backup (Vercel Blob, private)
+`backupLead()` writes each lead as JSON to `leads/YYYY-MM/<timestamp>-quote|contact-*.json`.
+It is a no-op until a **private** Blob store is connected to the project (Vercel → Storage →
+Create → Blob → Private → connect to `beach-house-moving`, all environments), which provides
+`BLOB_STORE_ID` (OIDC) or `BLOB_READ_WRITE_TOKEN`. Browse leads in Vercel → Storage → the store.
+The weekly analytics job counts these files by channel.
 
 ### v2 / future
 - Customer confirmation email to the submitter's address
@@ -72,7 +91,9 @@ GTM's GA4 Configuration tag (Measurement ID: G-6H4SJSCW0G) handles page_view on 
 - OR configure a History Change trigger in GTM — either approach works. Do not use both.
 
 ### Events fired from site code (src/lib/gtag.ts)
-- generate_lead: quote form success — via dataLayer.push + window.gtag fallback
+- generate_lead: quote form success (`event_category: quote_form`, `move_type`, `home_size`) and
+  contact form success (`event_category: contact_form`). Never send moving_from/moving_to — people
+  type street addresses there and GA4 forbids PII.
 - contact: phone link click — via dataLayer.push + window.gtag fallback
 - phone_click: paired with contact, includes location parameter
 - page_view: SPA navigations via GtmPageView component

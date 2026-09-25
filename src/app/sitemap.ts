@@ -52,7 +52,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${base}/get-a-quote`,
-      lastModified: '2026-06-09',
+      lastModified: '2026-09-25',
       changeFrequency: 'monthly',
       priority: 0.85,
     },
@@ -76,7 +76,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${base}/privacy-policy`,
-      lastModified: '2026-06-01',
+      lastModified: '2026-09-25',
       changeFrequency: 'yearly',
       priority: 0.3,
     },

@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { AlertCircle, Loader2 } from 'lucide-react'
-import { useForm, Controller } from 'react-hook-form'
+import { useForm, Controller, type Control } from 'react-hook-form'
 
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -18,15 +18,63 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Textarea } from '@/components/ui/textarea'
-import { BUSINESS, QUOTE_FORM_MOVE_TYPES } from '@/lib/content'
+import {
+  BUSINESS,
+  QUOTE_FORM_HEARD_ABOUT,
+  QUOTE_FORM_HOME_SIZES,
+  QUOTE_FORM_MOVE_TYPES,
+} from '@/lib/content'
 import { trackQuoteLead, trackPhoneClick } from '@/lib/gtag'
+import { getLeadSource } from '@/lib/lead-source'
 import { quoteFormSchema, type QuoteFormInput } from '@/lib/schema'
+
+type SelectFieldName = 'moveType' | 'homeSize' | 'heardAbout'
+
+function SelectField({
+  control,
+  name,
+  options,
+  placeholder,
+  invalid,
+}: {
+  control: Control<QuoteFormInput>
+  name: SelectFieldName
+  options: readonly string[]
+  placeholder: string
+  invalid?: boolean
+}) {
+  return (
+    <Controller
+      name={name}
+      control={control}
+      render={({ field }) => (
+        <Select
+          value={field.value ?? ''}
+          onValueChange={(value) => {
+            if (value) field.onChange(value)
+          }}
+        >
+          <SelectTrigger id={name} size="form" className="h-11 w-full bg-white text-ink" aria-invalid={invalid}>
+            <SelectValue placeholder={placeholder} />
+          </SelectTrigger>
+          <SelectContent sideOffset={4}>
+            {options.map((option) => (
+              <SelectItem key={option} value={option}>
+                {option}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      )}
+    />
+  )
+}
 
 export function QuoteForm() {
   const router = useRouter()
   const form = useForm<QuoteFormInput>({
     resolver: zodResolver(quoteFormSchema),
-    defaultValues: { moveType: '', smsConsent: false },
+    defaultValues: { moveType: '', homeSize: '', heardAbout: '', smsConsent: false },
   })
   const [status, setStatus] = useState<'idle' | 'loading' | 'error'>('idle')
 
@@ -37,14 +85,13 @@ export function QuoteForm() {
       const res = await fetch('/api/quote', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(quoteFormSchema.parse(data)),
+        body: JSON.stringify(quoteFormSchema.parse({ ...data, source: getLeadSource() })),
       })
 
       if (res.ok) {
         trackQuoteLead({
           move_type: data.moveType,
-          moving_from: data.moveFrom,
-          moving_to: data.moveTo,
+          home_size: data.homeSize,
         })
         router.push('/thank-you')
         return
@@ -106,41 +153,25 @@ export function QuoteForm() {
       <div className="grid gap-5 sm:grid-cols-2">
         <div className="space-y-2">
           <Label htmlFor="moveType">Move Type</Label>
-          <Controller
-            name="moveType"
+          <SelectField
             control={form.control}
-            render={({ field }) => (
-              <Select
-                value={field.value}
-                onValueChange={(value) => {
-                  if (value) field.onChange(value)
-                }}
-              >
-                <SelectTrigger
-                  id="moveType"
-                  size="form"
-                  className="h-11 w-full bg-white text-ink"
-                  aria-invalid={!!form.formState.errors.moveType}
-                >
-                  <SelectValue placeholder="Select move type..." />
-                </SelectTrigger>
-                <SelectContent sideOffset={4}>
-                  {QUOTE_FORM_MOVE_TYPES.map((type) => (
-                    <SelectItem key={type} value={type}>
-                      {type}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            )}
+            name="moveType"
+            options={QUOTE_FORM_MOVE_TYPES}
+            placeholder="Select move type..."
+            invalid={!!form.formState.errors.moveType}
           />
           {form.formState.errors.moveType && (
             <p className="font-body text-xs text-red-600">{form.formState.errors.moveType.message}</p>
           )}
         </div>
         <div className="space-y-2">
-          <Label htmlFor="moveDate">Move Date (if known)</Label>
-          <Input id="moveDate" type="date" size="form" {...form.register('moveDate')} />
+          <Label htmlFor="homeSize">Home Size</Label>
+          <SelectField
+            control={form.control}
+            name="homeSize"
+            options={QUOTE_FORM_HOME_SIZES}
+            placeholder="Select size..."
+          />
         </div>
       </div>
 
@@ -159,6 +190,28 @@ export function QuoteForm() {
             <p className="font-body text-xs text-red-600">{form.formState.errors.moveTo.message}</p>
           )}
         </div>
+      </div>
+
+      <div className="grid gap-5 sm:grid-cols-2">
+        <div className="space-y-2">
+          <Label htmlFor="moveDate">Move Date (if known)</Label>
+          <Input id="moveDate" type="date" size="form" {...form.register('moveDate')} />
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="heardAbout">How Did You Hear About Us?</Label>
+          <SelectField
+            control={form.control}
+            name="heardAbout"
+            options={QUOTE_FORM_HEARD_ABOUT}
+            placeholder="Select one..."
+          />
+        </div>
+      </div>
+
+      {/* Honeypot: hidden from people and screen readers; bots fill it and get dropped server-side. */}
+      <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input id="company" type="text" tabIndex={-1} autoComplete="off" {...form.register('company')} />
       </div>
 
       <div className="space-y-2">

@@ -10,7 +10,8 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { BUSINESS } from '@/lib/content'
-import { trackPhoneClick } from '@/lib/gtag'
+import { trackContactLead, trackPhoneClick } from '@/lib/gtag'
+import { getLeadSource } from '@/lib/lead-source'
 import { contactFormSchema, type ContactFormData } from '@/lib/schema'
 
 export function ContactForm() {
@@ -26,10 +27,11 @@ export function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, source: getLeadSource() }),
       })
 
       if (res.ok) {
+        trackContactLead()
         setStatus('success')
         form.reset()
         return
@@ -145,6 +147,12 @@ export function ContactForm() {
         {form.formState.errors.message && (
           <p className="font-body text-xs text-red-600">{form.formState.errors.message.message}</p>
         )}
+      </div>
+
+      {/* Honeypot: hidden from people and screen readers; bots fill it and get dropped server-side. */}
+      <div className="absolute -left-[9999px] h-px w-px overflow-hidden" aria-hidden="true">
+        <label htmlFor="contact-company">Company</label>
+        <input id="contact-company" type="text" tabIndex={-1} autoComplete="off" {...form.register('company')} />
       </div>
 
       <Button

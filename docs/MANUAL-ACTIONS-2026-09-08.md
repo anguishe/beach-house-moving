@@ -1,5 +1,19 @@
 # Manual actions — Sept 2026 batch
 
+## TODO — 2026-09-25: lead-capture follow-ups (code shipped, needs dashboard clicks)
+
+- [ ] **Travis — Vercel:** Storage → Create → **Blob** → access **Private** → name `bhm-leads`
+      → connect to `beach-house-moving` (Production + Preview). Lead backup is a no-op until
+      then (Claude's API token got 403 creating it). Redeploy after connecting.
+- [ ] **GTM (anguisheh1):** on the GA4 `generate_lead` event tag, add event parameters
+      `move_type` = DLV `move_type`, `home_size` = DLV `home_size`, `event_category` = DLV
+      `event_category` (quote_form vs contact_form). Register them as custom dimensions in GA4.
+- [ ] **GTM:** add a Custom Event trigger on `phone_click` → GA4 event `phone_call_click` with
+      `phone_click_location` (hero / mobile-call-bar / footer…). Then pause the generic
+      tel:-link-click tag, or phone taps get counted twice.
+- [ ] **GA4:** Admin → Events → mark `generate_lead` and `phone_call_click` as key events.
+- [ ] **Owner:** pick a reply-time promise ("we reply within __ hours") for under the quote button.
+
 ## TODO — 2026-09-25: Google Places API billing (live reviews are DOWN)
 
 Live Google reviews on `/reviews` stopped: Places API (New) returns **403**, and the legacy

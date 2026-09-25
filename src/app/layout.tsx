@@ -4,6 +4,7 @@ import Script from 'next/script'
 import { Playfair_Display, Inter } from 'next/font/google'
 
 import { GtmPageView } from '@/components/analytics/GtmPageView'
+import { LeadSourceTracker } from '@/components/analytics/LeadSourceTracker'
 import { Navbar } from '@/components/layout/Navbar'
 import { SkipToContent } from '@/components/layout/SkipToContent'
 import { buildMetadata, HOME_METADATA } from '@/lib/seo'
@@ -60,6 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Suspense fallback={null}>
           <GtmPageView />
         </Suspense>
+        <LeadSourceTracker />
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-WNFSB7NT"

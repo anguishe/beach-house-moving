@@ -92,6 +92,12 @@
 - **Setup:** API key in `RESEND_API_KEY` env var
 - **Docs:** https://resend.com/docs
 
+### Vercel Blob
+- **Package:** `@vercel/blob`
+- **Version:** `^2.8.0`
+- **Why:** Private backup copy of every quote/contact lead, so a failed email never loses one (`src/lib/leads.ts`).
+- **Setup:** Private Blob store connected to the project; no-op until then.
+
 #### v2 / future
 - Customer confirmation email on quote submission
 - React email templates in `/src/emails/` (not built in v1.1)

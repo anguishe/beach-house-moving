@@ -391,6 +391,28 @@ export const QUOTE_FORM_MOVE_TYPES = [
   'Other',
 ] as const
 
+// Quote form: home size drives the crew/truck/hours estimate. Optional field.
+export const QUOTE_FORM_HOME_SIZES = [
+  'A few items',
+  'Studio / 1 bedroom',
+  '2 bedrooms',
+  '3 bedrooms',
+  '4+ bedrooms',
+  'Office / commercial',
+  'Storage unit',
+] as const
+
+// Quote form: self-reported source, shown in the owner email next to the tracked channel.
+export const QUOTE_FORM_HEARD_ABOUT = [
+  'Google search',
+  'Google Maps / Business Profile',
+  'Facebook',
+  'Friend or family',
+  'Realtor, designer, or builder',
+  'Hired you before',
+  'Other',
+] as const
+
 export const FAQS = [
   {
     q: 'What areas does Beach House Moving serve?',

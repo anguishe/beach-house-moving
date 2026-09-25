@@ -33,13 +33,19 @@ function pushEvent(eventName: string, params?: Record<string, unknown>): void {
 /** Track quote form lead conversion */
 export function trackQuoteLead(params?: {
   move_type?: string
-  moving_from?: string
-  moving_to?: string
+  home_size?: string
 }): void {
+  // Never send moving_from / moving_to: visitors type street addresses there,
+  // and GA4 terms forbid PII. Location detail stays in the owner email only.
   pushEvent('generate_lead', {
     event_category: 'quote_form',
     ...params,
   })
+}
+
+/** Track contact form lead (same GA4 event as quotes, told apart by event_category) */
+export function trackContactLead(): void {
+  pushEvent('generate_lead', { event_category: 'contact_form' })
 }
 
 /** Track phone number click */
