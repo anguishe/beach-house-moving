@@ -6,7 +6,7 @@
 // ============================================================
 
 // Bump when a deploy changes rendered copy/links on templated pages.
-export const CONTENT_REVISION = '2026-09-08'
+export const CONTENT_REVISION = '2026-09-25'
 
 // Feature flags.
 // SHOW_TESTIMONIALS: true = show static Google reviews from TESTIMONIALS[].
@@ -468,7 +468,7 @@ export const FAQS = [
   },
   {
     q: 'How do I get a quote?',
-    a: 'Call (850) 842-1962 or fill out the quote form on this site. When you reach out, it helps to have a general sense of your move size (number of bedrooms or a rough item list), your moving-from and moving-to locations, and your target date or date range. We will follow up quickly — usually the same day — with a clear, honest estimate and no hidden fees. For larger or more complex moves we may ask a few follow-up questions to make sure the quote is accurate. There is never a charge for an estimate. Once you book, we confirm the details in writing so you know exactly what to expect on moving day. To get started, call or text (850) 842-1962 any time.',
+    a: 'Call (850) 842-1962 or fill out the quote form on this site. When you reach out, it helps to have a general sense of your move size (number of bedrooms or a rough item list), your moving-from and moving-to locations, and your target date or date range. We reply within 24 hours, usually the same day, with a clear, honest estimate and no hidden fees. For larger or more complex moves we may ask a few follow-up questions to make sure the quote is accurate. There is never a charge for an estimate. Once you book, we confirm the details in writing so you know exactly what to expect on moving day. To get started, call or text (850) 842-1962 any time.',
   },
   {
     q: 'Do you charge for estimates?',
@@ -1083,7 +1083,7 @@ export const PAGE_META = {
   },
   thankYou: {
     title: 'Thank You | Beach House Moving',
-    description: 'Your quote request has been received. We\u2019ll be in touch shortly.',
+    description: 'Your quote request has been received. We\u2019ll get back to you within 24 hours.',
     path: '/thank-you',
   },
 } as const
@@ -1426,11 +1426,14 @@ export const CONTACT_CONTENT = {
   formSubheadline: 'Prefer email? Fill out the form and we\u2019ll get back to you promptly.',
 } as const
 
+// Owner-confirmed 2026-09-25: every quote/contact request gets a reply within 24 hours.
+export const REPLY_PROMISE = 'We reply to every request within 24 hours.'
+
 export const THANK_YOU_CONTENT = {
   headline: 'Your Request Is on Its Way',
   subheadline: 'Thank you for reaching out to Beach House Moving.',
   steps: [
-    'We\u2019ll review your details and call you back shortly.',
+    'We\u2019ll review your details and get back to you within 24 hours.',
     'Have questions in the meantime? Call us directly — a real person answers.',
     'When we connect, we\u2019ll walk through your move and provide a free, honest estimate.',
   ],

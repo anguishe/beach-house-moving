@@ -20,6 +20,7 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import {
   BUSINESS,
+  REPLY_PROMISE,
   QUOTE_FORM_HEARD_ABOUT,
   QUOTE_FORM_HOME_SIZES,
   QUOTE_FORM_MOVE_TYPES,
@@ -251,6 +252,7 @@ export function QuoteForm() {
           'Request My Free Quote'
         )}
       </Button>
+      <p className="text-center font-body text-sm text-ink-muted">{REPLY_PROMISE}</p>
     </form>
   )
 }

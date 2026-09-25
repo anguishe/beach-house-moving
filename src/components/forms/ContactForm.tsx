@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { BUSINESS } from '@/lib/content'
+import { BUSINESS, REPLY_PROMISE } from '@/lib/content'
 import { trackContactLead, trackPhoneClick } from '@/lib/gtag'
 import { getLeadSource } from '@/lib/lead-source'
 import { contactFormSchema, type ContactFormData } from '@/lib/schema'
@@ -49,7 +49,7 @@ export function ContactForm() {
         <CheckCircle2 className="size-14 text-green-500" strokeWidth={1.5} aria-hidden />
         <h3 className="font-heading text-xl font-bold text-brand-navy">Message Sent</h3>
         <p className="font-body text-sm text-ink-muted">
-          We&apos;ll get back to you shortly. Need a faster response? Call{' '}
+          {REPLY_PROMISE} Need a faster response? Call{' '}
           <a
             href={BUSINESS.phone.href}
             onClick={() => trackPhoneClick('contact-form-success')}
