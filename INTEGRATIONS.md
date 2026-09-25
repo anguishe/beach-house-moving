@@ -98,9 +98,15 @@ GTM's GA4 Configuration tag (Measurement ID: G-6H4SJSCW0G) handles page_view on 
 - phone_click: paired with contact, includes location parameter
 - page_view: SPA navigations via GtmPageView component
 
-### GTM must have
+### GTM must have (published as container version 4, 2026-09-25)
 - GA4 Configuration tag → All Pages trigger
-- Custom Event trigger on "generate_lead" → GA4 Event tag
+- Custom Event trigger on "generate_lead" → GA4 Event tag with params event_category / move_type /
+  home_size from Data Layer Variables (`DLV - …`)
+- Custom Event trigger on "phone_click" ("Trigger - Phone Call Click") → GA4 event `phone_call_click`
+  with phone_click_location + page_path. Every tel: link must go through `trackPhoneClick` /
+  `TrackedPhoneLink` or it won't be counted (the old tel:-link-click trigger is gone).
+- GA4 custom dimensions registered: Move type, Home size, Lead form, Phone tap location.
+  Key events: generate_lead, phone_call_click.
 - Custom Event trigger on "page_view" → GA4 Configuration tag (for SPA views)
 - History Change trigger (alternative to GtmPageView component — use one or the other)
 

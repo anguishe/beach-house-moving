@@ -29,6 +29,13 @@ when done. If a browser isn't connected, write what you could get and say which 
 - Events, last 7 and 28 days: `https://analytics.google.com/analytics/web/#/a393326874p539699126/reports/explorer?r=top-events&params=_u..nav%3Dmaui%26_u.dateOption%3Dlast7Days%26_u.comparisonOption%3DdisabledComparison`
   (swap `last7Days` → `last28Days`). If the table text is blocked, take a screenshot and read it.
   Record: generate_lead, phone_call_click, form_start, page_view, sessions.
+  Since 2026-09-25 (GTM v4): break generate_lead down by custom dimension "Lead form"
+  (quote_form / contact_form), "Move type", "Home size"; phone_call_click by "Phone tap location"
+  (which button gets tapped: hero, mobile-call-bar, navbar, footer, trust-strip…). Use
+  Explore → Free form if the standard report can't add the dimension.
+- Vercel Blob `bhm-leads` (private) holds a JSON copy of every lead since 2026-09-25; if the
+  Vercel MCP or dashboard is reachable, count files under `leads/<YYYY-MM>/` and compare with
+  generate_lead (a gap = tracking blocked by ad blockers, which is normal to a degree).
 - Traffic acquisition (`r=lifecycle-traffic-acquisition-v2`), pages (`r=all-pages-and-screens`): /thank-you
   views = quote submits; /get-a-quote views; channel split incl. "AI Assistant".
 
