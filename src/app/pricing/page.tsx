@@ -6,7 +6,7 @@ import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { BUSINESS, FAQS, PRICING } from '@/lib/content'
+import { BUSINESS, FAQS, RATE_LINE } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { breadcrumbSchema, faqPageSchema, pricingOfferSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
@@ -138,9 +138,8 @@ export default async function PricingPage() {
                 <p className="font-body text-sm font-semibold text-brand-navy">Local moves</p>
                 <div>
                   <p className="font-body text-sm leading-relaxed text-ink-muted">
-                    Billed hourly at ${PRICING.hourlyRate}/hr — crew and truck, fuel included in the
-                    rate. No fuel surcharges, no stair fees, no line items that appear only on the
-                    final invoice.
+                    Billed hourly, starting at {RATE_LINE}. Fuel included in the rate. No fuel
+                    surcharges, no stair fees, no line items that appear only on the final invoice.
                   </p>
                   {/* OWNER: paste confirmed hour ranges per home size here — e.g. "Studio/1BR: 2–4 hrs · 2–3BR: 4–7 hrs · 4BR+: 7–10 hrs" */}
                 </div>

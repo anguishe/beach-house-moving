@@ -8,7 +8,7 @@ Confirm each replacement in plain text when applied.
 | `<<OWNER_FULL_NAME>>` | Joshua B McGrew |
 | `<<REVIEW_COUNT>>` | 11 |
 | `<<LEGAL_NAME>>` | Beach House Moving LLC |
-| `<<DURATIONS_OK>>` | Pricing starts at 165/hr plus fuel. Pricing is published: $165/hr (PRICING.hourlyRate) with Offer schema. Docs follow production. |
+| `<<DURATIONS_OK>>` | Pricing starts at $195/hr for 2 movers + truck, plus drive time (PRICING.hourlyRate / RATE_LINE, owner-confirmed 2026-09-25; was $165). Fuel-included wording unchanged pending owner answer (PRICING-PAGE-PLAN C2). Docs follow production. |
 
 > `<<REVIEW_COUNT>>` value 11 (canonical source: TESTIMONIALS.length — corrected 2026-07-19).
 

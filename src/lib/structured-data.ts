@@ -3,6 +3,7 @@ import {
   IMAGES,
   JUNK_REMOVAL_AREA_SERVED,
   PRICING,
+  RATE_LINE,
   REVIEWS_PAGE_META,
   SERVICES,
   SOCIAL_LINKS,
@@ -218,9 +219,9 @@ export function pricingOfferSchema(origin: string) {
     '@context': 'https://schema.org',
     '@type': 'Offer',
     '@id': `${base}/pricing#hourly-rate`,
-    name: 'Local moving — hourly rate',
+    name: 'Local moving — starting hourly rate (2 movers)',
     description:
-      'Local moves billed hourly — crew and truck, fuel included. No fuel surcharges, stair fees, or hidden line items.',
+      `Local moves billed hourly, starting at ${RATE_LINE}. Fuel included. No fuel surcharges, stair fees, or hidden line items.`,
     priceCurrency: PRICING.currency,
     price,
     availability: 'https://schema.org/InStock',
@@ -236,7 +237,7 @@ export function pricingOfferSchema(origin: string) {
       price,
       unitCode: 'HUR',
       unitText: 'HOUR',
-      description: 'Hourly rate — crew and truck, fuel included',
+      description: `Starting hourly rate — ${RATE_LINE}`,
     },
   }
 }

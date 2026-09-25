@@ -31,8 +31,9 @@ export const POSTS: Post[] = [
     slug: 'what-movers-cost-santa-rosa-beach-30a',
     title: 'What Movers Cost in Santa Rosa Beach & 30A (2026)',
     description:
-      "Real numbers from a licensed Santa Rosa Beach mover: our published $165/hr rate, what typical local moves run, and what actually changes the price on 30A.",
+      "Real numbers from a licensed Santa Rosa Beach mover: our published $195/hr starting rate for 2 movers, what typical local moves run, and what actually changes the price on 30A.",
     datePublished: '2026-07-19',
+    dateModified: '2026-09-25',
     author: 'Beach House Moving',
     heroImage: '/images/move-srb.jpg',
     heroAlt:
@@ -42,21 +43,21 @@ export const POSTS: Post[] = [
       { label: 'Packing & Unpacking', href: '/services/packing-unpacking' },
     ],
     excerpt:
-      "Real numbers from a licensed Santa Rosa Beach mover: our published $165/hr rate, what typical local moves run, and what actually changes the price on 30A.",
+      "Real numbers from a licensed Santa Rosa Beach mover: our published $195/hr starting rate for 2 movers, what typical local moves run, and what actually changes the price on 30A.",
     body: [
       {
         body:
-          "Most moving companies make you call three people before anyone says a number. We publish ours: $165 per hour, and it's on our [pricing page](/pricing) for anyone to check. This guide shows what that works out to for typical moves in Santa Rosa Beach and along 30A, and what actually moves the number up or down.",
+          "Most moving companies make you call three people before anyone says a number. We publish ours: $195 per hour for a two-mover crew and truck, plus drive time, and it's on our [pricing page](/pricing) for anyone to check. This guide shows what that works out to for typical moves in Santa Rosa Beach and along 30A, and what actually moves the number up or down.",
       },
       {
         heading: 'The short answer',
         body:
-          "A local move in Santa Rosa Beach billed at our published $165 per hour typically works out to a few hundred dollars for a small place and climbs with size and access. Most one-bedroom moves run two to four hours of truck time. Most two- and three-bedroom homes run four to six. Large homes, stairs, and long carries push past that. The rate doesn't change. The hours do.",
+          "A local move in Santa Rosa Beach billed at our published $195 per hour for two movers (plus drive time) typically works out to a few hundred dollars for a small place and climbs with size and access. Most one-bedroom moves run two to four hours of truck time. Most two- and three-bedroom homes run four to six. Large homes, stairs, and long carries push past that. The rate doesn't change. The hours do.",
       },
       {
         heading: 'What the hours look like in practice',
         body:
-          "Every home is different, so treat these as honest ranges, not quotes. A studio or one-bedroom with easy access usually lands between two and four hours — $330 to $660 at our rate. A typical two- or three-bedroom home runs four to six hours, or $660 to $990. Larger homes, beach houses with three flights of stairs, and moves with a long walk from door to truck can run six to eight hours or more. When you [call](/contact), describe the home and the access and we'll tell you straight where your move likely falls.",
+          "Every home is different, so treat these as honest ranges, not quotes. A studio or one-bedroom with easy access usually lands between two and four hours — $390 to $780 at our two-mover rate, plus drive time. A typical two- or three-bedroom home runs four to six hours, or $780 to $1,170 plus drive time. Larger homes, beach houses with three flights of stairs, and moves with a long walk from door to truck can run six to eight hours or more. When you [call](/contact), describe the home and the access and we'll tell you straight where your move likely falls.",
       },
       {
         heading: 'What actually changes the price',
@@ -80,9 +81,9 @@ export const POSTS: Post[] = [
     ],
     faq: [
       {
-        question: 'Is $165 per hour the whole price?',
+        question: 'Is $195 per hour the whole price?',
         answer:
-          "That's our published hourly rate, and it's the number we build every job around. Scope that adds time — packing, stairs, specialty items, long carries — shows up as hours, not surprise fees. Call (850) 842-1962, describe the job, and we'll tell you what it takes.",
+          "$195 per hour is our starting rate for two movers and a truck, and drive time is billed on top — we tell you both before the job starts. Scope that adds time — packing, stairs, specialty items, long carries — shows up as hours, not surprise fees. Call (850) 842-1962, describe the job, and we'll tell you what it takes.",
       },
       {
         question: 'Do you charge more on 30A than elsewhere?',

@@ -63,10 +63,19 @@ export const BUSINESS = {
 
 /** Single source of truth for published rates. Referenced by /pricing UI and the Offer schema. */
 export const PRICING = {
-  /** Local moves — hourly rate in USD. Crew + truck, fuel included; no surcharges. */
-  hourlyRate: 165,
+  /**
+   * Local moves — starting hourly rate in USD for a 2-mover crew + truck, plus drive time
+   * (owner-confirmed 2026-09-25; was $165). 3+ mover rates and how drive time is counted are
+   * still open owner questions — see docs/PRICING-PAGE-PLAN-2026-09-24.md C1–C2. Florida ch. 507:
+   * never show this rate without the drive-time disclosure next to it.
+   */
+  hourlyRate: 195,
+  crewSize: 2,
   currency: 'USD',
 } as const
+
+/** "$195/hr for 2 movers, plus drive time" — use wherever the rate is shown. */
+export const RATE_LINE = `$${PRICING.hourlyRate}/hr for ${PRICING.crewSize} movers and a truck, plus drive time`
 
 /** Public license copy — SAB-safe, no street address. */
 export const LICENSE_DISPLAY = {
@@ -424,7 +433,7 @@ export const FAQS = [
   },
   {
     q: 'How much does a move cost?',
-    a: `Local moves are $${PRICING.hourlyRate}/hour — crew and truck, fuel included, no hidden fees. You pay only for the hours worked, and we give you a real number before we start, not a teaser range. Long-distance and large jobs are quoted up front. Estimates are always free — call ${BUSINESS.phone.display} and we\u2019ll walk through it.`,
+    a: `Local moves start at ${RATE_LINE} — fuel included, no hidden fees. You pay for the hours worked plus drive time, and we give you a real number before we start, not a teaser range. Long-distance and large jobs are quoted up front. Estimates are always free — call ${BUSINESS.phone.display} and we\u2019ll walk through it.`,
   },
   {
     q: 'Do you offer packing and unpacking?',
