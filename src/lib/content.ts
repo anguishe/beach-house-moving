@@ -855,6 +855,30 @@ export const GALLERY_PHOTOS = [
 
 export const TESTIMONIALS = [
   {
+    name: 'Meredith Coughlin',
+    location: null,
+    rating: 5,
+    text: 'Professional, efficient, polite, great to be around. Will definitely use again.',
+    source: 'Google',
+    date: '2026',
+  },
+  {
+    name: 'Kole Prym',
+    location: null,
+    rating: 5,
+    text: 'Beach House Moving was professional and communicative after booking. At an amazing pace and despite extreme heat on a Friday, Beach House Moving made it happen. This is a local business worth supporting, as they did a fantastic job. Thanks again for all of your help.',
+    source: 'Google',
+    date: '2026',
+  },
+  {
+    name: 'Phyllis Flowers',
+    location: null,
+    rating: 5,
+    text: 'I met Zack and Les from Beach House Moving over a year ago. They are a unique team at organization, on time, respectful and caring while on the job. I cannot emphasize enough how pleased I am using this service.',
+    source: 'Google',
+    date: '2026',
+  },
+  {
     name: 'Tammy Pierce',
     location: null,
     rating: 5,
