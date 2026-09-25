@@ -45,3 +45,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .photo-pii-cache.json
+docs/analytics/weekly/run.log
