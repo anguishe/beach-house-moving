@@ -1,5 +1,22 @@
 # Manual actions — Sept 2026 batch
 
+## TODO — 2026-09-25: Google Places API billing (live reviews are DOWN)
+
+Live Google reviews on `/reviews` stopped: Places API (New) returns **403**, and the legacy
+endpoint says "You must enable Billing on the Google Cloud Project". The site is serving the
+static `TESTIMONIALS` fallback (14 reviews, current as of 927ed25). Usage is ~30–100 calls/month
+against 1,000 free (Place Details Enterprise SKU, $20/1k after), so cost stays $0 — but Google
+blocks even free calls without an active billing account.
+
+- [ ] **Travis:** console.cloud.google.com → project that owns `GOOGLE_PLACES_API_KEY`
+      → Billing → link an active billing account (update the card if it lapsed).
+- [ ] **Travis:** APIs & Services → Places API (New) → Quotas → cap Place Details at
+      **100/day** so a loop can never leave the free tier. Optionally add a $1 budget alert.
+- [ ] **Claude:** re-test the key (`curl places.googleapis.com/v1/places/<id>`), confirm `/reviews`
+      shows live Google photos, force revalidation instead of waiting 24 h.
+- [ ] Keep adding every new review to `TESTIMONIALS` anyway — the API only returns 5
+      Google-picked reviews, not the newest.
+
 ## TODO — 2026-09-10, once the GSC quota resets
 
 - [ ] **Delete the stale sitemap entry** `https://beachhousemoving.xyz/sitemap.xml/`
