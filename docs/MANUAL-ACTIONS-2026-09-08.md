@@ -1,5 +1,7 @@
 # Manual actions — Sept 2026 batch
 
+> **Latest session: `docs/SESSION-2026-09-25.md`** — everything shipped 9/25, open items, invoice lines.
+
 ## TODO — 2026-09-25: lead-capture follow-ups (code shipped, needs dashboard clicks)
 
 - [x] **Vercel Blob `bhm-leads` created 2026-09-25** (private, iad1, BLOB_STORE_ID + BLOB_READ_WRITE_TOKEN on Prod+Preview). ~~Storage → Create → Blob → Private → name `bhm-leads`
