@@ -65,6 +65,8 @@ html {
 
   .ken-burns,
   [class*="ken-burns"],
+  .hero-fade-up,
+  .hero-slide-up,
   .marquee-track,
   .reviews-marquee-track,
   .ticker-locations {
@@ -194,6 +196,31 @@ body {
 }
 .ken-burns {
   animation: kenBurns 10s ease-out forwards;
+}
+
+/* Hero entrance — CSS (not framer) so the text paints before JS hydrates; LCP must not wait on the bundle.
+   Starts at 0.01, not 0: Chrome drops opacity-0-animated nodes as LCP candidates, which pushed LCP onto
+   whatever painted last. 0.01 is invisible to the eye but counts as painted from the first frame. */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0.01;
+    transform: translateY(28px);
+  }
+}
+.hero-fade-up {
+  animation: heroFadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--fade-delay, 0s);
+}
+/* Transform-only entrance for the H1: any opacity animation disqualifies text as an
+   LCP candidate in Chrome, and the H1 is the element we WANT to be the LCP. */
+@keyframes heroSlideUp {
+  from {
+    transform: translateY(28px);
+  }
+}
+.hero-slide-up {
+  animation: heroSlideUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--fade-delay, 0s);
 }
 
 /* Marquee for gallery strip */
