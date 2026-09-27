@@ -7,7 +7,7 @@ import { MotionReveal } from '@/components/ui/MotionReveal'
 import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS } from '@/lib/content'
 
 // High-intent geo pages we deep-link from the homepage to feed them link equity.
-const KEY_NEIGHBORHOOD_SLUGS = ['santa-rosa-beach', 'destin', 'fort-walton-beach']
+const KEY_NEIGHBORHOOD_SLUGS = ['santa-rosa-beach', 'miramar-beach', 'sandestin', 'freeport', 'destin', 'fort-walton-beach']
 
 export function ServiceAreaSection() {
   const popularAreas = KEY_NEIGHBORHOOD_SLUGS.flatMap((slug) => {

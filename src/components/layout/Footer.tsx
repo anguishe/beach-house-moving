@@ -29,7 +29,7 @@ export function Footer() {
   // Deep links — hrefs resolved from data, no hardcoded slugs.
   const areaLinks = [
     ...SERVICE_AREAS.map((area) => ({ label: area.county, href: `/service-areas/${area.slug}` })),
-    ...['santa-rosa-beach', 'miramar-beach', 'destin', 'fort-walton-beach', 'panama-city-beach']
+    ...['santa-rosa-beach', 'miramar-beach', 'sandestin', 'freeport', 'destin', 'fort-walton-beach', 'panama-city-beach']
       .map((slug) => {
         const nb = NEIGHBORHOODS.find((n) => n.slug === slug)
         const area = nb && SERVICE_AREAS.find((a) => a.county === nb.county)
