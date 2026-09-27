@@ -43,18 +43,21 @@ export default async function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://analytics.ahrefs.com" crossOrigin="" />
         <link rel="dns-prefetch" href="https://maps.googleapis.com" />
-        <Script id="google-tag-manager" strategy="afterInteractive">
+        {/* lazyOnload: GTM's 300KB eval was holding first paint ~1.7s past load.
+            dataLayer pushes before GTM loads queue in the stub array and are
+            drained at container load; lead/phone events all happen post-load. */}
+        <Script id="google-tag-manager" strategy="lazyOnload">
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WNFSB7NT');`}
         </Script>
-        {/* Ahrefs web analytics — afterInteractive, non-blocking. See INTEGRATIONS.md §9. */}
+        {/* Ahrefs web analytics — lazyOnload, non-blocking. See INTEGRATIONS.md §9. */}
         <Script
           src="https://analytics.ahrefs.com/analytics.js"
           data-key="j2BL/k+yqwVjkOmeUgLn+A"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
       </head>
       <body className={`${playfair.variable} ${inter.variable} font-body antialiased pt-0`}>
