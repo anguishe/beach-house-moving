@@ -10,7 +10,9 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/api/', '/_next/'],
+        // /_next/ must stay crawlable: blocking it hides CSS/JS from Googlebot's
+        // renderer, which then rates every page as unstyled.
+        disallow: ['/api/'],
       },
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'OAI-SearchBot', allow: '/' },
