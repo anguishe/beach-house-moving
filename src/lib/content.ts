@@ -837,6 +837,22 @@ export const IMAGES = {
     src: '/images/beach-house-moving-miramar-beach-burnt-pine-dining-room-install.jpg',
     alt: 'Beach House Moving crew unwrapping and placing dining room furniture under a chandelier at a Burnt Pine home in Miramar Beach, FL',
   },
+  regattaBayBoxTruckPaverDriveway: {
+    src: '/images/beach-house-moving-destin-regatta-bay-box-truck-paver-driveway.jpg',
+    alt: 'Beach House Moving box truck parked on a paver driveway at a Regatta Bay home in Destin, FL',
+  },
+  regattaBayFrontDoorHandTruckEntry: {
+    src: '/images/beach-house-moving-destin-regatta-bay-front-door-hand-truck-entry.jpg',
+    alt: 'Beach House Moving crew member heading through open double front doors with a hand truck, Regatta Bay, Destin',
+  },
+  regattaBayArmchairDoorwayCarry: {
+    src: '/images/beach-house-moving-destin-regatta-bay-armchair-doorway-carry.jpg',
+    alt: 'Two Beach House Moving movers angling a tufted armchair through an interior doorway in Destin',
+  },
+  regattaBayBoxTruckLoadedInterior: {
+    src: '/images/beach-house-moving-destin-regatta-bay-box-truck-loaded-interior.jpg',
+    alt: 'Inside a Beach House Moving truck: bins and boxes stacked on a padded wood chest, strapped to the wall rails',
+  },
 } as const
 
 /** Homepage gallery marquee — owner-operator shots lead; carousel may repeat photos used elsewhere. */
@@ -851,7 +867,7 @@ export const GALLERY_PHOTOS = [
   IMAGES.estateSalePrepHandTruck,          // estate sale prep — Zack, hand truck
   IMAGES.apartmentFleetTruckVanStaging,    // apartment move — fleet staged
   IMAGES.crewBrandedAntiqueMove,  // owner-operator lead
-  IMAGES.crewTeamFurnitureMove,   // owner-operator lead
+  IMAGES.regattaBayBoxTruckPaverDriveway, // Regatta Bay, Destin — box truck on the paver driveway
   IMAGES.greatRoomStaged,         // new-construction showcase
   IMAGES.apartmentRampUnload,     // apartment move — lift-gate ramp unload
   IMAGES.luxuryHomeMove,          // owner carrying into luxury home
@@ -1987,17 +2003,17 @@ export const NEIGHBORHOODS = [
   // ---- OKALOOSA COUNTY ----
   {
     slug: 'destin',
-    updatedAt: '2026-09-08',
+    updatedAt: '2026-09-28',
     name: 'Destin',
     county: 'Okaloosa County',
-    image: '/images/beach-house-moving-mattress-stairwell-move.jpg',
+    image: '/images/beach-house-moving-destin-regatta-bay-box-truck-paver-driveway-landscape.jpg',
     intro: 'Destin packs harborfront condos, gated golf communities, and beachfront towers into one of the most active real-estate markets on the coast. Elevator reservations, harbor-area traffic windows, and high-rise logistics are part of the plan on every Destin job.',
     introExtended: [
       'Destin moves come in three flavors, and they\'re priced and planned differently. Harbor-district and Holiday Isle condos mean building rules: one service elevator on a reservation window, sometimes a management escort, and loading zones that disappear by mid-morning — we book the elevator and stage the load around it. Crystal Beach and the older cottage streets are tighter access and shorter carries, where the Sprinter often beats a box truck to the door.',
       'Then there are the gated communities — Kelly Plantation, Regatta Bay, Destiny — where the gate wants your mover\'s name in advance and the HOA has opinions about where a truck parks. We handle that coordination before move day. One more local truth: Highway 98 and the Marler Bridge set the schedule in summer. We plan Destin moves early or late on purpose, because an hour saved in traffic is an hour off your clock.',
     ],
     landmarks: ['Destin Harbor', 'HarborWalk Village', 'Crab Island', 'Kelly Plantation', 'Regatta Bay'],
-    confirmedWork: `In Destin we handled a refrigerator swap at Pelican Beach Resort — the new unit up the elevator and installed, the old one hand-trucked out and hauled away, all inside a resort condo's access and elevator rules.`,
+    confirmedWork: `In Destin we handled a refrigerator swap at Pelican Beach Resort — the new unit up the elevator and installed, the old one hand-trucked out and hauled away, all inside a resort condo's access and elevator rules. We also moved a household across Destin from Regatta Bay to Grand Harbor, the gated condo building on the harbor, gated community to gated community, with the box truck staged on the paver driveway at the Regatta Bay end rather than in the lane.`,
     metaTitle: 'Destin FL Movers | Beach House Moving — Okaloosa County',
     metaDescription: 'Movers for Destin condos, gated communities & beachfront homes. Owner-operated, licensed & insured. Free quote — (850) 842-1962.',
     localBody: `Destin packs more move-types into one city than anywhere else we serve. There's the Harbor and Holiday Isle high-rise condos with their service elevators, dock windows, and building escorts; the gated golf communities like Kelly Plantation with guard-gate clearances; the older mainland neighborhoods with normal driveways; and the relentless seasonal traffic over the Marler Bridge that sets the clock on all of it. We plan a Destin move around which Destin you're in. A Holiday Isle condo is a vertical, building-controlled job — reserve the elevator, confirm the dock, get on the list. Kelly Plantation is a gate-and-clearance job. The mainland is a parking-and-timing job, because US-98 through Destin in season can turn a ten-minute hop into forty. We also move a steady stream of military families through Destin near the Eglin footprint, so PCS timing and short-notice report dates are familiar territory. The throughline is traffic and access: in Destin, the lifting is rarely the hard part — getting the truck to the door at the right time is.`,

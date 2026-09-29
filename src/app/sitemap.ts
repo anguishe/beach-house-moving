@@ -9,8 +9,11 @@ import {
   type Service,
   type ServiceArea,
 } from '@/lib/content'
-import { POSTS } from '@/content/posts'
+import { getPublishedPosts } from '@/content/posts'
 import { getSiteOrigin } from '@/lib/site-url'
+
+// Hourly, so a scheduled post enters the sitemap on its date without a deploy.
+export const revalidate = 3600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const origin = await getSiteOrigin()
@@ -112,7 +115,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   })
 
-  const resourcePostRoutes: MetadataRoute.Sitemap = POSTS.map((post) => ({
+  const resourcePostRoutes: MetadataRoute.Sitemap = getPublishedPosts().map((post) => ({
     url: `${base}/resources/${post.slug}`,
     // Data-driven: reflects the post's last edit when present, else publish date.
     lastModified: post.dateModified ?? post.datePublished,

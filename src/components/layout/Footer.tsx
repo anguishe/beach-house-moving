@@ -13,7 +13,7 @@ import {
   SERVICE_AREAS,
   SOCIAL_LINKS,
 } from '@/lib/content'
-import { POSTS } from '@/content/posts'
+import { getPublishedPost } from '@/content/posts'
 
 function FacebookIcon({ className }: { className?: string }) {
   return (
@@ -42,8 +42,8 @@ export function Footer() {
     'pcs-move-eglin-afb-hurlburt-field-guide',
     'moving-to-30a-neighborhood-guide',
   ]
-    .map((slug) => POSTS.find((p) => p.slug === slug))
-    .filter((p): p is (typeof POSTS)[number] => p !== undefined)
+    .map((slug) => getPublishedPost(slug))
+    .filter((p) => p !== undefined)
     .map((p) => ({ label: p.title, href: `/resources/${p.slug}` }))
 
   return (

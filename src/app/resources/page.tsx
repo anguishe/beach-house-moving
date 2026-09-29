@@ -4,10 +4,13 @@ import Link from 'next/link'
 
 import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { POSTS } from '@/content/posts'
+import { getPublishedPosts } from '@/content/posts'
 import { buildMetadata } from '@/lib/seo'
 import { breadcrumbSchema, resourcesItemListSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
+
+// Hourly, so a scheduled post joins the list on its date without a deploy.
+export const revalidate = 3600
 
 export async function generateMetadata(): Promise<Metadata> {
   return buildMetadata({
@@ -35,7 +38,7 @@ export default async function ResourcesPage() {
     ],
     origin.origin,
   )
-  const sortedPosts = [...POSTS].sort((a, b) => b.datePublished.localeCompare(a.datePublished))
+  const sortedPosts = [...getPublishedPosts()].sort((a, b) => b.datePublished.localeCompare(a.datePublished))
   const itemList = resourcesItemListSchema(sortedPosts, origin.origin)
 
   return (

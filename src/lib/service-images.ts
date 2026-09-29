@@ -5,7 +5,7 @@ type ServiceImage = { src: string; alt: string }
 /** Maps each service slug to its hero/card image from content.ts. */
 export const SERVICE_IMAGE_MAP: Record<string, ServiceImage> = {
   'residential-moving': IMAGES.luxuryHomeMove,
-  'local-moving': IMAGES.loadedLiftgateCoastalHome,
+  'local-moving': IMAGES.regattaBayFrontDoorHandTruckEntry,
   'long-distance-moving': IMAGES.moverCarryWrappedEstate,
   'packing-unpacking': IMAGES.kitchenPackCrew,
   storage: IMAGES.moverStorageCorridor,
@@ -19,9 +19,10 @@ export const SERVICE_IMAGE_MAP: Record<string, ServiceImage> = {
 
 /** Optional secondary/gallery image per service — must not duplicate the primary src. */
 export const SERVICE_SECONDARY_IMAGE_MAP: Partial<Record<string, ServiceImage>> = {
-  'residential-moving': IMAGES.moverCarryEstate,
+  'residential-moving': IMAGES.regattaBayArmchairDoorwayCarry,
   'local-moving': IMAGES.brandedCrewPlacement,
   'long-distance-moving': IMAGES.greatRoomRug,
+  'military-pcs-moving': IMAGES.regattaBayBoxTruckLoadedInterior,
   'packing-unpacking': IMAGES.kitchenDishPack,
   delivery: IMAGES.slotMachineSpecialtyMove,
   storage: IMAGES.applianceStagingWarehouse,
@@ -41,9 +42,9 @@ export const SERVICE_SECONDARY_IMAGE_MAP: Partial<Record<string, ServiceImage>> 
 // Do not maintain a hand-written list here; it goes stale. Only the items below
 // are recorded, because no code change can fix them — they need a specific photo.
 //
-// NEEDS A PHOTO FROM THE OWNERS (as of 2026-09-08):
-//   1. service:secondary `military-pcs-moving` — the only empty slot on the site.
-//      Ask for a shot from an Eglin/Hurlburt base-area job.
+// NEEDS A PHOTO FROM THE OWNERS (as of 2026-09-28):
+//   1. service:secondary `military-pcs-moving` is filled (2026-09-28) with the Regatta
+//      Bay loaded-truck interior. A true Eglin/Hurlburt base-area job would still beat it.
 //   2. Neighborhood heroes render 16:9, so they need LANDSCAPE. Two Bay/Walton
 //      pages are also sharing one photo between them:
 //        freeport + lynn-haven  → both on /images/truck-loaded.jpg

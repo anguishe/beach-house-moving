@@ -6,11 +6,15 @@ import { notFound } from 'next/navigation'
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { POSTS, type PostBlock } from '@/content/posts'
+import { getPublishedPost, getPublishedPosts, type PostBlock } from '@/content/posts'
 import { renderBody } from '@/lib/render-body'
 import { buildMetadata } from '@/lib/seo'
 import { blogPostingSchema, breadcrumbSchema, faqPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
+
+// Scheduled posts (future datePublished) 404 until their date. Not prebuilt by
+// generateStaticParams; rendered on demand once live and re-checked hourly.
+export const revalidate = 3600
 
 const POST_BYLINE = 'Joshua B McGrew, co-owner, Beach House Moving'
 
@@ -23,12 +27,12 @@ type PageProps = {
 }
 
 export function generateStaticParams() {
-  return POSTS.map((post) => ({ slug: post.slug }))
+  return getPublishedPosts().map((post) => ({ slug: post.slug }))
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
-  const post = POSTS.find((p) => p.slug === slug)
+  const post = getPublishedPost(slug)
   if (!post) return {}
 
   return buildMetadata({
@@ -48,7 +52,7 @@ function formatDate(dateStr: string): string {
 
 export default async function ResourcePostPage({ params }: PageProps) {
   const { slug } = await params
-  const post = POSTS.find((p) => p.slug === slug)
+  const post = getPublishedPost(slug)
 
   if (!post) {
     notFound()

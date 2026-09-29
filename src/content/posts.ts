@@ -1419,4 +1419,321 @@ export const POSTS: Post[] = [
       },
     ],
   },
+  {
+    slug: 'field-notes-regatta-bay-to-grand-harbor-destin-move',
+    title: 'A Destin-to-Destin Move: Regatta Bay to Grand Harbor',
+    description:
+      "A short move across Destin, from a Regatta Bay home to Grand Harbor on the harbor. Why a local move between gated communities is still a full job: gates, HOA rules, driveways, and doorways.",
+    datePublished: '2026-10-06',
+    author: 'Beach House Moving',
+    heroImage: '/images/beach-house-moving-destin-regatta-bay-box-truck-paver-driveway.jpg',
+    heroAlt:
+      'Beach House Moving box truck parked on a paver driveway at a Regatta Bay home in Destin, FL',
+    relatedServices: [
+      { label: 'Local Moving', href: '/services/local-moving' },
+      { label: 'Residential Moving', href: '/services/residential-moving' },
+      { label: 'Destin Movers', href: '/service-areas/okaloosa-county/destin' },
+    ],
+    excerpt:
+      "Regatta Bay to Grand Harbor is a short drive across Destin. It was still a full move, and the reasons why are the same ones that decide any local move between gated communities.",
+    body: [
+      {
+        body:
+          'Field Notes from the Truck, a job log from a real move. This one: [Destin](/service-areas/okaloosa-county/destin), from Regatta Bay to Grand Harbor.',
+      },
+      {
+        body:
+          "The owner's note for this job was one line: a move from Regatta Bay, Destin, to Grand Harbor, Destin. Regatta Bay is a gated golf community and Grand Harbor is a gated condo building on Destin Harbor. Both ends are in the same city and the drive between them is short. None of that made it a small job.",
+      },
+      {
+        heading: 'The short answer',
+        body:
+          "A move inside Destin takes about as much planning as a move across the county. The drive is the smallest part of the day. The time goes into getting through two gates, working inside two sets of HOA rules, protecting two entries, and loading a truck so nothing shifts, even on a short haul.",
+      },
+      {
+        heading: 'Why a short local move is still a whole move',
+        body:
+          "People tend to size a move by the distance. We size it by the house. Every piece still gets wrapped, carried out, loaded, strapped, carried in, and set in the right room, and that work is the same whether the new place is across the county or across town. A shorter drive takes a little off the clock. It doesn't take anything off the carry.",
+      },
+      {
+        body:
+          "That is why we quote a [local move](/services/local-moving) on the home, the access, and the inventory, not the mileage. If someone quotes you a Destin-to-Destin move on distance alone, ask what they think happens between the front door and the truck.",
+      },
+      {
+        heading: 'Two gated communities means two sets of rules',
+        body:
+          "Gated communities in Destin generally want to know who is coming before the truck shows up, and the HOA usually has a view on where a moving truck can sit and when. The details differ from one community to the next, and sometimes from one phase of a community to the next, so we don't assume. We ask you, and when needed we ask the HOA or the property manager.",
+      },
+      {
+        body:
+          "With two gated ends, that check happens twice. At Grand Harbor the arrival side is a building as well as a gate, so it also means knowing where the truck can stage and how the crew gets from it to the unit. The exit side and the arrival side each get sorted before move day, so the crew isn't waiting at a guardhouse with a loaded truck. If either community asks for a certificate of insurance, that goes to them ahead of time as well. We cover the paperwork side in more detail in [the moving checklist for 30A and Destin](/resources/moving-checklist-30a-destin-florida).",
+      },
+      {
+        heading: 'The truck goes on the driveway, not the street',
+        body:
+          "At the Regatta Bay house the truck went on the paver driveway, under the palms, clear of the street. In a gated neighborhood a truck left in the lane blocks neighbors and service vehicles, and that becomes the HOA's problem and then yours. Parking on the driveway also puts the load a short, level walk from the door.",
+      },
+      {
+        body:
+          "Pavers change how we move things once the truck is parked. A hand truck wheel can catch on a paver seam, so heavy pieces get walked across the drive, not rolled. We made the same call on a paver drive in Burnt Pine, written up in [our design-trade install notes](/resources/field-notes-design-trade-install-week-emerald-coast).",
+      },
+      {
+        heading: 'Set up the entry before anything leaves the house',
+        body:
+          "The first thing that moved at Regatta Bay was the front entry itself. Both glass doors went fully open, the hand truck came inside, and the route from the rooms to the truck got walked before anyone lifted a piece.",
+        image: '/images/beach-house-moving-destin-regatta-bay-front-door-hand-truck-entry.jpg',
+        imageAlt:
+          'Beach House Moving crew member heading through open double front doors with a hand truck, Regatta Bay, Destin',
+      },
+      {
+        body:
+          "Glass-paned doors and heavy planters on each side of an entry are the first things a wide piece will find, so we find them first. Deciding what stays put, what moves aside, and what gets padded takes a few minutes before the carry. Skipping it is how a door or a planter becomes part of the job.",
+      },
+      {
+        heading: 'Doorways are where furniture gets damaged',
+        body:
+          "Furniture rarely gets hurt on the truck. It gets hurt in doorways, on stair turns, and against door casings. A tufted armchair is wider than it looks once you count the arms, so it goes through an interior door on an angle with two people on it. One person calls the turn and the other watches the frame.",
+        image: '/images/beach-house-moving-destin-regatta-bay-armchair-doorway-carry.jpg',
+        imageAlt:
+          'Two Beach House Moving movers angling a tufted armchair through an interior doorway in Destin',
+      },
+      {
+        body:
+          "Measure your largest pieces against the doorways at the new place before move day, not during it. If something won't make the turn, it's better to know while there's still time to plan around it. That goes double when the new home is a condo like Grand Harbor, where the route from the truck runs through the building before it reaches the front door, which we cover in [the beach condo guide](/resources/how-to-move-a-beach-condo-emerald-coast).",
+      },
+      {
+        heading: 'How the truck gets loaded for a short haul',
+        body:
+          "A short drive is not a reason to load loose. Destin traffic means stops and starts, and a load that shifts on a short trip gets damaged just like one that shifts on a long one. At Regatta Bay a padded wood chest went down first as the base, bins and boxes stacked on top of it, and the load was strapped to the rails on the truck wall.",
+        image: '/images/beach-house-moving-destin-regatta-bay-box-truck-loaded-interior.jpg',
+        imageAlt:
+          'Inside a Beach House Moving truck: bins and boxes stacked on a padded wood chest, strapped to the wall rails',
+      },
+      {
+        body:
+          "The rule is heavy and solid on the bottom, light and fragile on top, with nothing tall left standing unsupported. A tight load unloads in order, too, which matters when the arrival side has its own gate and its own clock.",
+      },
+      {
+        heading: 'What to do before a move within Destin',
+        body:
+          "Find out what each community needs from a mover: gate access, any move-day hours, where the truck can park, and whether a certificate of insurance is required. Get that information to us when you book. Measure the big pieces against the doorways at the new place, and tell us about anything fragile or sentimental before we start.",
+      },
+      {
+        body:
+          "If you're moving inside Destin, from Destin to somewhere else on the Emerald Coast, or into Destin from out of town, [get in touch](/contact). Tell us the two communities and we'll tell you how we would plan the day.",
+      },
+      {
+        body:
+          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+      },
+      {
+        body:
+          'OWNER NOTE (not rendered): resolved 2026-09-28 by Travis: spelling "Grand Harbor", the Destin harborfront condo tower (not Sandestin), all four photos are from the Regatta Bay (origin) house, the crew member in the loaded-truck photo is blurred. Still open: one sentence on how the Grand Harbor unload actually went (garage, elevator), once the owner describes it. No crew names are cleared for this job, so none are used.',
+        isOwnerNote: true,
+      },
+    ],
+    faq: [
+      {
+        question: 'Do you do local moves within Destin?',
+        answer:
+          'Yes. Moves inside Destin are a regular part of our work, including moves between gated communities, from a house to a condo, and from the mainland to the harbor side. We plan them the same way as any other move: the home, the access, and the inventory decide the day, not the distance.',
+      },
+      {
+        question: 'Is a short move cheaper than a long one?',
+        answer:
+          'A shorter drive takes a little time off, but most of a local move is the wrapping, carrying, loading, and unloading, and that work is the same whatever the distance. We bill hourly, so the time a move actually takes is what you pay for. Our current rates are on our pricing page.',
+      },
+      {
+        question: 'Can you get through the gate at a Destin gated community?',
+        answer:
+          'Yes, with advance coordination. Gated communities generally want the mover named ahead of time, and some want a certificate of insurance on file. Tell us both communities when you book and we sort out the access for each end before move day.',
+      },
+      {
+        question: 'Where will the moving truck park in a gated neighborhood?',
+        answer:
+          'On the driveway when there is room, clear of the street. A truck in the lane blocks neighbors and service vehicles, and HOAs notice. If your community has its own rules on where a moving truck can sit, tell us when you book and we plan around them.',
+      },
+      {
+        question: 'Do you need to see the new home before move day?',
+        answer:
+          'Not always, but we do need the details. Tell us about stairs, elevators, and tight doorways at the new place, and measure your largest pieces against the doorways they need to pass through. Knowing that ahead of time is what keeps move day from turning into problem-solving.',
+      },
+      {
+        question: 'How do you keep furniture from getting damaged in doorways?',
+        answer:
+          'Wide pieces go through on an angle with two people, one calling the turn and one watching the frame. Pieces get padded before they leave the room, and the path from each room to the truck gets walked before anything is lifted.',
+      },
+    ],
+  },
+  {
+    slug: 'field-notes-riding-mower-garage-move-hammock-bay-freeport',
+    title: 'Moving a Riding Mower: A Garage Load in Hammock Bay, Freeport',
+    description:
+      "How movers load a riding mower and the rest of a garage, from a job in Hammock Bay, Freeport. Lift gate or ramp, fuel, straps, and what to sort before move day.",
+    datePublished: '2026-10-13',
+    author: 'Beach House Moving',
+    heroImage: '/images/beach-house-moving-freeport-hammock-bay-riding-mower-lift-gate-load.jpg',
+    heroAlt:
+      'Two Beach House Moving movers rolling a red zero-turn mower from a garage toward the box truck lift gate in Hammock Bay, Freeport, FL',
+    relatedServices: [
+      { label: 'Residential Moving', href: '/services/residential-moving' },
+      { label: 'Delivery & Single-Item Moving', href: '/services/delivery' },
+      { label: 'Freeport Movers', href: '/service-areas/walton-county/freeport' },
+    ],
+    excerpt:
+      "A riding mower is one of the heaviest things in most garages and one of the easiest to get wrong on a ramp. Here is how we loaded one in Hammock Bay, and what to sort in your garage before move day.",
+    body: [
+      {
+        body:
+          'Field Notes from the Truck, a job log from a real move. This one: [Freeport](/service-areas/walton-county/freeport), in Hammock Bay.',
+      },
+      {
+        body:
+          "In late September we were in Hammock Bay loading a garage, and the piece that set the pace was a zero-turn riding mower. It went onto the truck on the lift gate, not up a ramp, and it rode strapped like any other heavy piece of furniture.",
+      },
+      {
+        heading: 'The short answer',
+        body:
+          "Yes, movers can move a riding mower. The safe way is on a lift gate, with the mower rolled on, not driven up a ramp, then braked, blocked, and strapped to the truck wall. Run the fuel low before move day, clean off the grass, and tell your mover about the mower when you book so the right truck shows up.",
+      },
+      {
+        heading: 'Why a mower is a different kind of heavy',
+        body:
+          "A sofa is heavy and soft. A riding mower is heavy, hard, and top-heavy, and most of its weight sits over the rear wheels. That is fine on flat ground. It is a problem on a slope, which is exactly what a loading ramp is.",
+      },
+      {
+        body:
+          "Driving a mower up a narrow ramp puts its weight in the worst possible place, at the worst possible angle, with one person on it and nowhere to step off. That is why we use the lift gate. The mower rolls onto a flat platform at ground level, the platform comes up level, and the mower rolls into the truck without anyone riding it.",
+      },
+      {
+        heading: 'How it went onto the truck',
+        body:
+          "In Hammock Bay the truck backed up to the garage and the lift gate came down to the driveway. The mower rolled onto the gate with a crew member on each side of it, and the gate took it up level to the truck floor. Nobody rode it and nobody pushed it up a slope.",
+        image: '/images/beach-house-moving-freeport-hammock-bay-riding-mower-lift-gate-raised.jpg',
+        imageAlt:
+          'Beach House Moving crew with a red zero-turn mower on the raised box truck lift gate in Hammock Bay, Freeport, FL',
+      },
+      {
+        body:
+          "Inside, it is loaded like a piece of case furniture. Parking brake on, wheels blocked, and straps to the rails on the truck wall so it can't roll forward under braking. Nothing fragile goes next to it, and nothing gets stacked on its seat or deck.",
+      },
+      {
+        body:
+          "We load golf carts the same way, rolled onto the lift gate rather than driven up a ramp. The machine changes and the method does not.",
+      },
+      {
+        heading: 'What to do with the mower before move day',
+        body:
+          "Run the fuel down. Mow the lawn one last time the week before and let the tank get close to empty, because a full tank is extra weight and one more thing that can leak. If there are gas cans in the garage, tell us about them when you book.",
+      },
+      {
+        body:
+          "Clean it off. Scrape the grass and dirt from the deck and wipe down the tires, so nothing ends up on the pads that are wrapping your furniture. If the key comes out, take it out and keep it with you. If the mower has a bagger or an attachment that comes off easily, take it off, and tell us about anything that doesn't.",
+      },
+      {
+        heading: 'The rest of the garage',
+        body:
+          "The mower is usually the heaviest thing in the garage, but it is rarely the slowest. What takes the time is everything around it: tool chests with full drawers, shelving, bikes, the grill, the pressure washer, and years of things that were set down and never picked up again. A garage can take as long as a bedroom when nobody has planned for it.",
+      },
+      {
+        body:
+          "Sort the garage before the crew arrives. Decide what comes, what goes to a friend, and what goes to the curb. Anything you don't want to move we can often take away as part of the same visit, which is the same [junk removal](/services/junk-removal) we run on its own.",
+      },
+      {
+        subheading: 'Fuel, propane, and garage chemicals',
+        body:
+          "Most garages have gas cans, a propane tank on the grill, pool chemicals, paint, or fertilizer somewhere on a shelf. We handle all of it safely and securely. Tell us what is out there when you book. If anything needs special handling, we let you know ahead of time and make arrangements where needed, so nothing about it is a surprise on move day.",
+      },
+      {
+        heading: 'Moving in Hammock Bay and Freeport',
+        body:
+          "Freeport is one of the easier places we work for access. Lots are bigger, driveways are real, and a box truck can usually back right up to the garage, which is what makes a lift gate load like this simple. Hammock Bay is a master-planned community with its own association, so check whether it has move-day guidelines, and let us know what they are when you book.",
+      },
+      {
+        body:
+          "The harder part of a Freeport move is often the route. A lot of moves here go to or from the beach towns, DeFuniak Springs, or Niceville, and we cover the whole trip ourselves. If you have already rented a truck and just need the heavy items loaded, that is [rental truck loading help](/services/loading-unloading-help), and a mower is exactly the kind of piece worth handing off.",
+      },
+      {
+        heading: 'If you are moving a mower, a golf cart, or a garage full of gear',
+        body:
+          "Tell us about it on the first call, not on move day. A mower changes which truck we bring, how we load, and how long the garage takes. For the rest of the house, [the moving checklist](/resources/moving-checklist-30a-destin-florida) covers what to sort out before the day, and [our Destin field notes](/resources/field-notes-regatta-bay-to-grand-harbor-destin-move) show how we protect entries and doorways on the way out.",
+      },
+      {
+        body:
+          "Moving in Freeport, Hammock Bay, or anywhere in Walton County? [Get in touch](/contact) and tell us what is in the garage.",
+      },
+      {
+        body:
+          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+      },
+      {
+        body:
+          'OWNER NOTE (not rendered): photos are the owner\'s originals from the 2026-09-27 Facebook post (Hammock Bay, Freeport), PII-gated 2026-09-28. Fuel/propane/chemicals copy follows the owner policy (handled safely and securely, customer notified, arrangements made if needed). Still open: confirm "late September", and whether the mower was part of a full move or a single-item job. No crew names cleared; none used. Do not quote or name the Facebook commenter.',
+        isOwnerNote: true,
+      },
+    ],
+    faq: [
+      {
+        question: 'Do movers move riding lawn mowers?',
+        answer:
+          'We do. A riding mower goes onto the truck on the lift gate, is braked and blocked, and is strapped to the truck wall like any heavy piece. Tell us about it when you book so we bring a truck with a lift gate and plan the garage time properly.',
+      },
+      {
+        question: 'Should the mower be driven up the ramp?',
+        answer:
+          'We avoid it. A riding mower carries most of its weight toward the back, and driving it up a narrow ramp is how mowers tip. Rolling it onto a lift gate at ground level and raising it level is the safer way, and nobody has to ride it.',
+      },
+      {
+        question: 'Do I need to drain the gas before moving a mower?',
+        answer:
+          'Run the tank close to empty in the days before the move. A full tank adds weight and is one more thing that can leak. Tell us about any gas cans when you book; we handle fuel safely and securely and let you know ahead of time if anything needs special arrangements.',
+      },
+      {
+        question: 'Will you move my grill and propane tank?',
+        answer:
+          'Yes. We move the grill, and we handle the propane tank, fuel, and garage chemicals safely and securely. Tell us about them when you book. If anything needs special handling, we let you know ahead of time and make arrangements where needed.',
+      },
+      {
+        question: 'Can you haul away garage items I do not want to move?',
+        answer:
+          'Often, yes, as part of the same visit. Sort the garage before move day into what comes and what goes, and tell us when you book so we plan room on the truck and time for it.',
+      },
+      {
+        question: 'Do you serve Freeport and Hammock Bay?',
+        answer:
+          'Yes. Freeport and Hammock Bay are in Walton County, part of our home service area along with Santa Rosa Beach, 30A, and the rest of Walton, Okaloosa, and Bay Counties. We are locally owned and owner-operated on the Emerald Coast.',
+      },
+    ],
+  },
 ]
+
+/**
+ * Today in the market's timezone as YYYY-MM-DD. en-CA formats as ISO, so the
+ * result string-compares directly against `datePublished` — no Date parsing and
+ * no UTC drift that would flip a post live a few hours early on the Gulf Coast.
+ * Mirrors Kai's Run (lib/blog/posts.ts).
+ */
+function todayISO(): string {
+  return new Date().toLocaleDateString('en-CA', { timeZone: 'America/Chicago' })
+}
+
+/**
+ * A post is live once its `datePublished` has arrived. Scheduling is the date
+ * doing double duty: add the post to POSTS now, date it later, and it publishes
+ * itself. Every route that lists or renders posts exports `revalidate = 3600`, so
+ * the post appears within the hour of midnight Central with no deploy.
+ */
+export function isPublished(post: Pick<Post, 'datePublished'>, today: string = todayISO()): boolean {
+  return post.datePublished.slice(0, 10) <= today
+}
+
+/** POSTS minus anything dated in the future. Use this, not POSTS, anywhere a post is shown or listed. */
+export function getPublishedPosts(): Post[] {
+  const today = todayISO()
+  return POSTS.filter((post) => isPublished(post, today))
+}
+
+/** A single live post by slug, or undefined if it doesn't exist or isn't published yet. */
+export function getPublishedPost(slug: string): Post | undefined {
+  return getPublishedPosts().find((post) => post.slug === slug)
+}
