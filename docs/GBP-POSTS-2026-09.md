@@ -160,6 +160,106 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ---
 
+## Batch 2026-09-28 — Regatta Bay → Grand Harbor, Destin (APPROVED 9/28)
+
+Source: 4 job photos from Travis, 2026-09-28, owner description "Move from Regatta Bay,
+Destin fl to Grand harbor, Destin fl". Photos + PII review:
+`docs/blog/incoming-2026-09-28/` (INTAKE.md). Post photos are the 1200×900 (4:3) crops in
+`docs/blog/incoming-2026-09-28/optimized/gbp/`; the 1080×1080 squares there go to the Photos tab.
+No crew is named (none cleared for this job). Dates continue the Mon/Thu cadence after
+post 10 and are placeholders until approved. The **Owner check** line under each post is not
+post copy (`gbp:kit` only reads the `>` lines).
+
+**`gbp:kit` repoint (PROPOSED, not applied).** `package.json` hardcodes
+`node scripts/gbp-kit.mjs docs/GBP-POSTS-2026-09.md ~/Downloads/bhm-image-batch-sep08/gbp`, and the script
+resolves every `**Photo:**` against that one directory. Posts 11–14 live in a different folder, so the kit
+as-is exits 1 with "image not found" for all four. The markdown path itself is still right. Proposed
+fix (validated against a scratch copy, where all 14 posts pass the 1500/80/phone checks):
+
+```diff
+- "gbp:kit": "node scripts/gbp-kit.mjs docs/GBP-POSTS-2026-09.md ~/Downloads/bhm-image-batch-sep08/gbp",
++ "gbp:kit": "node scripts/gbp-kit.mjs docs/GBP-POSTS-2026-09.md ~/Downloads/bhm-image-batch-sep08/gbp docs/blog/incoming-2026-09-28/optimized/gbp",
+```
+```diff
+ // scripts/gbp-kit.mjs
+-const [mdPath, imageDir] = process.argv.slice(2)
++const [mdPath, imageDir, ...extraDirs] = process.argv.slice(2)
+ …
+-  const src = join(imageDir, p.photo)
++  const src = [imageDir, ...extraDirs].map((d) => join(d, p.photo)).find(existsSync) ?? join(imageDir, p.photo)
+```
+Output still lands in `~/Downloads/bhm-image-batch-sep08/gbp/posts/`. The zero-code alternative is to move
+posts 11–14 into a new `docs/GBP-POSTS-2026-10.md`, since they're all October-dated. Then repoint both args at that file
+and `docs/blog/incoming-2026-09-28/optimized/gbp`, which is the CLAUDE.md "new month's file" convention.
+
+---
+
+### Post 11 — Mon 2026-10-13
+**Status:** APPROVED 2026-09-28 (Travis, in chat)
+**Photo:** `beach-house-moving-destin-regatta-bay-box-truck-paver-driveway-gbp-4x3.jpg`
+**Button:** Learn more → `https://beachhousemoving.xyz/resources/field-notes-regatta-bay-to-grand-harbor-destin-move`
+
+> Regatta Bay to Grand Harbor — a Destin-to-Destin move.
+>
+> Gated community to gated community, a few minutes apart. A short drive doesn't make it a small job. Gates usually want the crew's names ahead of time, and the HOA has a say in where the truck sits.
+>
+> So the gate list gets sorted when you book, not at the guardhouse on move morning, and the truck goes on the driveway instead of blocking the street.
+>
+> Moving across Destin, or from Destin to anywhere on the Emerald Coast? Tap Call on our profile.
+
+**Owner check:** confirm the spelling "Grand Harbor" (not "Grand Harbour") and that the truck photo is the Regatta Bay house.
+
+---
+
+### Post 12 — Thu 2026-10-16
+**Status:** APPROVED 2026-09-28 (Travis, in chat)
+**Photo:** `beach-house-moving-destin-regatta-bay-box-truck-loaded-interior-gbp-4x3.jpg`
+**Button:** Learn more → `https://beachhousemoving.xyz/services/local-moving`
+
+> How we load a moving truck. Regatta Bay, Destin.
+>
+> Heavy wood furniture goes on the floor first, padded, and becomes the base. Bins and boxes stack on top of it, heaviest low and lightest high, so nothing crushes what's under it. The load gets strapped to the rails on the truck wall a section at a time as it goes, not all at the end.
+>
+> A tight load doesn't shift on the road. That matters as much across town as it does across the county.
+>
+> Local moves across Walton, Okaloosa, and Bay Counties. Tap Call on our profile.
+
+**Owner check:** the crew member in this photo shows her face in profile. Confirm she is crew and OK to show. Confirm the loading description matches how the crew actually loads.
+
+---
+
+### Post 13 — Mon 2026-10-20
+**Status:** APPROVED 2026-09-28 (Travis, in chat)
+**Photo:** `beach-house-moving-destin-regatta-bay-front-door-hand-truck-entry-gbp-4x3.jpg`
+**Button:** Learn more → `https://beachhousemoving.xyz/services/residential-moving`
+
+> Before the first piece moves, the front door. Regatta Bay, Destin.
+>
+> Both doors open all the way, the hand truck brought inside, and the route from the room to the truck walked before anything gets lifted. Glass-paned doors and heavy planters on either side of an entry are the first things in the way of a sofa, so we find them before the sofa does.
+>
+> Setting up the entry first is what makes the carry the easy part.
+>
+> Moving in Destin or anywhere in Okaloosa County? Tap Call on our profile.
+
+---
+
+### Post 14 — Thu 2026-10-23
+**Status:** APPROVED 2026-09-28 (Travis, in chat)
+**Photo:** `beach-house-moving-destin-regatta-bay-armchair-doorway-carry-gbp-4x3.jpg`
+**Button:** Learn more → `https://beachhousemoving.xyz/resources/moving-checklist-30a-destin-florida`
+
+> Doorways are where furniture gets damaged. Regatta Bay, Destin.
+>
+> A tufted armchair is wider than it looks once you count the arms. It goes through on an angle with two people on it, one calling the turn and one watching the frame, so neither the fabric nor the trim takes a hit.
+>
+> Interior doors in older gated-community homes run narrower than the furniture that ends up behind them. We look at the doorways before move day, not in the middle of the carry.
+>
+> Measure yours with our Destin moving checklist, or tap Call on our profile.
+
+**Owner check:** "older gated-community homes run narrower" is a general claim, not something measured on this job. Keep it or cut that paragraph.
+
+---
+
 ## Profile maintenance to do alongside these posts
 
 1. **Upload all 7 squares to the Photos tab** (separate from the posts — GBP treats
