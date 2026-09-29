@@ -224,7 +224,7 @@ and `docs/blog/incoming-2026-09-28/optimized/gbp`, which is the CLAUDE.md "new m
 >
 > Local moves across Walton, Okaloosa, and Bay Counties. Tap Call on our profile.
 
-**Owner check:** crew member confirmed (Travis 9/28: another employee, name unknown, OK to show; do not name her). Still open: confirm the loading description matches how the crew actually loads.
+**Owner check:** crew member confirmed (Travis 9/28: another employee, name unknown, OK to show; do not name her). Loading description accepted as standard pro practice (Travis 9/28).
 
 ---
 
