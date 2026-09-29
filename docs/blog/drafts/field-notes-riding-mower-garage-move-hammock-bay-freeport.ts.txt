@@ -1,0 +1,140 @@
+  {
+    slug: 'field-notes-riding-mower-garage-move-hammock-bay-freeport',
+    title: 'Moving a Riding Mower: A Garage Load in Hammock Bay, Freeport',
+    description:
+      "How movers load a riding mower and the rest of a garage, from a job in Hammock Bay, Freeport. Lift gate or ramp, fuel, straps, and what to sort before move day.",
+    datePublished: '2026-10-13',
+    author: 'Beach House Moving',
+    heroImage: '/images/beach-house-moving-freeport-hammock-bay-riding-mower-lift-gate-load.jpg',
+    heroAlt:
+      'Beach House Moving crew loading a red riding mower onto the box truck lift gate at a garage in Hammock Bay, Freeport, FL',
+    relatedServices: [
+      { label: 'Residential Moving', href: '/services/residential-moving' },
+      { label: 'Delivery & Single-Item Moving', href: '/services/delivery' },
+      { label: 'Freeport Movers', href: '/service-areas/walton-county/freeport' },
+    ],
+    excerpt:
+      "A riding mower is one of the heaviest things in most garages and one of the easiest to get wrong on a ramp. Here is how we loaded one in Hammock Bay, and what to sort in your garage before move day.",
+    body: [
+      {
+        body:
+          'Field Notes from the Truck, a job log from a real move. This one: [Freeport](/service-areas/walton-county/freeport), in Hammock Bay.',
+      },
+      {
+        body:
+          "In late September we were in Hammock Bay loading a garage, and the piece that set the pace was a riding mower. It went onto the truck on the lift gate, not up a ramp, and it rode strapped like any other heavy piece of furniture.",
+      },
+      {
+        heading: 'The short answer',
+        body:
+          "Yes, movers can move a riding mower. The safe way is on a lift gate, with the mower rolled on, not driven up a ramp, then braked, blocked, and strapped to the truck wall. Run the fuel low before move day, clean off the grass, and tell your mover about the mower when you book so the right truck shows up.",
+      },
+      {
+        heading: 'Why a mower is a different kind of heavy',
+        body:
+          "A sofa is heavy and soft. A riding mower is heavy, hard, and top-heavy, and most of its weight sits over the rear wheels. That is fine on flat ground. It is a problem on a slope, which is exactly what a loading ramp is.",
+      },
+      {
+        body:
+          "Driving a mower up a narrow ramp puts its weight in the worst possible place, at the worst possible angle, with one person on it and nowhere to step off. That is why we use the lift gate. The mower rolls onto a flat platform at ground level, the platform comes up level, and the mower rolls into the truck without anyone riding it.",
+      },
+      {
+        heading: 'How it went onto the truck',
+        body:
+          "In Hammock Bay the truck backed up to the garage and the lift gate came down to the driveway. The mower rolled onto the gate with a crew member on each side of it, and the gate took it up level to the truck floor. Nobody rode it and nobody pushed it up a slope.",
+      },
+      {
+        body:
+          "Inside, it is loaded like a piece of case furniture. Parking brake on, wheels blocked, and straps to the rails on the truck wall so it can't roll forward under braking. Nothing fragile goes next to it, and nothing gets stacked on its seat or deck.",
+      },
+      {
+        body:
+          "We load golf carts the same way, rolled onto the lift gate rather than driven up a ramp. The machine changes and the method does not.",
+        image: '/images/beach-house-moving-golf-cart-transport.jpg',
+        imageAlt:
+          'Beach House Moving crew loading a red golf cart onto a box truck lift gate during a 30A move',
+      },
+      {
+        heading: 'What to do with the mower before move day',
+        body:
+          "Run the fuel down. Mow the lawn one last time the week before and let the tank get close to empty, because a full tank is weight, it can leak, and fuel does not belong on a truck full of furniture. Don't bring separate gas cans along for the ride.",
+      },
+      {
+        body:
+          "Clean it off. Scrape the grass and dirt from the deck and wipe down the tires, so nothing ends up on the pads that are wrapping your furniture. If the key comes out, take it out and keep it with you. If the mower has a bagger or an attachment that comes off easily, take it off, and tell us about anything that doesn't.",
+      },
+      {
+        heading: 'The rest of the garage',
+        body:
+          "The mower is usually the heaviest thing in the garage, but it is rarely the slowest. What takes the time is everything around it: tool chests with full drawers, shelving, bikes, the grill, the pressure washer, and years of things that were set down and never picked up again. A garage can take as long as a bedroom when nobody has planned for it.",
+      },
+      {
+        body:
+          "Sort the garage before the crew arrives. Decide what comes, what goes to a friend, and what goes to the curb. Anything you don't want to move we can often take away as part of the same visit, which is the same [junk removal](/services/junk-removal) we run on its own.",
+      },
+      {
+        subheading: 'Things that should not ride on a moving truck',
+        body:
+          "Fuel, propane, paint thinner, pool chemicals, fertilizer, and anything else that can spill, burn, or react. Disconnect the propane tank from the grill and plan to move it separately. Tell us what is on the garage shelves when you book and we will tell you straight what rides with the furniture and what should not.",
+      },
+      {
+        heading: 'Moving in Hammock Bay and Freeport',
+        body:
+          "Freeport is one of the easier places we work for access. Lots are bigger, driveways are real, and a box truck can usually back right up to the garage, which is what makes a lift gate load like this simple. Hammock Bay is a master-planned community with its own association, so check whether it has move-day guidelines, and let us know what they are when you book.",
+      },
+      {
+        body:
+          "The harder part of a Freeport move is often the route. A lot of moves here go to or from the beach towns, DeFuniak Springs, or Niceville, and we cover the whole trip ourselves. If you have already rented a truck and just need the heavy items loaded, that is [rental truck loading help](/services/loading-unloading-help), and a mower is exactly the kind of piece worth handing off.",
+      },
+      {
+        heading: 'If you are moving a mower, a golf cart, or a garage full of gear',
+        body:
+          "Tell us about it on the first call, not on move day. A mower changes which truck we bring, how we load, and how long the garage takes. For the rest of the house, [the moving checklist](/resources/moving-checklist-30a-destin-florida) covers what to sort out before the day, and [our Destin field notes](/resources/field-notes-regatta-bay-to-grand-harbor-destin-move) show how we protect entries and doorways on the way out.",
+      },
+      {
+        body:
+          "Moving in Freeport, Hammock Bay, or anywhere in Walton County? [Get in touch](/contact) and tell us what is in the garage.",
+      },
+      {
+        body:
+          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+      },
+      {
+        body:
+          'OWNER NOTE (not rendered): (1) need the ORIGINAL mower-loading photos from the owner (not the Facebook copies) for the hero; run the PII gate on them (the brick house and garage must not show a house number, plate, or mailbox). If none arrive, swap the hero to the golf cart photo and drop the inline image. (2) Confirm "late September" and that this was Hammock Bay in Freeport. (3) Was the mower part of a full move or a single-item job, and where did it go? Adjust the opening paragraph to match. (4) Confirm it is a riding/zero-turn mower and that it was rolled, not driven, onto the lift gate. (5) Confirm the crew policy on fuel, propane, and garage chemicals matches the "should not ride" list. No crew names cleared; none used. Do not quote or name the Facebook commenter.',
+        isOwnerNote: true,
+      },
+    ],
+    faq: [
+      {
+        question: 'Do movers move riding lawn mowers?',
+        answer:
+          'We do. A riding mower goes onto the truck on the lift gate, is braked and blocked, and is strapped to the truck wall like any heavy piece. Tell us about it when you book so we bring a truck with a lift gate and plan the garage time properly.',
+      },
+      {
+        question: 'Should the mower be driven up the ramp?',
+        answer:
+          'We avoid it. A riding mower carries most of its weight toward the back, and driving it up a narrow ramp is how mowers tip. Rolling it onto a lift gate at ground level and raising it level is the safer way, and nobody has to ride it.',
+      },
+      {
+        question: 'Do I need to drain the gas before moving a mower?',
+        answer:
+          'Run the tank close to empty in the days before the move. A full tank adds weight and can leak, and fuel does not belong on a truck carrying furniture. Separate gas cans should not ride on the truck at all.',
+      },
+      {
+        question: 'Will you move my grill and propane tank?',
+        answer:
+          'We move the grill. The propane tank should be disconnected and moved separately, because propane does not ride with household goods. The same goes for fuel, pool chemicals, and other things on the garage shelf that can spill or burn.',
+      },
+      {
+        question: 'Can you haul away garage items I do not want to move?',
+        answer:
+          'Often, yes, as part of the same visit. Sort the garage before move day into what comes and what goes, and tell us when you book so we plan room on the truck and time for it.',
+      },
+      {
+        question: 'Do you serve Freeport and Hammock Bay?',
+        answer:
+          'Yes. Freeport and Hammock Bay are in Walton County, part of our home service area along with Santa Rosa Beach, 30A, and the rest of Walton, Okaloosa, and Bay Counties. We are locally owned and owner-operated on the Emerald Coast.',
+      },
+    ],
+  },

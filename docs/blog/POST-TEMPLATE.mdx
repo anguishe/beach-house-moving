@@ -1,0 +1,99 @@
+---
+# ─────────────────────────────────────────────────────────────────────────────
+# Beach House Moving: post drafting template
+#
+# IMPORTANT: this site has NO MDX pipeline. Posts are TypeScript objects in
+# src/content/posts.ts (type `Post`, lines 14-27). This file is a drafting
+# format only. Every field below maps 1:1 to a `Post` field. When a draft is
+# approved, transcribe it into a new object in the POSTS array (see the
+# TRANSCRIPTION RULES at the bottom). Nothing in docs/ is rendered.
+#
+# Required = the TypeScript type will fail the build without it.
+# ─────────────────────────────────────────────────────────────────────────────
+
+slug: "TODO-from-travis"                       # REQUIRED. Pattern: <place>-<service/subject> for guides, field-notes-<subject>-<place> for real jobs. lowercase kebab, unique in POSTS. Becomes /resources/<slug>. Never change after publish.
+title: "TODO-from-travis"                      # REQUIRED. Include the city/community. <h1>, <title>, og:title, BlogPosting.headline, ItemList name. Aim ≤60 chars.
+description: "TODO: answers the target query in one or two sentences"  # REQUIRED. meta description + og:description + the lead paragraph under the <h1>. Aim 140-160 chars.
+excerpt: "TODO: same as description unless the card needs a shorter hook"  # REQUIRED. Shown on the /resources card only. Can equal description.
+datePublished: "TODO-YYYY-MM-DD"              # REQUIRED. = the day it is merged to main. NOT a schedule gate: a future date publishes on the next deploy (see BATCH-INTAKE.md §Scheduling).
+dateModified: ""                             # optional. Set only when copy changes after publish. Drives sitemap lastmod + BlogPosting.dateModified.
+author: "Beach House Moving"                 # REQUIRED by the type but NOT rendered. Byline is hardcoded to Joshua B McGrew in the page + schema.
+heroImage: "/images/beach-house-moving-<place>-<subject>-<action>.jpg"  # REQUIRED. Web variant in public/images/ (1200x1600 or longest side 1600, sRGB, progressive, q86, EXIF stripped). Crops 21:9 / 3:1 on the post and 16:9 on the card: portrait works (the live posts use 1200x1600), but keep the subject centered.
+heroAlt: "Beach House Moving crew <doing what> at <what> in <place>"  # optional (falls back to title). Always set it. Describe the pixels, not the filename.
+relatedServices:                             # optional. Rendered as "Related services:" links under the body.
+  # pick 2-3 (labels = SERVICES titles in src/lib/content.ts; live posts sometimes shorten them):
+  # Residential Moving /services/residential-moving · Local Moving /services/local-moving
+  # Long-Distance Moving /services/long-distance-moving · Packing & Unpacking /services/packing-unpacking
+  # Storage Solutions /services/storage · Delivery Services /services/delivery · Junk Removal /services/junk-removal
+  # Military PCS Moving /services/military-pcs-moving · Design Trade Delivery & Installation /services/design-trade-installation
+  # Mounting & Installation /services/mounting-installation · Rental Truck Loading, Driving & Unloading /services/loading-unloading-help
+  # Area pages work too, e.g. /service-areas/walton-county/seacrest-beach (county = walton-county | okaloosa-county | bay-county)
+  - label: "TODO"
+    href: "/services/TODO"
+faq:                                         # REQUIRED (may be an empty list). Non-empty adds FAQPage JSON-LD.
+  - question: "TODO: a question customers actually ask (from Travis/owner)"
+    answer: "TODO. Plain-text answer. No links, no markdown: FAQ answers are not run through renderBody."
+
+# ── Intake-only fields (NOT part of the Post type; drop them when transcribing) ──
+targetQuery: ""                              # the one search query this post is built to answer
+secondaryQueries: []                         # 2-4 related phrasings
+overlapChecked: false                        # true once checked against the inventory in BATCH-INTAKE.md
+photosPiiCleared: false                      # true only after full-size review + `npm run audit:photo-pii`
+ownerSource: ""                              # the owner's one-line description / job this post is based on
+---
+
+{/* ── BODY ────────────────────────────────────────────────────────────────
+Each chunk below becomes one `PostBlock` = ONE <p>. Rules the renderer enforces
+(src/lib/render-body.tsx, src/app/resources/[slug]/page.tsx):
+
+- Only internal links render: [label](/path). External URLs, **bold**, _italics_,
+  lists, and tables all print as literal characters. Write plain prose.
+- A block holds one paragraph. Two paragraphs under one heading = two blocks,
+  heading on the first only.
+- "## " = block.heading (<h2>). "### " = block.subheading (<h3>).
+- An image goes after its paragraph: block.image + block.imageAlt, rendered 16:9
+  object-cover. The path must be in public/images/ and must be 4-space/8-space
+  indented in posts.ts or `npm run audit:images` will not see it.
+- An "OWNER NOTE:" block becomes { isOwnerNote: true } and is NOT rendered.
+  Use it for facts still waiting on the owner.
+- Brand: no exclamation points, max 3 sentences per paragraph, "you/your",
+  name the county/city. No prices or rate numbers (the rate lives only in
+  PRICING / RATE_LINE and the existing cost post). Never write "LLC".
+  No invented stats, move counts, or years in business. Phone as (850) 842-1962.
+──────────────────────────────────────────────────────────────────────── */}
+
+Opening paragraph: answer the target query in the first two sentences, name the city, say what we did or what the reader should do. (block: body only, no heading)
+
+## The short answer
+
+Direct answer a person or an AI overview can quote on its own. One paragraph.
+
+## First real section heading, phrased the way people search
+
+Paragraph grounded in a real job or owner description. Link one related service page like [delivery](/services/delivery) and one area page like [Santa Rosa Beach](/service-areas/walton-county/santa-rosa-beach).
+
+![What the photo shows, place first](/images/beach-house-moving-<place>-<subject>-<action>.jpg)
+
+### Optional subheading
+
+Paragraph.
+
+## What to do before move day
+
+Practical, local steps. Link one related post like [the moving checklist](/resources/moving-checklist-30a-destin-florida).
+
+OWNER NOTE: facts to confirm with the owner before this ships (not rendered).
+
+Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.
+
+{/* ── TRANSCRIPTION RULES (draft → src/content/posts.ts) ──────────────────
+1. Add a new object to POSTS, using the 4-space indent for top-level keys
+   (slug, heroImage) and 8-space for block keys (image). audit-images.mjs
+   parses posts.ts with regexes that depend on that indentation.
+2. Drop the intake-only fields.
+3. Body chunks → body: [{ body }, { heading, body }, { subheading, body },
+   { body, image, imageAlt }, { body, isOwnerNote: true }].
+4. Add the post to public/llms.txt under "## Guides" (hand-maintained).
+5. Bump the /resources entry's lastModified in src/app/sitemap.ts (manual date).
+6. npm run audit:photo-pii && npm run audit:images && npm run type-check && npm run lint
+──────────────────────────────────────────────────────────────────────── */}

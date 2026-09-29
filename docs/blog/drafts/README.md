@@ -14,6 +14,23 @@
 >   set the `/resources` entry in `src/app/sitemap.ts` to `lastModified: '2026-10-13'`; add the Freeport
 >   `confirmedWork` sentence (hand edit 5 below) and bump its `updatedAt`; push; request indexing in GSC.
 >
+> - [ ] **Tue 2026-10-20** — add under `## Guides` in `public/llms.txt`:
+>   `- [Pre-Load Day: A Design Install in Santa Rosa Beach](https://beachhousemoving.xyz/resources/field-notes-pre-load-design-install-santa-rosa-beach)`;
+>   set `/resources` `lastModified: '2026-10-20'` in `src/app/sitemap.ts`; append to Santa Rosa Beach
+>   `confirmedWork` (`src/lib/content.ts`): "A design install that started the day before, with the
+>   pieces pre-loaded onto our trucks at storage and unloaded at a two-story home the next morning."
+>   and bump its `updatedAt`; push; request indexing in GSC.
+> - [ ] **Tue 2026-10-27** — add under `## Guides` in `public/llms.txt`:
+>   `- [A Washer and Dryer Install in Santa Rosa Beach](https://beachhousemoving.xyz/resources/field-notes-washer-dryer-install-santa-rosa-beach)`;
+>   set `/resources` `lastModified: '2026-10-27'`; append to Santa Rosa Beach `confirmedWork`:
+>   "A front-load washer and dryer set into a laundry room under the counter." and bump `updatedAt`;
+>   push; request indexing in GSC.
+>
+> Wired 2026-09-29 (Travis approved both drafts): objects pasted into `POSTS`, 6 web photos copied to
+> `public/images/` after the full-size eyeball pass + `audit:photo-pii` (40 images, nothing found).
+> Owner-note questions (back-to-back days, whose storage, the top-load units on the driveway) stay in
+> the non-rendering `isOwnerNote` blocks; the copy claims none of them.
+>
 > Done already (2026-09-28): photos copied to `public/images/`, both objects pasted into `POSTS`,
 > the Destin `confirmedWork` sentence + `updatedAt`. The mower hero is the owner's original
 > (`…-riding-mower-lift-gate-load.jpg`, inline `…-lift-gate-raised.jpg`), not the golf-cart fallback.
@@ -27,6 +44,8 @@ edits listed for it, and merge to `main`. Vercel deploys on merge.
 |---|---|---|---|
 | 1 | `field-notes-regatta-bay-to-grand-harbor-destin-move.ts.txt` | **Tue 2026-10-06** | Photos built and PII-reviewed by eye. Blocked on the INTAKE.md confirmations, the Grand Harbor question below, and `audit:photo-pii` (tesseract) |
 | 2 | `field-notes-riding-mower-garage-move-hammock-bay-freeport.ts.txt` | **Tue 2026-10-13** | Blocked on **original mower photos from the owner** (hero). If none arrive, use the fallback below |
+| 3 | `field-notes-pre-load-design-install-santa-rosa-beach.ts.txt` | **Tue 2026-10-20** | In `POSTS`, date-gated (9/29) |
+| 4 | `field-notes-washer-dryer-install-santa-rosa-beach.ts.txt` | **Tue 2026-10-27** | In `POSTS`, date-gated (9/29) |
 
 The cadence is weekly on Tuesdays, which keeps posts off the GBP Mon/Thu slots. If approval
 slips, move both dates by the same number of weeks and set `datePublished` to the merge

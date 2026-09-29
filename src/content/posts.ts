@@ -1705,6 +1705,228 @@ export const POSTS: Post[] = [
       },
     ],
   },
+  {
+    slug: 'field-notes-pre-load-design-install-santa-rosa-beach',
+    title: 'Pre-Load Day: A Design Install in Santa Rosa Beach',
+    description:
+      "A two-day job for Design & Dwell Homes: the truck loaded at a storage facility the day before, so install day in Santa Rosa Beach started with unloading.",
+    datePublished: '2026-10-20',
+    author: 'Beach House Moving',
+    heroImage: '/images/beach-house-moving-storage-facility-furniture-pre-load-lift-gate.jpg',
+    heroAlt:
+      'Beach House Moving crew loading boxed furniture onto a box truck lift gate at a storage facility the day before a design install',
+    relatedServices: [
+      { label: 'Design Trade Delivery & Installation', href: '/services/design-trade-installation' },
+      { label: 'Storage Solutions', href: '/services/storage' },
+      { label: 'Santa Rosa Beach Movers', href: '/service-areas/walton-county/santa-rosa-beach' },
+    ],
+    excerpt:
+      "The day before an install, we loaded the truck at a storage facility. The next morning in Santa Rosa Beach there was no waiting, just straight to unloading.",
+    body: [
+      {
+        body:
+          'Field Notes from the Truck, a job log from a real job. This one: [Santa Rosa Beach](/service-areas/walton-county/santa-rosa-beach), a two-day project for Design & Dwell Homes.',
+      },
+      {
+        body:
+          "In September we ran another project with Design & Dwell Homes, the 30A interior design and staging firm we work with. It ran over two days. Day one was a storage facility, and day two was the house.",
+      },
+      {
+        heading: 'The short answer',
+        body:
+          "Pre-loading means the truck gets loaded the day before an install, so install day starts with unloading. In the owner's words, it makes all the difference: no waiting around, just straight to unloading, so the customer and the designer can see the vision come together right away.",
+      },
+      {
+        heading: 'Day one: loading out of storage',
+        body:
+          "Day one was spent at a storage facility, getting the pieces for the house onto the trucks. Boxed furniture, rolled rugs, and crated pieces moved across the lot on hand trucks, with the box truck and the van staged beside the building.",
+        image: '/images/beach-house-moving-storage-facility-hand-truck-boxed-furniture-van.jpg',
+        imageAlt:
+          'Beach House Moving crew with a hand truck and boxed furniture outside a storage facility entrance, with a van and its ramp behind',
+      },
+      {
+        body:
+          "Cartons rode the box truck lift gate, and the van worked off its ramp. The owner's note from that day was a thank-you to the crew for hustling so tomorrow would go off without a hitch.",
+      },
+      {
+        heading: 'Why load the day before',
+        body:
+          "Loading is the slow, careful part of any job, and on an install it does not have to happen on the same day as the house. When the pieces are already sitting in storage, the loading can be done the day before, on flat pavement with room to stage. Install day is then spent at the house, where the designer needs the crew.",
+      },
+      {
+        body:
+          "It also keeps the morning clean. Nobody is waiting on a truck, and the first thing that happens at the house is the first piece coming off. That is the same thinking behind how we [uncrate in the driveway on an install day](/resources/field-notes-30a-install-day-design-dwell): keep the slow work away from the rooms the designer is trying to see.",
+      },
+      {
+        heading: 'Day two: straight to unloading',
+        body:
+          "The next day the loaded truck was at the house, a two-story home on a cul-de-sac in Santa Rosa Beach. The ramp came down on arrival and the unload started right away.",
+        image: '/images/beach-house-moving-santa-rosa-beach-truck-ramp-unload-two-story-home.jpg',
+        imageAlt:
+          'Moving truck with its ramp down in front of a white two-story home with a paver driveway on a cul-de-sac in Santa Rosa Beach, FL',
+      },
+      {
+        body:
+          "Inside the truck, everything was wrapped, padded, and strapped from the day before. That is the point of pre-loading: the work that makes an unload fast was already done.",
+        image: '/images/beach-house-moving-santa-rosa-beach-crew-pre-loaded-truck-interior.jpg',
+        imageAlt:
+          'Two Beach House Moving crew members giving a thumbs-up inside a truck loaded with wrapped furniture and strapped bins',
+      },
+      {
+        heading: 'If you are a designer, a builder, or a homeowner with pieces in storage',
+        body:
+          "This is a big part of our [design trade delivery and installation](/services/design-trade-installation) work: pulling pieces out of storage, loading them, and getting them into the house on the day the designer needs them. We wrote up a full week of these jobs in [our design trade install notes](/resources/field-notes-design-trade-install-week-emerald-coast).",
+      },
+      {
+        body:
+          "If your things are between homes rather than headed for an install, the same crew can hold them for you with [mover-held storage](/resources/moving-and-storage-santa-rosa-beach) and deliver when the house is ready. Planning an install in Santa Rosa Beach or along 30A? [Get in touch](/contact) and tell us where the pieces are now.",
+      },
+      {
+        body:
+          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+      },
+      {
+        body:
+          'OWNER NOTE (not rendered): (1) Dates: the unload post went up Sep 13 2026; the pre-load post is undated. The copy says only "In September" and "the next day". Confirm the two days were back to back. (2) The storage facility is not named, and its city is not stated; nothing in the copy or filenames places it. Whose storage was it (the designer\'s unit, a facility the pieces were delivered to, or ours)? DIRECTION: Travis labelled one photo "dolly to the unit", but the owner calls the day "pre-loading"; the copy says the pieces went ONTO the trucks on day one. Confirm they came out of storage, not into it. (3) The house is tagged Santa Rosa Beach on Facebook; no community is named, and none should be added without the owner. (4) The truck at the house has a ramp and rental-truck livery, while the day-one photos show a lift-gate box truck and a van. The copy says only "the loaded truck". Confirm which vehicles ran on day two. (5) Design & Dwell Homes is named as on the live site ("a 30A interior design and staging firm we work with"); confirm it is fine to name them again. (6) Crew faces show in the selfie and the day-one photos; no crew names are cleared, none used. A person seated inside the truck in the lift-gate photo is BLURRED pending confirmation they are crew. No prices or figures.',
+        isOwnerNote: true,
+      },
+    ],
+    faq: [
+      {
+        question: 'What does pre-loading mean for a furniture install?',
+        answer:
+          'The truck is loaded the day before the install, usually from storage, so install day starts with unloading at the house. There is no waiting on the truck, and the designer and the homeowner see the rooms come together right away.',
+      },
+      {
+        question: 'Can you pick up furniture from a storage unit for a designer?',
+        answer:
+          'Yes. We pull pieces out of storage, wrap and load them, and deliver them to the house on the day the designer needs them. Tell us where the pieces are and how access works at the facility when you book.',
+      },
+      {
+        question: 'Do you work with interior designers on 30A and in Santa Rosa Beach?',
+        answer:
+          'Regularly, including install days with Design & Dwell Homes. We handle the truck, the carry, and the placement so the designer can focus on the rooms.',
+      },
+      {
+        question: 'Can you hold furniture until the house is ready?',
+        answer:
+          'Yes. Mover-held storage means the same crew loads your things, holds them, and delivers when the house is ready. Tell us your dates when you call.',
+      },
+      {
+        question: 'Which areas do you cover?',
+        answer:
+          'Santa Rosa Beach is our home base, and we work across 30A and the rest of Walton, Okaloosa, and Bay Counties. We are licensed and insured under FL Mover Reg. #IM4125.',
+      },
+    ],
+  },
+  {
+    slug: 'field-notes-washer-dryer-install-santa-rosa-beach',
+    title: 'A Washer and Dryer Install in Santa Rosa Beach',
+    description:
+      "A washer and dryer set into a laundry room in Santa Rosa Beach, and what to check before yours arrives: the space, the path in, the hookups, and the old pair.",
+    datePublished: '2026-10-27',
+    author: 'Beach House Moving',
+    heroImage: '/images/beach-house-moving-santa-rosa-beach-laundry-room-washer-dryer-installed.jpg',
+    heroAlt:
+      'Front-load washer and dryer set side by side under a laundry room counter after a Beach House Moving install in Santa Rosa Beach, FL',
+    relatedServices: [
+      { label: 'Delivery Services', href: '/services/delivery' },
+      { label: 'Residential Moving', href: '/services/residential-moving' },
+      { label: 'Santa Rosa Beach Movers', href: '/service-areas/walton-county/santa-rosa-beach' },
+    ],
+    excerpt:
+      "Not every job is a whole house. This one was the heavy part of a laundry room in Santa Rosa Beach, and the checks that make a washer and dryer install go smoothly.",
+    body: [
+      {
+        body:
+          'Field Notes from the Truck, a job log from a real job. This one: [Santa Rosa Beach](/service-areas/walton-county/santa-rosa-beach), a washer and dryer install.',
+      },
+      {
+        body:
+          "In September we set a washer and dryer into a laundry room in Santa Rosa Beach. The owner's note on it was short: another smooth install. Not every job we run is a whole house, and a laundry pair is exactly the kind of heavy lifting people call us for on its own.",
+      },
+      {
+        heading: 'The short answer',
+        body:
+          "Yes, you can hire movers for just a washer and dryer. It runs as a [delivery](/services/delivery): the units come off the truck on the lift gate, get carried in, and get set in place in the laundry room. Measure the space and the path in before the day, and tell us what the job includes when you book.",
+      },
+      {
+        heading: 'What the job looked like',
+        body:
+          "Out front, the lift gate came down flat onto the paver driveway, with a washer and a dryer standing on the pavers beside it. A lift gate matters with appliances. A washer is heavy, awkward to grip, and not something you want to walk down a ramp.",
+        image: '/images/beach-house-moving-santa-rosa-beach-washer-dryer-lift-gate-driveway.jpg',
+        imageAlt:
+          'Beach House Moving crew member beside a box truck lift gate lowered onto a paver driveway, with a washer and dryer on the pavers, in Santa Rosa Beach, FL',
+      },
+      {
+        body:
+          "Inside, the finished room is the pair set side by side under the counter, squared up to each other and to the cabinet beside them. That last few inches is most of the work in a laundry room. The units have to clear the counter, the wall, and each other, and they have to go in without scraping the floor on the way.",
+      },
+      {
+        heading: 'What to check before a washer and dryer delivery',
+        body:
+          "Measure the space, then measure it again with the back in mind. The hoses and the dryer vent need room behind the units, and a pair that fits the opening on paper can still stand proud of the counter. If the pair goes under a counter like this one, measure the height as well.",
+      },
+      {
+        body:
+          "Measure the path in, not just the room. Every doorway, hallway turn, and stair between the driveway and the laundry room is a place a washer can get stuck. If the laundry is upstairs or in a closet off a hallway, tell us when you book.",
+      },
+      {
+        body:
+          "Check the hookups before the day. Make sure the water valves turn, the outlet and the dryer connection match the new units, and the vent is clear. Ask us when you book what the install covers for your appliances, so nobody is surprised on the day.",
+      },
+      {
+        subheading: 'If an old pair is coming out',
+        body:
+          "Decide ahead of time where the old washer and dryer go. If they are leaving the property, tell us and we will plan room on the truck, since that is the same [junk removal](/services/junk-removal) we run on its own. We did the same kind of swap with a refrigerator in a Destin condo, written up in [our appliance delivery field notes](/resources/field-notes-appliance-delivery-destin-pelican-beach).",
+      },
+      {
+        heading: 'Heavy items in Santa Rosa Beach and Walton County',
+        body:
+          "Santa Rosa Beach is home base for us, so a single heavy piece here does not need to wait for a full move. Washers, dryers, refrigerators, and other items that take two people and a lift gate are regular work across Walton, Okaloosa, and Bay Counties. If you are moving the whole house, [the moving checklist](/resources/moving-checklist-30a-destin-florida) covers the rest.",
+      },
+      {
+        body:
+          "Need a washer and dryer moved or set in Santa Rosa Beach or along 30A? [Get in touch](/contact) and tell us where the laundry room is.",
+      },
+      {
+        body:
+          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+      },
+      {
+        body:
+          'OWNER NOTE (not rendered): (1) Confirm the install was in Santa Rosa Beach (the FB location tag says so; the post does not name a community, and none should be added without the owner). (2) Confirm the job date: the FB post went up Sep 18 2026; the draft says only "In September". (3) The driveway photo shows TOP-LOAD units on the pavers; the laundry room photo shows a FRONT-LOAD pair installed. Were the driveway units the old pair coming out (haul-away), a different set, or a different job? The copy does not say they were the old pair and does not claim a haul-away; if they were, add one sentence and consider adding Junk Removal to relatedServices. (4) What did "install" include here: set in place only, or connected (water, drain, vent, power)? The copy tells readers to ask, and makes no claim either way. (5) Was the pair delivered from a store, moved from another home, or the customer\'s own? No store or customer is named. (6) Crew member in the driveway photo is not named (no crew names cleared for this job); confirm he is OK to show. No prices or figures.',
+        isOwnerNote: true,
+      },
+    ],
+    faq: [
+      {
+        question: 'Can I hire movers just to move a washer and dryer?',
+        answer:
+          'Yes. A washer and dryer on their own runs as a delivery rather than a full move. Tell us where they are coming from, where the laundry room is, and whether there are stairs, and we plan the truck and the crew around that.',
+      },
+      {
+        question: 'What should I measure before a washer and dryer are delivered?',
+        answer:
+          'Measure the space, including room behind the units for hoses and the dryer vent, and the height if they go under a counter. Then measure every doorway, turn, and stair on the path from the driveway to the laundry room.',
+      },
+      {
+        question: 'Can you take the old washer and dryer away?',
+        answer:
+          'Tell us when you book and we will plan room on the truck for them. Haul-away is the same junk removal service we run on its own.',
+      },
+      {
+        question: 'Do you connect the washer and dryer?',
+        answer:
+          'Ask us when you book what the install covers for your appliances. Before the day, check that your water valves turn, your outlet and dryer connection match the new units, and your vent is clear.',
+      },
+      {
+        question: 'Do you serve Santa Rosa Beach and 30A?',
+        answer:
+          'Yes. Santa Rosa Beach is our home base, and we work across 30A and the rest of Walton, Okaloosa, and Bay Counties. We are licensed and insured under FL Mover Reg. #IM4125.',
+      },
+    ],
+  },
 ]
 
 /**
