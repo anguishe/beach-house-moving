@@ -170,7 +170,7 @@ No crew is named (none cleared for this job). Dates continue the Mon/Thu cadence
 post 10 and are placeholders until approved. The **Owner check** line under each post is not
 post copy (`gbp:kit` only reads the `>` lines).
 
-**`gbp:kit` repoint (PROPOSED, not applied).** `package.json` hardcodes
+**`gbp:kit` repoint (APPLIED 2026-09-28, Travis OK).** `package.json` hardcodes
 `node scripts/gbp-kit.mjs docs/GBP-POSTS-2026-09.md ~/Downloads/bhm-image-batch-sep08/gbp`, and the script
 resolves every `**Photo:**` against that one directory. Posts 11–14 live in a different folder, so the kit
 as-is exits 1 with "image not found" for all four. The markdown path itself is still right. Proposed

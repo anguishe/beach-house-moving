@@ -10,7 +10,7 @@
 import { readFileSync, writeFileSync, copyFileSync, mkdirSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 
-const [mdPath, imageDir] = process.argv.slice(2)
+const [mdPath, imageDir, ...extraDirs] = process.argv.slice(2) // extra dirs: later batches live in their own folders
 if (!mdPath || !imageDir) {
   console.error('usage: node scripts/gbp-kit.mjs <posts.md> <image-dir>')
   process.exit(1)
@@ -61,7 +61,7 @@ for (const p of posts) {
     `DATE:   ${p.date}`,
   ].join('\n')
   writeFileSync(join(outDir, `post-${p.num}.txt`), p.copy + '\n' + footer + '\n')
-  const src = join(imageDir, p.photo)
+  const src = [imageDir, ...extraDirs].map((d) => join(d, p.photo)).find(existsSync) ?? join(imageDir, p.photo)
   if (existsSync(src)) copyFileSync(src, join(outDir, `post-${p.num}.jpg`))
   else warnings.push(`post ${p.num}: image not found — ${p.photo}`)
 }

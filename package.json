@@ -11,7 +11,7 @@
     "verify:reviews": "node scripts/verify-review-schema.mjs",
     "audit:images": "node scripts/audit-images.mjs",
     "type-check": "tsc --noEmit",
-    "gbp:kit": "node scripts/gbp-kit.mjs docs/GBP-POSTS-2026-09.md ~/Downloads/bhm-image-batch-sep08/gbp",
+    "gbp:kit": "node scripts/gbp-kit.mjs docs/GBP-POSTS-2026-09.md ~/Downloads/bhm-image-batch-sep08/gbp docs/blog/incoming-2026-09-28/optimized/gbp",
     "audit:photo-pii": "node scripts/audit-photo-pii.mjs"
   },
   "dependencies": {
