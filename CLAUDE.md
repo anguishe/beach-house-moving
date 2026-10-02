@@ -86,3 +86,17 @@ owner's own words. Every batch runs the same way:
    past GBP's 1500-character cap or opens with a line longer than the ~80 characters
    the feed shows before truncating, so fix the markdown and re-run rather than
    editing the generated files.
+
+## Change control and quality gate (Travis, 2026-10-02 — applies to every session, local or cloud)
+
+- **Cloud, scheduled, or autonomous sessions:** open a PR and stop. Never push or merge to `main`, never rebase/close PRs, and never create routines or reminders that "act on" anything. Follow-up routines must be report-only. Travis approves every merge, usually by reviewing the PR with his local Claude session.
+- **Interactive sessions:** push to `main` only when Travis asks in that session.
+- **Pre-merge gate (local):** `node ~/Projects/docs/tools/site-gate/site-gate.mjs https://<vercel-preview-or-live-url>`. It must add **no new errors** vs the baseline `~/Projects/docs/tools/site-gate/baseline-2026-10-02/beachhousemoving.xyz.txt` (if no baseline exists yet, the run becomes the baseline). Cloud sessions can't run it: write "site-gate not run" in the PR body.
+- **The limits it enforces** (these are what audits kept finding on every site):
+  - `<title>` ≤ 65 chars *including* the "| Brand" suffix (aim ≤ 60).
+  - Meta description ≤ 160.
+  - Titles unique.
+  - Sitemap URLs return 200 (no redirects) and are self-canonical.
+  - JSON-LD parses, and its `@id` references resolve.
+  - Text contrast ≥ 4.5:1 (3:1 only for ≥ 24px or bold ≥ 18.66px). Check every new color/opacity pairing, especially muted grays and brand accents on dark or brand backgrounds.
+- **Business-state changes** (parked/reopened, prices, phone, address, photo permissions): update schema, default metadata/OG copy, and this file in the same change.
