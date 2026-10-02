@@ -1079,7 +1079,7 @@ export const REVIEWS_PAGE = {
 /** Static page metadata — used with buildMetadata(). */
 export const PAGE_META = {
   home: {
-    title: 'Santa Rosa Beach & 30A Movers | Beach House Moving',
+    title: 'Santa Rosa Beach Movers, 30A & Storage | Beach House Moving',
     description: 'Owner-operated Santa Rosa Beach moving company — licensed & insured (FL Reg. #IM4125), serving 30A, Destin & the Emerald Coast. Free quote: (850) 842-1962.',
     path: '/',
   },

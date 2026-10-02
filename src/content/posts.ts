@@ -1032,7 +1032,7 @@ export const POSTS: Post[] = [
     title: 'Appliance Delivery in Destin: A Fridge to a Sixth-Floor Pelican Beach Condo',
     description:
       'A documented appliance delivery from The Appliance Spot in Santa Rosa Beach to a sixth-floor condo at Pelican Beach Resort in Destin — resort elevators, a swap-out, and the old unit hauled away.',
-    metaTitle: 'Destin Appliance Delivery: A Fridge to a Sixth-Floor Condo',
+    metaTitle: 'Destin Appliance Delivery: Fridge to a Pelican Beach Condo',
     metaDescription:
       'A documented appliance delivery from The Appliance Spot in Santa Rosa Beach to a sixth-floor Pelican Beach Resort condo in Destin, old unit hauled away.',
     datePublished: '2026-08-18',
@@ -1290,7 +1290,7 @@ export const POSTS: Post[] = [
     title: 'Design Trade Installs: Drapes in Santa Rosa Beach, Art in Niceville, a Dining Room in Burnt Pine',
     description:
       'Three design-trade jobs in one week — drapery for Tracery Interiors, art for Lily Pads Interiors, a furniture install in Burnt Pine. What install day involves.',
-    metaTitle: 'Design Trade Installs: Drapes, Art, and a Dining Room',
+    metaTitle: 'Design Trade Installs in Santa Rosa Beach & Niceville',
     datePublished: '2026-09-08',
     dateModified: '2026-09-09',
     author: 'Beach House Moving',
