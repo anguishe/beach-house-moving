@@ -15,7 +15,7 @@ export function CTABanner() {
           Ready to get moving?
         </h2>
 
-        <p className="mb-12 font-body text-[17px] leading-relaxed text-white/75">
+        <p className="mb-12 font-body text-[17px] leading-relaxed text-white">
           Call for a free estimate. A real person picks up, day or night.
         </p>
 
@@ -32,10 +32,10 @@ export function CTABanner() {
         </TrackedPhoneLink>
 
         <div className="mt-6 flex items-center justify-center gap-3">
-          <span className="font-body text-[13px] text-white/90">or</span>
+          <span className="font-body text-[13px] text-white">or</span>
           <a
             href="#quote"
-            className="font-body text-[13px] text-white/90 underline underline-offset-[3px]"
+            className="font-body text-[13px] text-white underline underline-offset-[3px]"
           >
             Fill out a quote form →
           </a>

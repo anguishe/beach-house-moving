@@ -14,7 +14,7 @@ export function GalleryStrip() {
 
   return (
     <section className="relative overflow-hidden bg-brand-navy py-12 md:py-16">
-      <p className="mb-8 px-4 text-center font-body text-xs font-semibold uppercase tracking-widest text-brand-teal">
+      <p className="mb-8 px-4 text-center font-body text-xs font-semibold uppercase tracking-widest text-brand-teal-light">
         Real Moves · Real People · Real Results
       </p>
 

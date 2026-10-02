@@ -23,10 +23,12 @@ Inspiration: think luxury Florida real estate meets modern service business. Not
 | Token | Hex | Tailwind Class | Usage |
 |---|---|---|---|
 | `brand-navy` | `#1B2B4B` | `bg-brand-navy` | Primary backgrounds, navbar, footer |
-| `brand-coral` | `#E85D3D` | `bg-brand-coral` | Primary CTA buttons, accents |
-| `brand-coral-dark` | `#C94828` | `bg-brand-coral-dark` | CTA hover state |
+| `brand-coral` | `#C54F34` | `bg-brand-coral` | Primary CTA buttons, accents (was `#E85D3D` until 2026-10-02) |
+| `brand-coral-dark` | `#A7432C` | `bg-brand-coral-dark` | CTA hover state; coral small text on sand |
 | `brand-sand` | `#F5F0E8` | `bg-brand-sand` | Alternate section backgrounds |
-| `brand-teal` | `#2A9D8F` | `bg-brand-teal` | Secondary accents, icons, badges |
+| `brand-teal` | `#20776D` | `bg-brand-teal` | Secondary accents, icons, badges on light backgrounds (was `#2A9D8F`) |
+| `brand-teal-dark` | `#1A6159` | `hover:text-brand-teal-dark` | Teal hover state on light backgrounds |
+| `brand-teal-light` | `#3FA79A` | `text-brand-teal-light` | Teal text, icons, rings on navy / dark photo overlays only |
 | `brand-gold` | `#E9C46A` | `bg-brand-gold` | Star ratings, highlights |
 | `brand-white` | `#FFFFFF` | `bg-white` | Primary section backgrounds |
 
@@ -36,11 +38,13 @@ Inspiration: think luxury Florida real estate meets modern service business. Not
 |---|---|---|---|
 | `ink` | `#1B2B4B` | `text-ink` | Body copy, headings on light backgrounds |
 | `ink-muted` | `#4A5568` | `text-ink-muted` | Subtext, descriptions, captions |
-| `ink-light` | `#718096` | `text-ink-light` | Placeholders, fine print |
+| `ink-light` | `#5F6C7E` | `text-ink-light` | Placeholders, fine print (was `#718096`, failed AA) |
 | `on-dark` | `#FFFFFF` | `text-on-dark` | Primary text on navy/coral backgrounds |
 | `on-dark-muted` | `#CBD5E0` | `text-on-dark-muted` | Secondary/muted text on navy/coral backgrounds |
 
 > `on-dark` and `on-dark-muted` are real `@theme` tokens in `globals.css` (`text-on-dark`, `text-on-dark-muted`) and are the required choice for muted text on navy/coral.
+
+> **WCAG AA (2026-10-02 site-gate pass):** coral, teal, and ink-light were darkened so the light-background pairs pass 4.5:1. On navy, use `text-brand-teal-light` (never `text-brand-teal`, 2.6:1) and never coral text. The full pass/fail table lives in `CLAUDE.md` under "Change control and quality gate".
 
 > **WCAG rule:** Muted text on dark backgrounds (`bg-brand-navy`, `bg-brand-coral`) must use `text-on-dark-muted` — not opacity hacks like `text-white/75`. The `on-dark-muted` token is calibrated for ≥ AA contrast on navy/coral.
 
@@ -124,16 +128,18 @@ All design tokens live in `src/app/globals.css` inside the `@theme` block. To ad
 @theme {
   /* Brand colors */
   --color-brand-navy: #1b2b4b;
-  --color-brand-coral: #e85d3d;
-  --color-brand-coral-dark: #c94828;
+  --color-brand-coral: #c54f34;
+  --color-brand-coral-dark: #a7432c;
   --color-brand-sand: #f5f0e8;
-  --color-brand-teal: #2a9d8f;
+  --color-brand-teal: #20776d;
+  --color-brand-teal-dark: #1a6159;
+  --color-brand-teal-light: #3fa79a;
   --color-brand-gold: #e9c46a;
 
   /* Ink / text */
   --color-ink: #1b2b4b;
   --color-ink-muted: #4a5568;
-  --color-ink-light: #718096;
+  --color-ink-light: #5f6c7e;
   --color-on-dark: #ffffff;
   --color-on-dark-muted: #cbd5e0;
 
@@ -174,7 +180,7 @@ hover:bg-brand-navy hover:text-white transition-colors duration-200
 ### Phone CTA Button (Sticky / Mobile)
 ```
 bg-brand-teal text-white font-semibold px-6 py-3 rounded-full
-hover:bg-teal-700 transition-colors duration-200
+hover:bg-brand-teal-dark transition-colors duration-200
 flex items-center gap-2
 ```
 

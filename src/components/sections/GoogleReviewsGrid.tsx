@@ -116,7 +116,7 @@ function ReviewsInlineCTA() {
       </p>
       <Link
         href="/get-a-quote"
-        className="mt-5 inline-block font-body text-sm font-semibold text-brand-teal underline-offset-4 transition-colors hover:text-brand-teal-dark hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
+        className="mt-5 inline-block font-body text-sm font-semibold text-brand-teal-light underline-offset-4 transition-colors hover:text-white hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
       >
         Get a Free Quote
       </Link>

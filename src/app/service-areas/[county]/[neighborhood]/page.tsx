@@ -405,7 +405,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
           <h2 className="font-heading text-3xl font-bold text-white md:text-4xl">
             Ready to Move in {nb.name}?
           </h2>
-          <p className="mx-auto mt-4 max-w-lg font-body text-base text-white/85">
+          <p className="mx-auto mt-4 max-w-lg font-body text-base text-white">
             {BUSINESS.promise}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

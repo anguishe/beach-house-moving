@@ -145,7 +145,7 @@ export default async function PricingPage() {
                     <Phone className="mt-0.5 size-4 shrink-0 text-brand-coral" aria-hidden />
                     <span>
                       {CALL_FOR_QUOTE_PARTS.before}{' '}
-                      <TrackedPhoneLink location="pricing-rate" className="text-brand-coral underline underline-offset-2">
+                      <TrackedPhoneLink location="pricing-rate" className="text-brand-coral-dark underline underline-offset-2">
                         {BUSINESS.phone.display}
                       </TrackedPhoneLink>{' '}
                       {CALL_FOR_QUOTE_PARTS.after}
@@ -260,7 +260,7 @@ export default async function PricingPage() {
           <h2 className="font-heading text-3xl font-bold text-white md:text-4xl">
             Get Your Free Estimate
           </h2>
-          <p className="mx-auto mt-4 max-w-lg font-body text-base text-white/85">
+          <p className="mx-auto mt-4 max-w-lg font-body text-base text-white">
             {BUSINESS.promise}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

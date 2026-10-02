@@ -38,7 +38,11 @@ export function PageHero({
                 : 'border border-brand-navy/10 bg-white text-brand-navy shadow-brand',
             )}
           >
-            <ShieldCheck className="size-3.5 shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
+            <ShieldCheck
+              className={cn('size-3.5 shrink-0', dark ? 'text-brand-teal-light' : 'text-brand-teal')}
+              strokeWidth={1.8}
+              aria-hidden
+            />
             {LICENSE_DISPLAY.heroTrustBadge}
           </p>
 

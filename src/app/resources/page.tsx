@@ -47,7 +47,7 @@ export default async function ResourcesPage() {
 
       <section className="bg-brand-navy px-4 py-16 md:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="mb-3 font-body text-sm font-semibold uppercase tracking-widest text-brand-teal">
+          <p className="mb-3 font-body text-sm font-semibold uppercase tracking-widest text-brand-teal-light">
             Local Moving Guides
           </p>
           <h1 className="font-heading text-4xl font-bold leading-tight text-white md:text-5xl">

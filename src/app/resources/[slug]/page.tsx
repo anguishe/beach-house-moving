@@ -36,8 +36,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!post) return {}
 
   return buildMetadata({
-    title: post.title,
-    description: post.description,
+    title: post.metaTitle ?? post.title,
+    description: post.metaDescription ?? post.description,
     path: `/resources/${post.slug}`,
   })
 }

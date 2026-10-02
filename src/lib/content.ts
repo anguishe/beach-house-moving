@@ -279,7 +279,7 @@ export const SERVICES = [
     featured: false,
     metaTitle: 'Moving Storage Solutions | Beach House Moving',
     metaDescription:
-      "Between homes in Santa Rosa Beach? We load once, hold your things safely, and deliver when you're ready — one licensed crew, no double move, no storage-unit Saturdays.",
+      "Between homes in Santa Rosa Beach? We load once, hold your things, and deliver when you're ready. One licensed crew, no double move, no storage-unit Saturdays.",
   },
   {
     slug: 'delivery',
@@ -1079,7 +1079,7 @@ export const REVIEWS_PAGE = {
 /** Static page metadata — used with buildMetadata(). */
 export const PAGE_META = {
   home: {
-    title: 'Santa Rosa Beach Movers | Beach House Moving — 30A & Emerald Coast',
+    title: 'Santa Rosa Beach Movers, 30A & Storage | Beach House Moving',
     description: 'Owner-operated Santa Rosa Beach moving company — licensed & insured (FL Reg. #IM4125), serving 30A, Destin & the Emerald Coast. Free quote: (850) 842-1962.',
     path: '/',
   },

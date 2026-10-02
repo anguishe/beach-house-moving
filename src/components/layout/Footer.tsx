@@ -54,7 +54,7 @@ export function Footer() {
             <Link
               href="/"
               aria-label={`${BUSINESS.name} — Home`}
-              className="inline-block w-fit rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
+              className="inline-block w-fit rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light"
             >
               <div className="inline-block rounded-lg bg-white/10 p-2 opacity-90 transition-opacity hover:opacity-100">
                 <BrandLogo size="footer" alt={IMAGES.logo.footerAlt} className="rounded" />
@@ -63,7 +63,7 @@ export function Footer() {
             <p className="max-w-[220px] font-body text-[13px] leading-relaxed text-on-dark-muted">
               {BUSINESS.name} — {BUSINESS.tagline}
             </p>
-            <p className="font-body text-xs font-medium text-brand-teal/90">
+            <p className="font-body text-xs font-medium text-brand-teal-light">
               {LICENSE_DISPLAY.heroTrustBadge}
             </p>
             <div className="flex flex-col gap-2">
@@ -72,7 +72,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${BUSINESS.name} on Facebook (${SOCIAL_LINKS.facebookHandle})`}
-                className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+                className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm"
               >
                 <FacebookIcon className="size-[15px]" />
                 {SOCIAL_LINKS.facebookHandle}
@@ -82,9 +82,9 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={`${BUSINESS.name} on Yelp`}
-                className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+                className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm"
               >
-                <Star className="size-[15px] shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
+                <Star className="size-[15px] shrink-0 text-brand-teal-light" strokeWidth={1.8} aria-hidden />
                 Yelp
               </a>
               {SOCIAL_LINKS.google ? (
@@ -93,9 +93,9 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${BUSINESS.name} on Google`}
-                  className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+                  className="inline-flex w-fit items-center gap-1.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm"
                 >
-                  <MapPin className="size-[15px] shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
+                  <MapPin className="size-[15px] shrink-0 text-brand-teal-light" strokeWidth={1.8} aria-hidden />
                   Google
                 </a>
               ) : null}
@@ -103,7 +103,7 @@ export function Footer() {
                 href={REVIEWS_PAGE_META.googleReviewLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-fit font-body text-sm text-on-dark-muted transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+                className="inline-flex w-fit font-body text-sm text-on-dark-muted transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm"
               >
                 {SOCIAL_LINKS.leaveGoogleReviewLabel}
               </a>
@@ -119,7 +119,7 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-body text-sm text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm w-fit"
+                  className="font-body text-sm text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm w-fit"
                 >
                   {link.label}
                 </Link>
@@ -136,14 +136,14 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-body text-sm text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm w-fit"
+                  className="font-body text-sm text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm w-fit"
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
                 href="/service-areas"
-                className="font-body text-sm font-semibold text-brand-teal transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm w-fit"
+                className="font-body text-sm font-semibold text-brand-teal-light transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm w-fit"
               >
                 All service areas
               </Link>
@@ -159,14 +159,14 @@ export function Footer() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-body text-sm text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm w-fit"
+                  className="font-body text-sm text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm w-fit"
                 >
                   {link.label}
                 </Link>
               ))}
               <Link
                 href="/resources"
-                className="font-body text-sm font-semibold text-brand-teal transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm w-fit"
+                className="font-body text-sm font-semibold text-brand-teal-light transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm w-fit"
               >
                 All guides
               </Link>
@@ -181,21 +181,21 @@ export function Footer() {
               <p className="font-body text-sm font-semibold text-white">{BUSINESS.name}</p>
               <TrackedPhoneLink
                 location="footer"
-                className="inline-flex w-fit items-center gap-2.5 font-body text-[15px] font-semibold text-white transition-colors hover:text-brand-teal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+                className="inline-flex w-fit items-center gap-2.5 font-body text-[15px] font-semibold text-white transition-colors hover:text-brand-teal-light focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm"
               >
-                <Phone className="size-[15px] shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
+                <Phone className="size-[15px] shrink-0 text-brand-teal-light" strokeWidth={1.8} aria-hidden />
                 {BUSINESS.phone.display}
               </TrackedPhoneLink>
               <a
                 href={`mailto:${BUSINESS.email}`}
-                className="inline-flex w-fit items-center gap-2.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+                className="inline-flex w-fit items-center gap-2.5 font-body text-[13px] text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm"
               >
-                <Mail className="size-[15px] shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
+                <Mail className="size-[15px] shrink-0 text-brand-teal-light" strokeWidth={1.8} aria-hidden />
                 {BUSINESS.email}
               </a>
               <div className="flex items-start gap-2.5">
                 <MapPin
-                  className="mt-0.5 size-[15px] shrink-0 text-brand-teal"
+                  className="mt-0.5 size-[15px] shrink-0 text-brand-teal-light"
                   strokeWidth={1.8}
                   aria-hidden
                 />
@@ -204,7 +204,7 @@ export function Footer() {
                 </span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Clock className="size-[15px] shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
+                <Clock className="size-[15px] shrink-0 text-brand-teal-light" strokeWidth={1.8} aria-hidden />
                 <span className="font-body text-[13px] text-on-dark-muted">{BUSINESS.hours}</span>
               </div>
               <p className="font-body text-xs text-on-dark-muted">{LICENSE_DISPLAY.footerRegistration}</p>
@@ -231,7 +231,7 @@ export function Footer() {
             </p>
             <Link
               href="/privacy-policy"
-              className="font-body text-xs text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal rounded-sm"
+              className="font-body text-xs text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm"
             >
               Privacy Policy
             </Link>

@@ -19,13 +19,13 @@ import { isNavLinkActive } from '@/lib/nav'
 
 const navLinkClass = (active: boolean) =>
   cn(
-    'font-body text-sm font-medium tracking-wide whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded-sm',
+    'font-body text-sm font-medium tracking-wide whitespace-nowrap transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy rounded-sm',
     active ? 'text-white' : 'text-white/78 hover:text-white',
   )
 
 const drawerLinkClass = (active: boolean) =>
   cn(
-    'block border-b border-white/8 py-3.5 font-body text-[17px] font-medium tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal',
+    'block border-b border-white/8 py-3.5 font-body text-[17px] font-medium tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light',
     active ? 'text-white' : 'text-white/80 hover:text-white',
   )
 
@@ -42,7 +42,7 @@ export function Navbar() {
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-8 px-6">
           <Link
             href="/"
-            className="flex shrink-0 items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
+            className="flex shrink-0 items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy"
           >
             <BrandLogo size="nav" priority />
           </Link>
@@ -57,7 +57,7 @@ export function Navbar() {
                   aria-current={active ? 'page' : undefined}
                   className={cn(
                     navLinkClass(active),
-                    active && 'border-b-2 border-brand-teal pb-0.5',
+                    active && 'border-b-2 border-brand-teal-light pb-0.5',
                   )}
                 >
                   {link.label}
@@ -72,10 +72,10 @@ export function Navbar() {
               onClick={() => trackPhoneClick('navbar')}
               className={cn(
                 'hidden items-center gap-1.5 font-body text-sm font-medium tracking-wide text-white/90 transition-colors hover:text-white md:inline-flex',
-                'rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy',
+                'rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light focus-visible:ring-offset-2 focus-visible:ring-offset-brand-navy',
               )}
             >
-              <Phone className="size-3.5 shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
+              <Phone className="size-3.5 shrink-0 text-brand-teal-light" strokeWidth={1.8} aria-hidden />
               {BUSINESS.phone.display}
             </a>
 
@@ -94,7 +94,7 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setMobileOpen((open) => !open)}
-              className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 p-2 text-white lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
+              className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/10 p-2 text-white lg:hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light"
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav-drawer"
               aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -117,7 +117,7 @@ export function Navbar() {
           <div className="mb-10 flex items-center justify-between">
             <BrandLogo size="drawer" alt="" aria-hidden />
             <SheetClose
-              className="flex items-center rounded-md bg-white/10 p-1.5 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal"
+              className="flex items-center rounded-md bg-white/10 p-1.5 text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light"
               aria-label="Close menu"
             >
               <X className="size-[18px]" strokeWidth={1.8} aria-hidden />

@@ -5,25 +5,29 @@
 @source "../app/**/*.{js,ts,jsx,tsx}";
 
 @theme {
-  /* Brand colors — DESIGN_SYSTEM.md */
+  /* Brand colors — DESIGN_SYSTEM.md. AA-safe pairings: CLAUDE.md "Change control and quality gate". */
   --color-brand-navy: #1b2b4b;
-  --color-brand-coral: #e85d3d;
-  --color-brand-coral-dark: #c94828;
+  /* coral/teal darkened 2026-10-02 (was #e85d3d / #2a9d8f) so white text on them, and them as
+     text on white/sand, pass WCAG AA 4.5:1. Use teal-light, not teal, on navy. */
+  --color-brand-coral: #c54f34;
+  --color-brand-coral-dark: #a7432c;
   --color-brand-sand: #f5f0e8;
-  --color-brand-teal: #2a9d8f;
+  --color-brand-teal: #20776d;
+  --color-brand-teal-dark: #1a6159;
+  --color-brand-teal-light: #3fa79a;
   --color-brand-gold: #e9c46a;
 
   /* Ink / text */
   --color-ink: #1b2b4b;
   --color-ink-muted: #4a5568;
-  --color-ink-light: #718096;
+  --color-ink-light: #5f6c7e; /* was #718096 (4.0:1 on white); now 5.3:1 white, 4.7:1 sand */
   --color-on-dark: #ffffff;
   --color-on-dark-muted: #cbd5e0;
 
   /* shadcn semantic token bridge — maps to brand palette */
-  --color-primary: #e85d3d;
+  --color-primary: #c54f34;
   --color-primary-foreground: #ffffff;
-  --color-secondary: #2a9d8f;
+  --color-secondary: #20776d;
   --color-secondary-foreground: #ffffff;
   --color-background: #ffffff;
   --color-foreground: #1b2b4b;
@@ -31,7 +35,7 @@
   --color-muted-foreground: #4a5568;
   --color-border: rgb(27 43 75 / 0.15);
   --color-input: rgb(27 43 75 / 0.08);
-  --color-ring: #2a9d8f;
+  --color-ring: #20776d;
   --color-destructive: #e53e3e;
   --color-destructive-foreground: #ffffff;
   --color-popover: #ffffff;
@@ -117,9 +121,9 @@ body {
   }
 
   select:focus {
-    outline: 2px solid #2a9d8f;
+    outline: 2px solid #20776d;
     outline-offset: 2px;
-    border-color: #2a9d8f;
+    border-color: #20776d;
   }
 
   select option {

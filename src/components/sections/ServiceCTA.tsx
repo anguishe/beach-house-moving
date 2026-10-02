@@ -12,7 +12,7 @@ export function ServiceCTA({ serviceTitle }: ServiceCTAProps) {
   return (
     <section className="bg-brand-navy px-6 py-16">
       <div className="mx-auto max-w-3xl text-center">
-        <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal">
+        <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal-light">
           Ready When You Are
         </p>
         <h2 className="font-heading text-2xl font-bold text-white md:text-3xl">
