@@ -100,3 +100,21 @@ owner's own words. Every batch runs the same way:
   - JSON-LD parses, and its `@id` references resolve.
   - Text contrast ≥ 4.5:1 (3:1 only for ≥ 24px or bold ≥ 18.66px). Check every new color/opacity pairing, especially muted grays and brand accents on dark or brand backgrounds.
 - **Business-state changes** (parked/reopened, prices, phone, address, photo permissions): update schema, default metadata/OG copy, and this file in the same change.
+- **Build-time meta check:** `npm run build` runs `scripts/check-meta.mjs` as the first `postbuild` step (also `npm run check:meta`). It fails the build — and so the Vercel deploy — on any prerendered page with a missing/over-65 title, a missing/over-160 description, or a duplicate title, and on any `POSTS` entry (including future-dated ones that publish via ISR) over those limits. Resource posts whose H1 is long get a shorter `metaTitle` / `metaDescription` in `src/content/posts.ts`; the H1 and dek stay as written.
+- **AA-safe color pairs (tokens as of 2026-10-02; ratios measured, 4.5:1 needed for body/small text):**
+
+  | Text token | on white | on `brand-sand` | on `brand-navy` |
+  |---|---|---|---|
+  | `ink` / `brand-navy` | 14.1 ✅ | 12.4 ✅ | — |
+  | `ink-muted` | 7.5 ✅ | 6.6 ✅ | 1.9 ❌ |
+  | `ink-light` (#5f6c7e) | 5.3 ✅ | 4.7 ✅ | 2.6 ❌ |
+  | `brand-teal` (#20776d) | 5.4 ✅ | 4.7 ✅ | 2.6 ❌ |
+  | `brand-teal-dark` (#1a6159) | 7.3 ✅ | 6.4 ✅ | 1.9 ❌ |
+  | `brand-teal-light` (#3fa79a) | 2.9 ❌ | 2.6 ❌ | 4.8 ✅ |
+  | `brand-coral` (#c54f34) | 4.6 ✅ | 4.1 ❌ (use `-dark`) | 3.0 ❌ |
+  | `brand-coral-dark` (#a7432c) | 6.0 ✅ | 5.3 ✅ | 2.3 ❌ |
+  | `white` / `on-dark` | — | — | 14.1 ✅ |
+  | `on-dark-muted` | — | — | 9.5 ✅ |
+  | `brand-gold` | 1.7 ❌ | 1.5 ❌ | 8.4 ✅ |
+
+  Fills with white text: `bg-brand-coral` 4.6 ✅, `bg-brand-coral-dark` 6.0 ✅, `bg-brand-teal` 5.4 ✅, `bg-brand-teal-dark` 7.3 ✅. `on-dark-muted` on coral is 3.1, so large text only. Teal on navy or a dark photo overlay is always `brand-teal-light`; coral small text on sand is always `brand-coral-dark`. Opacity variants (`/80`, `/90`) lower the ratio: re-check them.

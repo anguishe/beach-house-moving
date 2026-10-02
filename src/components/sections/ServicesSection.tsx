@@ -119,7 +119,7 @@ export function ServicesSection() {
         </div>
 
         <div className="mt-[72px] rounded-2xl bg-brand-navy px-12 py-14 text-center">
-          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal">
+          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-teal-light">
             Ready When You Are
           </p>
           <h3 className="mb-7 font-heading text-[clamp(1.75rem,3vw,2.25rem)] font-bold leading-snug text-white">

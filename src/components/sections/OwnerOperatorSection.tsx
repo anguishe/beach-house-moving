@@ -10,7 +10,7 @@ export function OwnerOperatorSection() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           {/* Text column */}
           <div>
-            <p className="mb-4 font-body text-sm font-semibold uppercase tracking-widest text-brand-teal">
+            <p className="mb-4 font-body text-sm font-semibold uppercase tracking-widest text-brand-teal-light">
               Why We&apos;re Different
             </p>
             <h2 className="font-heading text-3xl font-bold text-white md:text-4xl">

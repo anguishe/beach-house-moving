@@ -44,7 +44,7 @@ export default function HeroSection() {
             style={fadeDelay(0.05)}
             className="hero-fade-up mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/12 px-3.5 py-1.5 font-body text-xs font-semibold text-on-dark backdrop-blur-sm"
           >
-            <ShieldCheck className="size-3.5 shrink-0 text-brand-teal" strokeWidth={1.8} aria-hidden />
+            <ShieldCheck className="size-3.5 shrink-0 text-brand-teal-light" strokeWidth={1.8} aria-hidden />
             {LICENSE_DISPLAY.heroTrustBadge}
           </p>
 
@@ -90,9 +90,9 @@ export default function HeroSection() {
             <a
               href={BUSINESS.phone.href}
               onClick={() => trackPhoneClick('hero')}
-              className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-brand border-2 border-brand-teal px-8 py-4 font-body text-base font-semibold text-white backdrop-blur-sm transition-colors duration-200 hover:bg-brand-teal/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
+              className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-brand border-2 border-brand-teal-light px-8 py-4 font-body text-base font-semibold text-white backdrop-blur-sm transition-colors duration-200 hover:bg-brand-teal/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light focus-visible:ring-offset-2 focus-visible:ring-offset-transparent"
             >
-              <Phone className="size-5 shrink-0 text-brand-teal" strokeWidth={1.5} aria-hidden />
+              <Phone className="size-5 shrink-0 text-brand-teal-light" strokeWidth={1.5} aria-hidden />
               {BUSINESS.phone.display}
             </a>
           </div>
@@ -110,7 +110,7 @@ export default function HeroSection() {
 
           <p
             style={fadeDelay(0.85)}
-            className="hero-fade-up mt-4 font-body text-xs font-medium text-brand-teal"
+            className="hero-fade-up mt-4 font-body text-xs font-medium text-brand-teal-light"
           >
             {BUSINESS.ownerStatement}
           </p>

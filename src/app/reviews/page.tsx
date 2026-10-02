@@ -77,7 +77,7 @@ export default async function ReviewsPage() {
         />
         <div className="absolute inset-0 bg-brand-navy/80" aria-hidden />
         <div className="relative flex min-h-88 flex-col items-center justify-center px-4 py-28 text-center md:min-h-104 md:py-32">
-          <p className="mb-3 font-body text-sm font-semibold uppercase tracking-widest text-brand-teal">
+          <p className="mb-3 font-body text-sm font-semibold uppercase tracking-widest text-brand-teal-light">
             {REVIEWS_PAGE.hero.eyebrow}
           </p>
           <h1 className="max-w-4xl font-heading text-4xl font-bold leading-tight text-white md:text-5xl">
@@ -139,7 +139,7 @@ export default async function ReviewsPage() {
 
       <section className="bg-brand-navy py-16 md:py-24">
         <div className="mx-auto max-w-3xl px-4 text-center md:px-8">
-          <p className="mb-3 font-body text-sm font-semibold uppercase tracking-widest text-brand-teal">
+          <p className="mb-3 font-body text-sm font-semibold uppercase tracking-widest text-brand-teal-light">
             {REVIEWS_PAGE.cta.eyebrow}
           </p>
           <h2 className="font-heading text-3xl font-bold leading-tight text-white md:text-4xl">

@@ -43,7 +43,7 @@ export default async function GetAQuotePage() {
 
       <section className="bg-brand-sand px-6 py-10 md:py-14">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-coral">
+          <p className="font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-coral-dark">
             {GET_A_QUOTE_CONTENT.eyebrow}
           </p>
           <h1 className="mt-3 font-heading text-4xl font-bold text-brand-navy md:text-5xl">
@@ -171,7 +171,7 @@ export default async function GetAQuotePage() {
               {GET_A_QUOTE_CONTENT.phoneCta.prefix}{' '}
               <TrackedPhoneLink
                 location="get-a-quote-phone-cta"
-                className="font-semibold text-brand-teal underline-offset-2 hover:underline"
+                className="font-semibold text-brand-teal-light underline-offset-2 hover:underline"
               >
                 {BUSINESS.phone.display}
               </TrackedPhoneLink>

@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node scripts/ping-indexnow.mjs",
+    "postbuild": "node --no-warnings scripts/check-meta.mjs && node scripts/ping-indexnow.mjs",
+    "check:meta": "node --no-warnings scripts/check-meta.mjs",
     "start": "next start",
     "lint": "eslint",
     "verify:reviews": "node scripts/verify-review-schema.mjs",

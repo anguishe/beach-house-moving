@@ -16,7 +16,7 @@ export function TrustSection() {
     <>
       <section className="w-full bg-brand-navy pb-20 pt-14">
         <div className="mx-auto max-w-6xl px-8">
-          <p className="mb-10 text-center font-body text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal">
+          <p className="mb-10 text-center font-body text-xs font-semibold uppercase tracking-[0.18em] text-brand-teal-light">
             {LICENSE_DISPLAY.heroTrustBadge}
           </p>
           <div className="grid grid-cols-2 gap-10 md:grid-cols-4">
@@ -28,9 +28,9 @@ export function TrustSection() {
                   index={index}
                   className="flex flex-col items-center gap-3 text-center"
                 >
-                  <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-brand-teal/15">
+                  <div className="flex size-14 shrink-0 items-center justify-center rounded-full bg-brand-teal-light/15">
                     {IconComponent && (
-                      <IconComponent className="size-6 text-brand-teal" strokeWidth={1.5} aria-hidden />
+                      <IconComponent className="size-6 text-brand-teal-light" strokeWidth={1.5} aria-hidden />
                     )}
                   </div>
                   <p className="m-0 font-heading text-lg font-semibold leading-snug text-white">
@@ -45,7 +45,7 @@ export function TrustSection() {
           </div>
         </div>
       </section>
-      <div className="h-0.5 bg-gradient-to-r from-transparent via-brand-teal/25 to-transparent" />
+      <div className="h-0.5 bg-gradient-to-r from-transparent via-brand-teal-light/25 to-transparent" />
     </>
   )
 }

@@ -13,8 +13,14 @@ export type PostBlock = {
 
 export type Post = {
   slug: string
+  /** Rendered H1, breadcrumb, and schema headline. */
   title: string
+  /** Rendered dek under the H1. */
   description: string
+  /** <title> override when `title` runs past 65 chars (scripts/check-meta.mjs fails the build). */
+  metaTitle?: string
+  /** Meta description override when `description` runs past 160 chars. */
+  metaDescription?: string
   datePublished: string
   dateModified?: string
   author: string
@@ -32,6 +38,8 @@ export const POSTS: Post[] = [
     title: 'What Movers Cost in Santa Rosa Beach & 30A (2026)',
     description:
       "Real numbers from a licensed Santa Rosa Beach mover: our published $195/hr starting rate for 2 movers, what typical local moves run, and what actually changes the price on 30A.",
+    metaDescription:
+      'Real numbers from a licensed Santa Rosa Beach mover: our published $195/hr starting rate for 2 movers, what local moves run, and what changes the price on 30A.',
     datePublished: '2026-07-19',
     dateModified: '2026-09-25',
     author: 'Beach House Moving',
@@ -102,6 +110,8 @@ export const POSTS: Post[] = [
     title: 'Moving & Storage in Santa Rosa Beach: How It Works Between Homes',
     description:
       "Sold before your next place is ready? How mover-held storage works in Santa Rosa Beach — one crew loads, stores, and delivers, versus renting a unit and moving twice.",
+    metaDescription:
+      "Sold before your next place is ready? How mover-held storage works in Santa Rosa Beach: one crew loads, stores, and delivers, so you don't move twice.",
     datePublished: '2026-07-19',
     author: 'Beach House Moving',
     heroImage: '/images/mover-storage-corridor.jpg',
@@ -248,6 +258,7 @@ export const POSTS: Post[] = [
       'On-Base or Off-Base at Eglin & Hurlburt: How Your Housing Choice Changes Move Day',
     description:
       'Base housing or off-base near Eglin AFB and Hurlburt Field — how your choice changes timeline, inspections, and what kind of crew you need on move day.',
+    metaTitle: 'Eglin & Hurlburt PCS: On-Base vs Off-Base Move Day',
     datePublished: '2026-06-02',
     dateModified: '2026-06-12',
     author: 'Beach House Moving',
@@ -306,6 +317,9 @@ export const POSTS: Post[] = [
       'Moving Into a New Beach-House Build on the Emerald Coast: How to Protect Floors, Stairs, and Finishes',
     description:
       'New construction on 30A and across the Panhandle comes with fresh floors, tight stairwells, and finishes that are easy to damage on move-in day. Here\'s how we approach it.',
+    metaTitle: 'Moving Into a New Beach-House Build on the Emerald Coast',
+    metaDescription:
+      "New construction on 30A and the Panhandle means fresh floors, tight stairwells, and finishes that are easy to damage on move-in day. Here's how we approach it.",
     datePublished: '2026-06-02',
     author: 'Beach House Moving',
     heroImage: '/images/beach-house-moving-great-room-staged-furniture.jpg',
@@ -372,6 +386,9 @@ export const POSTS: Post[] = [
     title: 'The Honest Moving Checklist for 30A and Destin — What No One Tells You',
     description:
       'A real moving checklist built for 30A and Destin — parking logistics, beach access restrictions, HOA rules, and seasonal timing. From movers who work here every week.',
+    metaTitle: 'The Honest Moving Checklist for 30A and Destin',
+    metaDescription:
+      'A real moving checklist for 30A and Destin: parking logistics, beach access restrictions, HOA rules, and seasonal timing. From movers who work here every week.',
     datePublished: '2026-05-15',
     dateModified: '2026-09-08',
     author: 'Beach House Moving',
@@ -463,6 +480,9 @@ export const POSTS: Post[] = [
       'PCS to Eglin AFB or Hurlburt Field — A Ground-Level Guide From Your Local Movers',
     description:
       'PCS moves to Eglin Air Force Base and Hurlburt Field — local mover guide to neighborhoods, BAH rates, on-base vs off-base, and how to coordinate your military relocation.',
+    metaTitle: "PCS to Eglin AFB or Hurlburt Field: A Local Mover's Guide",
+    metaDescription:
+      "PCS to Eglin AFB or Hurlburt Field: a local mover's guide to neighborhoods, BAH rates, on-base vs off-base, and coordinating your military relocation.",
     datePublished: '2026-04-22',
     dateModified: '2026-09-08',
     author: 'Beach House Moving',
@@ -917,6 +937,9 @@ export const POSTS: Post[] = [
     title: 'Delivery Day at 30A Wine Storage: Glassware Into a Brand-New Facility',
     description:
       'A documented commercial delivery on 30A: stocking 30A Wine Storage, a new climate-controlled wine storage facility, with glassware and accessories — carts, a pallet jack, and the owner working alongside the crew.',
+    metaTitle: 'Delivery Day at 30A Wine Storage: Stocking a New Facility',
+    metaDescription:
+      'A documented commercial delivery on 30A: stocking 30A Wine Storage, a new climate-controlled wine storage facility, with glassware and accessories.',
     datePublished: '2026-08-18',
     author: 'Beach House Moving',
     heroImage: '/images/beach-house-moving-30a-wine-storage-cart-delivery-crew.jpg',
@@ -1006,6 +1029,9 @@ export const POSTS: Post[] = [
     title: 'Appliance Delivery in Destin: A Fridge to a Sixth-Floor Pelican Beach Condo',
     description:
       'A documented appliance delivery from The Appliance Spot in Santa Rosa Beach to a sixth-floor condo at Pelican Beach Resort in Destin — resort elevators, a swap-out, and the old unit hauled away.',
+    metaTitle: 'Destin Appliance Delivery: A Fridge to a Sixth-Floor Condo',
+    metaDescription:
+      'A documented appliance delivery from The Appliance Spot in Santa Rosa Beach to a sixth-floor Pelican Beach Resort condo in Destin, old unit hauled away.',
     datePublished: '2026-08-18',
     author: 'Beach House Moving',
     heroImage: '/images/beach-house-moving-pelican-beach-resort-fridge-hand-truck.jpg',
@@ -1097,6 +1123,9 @@ export const POSTS: Post[] = [
     title: 'Freestanding Tub Delivery in Seacrest Beach: What Fits, What It Weighs, and Who Sets It in Place',
     description:
       'What a freestanding tub actually weighs, the door width you really need, and what "set in place" means versus delivery. From a Seacrest Beach fixture job on 30A.',
+    metaTitle: 'Freestanding Tub Delivery in Seacrest Beach: Weight and Fit',
+    metaDescription:
+      'What a freestanding tub actually weighs, the door width you really need, and what "set in place" means versus delivery. From a Seacrest Beach job on 30A.',
     datePublished: '2026-08-28',
     author: 'Beach House Moving',
     heroImage: '/images/beach-house-moving-seacrest-beach-freestanding-tub-set-in-place.jpg',
@@ -1258,6 +1287,7 @@ export const POSTS: Post[] = [
     title: 'Design Trade Installs: Drapes in Santa Rosa Beach, Art in Niceville, a Dining Room in Burnt Pine',
     description:
       'Three design-trade jobs in one week — drapery for Tracery Interiors, art for Lily Pads Interiors, a furniture install in Burnt Pine. What install day involves.',
+    metaTitle: 'Design Trade Installs: Drapes, Art, and a Dining Room',
     datePublished: '2026-09-08',
     dateModified: '2026-09-09',
     author: 'Beach House Moving',
@@ -1424,6 +1454,8 @@ export const POSTS: Post[] = [
     title: 'A Destin-to-Destin Move: Regatta Bay to Grand Harbor',
     description:
       "A short move across Destin, from a Regatta Bay home to Grand Harbor on the harbor. Why a local move between gated communities is still a full job: gates, HOA rules, driveways, and doorways.",
+    metaDescription:
+      'A short move across Destin, from a Regatta Bay home to Grand Harbor. Why a move between gated communities is still a full job: gates, HOA rules, and doorways.',
     datePublished: '2026-10-06',
     author: 'Beach House Moving',
     heroImage: '/images/beach-house-moving-destin-regatta-bay-box-truck-paver-driveway.jpg',

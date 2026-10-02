@@ -151,7 +151,7 @@ export default async function JunkRemovalPage() {
 
       <section className="bg-brand-sand px-6 py-16 md:py-20">
         <div className="mx-auto max-w-4xl">
-          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-coral">
+          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-coral-dark">
             {JUNK_REMOVAL_PAGE.howItWorks.eyebrow}
           </p>
           <h2 className="font-heading text-2xl font-bold text-brand-navy md:text-3xl">

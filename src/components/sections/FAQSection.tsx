@@ -22,7 +22,7 @@ export function FAQSection({ faqs = FAQS, className }: FAQSectionProps) {
     >
       <div className="mx-auto max-w-3xl">
         <div className="mb-10 text-center">
-          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-coral">
+          <p className="mb-3 font-body text-xs font-semibold uppercase tracking-[0.22em] text-brand-coral-dark">
             Common Questions
           </p>
           <h2
