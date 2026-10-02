@@ -108,6 +108,7 @@ export const POSTS: Post[] = [
   {
     slug: 'moving-and-storage-santa-rosa-beach',
     title: 'Moving & Storage in Santa Rosa Beach: How It Works Between Homes',
+    metaTitle: 'Moving & Storage in Santa Rosa Beach Between Homes',
     description:
       "Sold before your next place is ready? How mover-held storage works in Santa Rosa Beach — one crew loads, stores, and delivers, versus renting a unit and moving twice.",
     metaDescription:
@@ -179,6 +180,7 @@ export const POSTS: Post[] = [
   {
     slug: 'moving-to-30a-neighborhood-guide',
     title: "Moving to 30A: A Local Mover's Neighborhood-by-Neighborhood Guide",
+    metaTitle: "Moving to 30A: A Local Mover's Neighborhood Guide",
     description:
       "Every 30A community has its own gates, parking limits, and move-day realities. Our owner-operated crew has worked them all. Here's what we've learned.",
     datePublished: '2026-06-02',
@@ -582,6 +584,7 @@ export const POSTS: Post[] = [
   {
     slug: 'how-to-move-a-beach-condo-emerald-coast',
     title: 'How to Move Into (or Out of) a Beach Condo on the Emerald Coast',
+    metaTitle: 'Moving Into or Out of a Beach Condo on the Emerald Coast',
     description:
       'Moving into or out of a beach condo in Destin, Panama City Beach, or 30A? Here is how to handle elevators, HOA freight rules, parking decks, and seasonal chaos.',
     datePublished: '2026-03-18',
