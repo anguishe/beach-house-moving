@@ -3,6 +3,12 @@
 Source batch: 7 owner photos + descriptions from Les, 2026-09-08.
 Square crops (1200×1200) ready to upload: `~/Downloads/bhm-image-batch-sep08/gbp/`
 
+## Status (updated 2026-10-03)
+Live on GBP (checked on the public profile 10/03): **posts 1, 2, 3** (posted 9/11, 9/25 and 10/02; 1 and 2 went out later
+than planned). **Next: post 4, Mon 10/06.** The Mon/Thu cadence resumes from there. Post 10 (storage) is on hold until
+Les confirms the storage details, so posts 11–14 move up. After post 14, new posts should point at the new Wave 1 pages
+(Navarre, piano, etc.) as they ship.
+
 ## Rules for this profile
 
 - **Use clean URLs with no UTM parameters.** `src/proxy.ts` 301s the GBP-tagged
@@ -30,7 +36,7 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ---
 
-### Post 1 — Mon 2026-09-08
+### Post 1 — POSTED 2026-09-11 ✅
 **Photo:** `beach-house-moving-miramar-beach-burnt-pine-dining-room-install-square.jpg`
 **Button:** Learn more → `https://beachhousemoving.xyz/services/design-trade-installation`
 
@@ -44,7 +50,7 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ---
 
-### Post 2 — Thu 2026-09-11
+### Post 2 — POSTED 2026-09-25 ✅
 **Photo:** `beach-house-moving-santa-rosa-beach-drapery-hanging-complete-square.jpg`
 **Button:** Learn more → `https://beachhousemoving.xyz/services/design-trade-installation`
 
@@ -58,7 +64,7 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ---
 
-### Post 3 — Mon 2026-09-15
+### Post 3 — POSTED 2026-10-02 ✅
 **Photo:** `beach-house-moving-santa-rosa-beach-ridgewalk-uhaul-unload-square.jpg`
 **Button:** Learn more → `https://beachhousemoving.xyz/services/loading-unloading-help`
 
@@ -72,7 +78,7 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ---
 
-### Post 4 — Thu 2026-09-18
+### Post 4 — Mon 2026-10-06
 **Photo:** `beach-house-moving-niceville-estate-sale-art-hanging-square.jpg`
 **Button:** Learn more → `https://beachhousemoving.xyz/services/junk-removal`
 **Link swap 2026-10-02:** was `/services/mounting-installation` (indexed; post 8 still links it). Junk removal is not indexed. Copy adds "hauling off what doesn't" so the button matches.
@@ -85,7 +91,7 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ---
 
-### Post 5 — Mon 2026-09-22
+### Post 5 — Thu 2026-10-09
 **Photo:** `beach-house-moving-miramar-beach-burnt-pine-box-truck-paver-driveway-square.jpg`
 **Button:** Learn more → `https://beachhousemoving.xyz/service-areas/walton-county/miramar-beach`
 
@@ -97,7 +103,7 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ---
 
-### Post 6 — Thu 2026-09-25
+### Post 6 — Mon 2026-10-13
 **Photo:** `beach-house-moving-santa-rosa-beach-drapery-hanging-ladder-square.jpg`
 **Button:** Learn more → `https://beachhousemoving.xyz/service-areas/walton-county/30a`
 **Link swap 2026-10-02:** was the design-trade field note (indexed; post 10 linked it too). `/30a` is not indexed.
@@ -110,7 +116,7 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ---
 
-### Post 7 — Mon 2026-09-29
+### Post 7 — Thu 2026-10-16
 **Photo:** `beach-house-moving-santa-rosa-beach-drapery-hanging-primary-bedroom-square.jpg`
 **Button:** Learn more → `https://beachhousemoving.xyz/service-areas/walton-county/santa-rosa-beach`
 
@@ -122,7 +128,7 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ---
 
-### Post 8 — Thu 2026-10-02
+### Post 8 — Mon 2026-10-20
 **Photo:** `beach-house-moving-santa-rosa-beach-drapery-hanging-ladder-square.jpg` (reuse)
 **Button:** Learn more → `https://beachhousemoving.xyz/services/mounting-installation`
 
@@ -136,7 +142,7 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ---
 
-### Post 9 — Mon 2026-10-06
+### Post 9 — Thu 2026-10-23
 **Photo:** `beach-house-moving-santa-rosa-beach-ridgewalk-uhaul-unload-square.jpg` (reuse)
 **Button:** Learn more → `https://beachhousemoving.xyz/services/loading-unloading-help`
 
@@ -148,7 +154,7 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ---
 
-### Post 10 — Thu 2026-10-09
+### Post 10 — ON HOLD (storage paused until Les confirms details)
 **Status:** REWRITTEN 2026-10-02 as the storage post. Needs Travis OK before it goes out.
 **Photo:** `beach-house-moving-miramar-beach-burnt-pine-dining-room-install-square.jpg` (reuse)
 **Button:** Learn more → `https://beachhousemoving.xyz/services/storage`
@@ -200,7 +206,7 @@ and `docs/blog/incoming-2026-09-28/optimized/gbp`, which is the CLAUDE.md "new m
 
 ---
 
-### Post 11 — Mon 2026-10-13
+### Post 11 — Mon 2026-10-27
 **Status:** APPROVED 2026-09-28 (Travis, in chat)
 **Photo:** `beach-house-moving-destin-regatta-bay-box-truck-paver-driveway-gbp-4x3.jpg`
 **Button:** Learn more → `https://beachhousemoving.xyz/service-areas/okaloosa-county/destin`
@@ -218,7 +224,7 @@ and `docs/blog/incoming-2026-09-28/optimized/gbp`, which is the CLAUDE.md "new m
 
 ---
 
-### Post 12 — Thu 2026-10-16
+### Post 12 — Thu 2026-10-30
 **Status:** APPROVED 2026-09-28 (Travis, in chat)
 **Photo:** `beach-house-moving-destin-regatta-bay-box-truck-loaded-interior-gbp-4x3.jpg`
 **Button:** Learn more → `https://beachhousemoving.xyz/services/local-moving`
@@ -235,7 +241,7 @@ and `docs/blog/incoming-2026-09-28/optimized/gbp`, which is the CLAUDE.md "new m
 
 ---
 
-### Post 13 — Mon 2026-10-20
+### Post 13 — Mon 2026-11-03
 **Status:** APPROVED 2026-09-28 (Travis, in chat)
 **Photo:** `beach-house-moving-destin-regatta-bay-front-door-hand-truck-entry-gbp-4x3.jpg`
 **Button:** Learn more → `https://beachhousemoving.xyz/services/residential-moving`
@@ -250,7 +256,7 @@ and `docs/blog/incoming-2026-09-28/optimized/gbp`, which is the CLAUDE.md "new m
 
 ---
 
-### Post 14 — Thu 2026-10-23
+### Post 14 — Thu 2026-11-06
 **Status:** APPROVED 2026-09-28 (Travis, in chat)
 **Photo:** `beach-house-moving-destin-regatta-bay-armchair-doorway-carry-gbp-4x3.jpg`
 **Button:** Learn more → `https://beachhousemoving.xyz/resources/moving-checklist-30a-destin-florida`
