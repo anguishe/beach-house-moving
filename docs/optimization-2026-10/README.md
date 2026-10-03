@@ -9,10 +9,9 @@ Parts, in order:
 3. Build (pages, FAQ blocks, GBP services, posts and Q&A), with every PR passing site-gate
 4. Ongoing: growth, income and tool recommendations in every session
 
-## TODO (paused)
-- [ ] **Storage revamp: PAUSED by Travis 2026-10-02.** Waiting on Les for climate control, location and access,
-      minimum term, billing model and insurance. The storage post in GBP-POSTS-2026-09 (post 10) is also on hold.
-      Research context: searchers on "storage santa rosa beach" (pos ~1.5, 370 impr, 0 clicks) expect a self-storage
+## TODO
+- [ ] **Storage revamp: UNBLOCKED 2026-10-03** (Les answered: see "Les answers" below). Now Wave 2 PR 2.9. GBP-POSTS-2026-09
+      post 10 can be rewritten from the confirmed storage facts. Research context: searchers on "storage santa rosa beach" (pos ~1.5, 370 impr, 0 clicks) expect a self-storage
       unit. The page must say plainly that BHM picks up, stores and delivers back.
 
 ## Owner-confirmed service facts (Travis, 2026-10-02, in session)
@@ -29,14 +28,31 @@ These are the only claims new copy may make about these services. Anything not l
 | Heavy specialty items | Gun safes, hot tubs, pool tables, home gyms, "and more". |
 | Senior / downsizing | Yes. They work closely with customers and coordinate with family. No job too small. |
 | Furniture assembly | Yes. No specific brands. |
-| Interstate moving | Licensed and certified for interstate moves; good to move cross-country (Travis, 2026-10-02). No USDOT/MC number on file, so don't print one. |
+| Interstate moving | Licensed and certified for interstate moves; good to move cross-country (Travis, 2026-10-02). **Do not print the USDOT or MC number** until FMCSA SAFER shows the carrier ACTIVE: on 2026-10-03 SAFER showed USDOT and operating authority OUT-OF-SERVICE; Travis says that's known and being fixed. Re-check SAFER before any interstate copy change. |
 | Navarre | In BHM's radius. Les wants to rank there (Travis relayed, 2026-10-02). |
 | Gulf Breeze, Pace, Milton | Served when they have availability (Travis, 2026-10-03). Santa Rosa County's main towns are all in: Navarre, Gulf Breeze, Pace, Milton. |
 | Rain | They work in the rain, but not if it risks any items. They confirm with the customer first (Les via Travis, 2026-10-02). |
 | Same-day | Same-day service is offered across all services when they have availability (Les via Travis, 2026-10-02). Never promise it. |
 | Partners / referral sources | Realtors, designers, appliance repair, appliance sales, wholesalers, retailers. Named in posts: Design & Dwell, Tracery Interiors, The Appliance Spot. Name a partner on a page only where an existing post already does. |
 
-Not confirmed, so never state them: prices beyond the published rate, specific weight limits, named assisted-living
+### Les answers (via Travis, 2026-10-03)
+
+| Topic | Confirmed |
+|---|---|
+| Coverage | Full value protection offered as an **option at an added cost** (price not given yet; say "ask at quote"). General liability $750,000. Motor truck cargo insurance $375,000 with a **$100,000 per-move limit** and a **$10,000 per-item cap**. |
+| Not covered (BHM's terms, publish as given) | Jewelry, watches, cash and precious metals (carry them yourself). Fine art and antiques capped at a sub-limit (e.g. $5,000 total for art) unless a special rider is attached. Electronics: data loss and mechanical derangement (stops working with no exterior damage) can be excluded. Owner-packed boxes: no payout when contents break, because there's no proof of mover negligence. Particleboard furniture is not covered. |
+| Reporting damage | Tell the crew right away, or report within **14 days**. Notify the lead or the main office. Take clear photos from several angles. Every claim goes through BHM's established claims process. |
+| Resolution | Repair first. If it can't be fixed to the customer's satisfaction, BHM replaces the item. |
+| Condition photos | Items are photographed before pickup when the customer asks, and especially when the crew notice existing damage. All big-value items are photographed. |
+| Storage | Climate controlled. Customers can visit their items and get an inventory list of everything received and stored at the warehouse. Stored items are insured. 1-month minimum, billed **per item** by category ("Receiving & Storage"): the first charge covers receiving plus the first month; each month after that is 50% of the initial rate. Optional warehouse pre-assembly: $10 per item. (Per-category prices not given: don't publish them.) |
+| Crew page | First names and photos OK (photos still go through the photo-privacy gate). |
+| PPM weight tickets | Certified empty and full weight tickets for military PPM moves, on request. |
+| Same-day pricing | No markup for same-day jobs. |
+| Hourly minimum and drive time | Strict **2-hour minimum** on every job, for every crew size (2, 3 or 4 movers). Drive time is billed from the warehouse to the job and back, at the hourly crew rate. (Billing increment and deposit not answered.) |
+| Not-to-exceed | Available on request. |
+| Estimate and contract | Signed on site on move day, before any work starts (not ahead of move day). |
+
+Not confirmed, so never state them: prices beyond the published rate and the storage terms above, full-value-protection pricing, billing increment, deposits, specific weight limits, named assisted-living
 facilities, named competitors.
 
 ## Research

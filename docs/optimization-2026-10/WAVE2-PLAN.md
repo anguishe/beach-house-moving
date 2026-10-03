@@ -34,7 +34,31 @@ public repo; cited below as `research/<file>:<line>`): `~/Projects/docs/bhm-opti
 | 2.5 | `seo/w2-5-no-work-days` | 30A & Sandestin no-work-day calendar | `/resources/30a-sandestin-no-work-days-calendar` | no reportable volume (condo move rules — KP:80); AC "movers destin memorial day", "movers santa rosa beach in december" (QB:283). A linkable, citable asset. **Ship before Nov 7, 2026** so the remaining 2026 dates are still ahead | 2.1 |
 | 2.6 | `seo/w2-6-rain-hurricane` | Rain and hurricane-season guide | `/resources/moving-in-rain-hurricane-season-emerald-coast` | moving in the rain 100–1K (KP:74); AC-L "hurricane season moving to destin fl", "movers… under evacuation" (QB:278) | 2.1 |
 | 2.7 | `seo/w2-7-pcs-ppm` | PPM/DITY expansion of the PCS field guide | — (edit) | ppm move / dity move 100–1K ($18.00 / $8.15); pcs move checklist 100–1K (KP:70–71); AC "ppm move eglin afb" (QB:131); GSC "eglin air force base movers" 40 impr, pos 14.5 (QB:52) | 2.1 |
-| — | BLOCKED | Damage and claims promise; storage revamp | — | see "Blocked items" | Les |
+| 2.8 | `seo/w2-8-damage-claims` | Coverage, damage and claims page (**unblocked 10/03**) | `/coverage-and-claims` | are movers insured 10–100; certificate of insurance for movers 100–1K ($20.77) (KP); top competitor complaint themes (CP:89–90, CP:213–218) | 2.1 (check script) |
+| 2.9 | `seo/w2-9-storage-revamp` | Storage revamp on `/services/storage` (**unblocked 10/03**) | — (edit) | storage santa rosa beach / storage units srb 100–1K ($25.00) (KP); GSC "storage santa rosa beach" pos ~1, 0 clicks (intent mismatch) | 2.1 (check script) |
+| 2.10 | `seo/w2-10-meet-the-crew` | Meet the crew (first names + photos) on `/about` | — (section) | E-E-A-T / trust; "owners are the movers" proof | names + photos from Travis |
+
+**Revised merge order (2026-10-03):** 2.1 → 2.5 (deadline Nov 7) → 2.4 → 2.9 → 2.8 → 2.2 → 2.7 → 2.3 → 2.6 → 2.10. See
+"Revision 2026-10-03" below for why.
+
+## Revision 2026-10-03 (Les's answers + search findings). This section wins over anything older below.
+- **Facts:** Les answered the damage, claims, storage, crew and pricing questions (README "Les answers", 2026-10-03). Every
+  line in "Lines held out of shipped PRs" except storm rescheduling, billing increment, deposits and full-value pricing is
+  now shippable. Apply them in the PR that owns each page (table in "Formerly blocked items").
+- **Order:** most priority town pages are *Discovered – not indexed* (URL Inspection API 10/03), so new URLs index slowly.
+  Edits to pages Google already has (`/pricing` 2.4, storage 2.9, cost guide 2.2, PCS guide 2.7) go ahead of new URLs.
+  2.1 stays first because it ships the template blocks and `check-page.mjs` every later PR uses. 2.5 keeps its Nov 7 deadline.
+- **Interstate:** FMCSA SAFER showed BHM's USDOT and operating authority OUT-OF-SERVICE on 2026-10-03 (Travis: known, being
+  fixed). Keep existing interstate copy. **Never print the USDOT or MC number, and never invite a federal lookup of BHM**,
+  until SAFER shows ACTIVE. Re-check SAFER before PR 2.1 and 2.8.
+- **Estimates:** BHM's estimate and contract are signed on site on move day, before any work starts. PR 2.1's "get it in
+  writing before any work" guidance matches that; don't say "before move day".
+- **Already done:** follow-up F1 (statutory "Fla. Mover Reg. No." sweep) shipped in PR #8. Live minimum claims that
+  contradicted Les (storage "no rigid minimum"; delivery and loading help "no minimum") were fixed 2026-10-03, and the
+  homepage schema `areaServed` now lists 30A and the Walton beach communities.
+- **Off-site work matters more than any page in this wave** (`docs/SEARCH-FINDINGS-2026-10-03.md`): reviews (14 vs 41–520),
+  Bing Places publishing (BHM is missing from Bing's local pack, which also feeds ChatGPT), and indexing requests. These sit
+  in Wave 3 and the GSC queue, and run in parallel with these PRs.
 
 ## Global Constraints
 - **Worktree per PR.** Another session works in the main checkout. Start every PR with
@@ -45,11 +69,13 @@ public repo; cited below as `research/<file>:<line>`): `~/Projects/docs/bhm-opti
 - **Claims about BHM come only from README "Owner-confirmed service facts"**, quoted here:
   Same-day: "offered across all services when they have availability. Never promise it."
   Rain: "They work in the rain, but not if it risks any items. They confirm with the customer first."
-  Interstate: "Licensed and certified for interstate moves … No USDOT/MC number on file, so don't print one."
+  Interstate: "Licensed and certified for interstate moves." Never print the USDOT/MC number (see Revision 2026-10-03).
   Gulf Breeze, Pace, Milton: "Served when they have availability." Plus the published rate (`RATE_LINE`).
   **Copy that is already live on the site may be reused, not extended** (e.g. "drive time is billed on top — we tell you
-  both before the job starts", "a real person answers the phone, day or night", "the owners are the movers"). Nothing about
-  damage, claims, valuation options, storage terms, weather rescheduling, same-day pricing, minimums or weight tickets.
+  both before the job starts", "a real person answers the phone, day or night", "the owners are the movers"). Since 2026-10-03 the
+  README "Les answers" table also counts (coverage, claims, storage terms, same-day pricing, the 2-hour minimum, drive time,
+  weight tickets, not-to-exceed, move-day signing). Still nothing about weather rescheduling, billing increments, deposits,
+  full-value-protection pricing or per-category storage prices.
 - **Third-party facts** come only from `research/linkable-assets.md` and each carries its source URL. Before opening the PR,
   re-open every source URL the PR cites, confirm the fact still reads the same, and record URL + check date in the PR body and
   in the post's `sources[].asOf`. Drop any fact that changed, 404s, or can't be confirmed. Never cite the Army.mil 24/7 PPA
@@ -1407,51 +1433,54 @@ weight tickets" (LA:179, LA:244), is **not owner-confirmed**, so the guide state
 - [ ] S4 → `0` (TMO addresses are government buildings; the guard checks BHM's address only). S5–S7. After merge, re-request indexing for the guide.
 
 ### Review Focus (PR 2.7)
-1. **Weight tickets:** DoD rule only; no BHM weight-ticket claim until Les answers.
+1. **Weight tickets:** DoD rule plus "on request, we provide certified empty and full weight tickets" (Les, 2026-10-03).
 2. **Ranking safety:** title and H1 unchanged; the PCS duplicate's 301 still resolves (`curl -sI localhost:3917/resources/military-pcs-move-eglin-hurlburt | head -1` → `308`/`301`).
 3. **TMO data freshness:** the "as listed on <date>" sentence and both sources are present.
 
 ---
 
-## Blocked items
+## Formerly blocked items (unblocked 2026-10-03)
 
-### B1. Damage and claims promise (blocked on Les, LES-QUESTIONS Q2)
-Answers the #1 and #2 competitor complaint themes (CP:89–90, CP:213–218). Placement (a `/pricing` or `/about` section, or its
-own page plus a short block on every service page) is decided after the answers. Exact facts needed:
-1. Valuation options offered: only the Florida minimum (60¢ per lb per article, §507.04(5)), or also full-value protection or
-   third-party coverage, and at what price. How the valuation rate is disclosed in writing at signing (§507.04(6)).
-2. Cargo coverage: insurer and per-shipment limit (law: ≥ $10,000; with 3 vehicles, the bond/CD alternative isn't available).
-3. Claims process: how to report (phone, email, form), the deadline after delivery, response time, who handles it (named owner),
-   and repair vs replace vs cash settlement.
-4. Pre-move condition documentation (photos at pickup?) and the wrap standard per item type (mattress bags, TV boxes, rugs rolled) that can be promised.
-5. Exclusions (owner-packed boxes, particleboard, high-value items) and how high-value items must be declared.
+Where each newly confirmed fact goes (README "Les answers"):
 
-### B2. Storage revamp (PAUSED by Travis, 2026-10-02; LES-QUESTIONS Q6–Q9)
-Needs: climate control (and humidity control), access (visits or pickup/delivery only), minimum term, billing model (per vault,
-month or cubic foot), insurance of stored goods, maximum duration. Constraint to state once answered: a mover can't put goods in a
-third party's self-storage unit unless it's in the customer's name (§507.07(11), LA:124). GBP post 10 stays on hold. Until then,
-no Wave 2 page adds a storage claim.
-
-### Lines held out of shipped PRs (each is one Les answer away)
-| Held line | PR | Needs |
+| Fact | Ships in | Exact claim allowed |
 |---|---|---|
-| "We provide certified empty/full weight tickets for PPMs" | 2.7 | Les: do you, and how (scale stops on move day)? |
-| Storm reschedule / cancellation terms | 2.6 | Les Q3 second half |
-| Same-day pricing (same rate or a markup) | 2.3 | Les |
-| Minimum hours, billing increment, how drive time is counted, deposit, not-to-exceed option, no-idle rule, time check-ins | 2.4 | Les (PRICING-PAGE-PLAN C1–C2, C6) |
-| BHM's USDOT/MC number for interstate verification | 2.1 | Travis/Les |
-| FDACS screenshot (only if Task 3 lookup fails) | 2.1 | Travis |
+| Certified empty/full weight tickets for PPMs | 2.7 | "On request, we provide certified empty and full weight tickets." Replace the PR 2.7 `--no-text "we provide weight tickets"` check with `--text "certified empty and full weight tickets"`. |
+| Same-day pricing | 2.3 | "Same-day jobs cost the same as any other day: no markup." Keep "when a crew is free"; still never promise same-day. |
+| 2-hour minimum, drive time from the warehouse and back, not-to-exceed on request | 2.4 | Add to `PRICING_HOURLY_HONEST`: "Every job has a 2-hour minimum, whatever the crew size." "Drive time runs from our warehouse to your job and back, at your crew's hourly rate." "Want a ceiling? Ask for a not-to-exceed price." |
+| Estimate and contract signed on site before work | 2.1, 2.4 | "You sign the estimate and contract on site, before we start." |
+| Coverage, exclusions, reporting, repair/replace, condition photos | 2.8 | As in README, verbatim figures: $750,000 general liability; $375,000 cargo; $100,000 per move; $10,000 per item; full value protection optional at an added cost ("ask at quote"). |
+| Storage terms | 2.9 | Climate controlled; visits allowed; inventory list; insured; 1-month minimum; billed per item (first charge = receiving + month one, then 50% monthly); optional $10/item pre-assembly. No per-category prices. |
+| Storm reschedule / cancellation terms | still held | Les Q3 second half was never answered. Only "we decide with you" ships (PR 2.6). |
+| Billing increment, deposit, full-value price | still held | Not answered. |
 
-**Paste-ready Les questions (append to LES-QUESTIONS.txt; main session sends):**
-```
-Wave 2 follow-ups:
-10. PPM moves: do you give military customers certified empty and full weight tickets (scale stops on move day)?
-11. Same-day jobs: same hourly rate, or a markup like after-hours office moves?
-12. Hourly: is there a minimum (hours)? Billed by the hour, half hour or 15 min? Does drive time start at your yard or at the first address? Any deposit?
-13. Would you offer a "not to exceed" price on some jobs? (Only if you want to.)
-14. Interstate: what's your USDOT number (and MC number if you have one)? We won't print it until you send it.
-15. Estimates: do customers sign a written estimate/contract before move day (paper or e-sign)?
-```
+## PR 2.8: Coverage, damage and claims page
+**Why:** damage and surprise-bill complaints are the top two competitor review themes (CP:89–90, CP:213–218). Nobody local
+publishes their limits; BHM now can. **URL:** `/coverage-and-claims` (a static page like `/pricing`, so it can carry a table
+and FAQPage schema). **Files:** `src/app/coverage-and-claims/page.tsx` (copy the `/pricing` page structure),
+`src/lib/content.ts` (new `COVERAGE_PAGE` object: hero, limits table, "not covered" list, "if something gets damaged" steps,
+FAQ), `src/app/sitemap.ts`, footer and `/pricing` links, `ARCHITECTURE.md`, `public/llms.txt`.
+**Copy facts:** only the README "Les answers" coverage, exclusions, reporting (crew right away or within 14 days, the lead or
+main office, photos from several angles), repair first then replace, condition photos. Publish only the customer-facing steps. Explain the Florida minimum (60¢ per lb per article, §507.04) only as context, citing LA.
+**Meta:** title "Moving Insurance, Coverage & Claims | Beach House Moving" (56); description ≤ 160 naming the $100,000 per-move
+limit and the 14-day window. **Links in:** `/pricing` (new "Coverage" line), each service page's FAQ "Are you insured?" where
+one exists, the legit guide (2.1). **Checks:** `check-page.mjs /coverage-and-claims --text "100,000" --text "14 days" --text
+"owner-packed" --no-text "USDOT"`, S1–S7. **Review Focus:** exact figures match README; no promise of payout timing; no
+"we cover everything".
+
+## PR 2.9: Storage revamp on `/services/storage`
+**Why:** "storage santa rosa beach" shows BHM at about #1 with 0 clicks: searchers expect a self-storage unit. The page must
+say plainly that BHM picks up, stores in its own climate-controlled warehouse, and delivers. **Files:**
+`src/lib/service-details.ts` (`storage` sections and FAQs), `src/lib/content.ts` (`storage` shortDescription, metaDescription,
+`updatedAt`). **Copy facts:** storage row of the table above. Add the §507.07(11) note (a mover can't put goods in a
+third-party unit unless it's in the customer's name; LA:124), and re-open that source before shipping. Rewrite GBP-POSTS-2026-09 post 10 from the same facts.
+**Checks:** `check-page.mjs /services/storage --text "climate-controlled" --text "inventory list" --text "one month"
+--no-text "no rigid minimum"`; title unchanged (it ranks). S1–S7.
+
+## PR 2.10: Meet the crew (on `/about`)
+**Blocked on inputs, not facts:** Travis sends the first names to show and one photo per person. Each photo goes through the
+CLAUDE.md photo-privacy gate (full-size look + `npm run audit:photo-pii`). Section "The Crew" on `/about`: first name, role,
+one confirmed line each (owner-supplied only). `Person` schema for owners only if Travis approves. No last names.
 
 ## Spec conflicts and rulings
 1. **Navarre plan vs README:** WAVE1-PLAN-NAVARRE said "don't name Gulf Breeze, Pace, Milton"; README (2026-10-03) confirms them
@@ -1464,7 +1493,8 @@ Wave 2 follow-ups:
    "Background-checked" (`/pricing`, military FAQ) is verified against ch. 507 in PR 2.1 and cut if unsupported.
 6. **Statutory wording:** the legit guide explains "Fla. Mover Reg. No." / "Fla. IM No.", while the site shows "FL Mover Reg. #IM4125"
    in about 38 places. Not swept in Wave 2 (sitewide, `CONTENT_REVISION`-wide); recommended as follow-up F1, ideally merged before PR 2.1.
-7. **Interstate confirmed, no USDOT:** the guide treats interstate generically and never invites a BHM federal lookup.
+7. **Interstate confirmed, USDOT not printable:** the guide treats interstate generically and never invites a BHM federal lookup
+   (SAFER shows OUT-OF-SERVICE as of 2026-10-03; Travis: being fixed). Revisit once SAFER shows ACTIVE.
 8. **PCS guide accuracy:** "reimburses a percentage" contradicts DoD (100% GCC); corrected in PR 2.7.
 9. **"No-move days" (DESIGN) vs sources:** they are work rules; titled "No-Work Days" with a confirm-with-management caveat.
 10. **Hurricane "reschedule policy" (research suggestion):** not confirmed; only "we decide with you" ships.
@@ -1472,9 +1502,9 @@ Wave 2 follow-ups:
 12. **`posts.ts` import-free:** rate written literally; the cost guide's old meta description (rate without drive time) fixed in PR 2.2.
 
 ## Follow-ups (not in these PRs)
-- **F1 (recommended before PR 2.1):** statutory-wording sweep: `LICENSE_DISPLAY`, `FAQS[1]`, `service-details.ts`, posts and
-  llms.txt to "Fla. Mover Reg. No. IM4125"; bump `CONTENT_REVISION`. Travis decides.
-- **F2:** `/pricing` "fuel included" and "what we quote is what you pay" (PRICING-PAGE-PLAN C2/C3) once Les answers Q12.
+- ~~**F1:** statutory-wording sweep~~ **Done** in PR #8 (2026-10-03).
+- **F2:** `/pricing` "fuel included" and "what we quote is what you pay" (PRICING-PAGE-PLAN C2/C3): Q12 is answered for the
+  minimum and drive time but not fuel; ask Les "is fuel included in the hourly rate?" before shipping either line.
 - **F3:** yearly calendar refresh: a report-only reminder for Jan 15 and Aug 31 each year (Travis approves; no acting routine).
 - **GBP (posting kit, no UTM, no phone in body):** one post per new URL: the legit guide, the same-day page (also add
   "Same-day moving" as a GBP custom service, ≤300 chars, availability-qualified), the calendar (time it before Nov 7), the rain

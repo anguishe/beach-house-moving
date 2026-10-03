@@ -19,7 +19,7 @@ of 16 local competitor sites), and competitor GBP categories. Raw data is in the
 ## Priority targets (8): track these monthly
 | # | Search (cluster) | Volume (KP) | Now (GSC) | Target | Page that wins it |
 |---|---|---|---|---|---|
-| 1 | movers santa rosa beach (fl) | 100–1K, $39.65 | Maps ~#1–2 (GBP); **organic homepage #3.6** (GSC 28d to 10/03; was ~#19 over 90d) | Maps top 3 ✓ keep; **organic page 1 ✓**, now top 3 | `/` (title already leads with it) plus `/service-areas/walton-county/santa-rosa-beach` |
+| 1 | movers santa rosa beach (fl) | 100–1K, $39.65 | Maps #4 from SRB (Places grid 10/03); organic: GSC 28d avg #3.6, but **page 2 (~#17) for a Destin-area searcher** (incognito 10/03) | Maps top 3; **organic page 1 beyond SRB** | `/` (title already leads with it) plus `/service-areas/walton-county/santa-rosa-beach` |
 | 2 | movers 30a / moving company 30a | (no reportable volume; high value) | not ranking | Maps top 3 and page 1 | `/service-areas/walton-county/30a` (index requested 10/02) |
 | 3 | movers miramar beach (fl) | 10–100 | Maps #1 (GBP) | Maps top 3 ✓; page 1 | `/service-areas/walton-county/miramar-beach` (index requested 10/02) |
 | 4 | piano movers (near me / srb / 30a / destin) | near me 10K–100K | Maps ~#2 (GBP), no page | Maps top 3 and page 1 | **new** `/services/piano-moving` (Wave 1) |
@@ -60,10 +60,12 @@ These are the patterns local competitors use, plus the ones they're missing:
   after the free baseline.
 
 ## GSC findings 2026-10-03 (service-account API, organic rows only, GBP `utm` rows excluded)
-- **Homepage already ranks page 1 for the Santa Rosa Beach head terms** (last 28 days): "movers santa rosa beach fl"
-  #3.6 (154 impr), "santa rosa beach movers" #5.7 (93), "moving companies santa rosa beach" #1.7 (66). The "~#28"
-  above came from an older blended read. The Wave 1 "homepage on-page push" is **closed with no code change**:
-  title and H1 already lead with the phrase, and further gains are prominence (reviews, links), not on-page.
+- GSC 28-day averages for the homepage: "movers santa rosa beach fl" #3.6 (154 impr), "santa rosa beach movers" #5.7
+  (93), "moving companies santa rosa beach" #1.7 (66). The old "~#28" came from a July export. **Correction (same day):**
+  a signed-out search from near Destin showed the homepage on page 2 (~#17) for the same query
+  (`docs/SEARCH-FINDINGS-2026-10-03.md`, F1). GSC averages every searcher, and BHM ranks higher close to Santa Rosa
+  Beach. The homepage item stays **open**: title and H1 already lead with the phrase, so the levers are prominence
+  (reviews, links, Bing Places) and the town pages getting indexed. Re-measure with the attended baseline (10/04).
 - **The real gap is indexing, not content.** The URL Inspection API shows the Walton hub, Santa Rosa Beach, 30A,
   Miramar Beach, Destin and junk removal as *Discovered – currently not indexed* (never crawled); Navarre and piano
   moving are *unknown to Google*. Internal links are not the cause: the homepage, the sitewide footer and the indexed
