@@ -141,9 +141,12 @@ export default async function NeighborhoodPage({ params }: PageProps) {
   // Sibling neighborhoods in the same county — generated from the data layer
   // so every geo page cross-links to its peers (internal-link equity) and the
   // county hub, instead of dead-ending with a single inbound link.
-  const nearbyAreas = NEIGHBORHOODS.filter(
-    (n) => n.county === nb.county && n.slug !== nb.slug,
-  )
+  const nearbyAreas = [
+    ...NEIGHBORHOODS.filter((n) => n.county === nb.county && n.slug !== nb.slug),
+    ...(nb.nearbySlugs ?? [])
+      .map((slug) => NEIGHBORHOODS.find((n) => n.slug === slug))
+      .filter((n): n is (typeof NEIGHBORHOODS)[number] => n !== undefined && n.county !== nb.county),
+  ]
 
   const pageUrl = `${base}/service-areas/${area.slug}/${nb.slug}`
 
@@ -379,7 +382,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
                 {nearbyAreas.map((sibling) => (
                   <Link
                     key={sibling.slug}
-                    href={`/service-areas/${area.slug}/${sibling.slug}`}
+                    href={`/service-areas/${SERVICE_AREAS.find((a) => a.county === sibling.county)?.slug ?? area.slug}/${sibling.slug}`}
                     className="inline-flex items-center gap-1 rounded-full border border-brand-navy/10 bg-white px-4 py-2 font-body text-sm font-medium text-brand-navy shadow-brand transition-shadow hover:shadow-brand-hover"
                   >
                     {sibling.name}, FL

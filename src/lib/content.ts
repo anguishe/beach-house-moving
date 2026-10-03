@@ -216,6 +216,30 @@ export const SERVICE_AREAS = [
       },
     ],
   },
+  {
+    county: 'Santa Rosa County',
+    slug: 'santa-rosa-county',
+    featuredNeighborhoodSlugs: ['navarre'] as readonly string[],
+    cities: ['Navarre', 'Navarre Beach'],
+    image: '/images/beach-house-moving-fleet-truck-van.jpg',
+    description:
+      'In Santa Rosa County we serve Navarre and Navarre Beach, the stretch of US-98 just west of Hurlburt Field and Mary Esther. It is a natural extension of our Okaloosa runs: military families moving near Hurlburt, beach homes and condos on Navarre Beach, and family neighborhoods on the mainland side. Same owner-operated crew, same care, and the drive time is quoted up front so the number holds.',
+    whatWeMoveIntro:
+      'Navarre homes, Navarre Beach condos, and Hurlburt-area PCS moves, quoted with the drive time included up front.',
+    metaTitle: 'Navarre FL Movers — Santa Rosa County | Beach House Moving',
+    metaDescription:
+      'Licensed, owner-operated movers serving Navarre and Navarre Beach in Santa Rosa County. Home, condo and PCS moves. Free quote — (850) 842-1962.',
+    faqs: [
+      {
+        q: 'Which parts of Santa Rosa County do you serve?',
+        a: 'Navarre and Navarre Beach. Moving somewhere else in Santa Rosa County? Call (850) 842-1962 and ask. If we can get there, we will.',
+      },
+      {
+        q: 'Do you charge drive time to Navarre?',
+        a: 'Our published rate is $195/hr for 2 movers, plus drive time. Navarre is west of our usual Okaloosa runs, so we tell you the drive time up front when we quote.',
+      },
+    ],
+  },
 ] as const
 
 // Widening of a SERVICE_AREAS record exposing optional updatedAt (YYYY-MM-DD)
@@ -1535,6 +1559,8 @@ export type Neighborhood = {
    */
   confirmedWork?: string
   localFaqs: { question: string; answer: string }[]
+  /** Cross-county neighbors to link under "Nearby areas" (used when a county has few or no siblings). */
+  nearbySlugs?: readonly string[]
   // ISO date (YYYY-MM-DD). Set this when a neighborhood's content changes so
   // sitemap.ts can emit an accurate <lastmod>. Falls back to the curated
   // neighborhood date in sitemap.ts when omitted.
@@ -2034,7 +2060,8 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'fort-walton-beach',
-    updatedAt: '2026-09-08',
+    updatedAt: '2026-10-03',
+    nearbySlugs: ['navarre'],
     name: 'Fort Walton Beach',
     county: 'Okaloosa County',
     image: '/images/truck-dolly.jpg',
@@ -2254,5 +2281,38 @@ export const NEIGHBORHOODS = [
         answer: `Lynn Haven is at the eastern edge of our area, separated from the beach by the bay. We quote the mileage and the bay-crossing drive time honestly upfront, so the travel is built into the estimate with no surprises.`,
       },
     ],
+  },
+  {
+    slug: 'navarre',
+    updatedAt: '2026-10-03',
+    name: 'Navarre',
+    county: 'Santa Rosa County',
+    image: '/images/beach-house-moving-luxury-home-fleet-truck-and-van.jpg',
+    intro:
+      'Navarre runs along US-98 between Gulf Breeze and Mary Esther, with Navarre Beach across Santa Rosa Sound on Santa Rosa Island. Hurlburt families, beach condos, and established mainland neighborhoods make up most of the work, and we bring the same owner-operated crew we run everywhere else.',
+    landmarks: ['Navarre Beach', 'Navarre Beach Fishing Pier', 'Navarre Beach Bridge', 'US-98', 'Holley by the Sea', 'Hurlburt Field'],
+    metaTitle: 'Movers in Navarre, FL | Beach House Moving',
+    metaDescription:
+      'Owner-operated, licensed movers for Navarre and Navarre Beach: home, condo and Hurlburt PCS moves. Free quote — (850) 842-1962.',
+    localBody: `Navarre is two different moves depending on which side of Santa Rosa Sound you are on. On the mainland side, neighborhoods like Holley by the Sea are family streets with real driveways, where the work is straightforward and the planning is about timing. Across the Navarre Beach Bridge on Santa Rosa Island, it is beach work: elevated homes with exterior stairs, condos with elevator and loading rules, and summer traffic on the bridge that sets the clock. A lot of Navarre moves are tied to Hurlburt Field, a short drive east on US-98, so PCS report dates and short-notice orders are normal and we plan around them. Navarre sits west of our usual Okaloosa runs, so we quote the drive time honestly up front rather than surprising you at the end. Same-day help is sometimes possible when a crew is free, so it is always worth a call. We will work in the rain when it is safe for your things, and we check with you first when it is not.`,
+    localFaqs: [
+      {
+        question: 'Do you move to and from Navarre Beach?',
+        answer: 'Yes. Navarre Beach homes and condos are regular work: exterior stairs, elevator reservations and bridge traffic are all part of the plan before move day.',
+      },
+      {
+        question: 'Can you handle a Hurlburt Field PCS move to Navarre?',
+        answer: 'Yes. Navarre is one of the most common off-base choices near Hurlburt, and we build the move around your report date, including PPM paperwork with itemized invoices.',
+      },
+      {
+        question: 'Do you offer same-day moves in Navarre?',
+        answer: 'When a crew is available, yes. We offer same-day service across all of our services, but it depends on the schedule, so call (850) 842-1962 as early as you can.',
+      },
+      {
+        question: 'Is Navarre outside your service area?',
+        answer: 'No. Navarre is in our radius. It is west of our Okaloosa runs, so we include the drive time in your quote up front.',
+      },
+    ],
+    nearbySlugs: ['fort-walton-beach', 'destin'],
   },
 ] as const satisfies readonly Neighborhood[]
