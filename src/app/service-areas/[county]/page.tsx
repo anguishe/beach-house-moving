@@ -19,7 +19,7 @@ import { PageShell } from '@/components/layout/PageShell'
 import { FAQSection } from '@/components/sections/FAQSection'
 import { TrustStrip } from '@/components/TrustStrip'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES } from '@/lib/content'
+import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES, areaLabel } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { breadcrumbSchema, countyAreaSchema, faqPageSchema, webPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
@@ -65,7 +65,7 @@ export default async function CountyPage({ params }: PageProps) {
     [
       { name: 'Home', path: '/' },
       { name: 'Service Areas', path: '/service-areas' },
-      { name: area.county, path: `/service-areas/${area.slug}` },
+      { name: areaLabel(area), path: `/service-areas/${area.slug}` },
     ],
     origin.origin,
   )
@@ -87,9 +87,9 @@ export default async function CountyPage({ params }: PageProps) {
       />
 
       <PageHero
-        title={`Movers in ${area.county}`}
+        title={`Movers in ${areaLabel(area)}`}
         description={area.description}
-        image={{ src: area.image, alt: `Beach House Moving serving ${area.county}` }}
+        image={{ src: area.image, alt: `Beach House Moving serving ${areaLabel(area)}` }}
         priority
       />
 
@@ -101,7 +101,7 @@ export default async function CountyPage({ params }: PageProps) {
             items={[
               { label: 'Home', href: '/' },
               { label: 'Service Areas', href: '/service-areas' },
-              { label: area.county },
+              { label: areaLabel(area) },
             ]}
           />
 
@@ -153,7 +153,7 @@ export default async function CountyPage({ params }: PageProps) {
         <section className="bg-brand-sand px-6 py-12 md:py-16">
           <div className="mx-auto max-w-6xl">
             <h2 className="mb-4 font-heading text-2xl font-bold text-brand-navy md:text-3xl">
-              Communities We Serve in {area.county}
+              Communities We Serve in {areaLabel(area)}
             </h2>
             {featuredNbs.length > 0 && (
               <p className="mb-8 font-body text-base leading-relaxed text-ink-muted">
@@ -203,7 +203,7 @@ export default async function CountyPage({ params }: PageProps) {
       <section className="bg-brand-navy px-6 py-16">
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="font-heading text-2xl font-bold text-white md:text-3xl">
-            Ready to move in {area.county}?
+            Ready to move in {areaLabel(area)}?
           </h2>
           <p className="mx-auto mt-4 max-w-lg font-body text-base text-white/70">
             Free estimates with no obligation. Call now or request a quote online.

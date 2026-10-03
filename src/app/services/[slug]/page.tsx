@@ -17,8 +17,7 @@ import {
   SERVICE_AREAS,
   SERVICE_FAQ_INDICES,
   SERVICE_INCLUDES,
-  SERVICES,
-} from '@/lib/content'
+  SERVICES, areaLabel } from '@/lib/content'
 import { renderBody } from '@/lib/render-body'
 import { buildMetadata } from '@/lib/seo'
 import { SERVICE_DETAILS, SERVICE_RELATED } from '@/lib/service-details'
@@ -70,7 +69,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   // Service → geography deep links. County hubs + a curated set of towns,
   // hrefs resolved from data (never hardcoded) so slugs stay in one place.
   const countyHubs = SERVICE_AREAS.map((area) => ({
-    label: area.county,
+    label: areaLabel(area),
     href: `/service-areas/${area.slug}`,
   }))
   const geoTownSlugs = [

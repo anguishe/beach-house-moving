@@ -30,16 +30,21 @@ const SCHEMA_CITIES = [
   'Panama City Beach',
   'Panama City',
   'Crestview',
+  'Navarre',
+  'Navarre Beach',
 ] as const
 
 const SCHEMA_SERVICE_AREA_HUB = [
   { county: 'Walton County', slug: 'walton-county' },
   { county: 'Okaloosa County', slug: 'okaloosa-county' },
   { county: 'Bay County', slug: 'bay-county' },
+  { county: 'Santa Rosa County', slug: 'santa-rosa-county' },
 ] as const
 
 type CountyAreaInput = {
   county: string
+  displayName?: string
+  partialCounty?: boolean
   slug: string
   cities: readonly string[]
   description: string
@@ -327,12 +332,10 @@ export function countyAreaSchema(area: CountyAreaInput, origin: string) {
   const base = origin.replace(/\/$/, '')
 
   const areaServed = [
-    {
-      '@type': 'AdministrativeArea' as const,
-      name: area.county,
-      addressRegion: 'FL',
-      addressCountry: 'US',
-    },
+    // Partial counties (Navarre-only Santa Rosa) list their cities, never the whole county.
+    ...(area.partialCounty
+      ? []
+      : [{ '@type': 'AdministrativeArea' as const, name: area.county, addressRegion: 'FL', addressCountry: 'US' }]),
     ...area.cities.map((city) => ({
       '@type': 'City' as const,
       name: city,
@@ -350,7 +353,7 @@ export function countyAreaSchema(area: CountyAreaInput, origin: string) {
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: `Moving Services in ${area.county}`,
+      name: `Moving Services in ${area.partialCounty ? area.cities.join(' and ') : area.county}`,
       description: area.description,
       url: absoluteUrl(base, `/service-areas/${area.slug}`),
       provider: {

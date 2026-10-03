@@ -6,7 +6,7 @@
 // ============================================================
 
 // Bump when a deploy changes rendered copy/links on templated pages.
-export const CONTENT_REVISION = '2026-09-25'
+export const CONTENT_REVISION = '2026-10-03'
 
 // Feature flags.
 // SHOW_TESTIMONIALS: true = show static Google reviews from TESTIMONIALS[].
@@ -216,12 +216,53 @@ export const SERVICE_AREAS = [
       },
     ],
   },
+  {
+    county: 'Santa Rosa County',
+    slug: 'santa-rosa-county',
+    // Navarre only: never present this as all of Santa Rosa County (labels, schema).
+    displayName: 'Navarre (Santa Rosa County)',
+    partialCounty: true,
+    updatedAt: '2026-10-03',
+    featuredNeighborhoodSlugs: ['navarre'] as readonly string[],
+    cities: ['Navarre', 'Navarre Beach'],
+    image: '/images/beach-house-moving-fleet-truck-van.jpg',
+    description:
+      'In Santa Rosa County we serve Navarre and Navarre Beach, the stretch of US-98 just west of Hurlburt Field and Mary Esther. It is a natural extension of our Okaloosa runs: military families moving near Hurlburt, beach homes and condos on Navarre Beach, and family neighborhoods on the mainland side. Same owner-operated crew, same care, and the drive time is quoted up front so the number holds.',
+    whatWeMoveIntro:
+      'Navarre homes, Navarre Beach condos, and Hurlburt-area PCS moves, quoted with the drive time included up front.',
+    metaTitle: 'Navarre FL Movers — Santa Rosa County | Beach House Moving',
+    metaDescription:
+      'Licensed, owner-operated movers serving Navarre and Navarre Beach in Santa Rosa County. Home, condo and PCS moves. Free quote — (850) 842-1962.',
+    faqs: [
+      {
+        q: 'Which parts of Santa Rosa County do you serve?',
+        a: 'Navarre and Navarre Beach. Moving somewhere else in Santa Rosa County? Call (850) 842-1962 and ask. If we can get there, we will.',
+      },
+      {
+        q: 'Do you charge drive time to Navarre?',
+        a: 'Our published rate is $195/hr for 2 movers, plus drive time. Navarre is west of our usual Okaloosa runs, so we tell you the drive time up front when we quote.',
+      },
+    ],
+  },
 ] as const
 
 // Widening of a SERVICE_AREAS record exposing optional updatedAt (YYYY-MM-DD)
 // for sitemap <lastmod>. Set on a record when its county page content changes;
 // sitemap falls back to CONTENT_REVISION otherwise.
-export type ServiceArea = (typeof SERVICE_AREAS)[number] & { updatedAt?: string }
+export type ServiceArea = (typeof SERVICE_AREAS)[number] & {
+  updatedAt?: string
+  /** Visible label when BHM serves only part of the county (e.g. Navarre). */
+  displayName?: string
+  /** True when BHM serves only part of the county: schema lists cities, not the county. */
+  partialCounty?: boolean
+}
+
+/** Visible county label: the scoped displayName when set, else the county name. */
+export const areaLabel = (area: { county: string }): string =>
+  (area as ServiceArea).displayName ?? area.county
+
+export const isPartialCounty = (county: string): boolean =>
+  (SERVICE_AREAS as readonly ServiceArea[]).some((a) => a.county === county && a.partialCounty === true)
 
 export const SERVICES = [
   {
@@ -432,7 +473,7 @@ export const QUOTE_FORM_HEARD_ABOUT = [
 export const FAQS = [
   {
     q: 'What areas does Beach House Moving serve?',
-    a: 'Beach House Moving serves Walton, Okaloosa, and Bay Counties across the Florida Panhandle. In Walton County we cover Santa Rosa Beach, all of 30A including Rosemary Beach, Alys Beach, Seaside, and Watercolor, plus Miramar Beach, Freeport, and DeFuniak Springs. In Okaloosa County we serve Destin, Fort Walton Beach, Niceville, Crestview, Shalimar, and the communities surrounding Eglin Air Force Base and Hurlburt Field. In Bay County we cover Panama City, Panama City Beach, Lynn Haven, Callaway, and Springfield. We also handle long-distance moves beyond the Panhandle — if you are relocating to another part of Florida or out of state, we can coordinate that too. Call (850) 842-1962 to confirm your area and get a free quote.',
+    a: 'Beach House Moving serves Walton, Okaloosa, and Bay Counties across the Florida Panhandle. In Walton County we cover Santa Rosa Beach, all of 30A including Rosemary Beach, Alys Beach, Seaside, and Watercolor, plus Miramar Beach, Freeport, and DeFuniak Springs. In Okaloosa County we serve Destin, Fort Walton Beach, Niceville, Crestview, Shalimar, and the communities surrounding Eglin Air Force Base and Hurlburt Field. In Bay County we cover Panama City, Panama City Beach, Lynn Haven, Callaway, and Springfield. West of Okaloosa we serve Navarre and Navarre Beach in Santa Rosa County. We also handle long-distance moves beyond the Panhandle — if you are relocating to another part of Florida or out of state, we can coordinate that too. Call (850) 842-1962 to confirm your area and get a free quote.',
   },
   {
     q: 'Is Beach House Moving licensed and insured?',
@@ -1287,7 +1328,7 @@ export const ABOUT_FAQS = [
   },
   {
     q: 'What counties does Beach House Moving serve?',
-    a: 'Beach House Moving serves Walton, Okaloosa, and Bay Counties across the Florida Panhandle. In Walton County we cover 30A, Santa Rosa Beach, Miramar Beach, Freeport, and DeFuniak Springs. In Okaloosa County we serve Destin, Fort Walton Beach, Niceville, Crestview, and communities near Eglin AFB and Hurlburt Field. In Bay County we cover Panama City, Panama City Beach, Lynn Haven, Callaway, and Springfield. We also handle long-distance moves beyond the Panhandle.',
+    a: 'Beach House Moving serves Walton, Okaloosa, and Bay Counties across the Florida Panhandle. In Walton County we cover 30A, Santa Rosa Beach, Miramar Beach, Freeport, and DeFuniak Springs. In Okaloosa County we serve Destin, Fort Walton Beach, Niceville, Crestview, and communities near Eglin AFB and Hurlburt Field. In Bay County we cover Panama City, Panama City Beach, Lynn Haven, Callaway, and Springfield. West of Okaloosa we serve Navarre and Navarre Beach in Santa Rosa County. We also handle long-distance moves beyond the Panhandle.',
   },
   {
     q: 'Is Beach House Moving licensed and insured in Florida?',
@@ -1510,7 +1551,7 @@ export const SERVICE_AREAS_HUB = {
   eyebrow: 'Where We Work',
   headline: 'We Come to You',
   bodyIntro:
-    'Three counties, one crew. Beach House Moving covers the full Emerald Coast corridor — every 30A neighborhood from Dune Allen to Inlet Beach, the Destin and Fort Walton Beach corridor through Okaloosa County, and Bay County from Panama City Beach to Lynn Haven. We drive these roads every day, so we know which gated communities want a COI on file before the truck arrives, where a 26-foot box truck can\'t turn around, and which beach access roads jam by mid-morning in June. Find your town below, or call (850) 842-1962 and tell us where you\'re headed.',
+    'Three counties plus Navarre, one crew. Beach House Moving covers the full Emerald Coast corridor — every 30A neighborhood from Dune Allen to Inlet Beach, the Destin and Fort Walton Beach corridor through Okaloosa County and west along US-98 to Navarre and Navarre Beach, and Bay County from Panama City Beach to Lynn Haven. We drive these roads every day, so we know which gated communities want a COI on file before the truck arrives, where a 26-foot box truck can\'t turn around, and which beach access roads jam by mid-morning in June. Find your town below, or call (850) 842-1962 and tell us where you\'re headed.',
   intro:
     'Beach House Moving is a service-area business — we bring professional crews directly to your home or business across Walton, Okaloosa, and Bay Counties. No storefront. No hassle. Just reliable local movers who know the Panhandle.',
   mapHeadline: 'Our Service Region',
@@ -1535,6 +1576,8 @@ export type Neighborhood = {
    */
   confirmedWork?: string
   localFaqs: { question: string; answer: string }[]
+  /** Cross-county neighbors to link under "Nearby areas" (used when a county has few or no siblings). */
+  nearbySlugs?: readonly string[]
   // ISO date (YYYY-MM-DD). Set this when a neighborhood's content changes so
   // sitemap.ts can emit an accurate <lastmod>. Falls back to the curated
   // neighborhood date in sitemap.ts when omitted.
@@ -2034,7 +2077,8 @@ export const NEIGHBORHOODS = [
   },
   {
     slug: 'fort-walton-beach',
-    updatedAt: '2026-09-08',
+    updatedAt: '2026-10-03',
+    nearbySlugs: ['navarre'],
     name: 'Fort Walton Beach',
     county: 'Okaloosa County',
     image: '/images/truck-dolly.jpg',
@@ -2254,5 +2298,38 @@ export const NEIGHBORHOODS = [
         answer: `Lynn Haven is at the eastern edge of our area, separated from the beach by the bay. We quote the mileage and the bay-crossing drive time honestly upfront, so the travel is built into the estimate with no surprises.`,
       },
     ],
+  },
+  {
+    slug: 'navarre',
+    updatedAt: '2026-10-03',
+    name: 'Navarre',
+    county: 'Santa Rosa County',
+    image: '/images/beach-house-moving-luxury-home-fleet-truck-and-van.jpg',
+    intro:
+      'Navarre runs along US-98 between Gulf Breeze and Mary Esther, with Navarre Beach across Santa Rosa Sound on Santa Rosa Island. We handle Hurlburt PCS moves, Navarre Beach homes and condos, and mainland family moves with the same owner-operated crew we run everywhere else.',
+    landmarks: ['Navarre Beach', 'Navarre Beach Fishing Pier', 'Navarre Beach Bridge', 'US-98', 'Holley by the Sea', 'Hurlburt Field'],
+    metaTitle: 'Movers in Navarre, FL | Beach House Moving',
+    metaDescription:
+      'Owner-operated, licensed movers for Navarre and Navarre Beach: home, condo and Hurlburt PCS moves. Free quote — (850) 842-1962.',
+    localBody: `Navarre is two different moves depending on which side of Santa Rosa Sound you are on. On the mainland side, neighborhoods like Holley by the Sea are family streets with real driveways, where the work is straightforward and the planning is about timing. Across the Navarre Beach Bridge on Santa Rosa Island, it is beach work: elevated homes with exterior stairs, condos with elevator and loading rules, and summer traffic on the bridge that sets the clock. A lot of Navarre moves are tied to Hurlburt Field, a short drive east on US-98, so PCS report dates and short-notice orders are normal and we plan around them. Navarre sits west of our usual Okaloosa runs, so we quote the drive time honestly up front rather than surprising you at the end. Same-day help is sometimes possible when a crew is free, so it is always worth a call. We will work in the rain when it is safe for your things, and we check with you first when it is not.`,
+    localFaqs: [
+      {
+        question: 'Do you move to and from Navarre Beach?',
+        answer: 'Yes. We plan Navarre Beach homes and condos around exterior stairs, elevator reservations and bridge traffic before move day.',
+      },
+      {
+        question: 'Can you handle a Hurlburt Field PCS move to Navarre?',
+        answer: 'Yes. We build the move around your Hurlburt report date, including PPM paperwork with itemized invoices.',
+      },
+      {
+        question: 'Do you offer same-day moves in Navarre?',
+        answer: 'When a crew is available, yes. We offer same-day service across all of our services, but it depends on the schedule, so call (850) 842-1962 as early as you can.',
+      },
+      {
+        question: 'Is Navarre outside your service area?',
+        answer: 'No. Navarre is in our radius. It is west of our Okaloosa runs, so we include the drive time in your quote up front.',
+      },
+    ],
+    nearbySlugs: ['fort-walton-beach', 'destin'],
   },
 ] as const satisfies readonly Neighborhood[]

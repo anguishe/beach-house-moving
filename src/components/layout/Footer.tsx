@@ -11,8 +11,7 @@ import {
   NEIGHBORHOODS,
   REVIEWS_PAGE_META,
   SERVICE_AREAS,
-  SOCIAL_LINKS,
-} from '@/lib/content'
+  SOCIAL_LINKS, areaLabel } from '@/lib/content'
 import { getPublishedPost } from '@/content/posts'
 
 function FacebookIcon({ className }: { className?: string }) {
@@ -28,8 +27,8 @@ export function Footer() {
 
   // Deep links — hrefs resolved from data, no hardcoded slugs.
   const areaLinks = [
-    ...SERVICE_AREAS.map((area) => ({ label: area.county, href: `/service-areas/${area.slug}` })),
-    ...['santa-rosa-beach', 'miramar-beach', 'sandestin', 'freeport', 'destin', 'fort-walton-beach', 'panama-city-beach']
+    ...SERVICE_AREAS.map((area) => ({ label: areaLabel(area), href: `/service-areas/${area.slug}` })),
+    ...['santa-rosa-beach', 'miramar-beach', 'sandestin', 'freeport', 'destin', 'fort-walton-beach', 'navarre', 'panama-city-beach']
       .map((slug) => {
         const nb = NEIGHBORHOODS.find((n) => n.slug === slug)
         const area = nb && SERVICE_AREAS.find((a) => a.county === nb.county)

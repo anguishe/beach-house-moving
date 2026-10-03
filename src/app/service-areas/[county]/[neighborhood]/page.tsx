@@ -9,7 +9,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
 import type { Neighborhood } from '@/lib/content'
-import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES, TRUST_BADGES } from '@/lib/content'
+import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES, TRUST_BADGES, isPartialCounty } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { faqPageSchema, webPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
@@ -141,9 +141,12 @@ export default async function NeighborhoodPage({ params }: PageProps) {
   // Sibling neighborhoods in the same county — generated from the data layer
   // so every geo page cross-links to its peers (internal-link equity) and the
   // county hub, instead of dead-ending with a single inbound link.
-  const nearbyAreas = NEIGHBORHOODS.filter(
-    (n) => n.county === nb.county && n.slug !== nb.slug,
-  )
+  const nearbyAreas = [
+    ...NEIGHBORHOODS.filter((n) => n.county === nb.county && n.slug !== nb.slug),
+    ...(nb.nearbySlugs ?? [])
+      .map((slug) => NEIGHBORHOODS.find((n) => n.slug === slug))
+      .filter((n): n is (typeof NEIGHBORHOODS)[number] => n !== undefined && n.county !== nb.county),
+  ]
 
   const pageUrl = `${base}/service-areas/${area.slug}/${nb.slug}`
 
@@ -163,12 +166,9 @@ export default async function NeighborhoodPage({ params }: PageProps) {
         addressRegion: 'FL',
         addressCountry: 'US',
       },
-      {
-        '@type': 'AdministrativeArea',
-        name: nb.county,
-        addressRegion: 'FL',
-        addressCountry: 'US',
-      },
+      ...(isPartialCounty(nb.county)
+        ? []
+        : [{ '@type': 'AdministrativeArea', name: nb.county, addressRegion: 'FL', addressCountry: 'US' }]),
     ],
     geo: {
       '@type': 'GeoCoordinates',
@@ -379,7 +379,7 @@ export default async function NeighborhoodPage({ params }: PageProps) {
                 {nearbyAreas.map((sibling) => (
                   <Link
                     key={sibling.slug}
-                    href={`/service-areas/${area.slug}/${sibling.slug}`}
+                    href={`/service-areas/${SERVICE_AREAS.find((a) => a.county === sibling.county)?.slug ?? area.slug}/${sibling.slug}`}
                     className="inline-flex items-center gap-1 rounded-full border border-brand-navy/10 bg-white px-4 py-2 font-body text-sm font-medium text-brand-navy shadow-brand transition-shadow hover:shadow-brand-hover"
                   >
                     {sibling.name}, FL
