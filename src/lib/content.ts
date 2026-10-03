@@ -300,13 +300,14 @@ export const SERVICES = [
   },
   {
     slug: 'packing-unpacking',
+    updatedAt: '2026-10-03',
     title: 'Packing & Unpacking',
     linkLabel: 'Packing & Unpacking',
     shortDescription:
       'Boxes, bubble wrap, breakables — packed right and unpacked just as carefully.',
     icon: 'Package',
     featured: true,
-    metaTitle: 'Packing & Unpacking Services | Beach House Moving',
+    metaTitle: 'Packing, Unpacking & Home Organizing | Beach House Moving',
     metaDescription:
       'Professional packing and unpacking for homes on the Emerald Coast. Materials included. Licensed & insured. Free estimate: (850) 842-1962.',
   },
@@ -375,29 +376,29 @@ export const SERVICES = [
   },
   {
     slug: 'mounting-installation',
-    updatedAt: '2026-09-08',
-    title: 'Mounting & Installation',
-    linkLabel: 'TV Mounting, Art & Shelf Installation',
+    updatedAt: '2026-10-03',
+    title: 'Mounting, Assembly & Installation',
+    linkLabel: 'TV Mounting & Furniture Assembly',
     shortDescription:
       'TV mounts, art and mirrors, shelving — hung level, anchored right, hardware supplied.',
     icon: 'Hammer',
     featured: false,
-    metaTitle: 'TV Mounting, Art & Mirror Hanging | Beach House Moving',
+    metaTitle: 'TV Mounting & Furniture Assembly | Beach House Moving',
     metaDescription:
-      'TV mounting, art and mirror hanging, and shelf installation on the Emerald Coast. Hardware supplied, installer walks the space first. Call (850) 842-1962.',
+      'TV mounting, furniture assembly, art and mirror hanging, and shelving on the Emerald Coast. Hardware supplied, with or without a move. Call (850) 842-1962.',
   },
   {
     slug: 'loading-unloading-help',
-    updatedAt: '2026-09-08',
-    title: 'Rental Truck Loading, Driving & Unloading',
-    linkLabel: 'U-Haul & Rental Truck Help',
+    updatedAt: '2026-10-03',
+    title: 'Moving Labor & Rental Truck Help',
+    linkLabel: 'Moving Labor (Labor-Only Movers)',
     shortDescription:
       'Load it, drive it, unload it — the truck or container you already rented.',
     icon: 'HandHelping',
     featured: false,
-    metaTitle: 'U-Haul Loading, Driving & Unloading | BHM',
+    metaTitle: 'Moving Labor & U-Haul Loading Help | Beach House Moving',
     metaDescription:
-      'Rented a U-Haul, Penske, or PODS on the Emerald Coast? We load it, drive it, and unload it — or any part of that. Licensed & insured. Call (850) 842-1962.',
+      'Labor-only movers on the Emerald Coast: we load, drive, or unload the U-Haul, Penske, or PODS you rented, or any part of it. Call (850) 842-1962.',
   },
 ] as const
 

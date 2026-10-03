@@ -183,7 +183,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
   'packing-unpacking': {
     fullDescription:
       'We bring the boxes, paper, and bubble wrap, and we pack room by room so nothing rattles in the truck. Fragile stuff gets wrapped properly, not just tossed in a box. On the other end, we unpack and place it where you want it and haul the empty boxes away.',
-    heroTitle: 'Packing & Unpacking Services — Walton, Okaloosa & Bay Counties',
+    heroTitle: 'Packing, Unpacking & Home Organizing on the Emerald Coast',
     sections: [
       {
         heading: 'Full packing or just the hard parts',
@@ -204,8 +204,19 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
           "On the other end we'll unpack room by room, set furniture where you want it, and haul away the empty boxes and paper. You get a home, not a cardboard maze.",
         ],
       },
+      {
+        heading: 'Home organizing after the move',
+        body: [
+          'Yes, home organizing is one of our services. Kitchens, closets, pantries and garages get set up so the house works on day one, not three months from now.',
+          'The owners quote organizing themselves, and it starts at our listed moving rate. Book it with your move or on its own.',
+        ],
+      },
     ],
     faqs: [
+      {
+        q: 'Do you offer home organizing?',
+        a: 'Yes. We set up kitchens, closets and the rest of the house after a move, or on its own. The owners quote it, and it starts at our listed moving rate.',
+      },
       {
         q: 'Do you pack the day before or the day of the move?',
         a: "For most homes, packing the day before keeps move day fast and predictable. Smaller homes can often be packed and moved the same day — we'll recommend the right split on your quote call.",
@@ -458,7 +469,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
   'loading-unloading-help': {
     fullDescription:
       'You rent the truck or container; we do the rest of it. Load it, drive it, unload it, or any part of that on its own — with the same wrapping, padding, and load discipline we use on our own trucks. Most people call us for the unload. Plenty end up handing over the whole thing.',
-    heroTitle: 'U-Haul & Rental Truck Help on the Emerald Coast',
+    heroTitle: 'Moving Labor & U-Haul Help on the Emerald Coast',
     sections: [
       {
         heading: 'When your own rental is the right call',
@@ -498,6 +509,10 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     ],
     faqs: [
       {
+        q: 'What are labor-only movers?',
+        a: 'Labor-only movers bring the muscle and the know-how but not the truck. You rent the U-Haul, Penske, or PODS; we load it, drive it if you want, and unload it. You only pay for the help you need.',
+      },
+      {
         q: 'Can you help unload a U-Haul or PODS container I already rented?',
         a: 'Yes. Loading and unloading U-Haul, Penske, Budget, PODS, and rental trailers is standard work for us across Walton, Okaloosa, and Bay Counties. You keep the rental; we bring the crew, the pads, the straps, and the dollies — and we can drive it as well if you would rather not.',
       },
@@ -519,14 +534,14 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: 'Can you do it same day?',
-        a: 'Sometimes. Rental-truck jobs tend to come up on short notice and we keep room for them when we can. Call and ask — the answer is either yes or a specific alternative, not a maybe.',
+        a: 'When a crew is available, yes. We offer same-day help across all of our services, and rental-truck jobs often come up on short notice. Call (850) 842-1962: the answer is either yes or a specific alternative, not a maybe.',
       },
     ],
   },
   'mounting-installation': {
     fullDescription:
       'TV mounts, art, mirrors, and shelving — hung level, anchored into something that will actually hold, with the hardware supplied when you do not have it. Keith is our installer and he looks at the space in person before we commit to mounting anything, because the wall decides what is possible, not the catalog.',
-    heroTitle: 'TV Mounting, Art Hanging & Shelf Installation',
+    heroTitle: 'TV Mounting, Furniture Assembly & Art Hanging',
     sections: [
       {
         heading: 'What we mount',
@@ -551,6 +566,13 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
         ],
       },
       {
+        heading: 'Furniture assembly, with or without a move',
+        body: [
+          'Yes, we assemble furniture on its own, not only as part of a move. Beds, home gyms, shelving and flat-pack pieces get built, leveled and placed where you want them, and the packaging leaves with us.',
+          'There is no brand we are limited to. Tell us what it is and how many pieces when you call, and we will tell you straight how long it should take.',
+        ],
+      },
+      {
         heading: 'Where our line is',
         body: [
           'We mount and we build. We do not run wire inside a wall, move an outlet, or make any electrical or plumbing connection — those are licensed trades in Florida and our mover registration does not cover them. If your TV needs an outlet moved behind it, that is an electrician before us, and we will happily work around their schedule.',
@@ -558,6 +580,10 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
     ],
     faqs: [
+      {
+        q: 'Do you assemble furniture without a move?',
+        a: 'Yes. Beds, home gyms, shelving and flat-pack furniture, built and placed where you want it, with the boxes hauled off. Call (850) 842-1962 and tell us what you have.',
+      },
       {
         q: 'Do you mount TVs?',
         a: 'Yes, including taking down an existing mount and replacing it. Keith, our installer, looks at the wall in person before we commit — a mount is only as good as what is behind the drywall, and it is not something to guess at over the phone.',
