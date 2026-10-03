@@ -8,6 +8,8 @@ import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS } from '@/lib/content'
 
 // High-intent geo pages we deep-link from the homepage to feed them link equity.
 const KEY_NEIGHBORHOOD_SLUGS = ['santa-rosa-beach', 'miramar-beach', 'sandestin', 'freeport', 'destin', 'fort-walton-beach']
+// Same treatment as in-body links on resource posts (render-body.tsx).
+const inlineLink = 'font-medium text-brand-teal underline underline-offset-4 hover:text-brand-teal-dark'
 
 export function ServiceAreaSection() {
   const popularAreas = KEY_NEIGHBORHOOD_SLUGS.flatMap((slug) => {
@@ -100,8 +102,15 @@ export function ServiceAreaSection() {
         )}
 
         <p className="mx-auto mt-12 max-w-3xl text-center font-body text-[17px] leading-relaxed text-ink-muted">
-          Beach House Moving is based in Santa Rosa Beach and runs the whole Panhandle — 30A,
-          Destin, Miramar Beach, Fort Walton Beach, Niceville, Crestview, Panama City and Panama
+          Beach House Moving is based in Santa Rosa Beach, in{' '}
+          <Link href="/service-areas/walton-county" className={inlineLink}>
+            Walton County
+          </Link>
+          , and runs the whole Panhandle —{' '}
+          <Link href="/service-areas/walton-county/30a" className={inlineLink}>
+            30A
+          </Link>
+          , Destin, Miramar Beach, Fort Walton Beach, Niceville, Crestview, Panama City and Panama
           City Beach. If you&apos;re nearby and don&apos;t see your town, call{' '}
           {BUSINESS.phone.display} and ask. If we can get there, we will.
         </p>

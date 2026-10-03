@@ -70,7 +70,7 @@ export const POSTS: Post[] = [
       {
         heading: 'What actually changes the price',
         body:
-          "Access is the biggest one on 30A. A house on a narrow beach access road where a 26-foot truck can't stage close means longer carries, and longer carries mean hours. Stairs matter — a top-floor unit in Miramar Beach with no elevator is a different job than a single-story in Freeport. Packing is the other lever: a fully packed, labeled home loads fast; a home we pack ourselves adds time but saves your back and your dishes. Specialty items — pianos, gun safes, bronze work, oversized furniture — take extra hands and care, and we plan those into the estimate up front. And season is real here: late spring through summer is peak on the Emerald Coast, so booking two to three weeks out beats calling the week of.",
+          "Access is the biggest one on 30A. A house on a narrow beach access road where a 26-foot truck can't stage close means longer carries, and longer carries mean hours. Stairs matter — a top-floor unit in [Miramar Beach](/service-areas/walton-county/miramar-beach) with no elevator is a different job than a single-story in [Freeport](/service-areas/walton-county/freeport). Packing is the other lever: a fully packed, labeled home loads fast; a home we pack ourselves adds time but saves your back and your dishes. Specialty items — pianos, gun safes, bronze work, oversized furniture — take extra hands and care, and we plan those into the estimate up front. And season is real here: late spring through summer is peak on the Emerald Coast, so booking two to three weeks out beats calling the week of.",
       },
       {
         heading: 'How to keep the number down',
@@ -218,7 +218,7 @@ export const POSTS: Post[] = [
       {
         heading: 'Rosemary Beach & Alys Beach',
         paragraph:
-          "Rosemary Beach is cobblestone throughout. The carriage homes in the back alleys require a different staging approach than the street-facing properties. Alys Beach's all-white surfaces mean floor and wall protection isn't optional — it's the first thing we set up.",
+          "[Rosemary Beach](/service-areas/walton-county/rosemary-beach) is cobblestone throughout. The carriage homes in the back alleys require a different staging approach than the street-facing properties. Alys Beach's all-white surfaces mean floor and wall protection isn't optional — it's the first thing we set up.",
       },
       {
         paragraph:
@@ -228,7 +228,7 @@ export const POSTS: Post[] = [
       {
         heading: 'Inlet Beach & Grayton Beach',
         paragraph:
-          'Inlet Beach at the eastern end of 30A has more room to work with than most. Grayton Beach has soft sand roads that are part of its character — and part of what we plan around before we bring a heavy truck.',
+          '[Inlet Beach](/service-areas/walton-county/inlet-beach) at the eastern end of 30A has more room to work with than most. Grayton Beach has soft sand roads that are part of its character — and part of what we plan around before we bring a heavy truck.',
       },
       {
         paragraph:
@@ -251,65 +251,6 @@ export const POSTS: Post[] = [
         question: 'Do you offer white-glove protection for high-end 30A homes?',
         answer:
           'Floor runners, furniture pads, and wall protection are standard on every move — not an upgrade.',
-      },
-    ],
-  },
-  {
-    slug: 'military-pcs-move-eglin-hurlburt',
-    title:
-      'On-Base or Off-Base at Eglin & Hurlburt: How Your Housing Choice Changes Move Day',
-    description:
-      'Base housing or off-base near Eglin AFB and Hurlburt Field — how your choice changes timeline, inspections, and what kind of crew you need on move day.',
-    metaTitle: 'Eglin & Hurlburt PCS: On-Base vs Off-Base Move Day',
-    datePublished: '2026-06-02',
-    dateModified: '2026-06-12',
-    author: 'Beach House Moving',
-    heroImage: '/images/truck-dolly.jpg',
-    heroAlt: 'Beach House Moving mover wheeling boxes on a dolly toward the truck',
-    relatedServices: [
-      { label: 'Long-Distance Moving', href: '/services/long-distance-moving' },
-      { label: 'Storage Solutions', href: '/services/storage' },
-      { label: 'Military PCS Moving', href: '/services/military-pcs-moving' },
-    ],
-    excerpt:
-      "PCS orders don't wait. Neither do we. Here's what families moving near Eglin AFB or Hurlburt Field need to know about the Emerald Coast housing market and how we handle military relocations.",
-    body: [
-      {
-        heading: 'The decision that shapes the whole move',
-        body:
-          "Every PCS family landing at Eglin AFB or Hurlburt Field makes one call that changes everything downstream: base housing or off-base. It changes your timeline, your inspection requirements, what you can move when, and what kind of crew you need. Here's the ground-level difference, from the movers who work both sides of the gate every month.",
-      },
-      {
-        heading: 'Moving into base housing',
-        body:
-          "Base housing runs on its own clock. You don't pick your move-in date so much as receive it, the unit comes with a documented condition inspection, and the housing office cares — in writing — about wall scuffs and floor damage on the way in. That makes protection the whole game: floor runners, door-frame guards, padded stair rails, furniture wrapped before it crosses the threshold. The other base-housing reality is the waitlist gap. If your report date beats your housing date, your household needs somewhere to live that isn't a relative's garage — short-term storage between the truck and the keys is the single most common thing we do for incoming base families.",
-      },
-      {
-        heading: 'Moving off-base',
-        body:
-          "Off-base buys flexibility and trades it for logistics you own. Your timeline is the landlord's or the closing table's, not the housing office's — which sounds better until the closing slips a week past your report date. Off-base also means the Emerald Coast's actual housing stock: elevated homes with full flights of exterior stairs in Niceville and Shalimar, condos with service-elevator reservations in Fort Walton and Destin, gated communities that want your mover's name at the gate. A local crew that knows which is which quotes it right the first time.",
-      },
-      {
-        heading: "If you're doing a PPM",
-        body:
-          "A personally procured move means documentation is money. Keep every receipt; your reimbursement paperwork will ask for an itemized record of what you paid for moving services, and we provide exactly that — itemized, dated, on company paperwork — without being asked twice. Confirm current PPM requirements with your TMO before move day; the program's rules belong to them, and they change.",
-      },
-      {
-        heading: 'The straight answer',
-        body:
-          "There's no universally right choice — base housing trades control for simplicity, off-base trades simplicity for control. What's universal: a report date that won't move, an inspection somebody will scrutinize, and a window that's shorter than you'd like. Build the move around the date first. We're available 24/7 at (850) 842-1962 because military moves don't keep business hours, and neither do we.",
-      },
-    ],
-    faq: [
-      {
-        question: 'Does Beach House Moving handle military PCS moves?',
-        answer:
-          'Yes. We serve Fort Walton Beach, Niceville, Shalimar, Crestview, and all of Okaloosa County. We understand PCS timelines and work around them. Call (850) 842-1962.',
-      },
-      {
-        question: 'Can you provide storage between a PCS and a permanent address?',
-        answer:
-          'Yes — we offer secure storage for exactly these situations. Tell us your timeline when you call.',
       },
     ],
   },
@@ -406,7 +347,7 @@ export const POSTS: Post[] = [
     body: [
       {
         paragraph:
-          'A standard moving checklist assumes a suburban driveway, a front door at ground level, and a truck that parks twenty feet from the porch. Along Scenic Highway 30A and in Destin, those assumptions fall apart quickly. The physical reality is narrow roads behind the beach communities — especially around Seaside, Rosemary Beach, and Alys Beach — where a box truck cannot always reach the front door. Most beach houses sit on pilings with exterior stairs and no elevator. HOA rules in many 30A communities restrict moves to weekday business hours or require advance notice through a property manager. From March through August, parking near the job site is scarce because rental turnover and vacation traffic consume every available space. We have learned these details move by move, and they are the difference between a smooth day and a long one.',
+          'A standard moving checklist assumes a suburban driveway, a front door at ground level, and a truck that parks twenty feet from the porch. Along Scenic Highway 30A and in [Destin](/service-areas/okaloosa-county/destin), those assumptions fall apart quickly. The physical reality is narrow roads behind the beach communities — especially around Seaside, [Rosemary Beach](/service-areas/walton-county/rosemary-beach), and Alys Beach — where a box truck cannot always reach the front door. Head inland to [Freeport](/service-areas/walton-county/freeport) and a truck can usually back right up to the garage; it is the coast that takes planning. Most beach houses sit on pilings with exterior stairs and no elevator. HOA rules in many 30A communities restrict moves to weekday business hours or require advance notice through a property manager. From March through August, parking near the job site is scarce because rental turnover and vacation traffic consume every available space. We have learned these details move by move, and they are the difference between a smooth day and a long one.',
       },
       {
         heading: 'The 8-Week Window',
@@ -415,7 +356,7 @@ export const POSTS: Post[] = [
       },
       {
         paragraph:
-          'While you are on that call, ask whether your building has an elevator and, if so, what its interior dimensions are. Most 30A beach houses do not have one. The ones that do — certain WaterColor townhomes and a handful of Miramar Beach condos — often have freight elevators smaller than a standard sofa. Measure your largest pieces against those dimensions now. If a king mattress platform or a sectional will not fit, you want that answer eight weeks out, not when we are standing at a spiral staircase in Seagrove Beach with nowhere else to go.',
+          'While you are on that call, ask whether your building has an elevator and, if so, what its interior dimensions are. Most 30A beach houses do not have one. The ones that do — certain WaterColor townhomes and a handful of [Miramar Beach](/service-areas/walton-county/miramar-beach) condos — often have freight elevators smaller than a standard sofa. Measure your largest pieces against those dimensions now. If a king mattress platform or a sectional will not fit, you want that answer eight weeks out, not when we are standing at a spiral staircase in Seagrove Beach with nowhere else to go.',
       },
       {
         paragraph:
@@ -428,7 +369,7 @@ export const POSTS: Post[] = [
       },
       {
         paragraph:
-          'What we ask you to do: share your property address with us before you book, not after you have paid a deposit somewhere else. We run a route check on every 30A and Destin job — Street View, HOA portal notes, and our own memory of where we have staged before. When a customer gives us an address in Inlet Beach or along Western Lake, we already know whether the Sprinter van handles the alley or whether the box truck stays on 30A and we shuttle. That pre-work protects your schedule and our crew.',
+          'What we ask you to do: share your property address with us before you book, not after you have paid a deposit somewhere else. We run a route check on every 30A and Destin job — Street View, HOA portal notes, and our own memory of where we have staged before. When a customer gives us an address in [Inlet Beach](/service-areas/walton-county/inlet-beach) or along Western Lake, we already know whether the Sprinter van handles the alley or whether the box truck stays on 30A and we shuttle. That pre-work protects your schedule and our crew.',
       },
       {
         heading: 'Seasonal Timing on 30A',
@@ -486,7 +427,7 @@ export const POSTS: Post[] = [
     metaDescription:
       "PCS to Eglin AFB or Hurlburt Field: a local mover's guide to neighborhoods, BAH rates, on-base vs off-base, and coordinating your military relocation.",
     datePublished: '2026-04-22',
-    dateModified: '2026-09-08',
+    dateModified: '2026-10-02',
     author: 'Beach House Moving',
     heroImage: '/images/move-niceville.jpg',
     heroAlt:
@@ -511,6 +452,11 @@ export const POSTS: Post[] = [
       {
         paragraph:
           'Current BAH rates for E-5 and above with dependents in Okaloosa County generally support renting a three-bedroom house or apartment off-base, though the exact figure changes every January. Verify your rate at defensetravel.dod.mil before you sign a lease — do not rely on a number from a Facebook group post from last year. Destin and Miramar Beach offer more space and beach access but sit above what many BAH rates cover comfortably. Crestview and Baker offer more square footage per dollar if you are willing to drive thirty minutes to Eglin. There is no wrong answer — only a mismatch between your BAH, your commute tolerance, and what is actually available when your orders take effect.',
+      },
+      {
+        subheading: 'What Each Choice Means on Move Day',
+        paragraph:
+          'Base housing runs on its own clock. You receive a move-in date more than you pick one, and the unit comes with a documented condition inspection, so the housing office cares, in writing, about wall scuffs and floor damage. That makes protection the whole job: floor runners, door-frame guards, padded stair rails, and furniture wrapped before it crosses the threshold. Off-base trades that structure for logistics you own: elevated homes with full flights of exterior stairs in Niceville and Shalimar, condos with service-elevator reservations in Fort Walton Beach and Destin, and gated communities that want your mover\'s name at the gate. If your report date beats your housing date either way, short-term storage between the truck and the keys is the most common thing we do for incoming families.',
       },
       {
         heading: 'The PPM/DITY Move Option',
@@ -579,6 +525,11 @@ export const POSTS: Post[] = [
         answer:
           'Niceville and Crestview for families prioritizing schools and space. Fort Walton Beach and Shalimar for proximity to Hurlburt Field. Destin and Miramar Beach for those with more flexible housing budgets.',
       },
+      {
+        question: 'Can you store our household goods between a PCS and a permanent address?',
+        answer:
+          'Yes. Short-term storage between delivery and move-in is one of the most common things we do for Eglin and Hurlburt families. Tell us your report date and housing date when you call.',
+      },
     ],
   },
   {
@@ -601,12 +552,12 @@ export const POSTS: Post[] = [
     body: [
       {
         paragraph:
-          'Beach condos are a different category of move from a single-family home — and most generic moving advice was not written for them. Mid-rise and high-rise buildings along Destin\'s Emerald Coast Parkway near Henderson Beach State Park, and along Panama City Beach\'s Front Beach Road and Thomas Drive — Heron Cove, Tidewater, Emerald Isle, and dozens of similar towers — have freight elevators, loading docks, and HOA management offices that control every detail of how a move happens. What time you arrive, which elevator you use, whether floor protection is required, and where the truck parks are all decided before we carry the first box. What you need to know before move day is not complicated, but skipping any one step can add hours.',
+          'Beach condos are a different category of move from a single-family home — and most generic moving advice was not written for them. Mid-rise and high-rise buildings along Destin\'s Emerald Coast Parkway near Henderson Beach State Park, along Scenic Gulf Drive in [Miramar Beach](/service-areas/walton-county/miramar-beach), and along Panama City Beach\'s Front Beach Road and Thomas Drive — Heron Cove, Tidewater, Emerald Isle, and dozens of similar towers — have freight elevators, loading docks, and HOA management offices that control every detail of how a move happens. What time you arrive, which elevator you use, whether floor protection is required, and where the truck parks are all decided before we carry the first box. What you need to know before move day is not complicated, but skipping any one step can add hours.',
       },
       {
         heading: 'Reserve the Freight Elevator First — Everything Else Second',
         paragraph:
-          'Most Destin and PCB condo buildings have one service elevator shared by every resident moving in, moving out, and every vacation-rental turnover contractor hauling furniture. It must be reserved through the HOA or property management before move day — not the morning of. Reservation windows are typically two to four hours and fill up weeks in advance, especially January through April when snowbirds rotate and summer when lease turnovers peak. If you arrive on move day without a reservation, you are using passenger elevators with other residents, which slows everything by hours and may violate HOA rules that carry fines.',
+          'Most [Destin](/service-areas/okaloosa-county/destin) and PCB condo buildings have one service elevator shared by every resident moving in, moving out, and every vacation-rental turnover contractor hauling furniture. It must be reserved through the HOA or property management before move day — not the morning of. Reservation windows are typically two to four hours and fill up weeks in advance, especially January through April when snowbirds rotate and summer when lease turnovers peak. If you arrive on move day without a reservation, you are using passenger elevators with other residents, which slows everything by hours and may violate HOA rules that carry fines.',
       },
       {
         paragraph:
@@ -780,7 +731,7 @@ export const POSTS: Post[] = [
       },
       {
         body:
-          "We're licensed and insured in Florida under Mover Registration #IM4125, and we're owner-operated — the people in these photos are the people who own the company. Inlet Beach is the east end of our home turf, along with the rest of Walton County, Okaloosa County, and Bay County. The day after this job we were on 30A doing the opposite kind of work: [an install day, carrying furniture into a house instead of out of one](/resources/field-notes-30a-install-day-design-dwell).",
+          "We're licensed and insured in Florida under Mover Registration #IM4125, and we're owner-operated — the people in these photos are the people who own the company. Inlet Beach, right next door to [Rosemary Beach](/service-areas/walton-county/rosemary-beach), is the east end of our home turf, along with the rest of Walton County, Okaloosa County, and Bay County. The day after this job we were on 30A doing the opposite kind of work: [an install day, carrying furniture into a house instead of out of one](/resources/field-notes-30a-install-day-design-dwell).",
       },
     ],
     faq: [
@@ -1086,7 +1037,7 @@ export const POSTS: Post[] = [
       {
         heading: 'If you are a store, a rental owner, or a property manager',
         body:
-          "This is a run we make constantly: an appliance sold in Walton County that needs to end up inside a Destin, Miramar Beach, or Panama City Beach condo, often for an owner who lives out of state and a rental calendar that does not pause. We handle the [delivery](/services/delivery), the swap, and the [haul-away of the old unit](/services/junk-removal) in one visit, and we know the buildings — which towers want the service elevator booked, which want a certificate of insurance on file, and which loading areas a box truck actually fits.",
+          "This is a run we make constantly: an appliance sold in Walton County that needs to end up inside a Destin, [Miramar Beach](/service-areas/walton-county/miramar-beach), or Panama City Beach condo, often for an owner who lives out of state and a rental calendar that does not pause. We handle the [delivery](/services/delivery), the swap, and the [haul-away of the old unit](/services/junk-removal) in one visit, and we know the buildings — which towers want the service elevator booked, which want a certificate of insurance on file, and which loading areas a box truck actually fits.",
       },
       {
         body:

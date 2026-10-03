@@ -15,7 +15,15 @@ const nextConfig = {
     minimumCacheTTL: 2592000,
   },
   async redirects() {
-    return [{ source: '/go/gbp', destination: '/', permanent: true }];
+    return [
+      { source: '/go/gbp', destination: '/', permanent: true },
+      // 2026-10-02: older PCS guide merged into the field guide (it held 97% of the impressions).
+      {
+        source: '/resources/military-pcs-move-eglin-hurlburt',
+        destination: '/resources/pcs-move-eglin-afb-hurlburt-field-guide',
+        statusCode: 301,
+      },
+    ];
   },
   async headers() {
     return [
