@@ -38,8 +38,7 @@ Chrome only after approval.
 - **Service area (20 max):** remove the duplicate "Miramar" entry. Keep Navarre if Les confirms (Q4). Review the low-value
   entries against Keyword Planner town volumes.
 - **Posts:** one post per new service as its page ships, linking to that clean URL (no UTM).
-- Also: claim Yelp; resolve the duplicate 1-follower Facebook page; check whether Bing Places and Apple Business
-  Connect profiles exist (listing hygiene; Travis acts).
+- Also: check whether Bing Places and Apple Business Connect profiles exist (listing hygiene; Travis acts).
 
 ## Wave 1: service pages
 New service pages use the existing `/services/[slug]` template (`SERVICES` in content.ts plus `service-details.ts`).

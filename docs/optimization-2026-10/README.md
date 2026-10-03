@@ -29,6 +29,7 @@ These are the only claims new copy may make about these services. Anything not l
 | Heavy specialty items | Gun safes, hot tubs, pool tables, home gyms, "and more". |
 | Senior / downsizing | Yes. They work closely with customers and coordinate with family. No job too small. |
 | Furniture assembly | Yes. No specific brands. |
+| Interstate moving | Licensed and certified for interstate moves; good to move cross-country (Travis, 2026-10-02). No USDOT/MC number on file, so don't print one. |
 | Partners / referral sources | Realtors, designers, appliance repair, appliance sales, wholesalers, retailers. Named in posts: Design & Dwell, Tracery Interiors, The Appliance Spot. Name a partner on a page only where an existing post already does. |
 
 Not confirmed, so never state them: prices beyond the published rate, specific weight limits, named assisted-living
