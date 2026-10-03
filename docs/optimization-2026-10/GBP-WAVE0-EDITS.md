@@ -104,3 +104,20 @@ Add one at a time, about a week apart, and watch for a verification prompt after
 Do NOT add: Self-storage facility, Storage facility, Warehouse, Moving supply store (unless they sell supplies),
 Trucking company, Pet moving service, Transportation service, Waste management service, Handyman.
 "Service establishment" on the public listing is a Google-assigned generic type. It's not in the editor, so leave it.
+
+## Run log: 2026-10-02 (latest), Junk removal category (Travis approved)
+- Before this run, verified that the service-area fix published (the map thumbnail is now Panhandle-only), that the business
+  description is live, and that the 22 service descriptions are live.
+- **Added category "Junk removal service"** (Google's exact name). The edit went pending, then live within minutes. No
+  verification prompt. Categories are now: Moving service (primary), Piano moving service, Moving and storage service,
+  Junk removal service.
+- Google offers **no preset services** for this category. Added 4 custom services from confirmed site copy ("furniture,
+  appliances, debris and more"): Junk removal, Furniture removal, Appliance removal, Debris removal.
+- Descriptions saved on 3 of them:
+  - Junk removal: "Fast, responsible junk removal across 30A, Santa Rosa Beach, Destin and the Emerald Coast. Furniture, appliances, debris and more. No haul too big or too small, and same-day when a crew is free."
+  - Furniture removal: "Old sofas, sectionals, beds and dressers hauled out of homes, condos and rentals, stairs included. One piece or a full load."
+  - Appliance removal: "Old refrigerators, washers, dryers and other appliances hauled away, including swap-outs when we deliver the new one."
+- [ ] **TODO, Debris removal description.** Google stopped loading the form after ~35 saves in one night, so this
+  stopped rather than retrying. Text to use: "Cleanout debris, boxes and leftover clutter cleared from homes, garages
+  and rentals after a move or an estate cleanout."
+- Next category (#2, Delivery service): not before ~2026-10-09.
