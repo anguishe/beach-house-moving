@@ -19,7 +19,7 @@ of 16 local competitor sites), and competitor GBP categories. Raw data is in the
 ## Priority targets (8): track these monthly
 | # | Search (cluster) | Volume (KP) | Now (GSC) | Target | Page that wins it |
 |---|---|---|---|---|---|
-| 1 | movers santa rosa beach (fl) | 100–1K, $39.65 | Maps ~#1–2 (GBP); **organic homepage ~#28** | Maps top 3 ✓ keep; **organic page 1** | `/` (title already leads with it) plus `/service-areas/walton-county/santa-rosa-beach` |
+| 1 | movers santa rosa beach (fl) | 100–1K, $39.65 | Maps ~#1–2 (GBP); **organic homepage #3.6** (GSC 28d to 10/03; was ~#19 over 90d) | Maps top 3 ✓ keep; **organic page 1 ✓**, now top 3 | `/` (title already leads with it) plus `/service-areas/walton-county/santa-rosa-beach` |
 | 2 | movers 30a / moving company 30a | (no reportable volume; high value) | not ranking | Maps top 3 and page 1 | `/service-areas/walton-county/30a` (index requested 10/02) |
 | 3 | movers miramar beach (fl) | 10–100 | Maps #1 (GBP) | Maps top 3 ✓; page 1 | `/service-areas/walton-county/miramar-beach` (index requested 10/02) |
 | 4 | piano movers (near me / srb / 30a / destin) | near me 10K–100K | Maps ~#2 (GBP), no page | Maps top 3 and page 1 | **new** `/services/piano-moving` (Wave 1) |
@@ -58,3 +58,16 @@ These are the patterns local competitors use, plus the ones they're missing:
   pack check (never the logged-in Chrome, which inflates positions).
 - A Maps **geo-grid** (rank from many map points) needs a paid tool. DataForSEO (~$50 prepaid) is the cheapest. Decide
   after the free baseline.
+
+## GSC findings 2026-10-03 (service-account API, organic rows only, GBP `utm` rows excluded)
+- **Homepage already ranks page 1 for the Santa Rosa Beach head terms** (last 28 days): "movers santa rosa beach fl"
+  #3.6 (154 impr), "santa rosa beach movers" #5.7 (93), "moving companies santa rosa beach" #1.7 (66). The "~#28"
+  above came from an older blended read. The Wave 1 "homepage on-page push" is **closed with no code change**:
+  title and H1 already lead with the phrase, and further gains are prominence (reviews, links), not on-page.
+- **The real gap is indexing, not content.** The URL Inspection API shows the Walton hub, Santa Rosa Beach, 30A,
+  Miramar Beach, Destin and junk removal as *Discovered – currently not indexed* (never crawled); Navarre and piano
+  moving are *unknown to Google*. Internal links are not the cause: the homepage, the sitewide footer and the indexed
+  guides already link every one of them. Levers: the GSC indexing queue (manual requests), IndexNow (Bing), and
+  off-site signals (citations, partner links) that raise crawl demand.
+- Pages Google does show: `/` (1,999 impr, avg #12), the PCB and FWB town pages (#36–48), the cost guide (#33), the
+  PCS field guide (#11). Re-run this read with `gsc_query.py` / `gsc_inspect.py` (claude-seo skill) after each wave.
