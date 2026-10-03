@@ -234,6 +234,15 @@ export function Footer() {
             >
               Privacy Policy
             </Link>
+            <p className="m-0 font-body text-xs text-on-dark-muted">
+              Website by{' '}
+              <a
+                href="https://saltwaterstudio.xyz/"
+                className="underline transition-colors hover:text-on-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-teal-light rounded-sm"
+              >
+                Saltwater Studio
+              </a>
+            </p>
           </div>
           <p className="m-0 font-body text-xs text-on-dark-muted">{BUSINESS.licenseStatement}</p>
         </div>

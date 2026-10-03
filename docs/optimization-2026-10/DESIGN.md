@@ -110,7 +110,8 @@ Every Wave 1 page:
 Answered 2026-10-03 (README "Les answers"): same-day, damage and claims, coverage, storage, crew page, PPM tickets, same-day
 pricing, minimums and drive time, not-to-exceed, estimate signing. Still open: storm rescheduling and cancellation terms,
 billing increment, deposits, full-value-protection pricing, per-category storage prices, whether fuel is in the hourly rate,
-and the FMCSA reinstatement date (interstate).
+and whether BHM's out-of-state methods (Sprinter vans; crew driving customer-rented trucks) need FMCSA authority
+(Les to confirm with FMCSA or a transportation attorney; nothing about them is published).
 
 ## Success criteria
 - Wave 0: GBP shows ≥ 8 categories, 19 described services and the new description. Track impressions and calls in GBP

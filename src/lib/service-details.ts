@@ -812,7 +812,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
         heading: "What an estate cleanout is",
         body: [
           "An estate cleanout is the job of emptying a home after someone has died, moved into care, or decided to sell. It can be the whole house or one part of it. Sometimes the family has already taken what they want and needs the rest gone. Sometimes it is just a garage, an attic, or a storage room nobody has opened in years. We do both.",
-          "Most cleanouts are really three jobs at once. Some pieces go to family, some go to donation, and some go away for good. We handle all three, so you are not coordinating three different crews. If a piece is headed to a relative out of state, we are licensed for interstate moves too.",
+          "Most cleanouts are really three jobs at once. Some pieces go to family, some go to donation, and some go away for good. We handle all three, so you are not coordinating three different crews. If a piece is headed to a relative out of state, call us and we'll walk you through the options.",
         ],
       },
       {
@@ -857,7 +857,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: "Our family lives out of state. Can you still handle the cleanout?",
-        a: "Yes. We coordinate with whoever is making the decisions, by phone, and we are available 24/7. If a piece needs to go to a relative in another state, we are licensed for interstate moves.",
+        a: "Yes. We coordinate with whoever is making the decisions, by phone, and we are available 24/7. If a piece needs to go to a relative in another state, call us and we'll walk you through the options.",
       },
       {
         q: "Can Walton County take some of the bulk items?",
@@ -890,7 +890,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
         heading: "Coordinating with family, near or far",
         body: [
           "We work with whoever is helping, including family who live out of state. Grown children are often the ones calling from another time zone. We are available 24/7, so we can take that call when it works for them, and we keep everyone on the same page about dates and plans.",
-          "If a piece is headed to a relative's home, we can deliver it locally around Destin and Fort Walton Beach, or move it out of state. We are licensed for interstate moves.",
+          "If a piece is headed to a relative's home, we can deliver it locally around Destin and Fort Walton Beach. If it's headed out of state, call us and we'll walk you through the options.",
         ],
       },
       {
@@ -908,7 +908,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: "Can you work with family who live out of state?",
-        a: "Yes. We coordinate with family wherever they live and keep everyone updated on dates and plans. We are available 24/7, so time zones are not a problem. If a piece is going to a relative in another state, we are licensed for interstate moves.",
+        a: "Yes. We coordinate with family wherever they live and keep everyone updated on dates and plans. We are available 24/7, so time zones are not a problem. If a piece is going to a relative in another state, call us and we'll walk you through the options.",
       },
       {
         q: "Is my move too small for you?",

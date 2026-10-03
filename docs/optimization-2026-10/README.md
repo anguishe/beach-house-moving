@@ -28,7 +28,7 @@ These are the only claims new copy may make about these services. Anything not l
 | Heavy specialty items | Gun safes, hot tubs, pool tables, home gyms, "and more". |
 | Senior / downsizing | Yes. They work closely with customers and coordinate with family. No job too small. |
 | Furniture assembly | Yes. No specific brands. |
-| Interstate moving | Licensed and certified for interstate moves; good to move cross-country (Travis, 2026-10-02). **Do not print the USDOT or MC number** until FMCSA SAFER shows the carrier ACTIVE: on 2026-10-03 SAFER showed USDOT and operating authority OUT-OF-SERVICE; Travis says that's known and being fixed. Re-check SAFER before any interstate copy change. |
+| Interstate moving | **No interstate-licensure claims (Travis, 2026-10-03).** FMCSA SAFER shows BHM's USDOT and operating authority OUT-OF-SERVICE; Les says BHM chose not to renew until 2027 because its truck runs local only. Out-of-state requests: "call us and we'll walk you through the options". Never print the USDOT/MC number, never describe how out-of-state moves are done, and keep "long-distance" copy to licensed, insured crews (Fla. Mover Reg. No. IM4125). The GBP "Interstate" service stays (Travis's call). Re-check SAFER before any interstate copy change. |
 | Navarre | In BHM's radius. Les wants to rank there (Travis relayed, 2026-10-02). |
 | Gulf Breeze, Pace, Milton | Served when they have availability (Travis, 2026-10-03). Santa Rosa County's main towns are all in: Navarre, Gulf Breeze, Pace, Milton. |
 | Rain | They work in the rain, but not if it risks any items. They confirm with the customer first (Les via Travis, 2026-10-02). |
