@@ -137,3 +137,9 @@ PASS. IndexNow re-pinged (65 URLs); both URLs queued for GSC Day 2.
 Follow-up: `scripts/ping-indexnow.mjs` reads the LIVE sitemap during the build, before the new deploy is live, so new
 URLs miss the ping. Re-ping after deploy (`VERCEL_ENV=production node --env-file=.env.local scripts/ping-indexnow.mjs`)
 until that's fixed.
+
+## Wave 1 / PR 2 shipped 2026-10-03
+PR #7 (2394c24) is live: 6 new service pages (piano, heavy items, office/commercial, estate cleanouts, senior/downsizing,
+vacation-rental installs), plus mounting gaining assembly, labor-only retargeted, and packing gaining organizing. Live
+site-gate PASS (71 URLs). IndexNow re-pinged (71). All 6 new URLs are queued for GSC (Day 2, 0c–0h). Wave 1 is complete
+except the Santa Rosa County expansion (Gulf Breeze, Pace, Milton pages) and the homepage/SRB on-page push. Those are next.
