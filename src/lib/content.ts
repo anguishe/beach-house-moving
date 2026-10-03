@@ -321,6 +321,8 @@ export const SERVICES = [
     metaTitle: 'Moving Storage Solutions | Beach House Moving',
     metaDescription:
       "Between homes in Santa Rosa Beach? We load once, hold your things, and deliver when you're ready. One licensed crew, no double move, no storage-unit Saturdays.",
+
+    updatedAt: '2026-10-03',
   },
   {
     slug: 'delivery',
@@ -333,7 +335,7 @@ export const SERVICES = [
     metaTitle: 'Furniture & Appliance Delivery | Beach House Moving',
     metaDescription:
       'Professional furniture and appliance delivery across Walton, Okaloosa, and Bay Counties. Single items or full loads. (850) 842-1962.',
-    updatedAt: '2026-08-28',
+    updatedAt: '2026-10-03',
   },
   {
     slug: 'junk-removal',

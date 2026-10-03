@@ -296,7 +296,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: "What's the minimum storage term?",
-        a: "There's no rigid minimum — a few days between closings is fine. Tell us the dates and we'll quote it straight.",
+        a: "The minimum is one month. Storage is billed per item: the first charge covers receiving and the first month, and each month after that is half the initial rate. Tell us the dates and we'll quote it straight.",
       },
     ],
   },
@@ -327,7 +327,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     faqs: [
       {
         q: 'Will you really move just one item?',
-        a: "Yes. Single items are a normal day for us — no minimums that force you to invent a bigger job.",
+        a: "Yes. Single items are a normal day for us. Like every job, it carries our 2-hour minimum, with drive time billed on top.",
       },
       {
         q: 'Do you hook up appliances?',
@@ -481,7 +481,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
         heading: 'When your own rental is the right call',
         body: [
           "Plenty of moves do not need a moving company's truck. You rented a U-Haul because the drive is the cheap part, or a container is already sitting in your driveway, or you are moving one household across town in two trips and would rather not pay for a truck you are not using. What you actually need is people who do this every day, for the hours that matter.",
-          "So we work around whatever you have already committed to. No truck charge on our side, and no minimum you did not ask for.",
+          "So we work around whatever you have already committed to. No truck charge on our side: you pay for the crew's time, with the same 2-hour minimum as every job.",
           "Military families doing a PPM or DITY move are a big share of this work, because the entitlement is built around exactly this arrangement — see the [PCS guide for Eglin and Hurlburt](/resources/pcs-move-eglin-afb-hurlburt-field-guide) for how the reimbursement side works.",
         ],
       },
