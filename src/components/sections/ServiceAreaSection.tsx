@@ -7,7 +7,7 @@ import { MotionReveal } from '@/components/ui/MotionReveal'
 import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS } from '@/lib/content'
 
 // High-intent geo pages we deep-link from the homepage to feed them link equity.
-const KEY_NEIGHBORHOOD_SLUGS = ['santa-rosa-beach', 'miramar-beach', 'sandestin', 'freeport', 'destin', 'fort-walton-beach']
+const KEY_NEIGHBORHOOD_SLUGS = ['santa-rosa-beach', 'miramar-beach', 'sandestin', 'freeport', 'destin', 'fort-walton-beach', 'navarre']
 // Same treatment as in-body links on resource posts (render-body.tsx).
 const inlineLink = 'font-medium text-brand-teal underline underline-offset-4 hover:text-brand-teal-dark'
 
@@ -110,7 +110,7 @@ export function ServiceAreaSection() {
           <Link href="/service-areas/walton-county/30a" className={inlineLink}>
             30A
           </Link>
-          , Destin, Miramar Beach, Fort Walton Beach, Niceville, Crestview, Panama City and Panama
+          , Destin, Miramar Beach, Fort Walton Beach, Niceville, Crestview, Navarre, Panama City and Panama
           City Beach. If you&apos;re nearby and don&apos;t see your town, call{' '}
           {BUSINESS.phone.display} and ask. If we can get there, we will.
         </p>

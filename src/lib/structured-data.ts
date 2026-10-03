@@ -30,12 +30,15 @@ const SCHEMA_CITIES = [
   'Panama City Beach',
   'Panama City',
   'Crestview',
+  'Navarre',
+  'Navarre Beach',
 ] as const
 
 const SCHEMA_SERVICE_AREA_HUB = [
   { county: 'Walton County', slug: 'walton-county' },
   { county: 'Okaloosa County', slug: 'okaloosa-county' },
   { county: 'Bay County', slug: 'bay-county' },
+  { county: 'Santa Rosa County', slug: 'santa-rosa-county' },
 ] as const
 
 type CountyAreaInput = {

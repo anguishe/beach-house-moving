@@ -456,7 +456,7 @@ export const QUOTE_FORM_HEARD_ABOUT = [
 export const FAQS = [
   {
     q: 'What areas does Beach House Moving serve?',
-    a: 'Beach House Moving serves Walton, Okaloosa, and Bay Counties across the Florida Panhandle. In Walton County we cover Santa Rosa Beach, all of 30A including Rosemary Beach, Alys Beach, Seaside, and Watercolor, plus Miramar Beach, Freeport, and DeFuniak Springs. In Okaloosa County we serve Destin, Fort Walton Beach, Niceville, Crestview, Shalimar, and the communities surrounding Eglin Air Force Base and Hurlburt Field. In Bay County we cover Panama City, Panama City Beach, Lynn Haven, Callaway, and Springfield. We also handle long-distance moves beyond the Panhandle — if you are relocating to another part of Florida or out of state, we can coordinate that too. Call (850) 842-1962 to confirm your area and get a free quote.',
+    a: 'Beach House Moving serves Walton, Okaloosa, and Bay Counties across the Florida Panhandle. In Walton County we cover Santa Rosa Beach, all of 30A including Rosemary Beach, Alys Beach, Seaside, and Watercolor, plus Miramar Beach, Freeport, and DeFuniak Springs. In Okaloosa County we serve Destin, Fort Walton Beach, Niceville, Crestview, Shalimar, and the communities surrounding Eglin Air Force Base and Hurlburt Field. In Bay County we cover Panama City, Panama City Beach, Lynn Haven, Callaway, and Springfield. West of Okaloosa we serve Navarre and Navarre Beach in Santa Rosa County. We also handle long-distance moves beyond the Panhandle — if you are relocating to another part of Florida or out of state, we can coordinate that too. Call (850) 842-1962 to confirm your area and get a free quote.',
   },
   {
     q: 'Is Beach House Moving licensed and insured?',
@@ -1311,7 +1311,7 @@ export const ABOUT_FAQS = [
   },
   {
     q: 'What counties does Beach House Moving serve?',
-    a: 'Beach House Moving serves Walton, Okaloosa, and Bay Counties across the Florida Panhandle. In Walton County we cover 30A, Santa Rosa Beach, Miramar Beach, Freeport, and DeFuniak Springs. In Okaloosa County we serve Destin, Fort Walton Beach, Niceville, Crestview, and communities near Eglin AFB and Hurlburt Field. In Bay County we cover Panama City, Panama City Beach, Lynn Haven, Callaway, and Springfield. We also handle long-distance moves beyond the Panhandle.',
+    a: 'Beach House Moving serves Walton, Okaloosa, and Bay Counties across the Florida Panhandle. In Walton County we cover 30A, Santa Rosa Beach, Miramar Beach, Freeport, and DeFuniak Springs. In Okaloosa County we serve Destin, Fort Walton Beach, Niceville, Crestview, and communities near Eglin AFB and Hurlburt Field. In Bay County we cover Panama City, Panama City Beach, Lynn Haven, Callaway, and Springfield. West of Okaloosa we serve Navarre and Navarre Beach in Santa Rosa County. We also handle long-distance moves beyond the Panhandle.',
   },
   {
     q: 'Is Beach House Moving licensed and insured in Florida?',
@@ -1534,7 +1534,7 @@ export const SERVICE_AREAS_HUB = {
   eyebrow: 'Where We Work',
   headline: 'We Come to You',
   bodyIntro:
-    'Three counties, one crew. Beach House Moving covers the full Emerald Coast corridor — every 30A neighborhood from Dune Allen to Inlet Beach, the Destin and Fort Walton Beach corridor through Okaloosa County, and Bay County from Panama City Beach to Lynn Haven. We drive these roads every day, so we know which gated communities want a COI on file before the truck arrives, where a 26-foot box truck can\'t turn around, and which beach access roads jam by mid-morning in June. Find your town below, or call (850) 842-1962 and tell us where you\'re headed.',
+    'Three counties plus Navarre, one crew. Beach House Moving covers the full Emerald Coast corridor — every 30A neighborhood from Dune Allen to Inlet Beach, the Destin and Fort Walton Beach corridor through Okaloosa County and west along US-98 to Navarre and Navarre Beach, and Bay County from Panama City Beach to Lynn Haven. We drive these roads every day, so we know which gated communities want a COI on file before the truck arrives, where a 26-foot box truck can\'t turn around, and which beach access roads jam by mid-morning in June. Find your town below, or call (850) 842-1962 and tell us where you\'re headed.',
   intro:
     'Beach House Moving is a service-area business — we bring professional crews directly to your home or business across Walton, Okaloosa, and Bay Counties. No storefront. No hassle. Just reliable local movers who know the Panhandle.',
   mapHeadline: 'Our Service Region',
