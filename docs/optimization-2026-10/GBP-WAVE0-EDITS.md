@@ -117,7 +117,16 @@ Trucking company, Pet moving service, Transportation service, Waste management s
   - Junk removal: "Fast, responsible junk removal across 30A, Santa Rosa Beach, Destin and the Emerald Coast. Furniture, appliances, debris and more. No haul too big or too small, and same-day when a crew is free."
   - Furniture removal: "Old sofas, sectionals, beds and dressers hauled out of homes, condos and rentals, stairs included. One piece or a full load."
   - Appliance removal: "Old refrigerators, washers, dryers and other appliances hauled away, including swap-outs when we deliver the new one."
-- [ ] **TODO, Debris removal description.** Google stopped loading the form after ~35 saves in one night, so this
+- [x] **Done 2026-10-03: Debris removal description.** Google stopped loading the form after ~35 saves in one night, so this
   stopped rather than retrying. Text to use: "Cleanout debris, boxes and leftover clutter cleared from homes, garages
   and rentals after a move or an estate cleanout."
 - Next category (#2, Delivery service): not before ~2026-10-09.
+
+## Run log: 2026-10-03
+- Debris removal description saved. **All 26 services now have descriptions** except Moving-related storage (paused).
+- **Booking link:** the public panel already shows "Appointments: beachhousemoving.xyz", which links to
+  **/get-a-quote** (set before this project). No change needed. "Offers online estimates" is already on.
+- [ ] **TODO 2026-10-04: add "Panama City, FL" to the service area** (slot 20 of 20). Reasons: it's the largest city in
+  the territory, 5 of the top 10 competitors are based there, the site has a Panama City page, and BHM already shows at
+  about #6.5 in Maps for "movers in panama city florida". Panama City Beach is already in the list. Service areas don't
+  affect ranking (they set the stated coverage). Watch for a verification prompt after saving.
