@@ -400,6 +400,72 @@ export const SERVICES = [
     metaDescription:
       'Labor-only movers on the Emerald Coast: we load, drive, or unload the U-Haul, Penske, or PODS you rented, or any part of it. Call (850) 842-1962.',
   },
+  {
+    slug: "piano-moving",
+    updatedAt: '2026-10-03',
+    title: "Piano Moving",
+    linkLabel: "Piano Moving",
+    shortDescription: "Uprights, grands and baby grands moved on our own piano board. Stairs are fine.",
+    icon: "Piano",
+    featured: false,
+    metaTitle: "Piano Movers in Santa Rosa Beach, Destin & 30A | BHM",
+    metaDescription: "Upright, grand and baby grand pianos moved on our own piano board, stairs included. Owner-operated, licensed and insured. Call (850) 842-1962.",
+  },
+  {
+    slug: "heavy-item-moving",
+    updatedAt: '2026-10-03',
+    title: "Heavy Item Moving",
+    linkLabel: "Gun Safes, Hot Tubs & Heavy Items",
+    shortDescription: "Gun safes, hot tubs, pool tables, home gyms and more, moved by the owners.",
+    icon: "Dumbbell",
+    featured: false,
+    metaTitle: "Gun Safe, Hot Tub & Pool Table Movers | Beach House Moving",
+    metaDescription: "Gun safes, hot tubs, pool tables, Pelotons and treadmills moved on the Emerald Coast. Owner-operated, licensed and insured. Call (850) 842-1962.",
+  },
+  {
+    slug: "office-commercial-moving",
+    updatedAt: '2026-10-03',
+    title: "Office & Commercial Moving",
+    linkLabel: "Office & Commercial Moving",
+    shortDescription: "Office and commercial moves of any size, with after-hours and weekend moves available.",
+    icon: "Building2",
+    featured: false,
+    metaTitle: "Office Movers in Destin, Fort Walton & 30A | BHM",
+    metaDescription: "Office and commercial movers for Destin, Fort Walton Beach and 30A. Any size, after-hours and weekend moves available. Call (850) 842-1962.",
+  },
+  {
+    slug: "estate-cleanouts",
+    updatedAt: '2026-10-03',
+    title: "Estate Cleanouts",
+    linkLabel: "Estate Cleanouts",
+    shortDescription: "Whole-house or partial estate cleanouts, done with care. Donations go wherever your family chooses.",
+    icon: "Archive",
+    featured: false,
+    metaTitle: "Estate Cleanouts on 30A & in Destin | Beach House Moving",
+    metaDescription: "Whole-house or partial estate cleanouts on the Emerald Coast. Keep, donate or haul away: your family decides. Licensed, owner-run. Call (850) 842-1962.",
+  },
+  {
+    slug: "senior-downsizing-moves",
+    updatedAt: '2026-10-03',
+    title: "Senior & Downsizing Moves",
+    linkLabel: "Senior Moves & Downsizing",
+    shortDescription: "Patient senior and downsizing moves, planned with you and your family. No job too small.",
+    icon: "HeartHandshake",
+    featured: false,
+    metaTitle: "Senior Moves & Downsizing on 30A & Destin | BHM",
+    metaDescription: "Senior and downsizing moves on the Emerald Coast. We work at your pace, keep family in the loop near or far, and no job is too small. (850) 842-1962.",
+  },
+  {
+    slug: "vacation-rental-installs",
+    updatedAt: '2026-10-03',
+    title: "Vacation Rental Furniture Installs",
+    linkLabel: "Vacation Rental Installs",
+    shortDescription: "Furnishing or refreshing a rental? We receive, deliver, assemble, place and haul the old pieces away.",
+    icon: "Palmtree",
+    featured: false,
+    metaTitle: "Vacation Rental Furniture Installs on 30A | BHM",
+    metaDescription: "Vacation rental installs for owners, property managers and designers on 30A: receiving, delivery, assembly, setup and haul-away, timed to turnover.",
+  },
 ] as const
 
 // Same pattern as ServiceArea — optional updatedAt (YYYY-MM-DD) for accurate
@@ -446,6 +512,12 @@ export const QUOTE_FORM_MOVE_TYPES = [
   'Storage',
   'Delivery',
   'Junk Removal',
+  'Piano Move',
+  'Heavy Item (Safe, Hot Tub, Pool Table, Gym)',
+  'Estate Cleanout',
+  'Senior / Downsizing Move',
+  'Vacation Rental Install',
+  'Furniture Assembly / Mounting',
   'Other',
 ] as const
 
@@ -1248,6 +1320,42 @@ export const SERVICE_INCLUDES: Record<(typeof SERVICES)[number]['slug'], readonl
     'Licensed and insured crews — not day labor',
     'Same-day and short-notice availability when we have it',
   ],
+  "piano-moving": [
+    "All pianos: uprights, grands and baby grands",
+    "Our own piano board, plus pads and straps",
+    "Stair carries planned before move day",
+    "Owner-operated crew, licensed and insured",
+  ],
+  "heavy-item-moving": [
+    "Gun safes, hot tubs, pool tables and home gyms",
+    "Liftgate trucks, dollies, pads and straps",
+    "Floor and door-frame protection",
+    "Access and stairs planned before move day",
+  ],
+  "office-commercial-moving": [
+    "Offices, shops and commercial spaces of any size",
+    "After-hours and weekend moves at an added rate",
+    "Desk and furniture disassembly and reassembly",
+    "Licensed and insured, FL Mover Reg. #IM4125",
+  ],
+  "estate-cleanouts": [
+    "Whole-house or partial cleanouts",
+    "Donations taken wherever you prefer",
+    "Furniture, appliances and debris hauled away",
+    "We work alongside families and realtors",
+  ],
+  "senior-downsizing-moves": [
+    "A patient, owner-operated crew",
+    "Coordination with family, including out of state",
+    "Packing, unpacking and home organizing",
+    "No job too small",
+  ],
+  "vacation-rental-installs": [
+    "For owners, property managers and designers",
+    "Receiving and delivery",
+    "Placement, assembly and setup",
+    "Haul-away of the old furniture",
+  ],
 }
 
 /** FAQ indices per service slug — subset of FAQS. */
@@ -1263,6 +1371,12 @@ export const SERVICE_FAQ_INDICES: Record<(typeof SERVICES)[number]['slug'], read
   'design-trade-installation': [6, 7, 1],
   'mounting-installation': [6, 1, 5],
   'loading-unloading-help': [15, 2, 5],
+  "piano-moving": [6, 1, 2, 5],
+  "heavy-item-moving": [6, 1, 5],
+  "office-commercial-moving": [1, 5, 12, 13],
+  "estate-cleanouts": [11, 9, 1],
+  "senior-downsizing-moves": [3, 4, 1, 5],
+  "vacation-rental-installs": [7, 1, 5],
 }
 
 /** Counties for junk removal Service JSON-LD (SAB — no street address). */

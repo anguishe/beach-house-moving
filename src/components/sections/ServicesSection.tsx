@@ -13,6 +13,12 @@ import {
   Phone,
   Truck,
   Warehouse,
+  Archive,
+  Building2,
+  Dumbbell,
+  HeartHandshake,
+  Palmtree,
+  Piano,
 } from 'lucide-react'
 
 import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
@@ -31,6 +37,12 @@ const serviceImageMap: Record<string, { src: string; alt: string }> = {
   'design-trade-installation': IMAGES.burntPineDiningRoomInstall,
   'mounting-installation': IMAGES.nicevilleEstateSaleArtHanging,
   'loading-unloading-help': IMAGES.ridgewalkUhaulUnload,
+  "piano-moving": IMAGES.crewBrandedAntiqueMove,
+  "heavy-item-moving": IMAGES.crewGymEquipmentLiftgate,
+  "office-commercial-moving": IMAGES.loadedBoxTruck,
+  "estate-cleanouts": IMAGES.estateSalePrepHandTruck,
+  "senior-downsizing-moves": IMAGES.dresserPlacement,
+  "vacation-rental-installs": IMAGES.greatRoomStaged,
 }
 
 const serviceIconMap: Record<string, React.ElementType> = {
@@ -43,6 +55,12 @@ const serviceIconMap: Record<string, React.ElementType> = {
   Paintbrush,
   HandHelping,
   Hammer,
+  Archive,
+  Building2,
+  Dumbbell,
+  HeartHandshake,
+  Palmtree,
+  Piano,
 }
 
 export function ServicesSection() {

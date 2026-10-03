@@ -15,6 +15,12 @@ export const SERVICE_IMAGE_MAP: Record<string, ServiceImage> = {
   'design-trade-installation': IMAGES.burntPineDiningRoomInstall,
   'mounting-installation': IMAGES.nicevilleEstateSaleArtHanging,
   'loading-unloading-help': IMAGES.ridgewalkUhaulUnload,
+  "piano-moving": IMAGES.crewBrandedAntiqueMove,
+  "heavy-item-moving": IMAGES.crewGymEquipmentLiftgate,
+  "office-commercial-moving": IMAGES.loadedBoxTruck,
+  "estate-cleanouts": IMAGES.estateSalePrepHandTruck,
+  "senior-downsizing-moves": IMAGES.dresserPlacement,
+  "vacation-rental-installs": IMAGES.greatRoomStaged,
 }
 
 /** Optional secondary/gallery image per service — must not duplicate the primary src. */
@@ -31,6 +37,12 @@ export const SERVICE_SECONDARY_IMAGE_MAP: Partial<Record<string, ServiceImage>> 
   'design-trade-installation': IMAGES.draperyHangingComplete,
   'mounting-installation': IMAGES.draperyHangingLadder,
   'loading-unloading-help': IMAGES.apartmentRampUnload,
+  "piano-moving": IMAGES.stairs,
+  "heavy-item-moving": IMAGES.slotMachineSpecialtyMove,
+  "office-commercial-moving": IMAGES.fleetTruckVan,
+  "estate-cleanouts": IMAGES.pelicanFridgeHaulAway,
+  "senior-downsizing-moves": IMAGES.bedFrameAssembly,
+  "vacation-rental-installs": IMAGES.rugPlacement,
 }
 
 // ---------------------------------------------------------------------------
