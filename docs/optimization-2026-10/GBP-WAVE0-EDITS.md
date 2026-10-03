@@ -98,8 +98,8 @@ Usage out of 10: Mover / Moving service 9, Moving and storage service 8, Piano m
 Junk removal, Debris removal and Delivery service appear once each. BHM already has the 3 most common.
 Add one at a time, about a week apart, and watch for a verification prompt after each:
 1. [ ] **Junk removal service.** Used by the #1 listing (College Hunks Destin). Confirmed service. junk removal near me 100K–1M/mo; town terms $15–30 bids.
-2. [ ] **Delivery service.** Closest real category to furniture, appliance and design-trade delivery (no "Furniture delivery" exists). It's the referral/B2B lane.
-3. [ ] **Debris removal service.** Fits estate cleanouts; overlaps #1, so add it after.
+2. [x] **Delivery service.** Added by Travis 2026-10-03. Closest real category to furniture, appliance and design-trade delivery (no "Furniture delivery" exists). It's the referral/B2B lane.
+3. [ ] **Debris removal service.** Scheduled for the week of 2026-10-10 (Travis). Fits estate cleanouts; overlaps #1, so add it after.
 4. [ ] "Professional organizer" / an office-moving category, **only if** the picker shows an exact name (none seen on competitors).
 Do NOT add: Self-storage facility, Storage facility, Warehouse, Moving supply store (unless they sell supplies),
 Trucking company, Pet moving service, Transportation service, Waste management service, Handyman.
@@ -126,7 +126,7 @@ Trucking company, Pet moving service, Transportation service, Waste management s
 - Debris removal description saved. **All 26 services now have descriptions** except Moving-related storage (paused).
 - **Booking link:** the public panel already shows "Appointments: beachhousemoving.xyz", which links to
   **/get-a-quote** (set before this project). No change needed. "Offers online estimates" is already on.
-- [ ] **TODO 2026-10-04: add "Panama City, FL" to the service area** (slot 20 of 20). Reasons: it's the largest city in
+- [x] **Done by Travis 2026-10-03: added "Panama City, FL" to the service area** (slot 20 of 20). Reasons: it's the largest city in
   the territory, 5 of the top 10 competitors are based there, the site has a Panama City page, and BHM already shows at
   about #6.5 in Maps for "movers in panama city florida". Panama City Beach is already in the list. Service areas don't
   affect ranking (they set the stated coverage). Watch for a verification prompt after saving.
