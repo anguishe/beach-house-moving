@@ -12,6 +12,12 @@ import {
   Paintbrush,
   Truck,
   Warehouse,
+  Archive,
+  Building2,
+  Dumbbell,
+  HeartHandshake,
+  Palmtree,
+  Piano,
 } from 'lucide-react'
 
 import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
@@ -35,6 +41,12 @@ const serviceIconMap = {
   Paintbrush,
   HandHelping,
   Hammer,
+  Archive,
+  Building2,
+  Dumbbell,
+  HeartHandshake,
+  Palmtree,
+  Piano,
 } as const
 
 export async function generateMetadata(): Promise<Metadata> {

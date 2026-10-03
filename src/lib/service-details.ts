@@ -1,16 +1,22 @@
 /** Related service slugs for cross-links on service detail pages. */
 export const SERVICE_RELATED: Record<string, readonly string[]> = {
-  'residential-moving': ['packing-unpacking', 'storage'],
+  'residential-moving': ['packing-unpacking', 'storage', 'senior-downsizing-moves'],
   'local-moving': ['packing-unpacking', 'delivery'],
   'long-distance-moving': ['storage', 'packing-unpacking'],
   'packing-unpacking': ['residential-moving', 'local-moving'],
   storage: ['long-distance-moving', 'military-pcs-moving'],
-  delivery: ['local-moving', 'junk-removal'],
+  delivery: ['local-moving', 'junk-removal', 'heavy-item-moving', 'piano-moving'],
   'military-pcs-moving': ['long-distance-moving', 'storage'],
-  'junk-removal': ['delivery', 'local-moving'],
-  'design-trade-installation': ['mounting-installation', 'delivery'],
+  'junk-removal': ['delivery', 'local-moving', 'estate-cleanouts'],
+  'design-trade-installation': ['mounting-installation', 'delivery', 'vacation-rental-installs'],
   'mounting-installation': ['design-trade-installation', 'delivery'],
   'loading-unloading-help': ['local-moving', 'packing-unpacking'],
+  "piano-moving": ["heavy-item-moving", "delivery"],
+  "heavy-item-moving": ["piano-moving", "junk-removal"],
+  "office-commercial-moving": ["delivery", "storage"],
+  "estate-cleanouts": ["junk-removal", "senior-downsizing-moves"],
+  "senior-downsizing-moves": ["estate-cleanouts", "packing-unpacking"],
+  "vacation-rental-installs": ["design-trade-installation", "delivery"],
 }
 
 /** Long-form service copy — keyed by slug; kept separate from SERVICES for lean page bundles. */
@@ -183,7 +189,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
   'packing-unpacking': {
     fullDescription:
       'We bring the boxes, paper, and bubble wrap, and we pack room by room so nothing rattles in the truck. Fragile stuff gets wrapped properly, not just tossed in a box. On the other end, we unpack and place it where you want it and haul the empty boxes away.',
-    heroTitle: 'Packing & Unpacking Services — Walton, Okaloosa & Bay Counties',
+    heroTitle: 'Packing, Unpacking & Home Organizing on the Emerald Coast',
     sections: [
       {
         heading: 'Full packing or just the hard parts',
@@ -204,8 +210,19 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
           "On the other end we'll unpack room by room, set furniture where you want it, and haul away the empty boxes and paper. You get a home, not a cardboard maze.",
         ],
       },
+      {
+        heading: 'Home organizing after the move',
+        body: [
+          'Yes, home organizing is one of our services. Kitchens, closets, pantries and garages get set up so the house works on day one, not three months from now.',
+          'The owners quote organizing themselves, and it starts at our listed moving rate. Book it with your move or on its own.',
+        ],
+      },
     ],
     faqs: [
+      {
+        q: 'Do you offer home organizing?',
+        a: 'Yes. We set up kitchens, closets and the rest of the house after a move, or on its own. The owners quote it, and it starts at our listed moving rate.',
+      },
       {
         q: 'Do you pack the day before or the day of the move?',
         a: "For most homes, packing the day before keeps move day fast and predictable. Smaller homes can often be packed and moved the same day — we'll recommend the right split on your quote call.",
@@ -458,7 +475,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
   'loading-unloading-help': {
     fullDescription:
       'You rent the truck or container; we do the rest of it. Load it, drive it, unload it, or any part of that on its own — with the same wrapping, padding, and load discipline we use on our own trucks. Most people call us for the unload. Plenty end up handing over the whole thing.',
-    heroTitle: 'U-Haul & Rental Truck Help on the Emerald Coast',
+    heroTitle: 'Moving Labor & U-Haul Help on the Emerald Coast',
     sections: [
       {
         heading: 'When your own rental is the right call',
@@ -498,6 +515,10 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     ],
     faqs: [
       {
+        q: 'What are labor-only movers?',
+        a: 'Labor-only movers bring the muscle and the know-how but not the truck. You rent the U-Haul, Penske, or PODS; we load it, drive it if you want, and unload it. You only pay for the help you need.',
+      },
+      {
         q: 'Can you help unload a U-Haul or PODS container I already rented?',
         a: 'Yes. Loading and unloading U-Haul, Penske, Budget, PODS, and rental trailers is standard work for us across Walton, Okaloosa, and Bay Counties. You keep the rental; we bring the crew, the pads, the straps, and the dollies — and we can drive it as well if you would rather not.',
       },
@@ -519,14 +540,14 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: 'Can you do it same day?',
-        a: 'Sometimes. Rental-truck jobs tend to come up on short notice and we keep room for them when we can. Call and ask — the answer is either yes or a specific alternative, not a maybe.',
+        a: 'When a crew is available, yes. We offer same-day help across all of our services, and rental-truck jobs often come up on short notice. Call (850) 842-1962: the answer is either yes or a specific alternative, not a maybe.',
       },
     ],
   },
   'mounting-installation': {
     fullDescription:
       'TV mounts, art, mirrors, and shelving — hung level, anchored into something that will actually hold, with the hardware supplied when you do not have it. Keith is our installer and he looks at the space in person before we commit to mounting anything, because the wall decides what is possible, not the catalog.',
-    heroTitle: 'TV Mounting, Art Hanging & Shelf Installation',
+    heroTitle: 'TV Mounting, Furniture Assembly & Art Hanging',
     sections: [
       {
         heading: 'What we mount',
@@ -551,6 +572,13 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
         ],
       },
       {
+        heading: 'Furniture assembly, with or without a move',
+        body: [
+          'Yes, we assemble furniture on its own, not only as part of a move. Beds, home gyms, shelving and flat-pack pieces get built, leveled and placed where you want them, and the packaging leaves with us.',
+          'There is no brand we are limited to. Tell us what it is and how many pieces when you call, and we will tell you straight how long it should take.',
+        ],
+      },
+      {
         heading: 'Where our line is',
         body: [
           'We mount and we build. We do not run wire inside a wall, move an outlet, or make any electrical or plumbing connection — those are licensed trades in Florida and our mover registration does not cover them. If your TV needs an outlet moved behind it, that is an electrician before us, and we will happily work around their schedule.',
@@ -558,6 +586,10 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
     ],
     faqs: [
+      {
+        q: 'Do you assemble furniture without a move?',
+        a: 'Yes. Beds, home gyms, shelving and flat-pack furniture, built and placed where you want it, with the boxes hauled off. Call (850) 842-1962 and tell us what you have.',
+      },
       {
         q: 'Do you mount TVs?',
         a: 'Yes, including taking down an existing mount and replacing it. Keith, our installer, looks at the wall in person before we commit — a mount is only as good as what is behind the drywall, and it is not something to guess at over the phone.',
@@ -581,6 +613,379 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       {
         q: 'How much does TV mounting or art hanging cost?',
         a: 'It depends on the wall, the piece, and how many of them there are. Call (850) 842-1962 and describe the job — Keith will need to see the space before we commit to a mount, and we would rather give you a real number than a phone guess.',
+      },
+    ],
+  },
+  "piano-moving": {
+    fullDescription:
+      "We move all pianos, uprights, baby grands and full grands, across Santa Rosa Beach, 30A, Destin and the rest of the Emerald Coast. The owners do the lifting, on our own piano board, with the piano wrapped, padded and strapped. Stairs are fine.",
+    heroTitle: "Piano Movers in Santa Rosa Beach, Destin & Along 30A",
+    sections: [
+      {
+        heading: "Which pianos we move",
+        body: [
+          "We move all pianos: uprights, spinets, consoles, baby grands and full grands. If it has keys and it needs to go somewhere, call us.",
+          "Stairs are fine. Elevated beach homes with exterior stairs are normal work for us, and we plan the carry before anyone lifts. We own a piano board, so your piano travels on the right equipment instead of a furniture dolly.",
+        ],
+      },
+      {
+        heading: "How we move a piano",
+        body: [
+          "A piano moves wrapped, padded and strapped to a piano board, with a crew sized to the access at both ends. An upright gets blanket-wrapped and strapped upright to the board. Grands normally travel with the legs and pedal lyre off, on their side on the board; that is the standard way, and we confirm the plan for your piano when we quote.",
+          "Floors, door frames and stair rails get protection before the piano moves. In the truck it is strapped in place so nothing shifts on US-98. At the new place we set it where you want it, put a grand back on its legs, and take the padding with us.",
+        ],
+      },
+      {
+        heading: "Why moving a piano yourself is risky",
+        body: [
+          "A piano is heavy in a way furniture is not. Most of the weight is a cast-iron plate and a tensioned frame inside the case, and in an upright that weight sits high and toward the back, so it wants to tip once it leaves level ground.",
+          "The small casters on most pianos are meant for nudging it along a wall, not rolling it across a room or down a ramp. On stairs, a piano that starts to slide cannot be caught by hand. Grand legs are not built for side loads and can snap if the piano is pushed on them. That is why the job takes a piano board, straps and people who have done it before.",
+        ],
+      },
+      {
+        heading: "Pianos on the Emerald Coast",
+        body: [
+          "Coastal homes add their own steps. Many houses along 30A and in Destin are elevated, condos often require a reserved service elevator and follow HOA move rules, and gated communities want our names on the list. Tell us about all of it on the call and we will handle the coordination.",
+          "Humidity matters here too. Moving a piano into a new room changes its environment, so give it time to settle before you book a tuner.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How much does it cost to move a piano?",
+        a: "Pianos are quoted after you tell us the type (upright, baby grand or grand), the stairs, and the access at both ends, because those set the crew and the time. Call (850) 842-1962 and we will give you a straight answer.",
+      },
+      {
+        q: "Can you move a piano up or down stairs?",
+        a: "Yes. Stairs are fine, including the exterior stairs on elevated beach homes. We use our own piano board, straps and padding, and we plan the carry before we lift. Tell us how many steps there are and whether there is a landing or a turn.",
+      },
+      {
+        q: "Do you move grand and baby grand pianos?",
+        a: "Yes, we move all pianos. Grands and baby grands normally travel wrapped and strapped on their side on a piano board, with the legs and pedal lyre off, and go back on their legs at the new place. We confirm the plan for your piano when we quote.",
+      },
+      {
+        q: "Can I move a piano myself?",
+        a: "We would not recommend it. Most of a piano's weight is an iron plate inside the case, so it tips easily, the casters are not built for real moving, and grand legs can snap under side pressure. On stairs, a sliding piano cannot be stopped by hand.",
+      },
+      {
+        q: "Will my piano need tuning after the move?",
+        a: "Usually, yes. A move and a new room change a piano's environment, and coastal humidity adds to that. Give it time to settle in its new spot, then book your tuner.",
+      },
+      {
+        q: "Do you move pianos in Destin and along 30A?",
+        a: "Yes. We are based in Santa Rosa Beach and move pianos across Walton, Okaloosa and Bay counties, including 30A, Destin, Miramar Beach and Panama City Beach. Navarre, Gulf Breeze, Pace and Milton are served when we have availability.",
+      },
+    ],
+  },
+  "heavy-item-moving": {
+    fullDescription:
+      "We move the heavy, awkward things most people should not try themselves: gun safes, hot tubs, pool tables, home gyms and more. The owners do the work, with dollies, ramps, straps, padding and liftgate trucks, across Santa Rosa Beach, 30A, Destin and the rest of the Emerald Coast.",
+    heroTitle: "Gun Safe, Hot Tub & Pool Table Movers on the Emerald Coast",
+    sections: [
+      {
+        heading: "Gun safes",
+        body: [
+          "We move gun safes between rooms, out of garages and closets, and to a new home. Before we quote, we need the make and model or the size, whether it is bolted to the floor, and the path out: stairs, thresholds, tight turns and the floor it rolls across.",
+          "Empty it before move day. A full safe is heavier and the contents shift against the door and shelves. On our end, the safe gets padded and strapped to a dolly, floors and door frames get protection, and it rides a liftgate instead of being muscled up into the truck.",
+        ],
+      },
+      {
+        heading: "Hot tubs",
+        body: [
+          "We move hot tubs: across the yard, off a deck, out of the way of a renovation, or to a new home. If the tub is leaving for good, tell us on the call where it needs to go and we will talk it through.",
+          "Two things need to happen before we arrive. The tub should be drained and dry, and the power should be disconnected by a licensed electrician. Then walk the route with us on the phone: gate widths, steps, the ground between the tub and the truck, and anything overhead. We bring dollies, ramps and straps sized to the job.",
+        ],
+      },
+      {
+        heading: "Pool tables",
+        body: [
+          "We move pool tables. The first question is whether the table is slate, because a slate table is far heavier than it looks and usually has to come apart before it can travel safely.",
+          "Tell us the size, the brand if you know it, and where it is going. On the call we will go over how your specific table will be handled, and whether it makes sense to have a billiards technician re-level it once it is in its new room.",
+        ],
+      },
+      {
+        heading: "Home gyms and more",
+        body: [
+          "We move home gym equipment: Peloton bikes and treads, treadmills, ellipticals, racks, cable machines and weights. Pieces that will not fit through a doorway in one piece come apart and go back together at the new place.",
+          "If the treadmill deck folds, fold and lock it if you can, and box loose plates and dumbbells. Beyond gyms, if something is heavy, awkward or headed up the exterior stairs of an elevated beach house, ask. That is the kind of job we take.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How do you move a gun safe?",
+        a: "Empty it first. We pad it, strap it to a dolly, protect floors and door frames, and load it with a liftgate. Before quoting we need the size or model, whether it is bolted down, and the route out, including stairs and thresholds.",
+      },
+      {
+        q: "Can you remove a hot tub?",
+        a: "Yes, we move hot tubs off decks, out of yards and to new homes. Have it drained and dry, with the power disconnected by a licensed electrician before we arrive. If the tub is leaving for good, tell us where it needs to go and we will talk it through.",
+      },
+      {
+        q: "Does a pool table have to be taken apart to move it?",
+        a: "Usually, if it is slate. Slate tables are much heavier than they look and travel safest in pieces. Tell us the size, whether it is slate, and where it is going, and we will explain how your table will be handled and whether it should be re-leveled after.",
+      },
+      {
+        q: "Do you move Peloton bikes and treadmills?",
+        a: "Yes. Pelotons, treadmills, ellipticals, racks and cable machines are all part of the job. Equipment that will not fit through a door in one piece gets taken apart and put back together at the new place.",
+      },
+      {
+        q: "How much does it cost to move a heavy item?",
+        a: "Heavy items are quoted after you tell us what the item is, the stairs, and the access at both ends, since those set the crew and the time. Call (850) 842-1962.",
+      },
+      {
+        q: "Is there a weight limit on what you will move?",
+        a: "We do not publish one. Give us the item, the make and model if you have it, and the access at both ends, and we will tell you on the call whether we can do it and what crew it needs.",
+      },
+    ],
+  },
+  "office-commercial-moving": {
+    fullDescription:
+      "We move offices, stores and other commercial spaces of any size across Destin, Fort Walton Beach, Santa Rosa Beach and the rest of the Emerald Coast. No move is too small or too big. After-hours and weekend moves are available at an added rate, so your business can keep its doors open.",
+    heroTitle: "Office & Commercial Movers in Destin, Fort Walton Beach & 30A",
+    sections: [
+      {
+        heading: "Office moves of any size",
+        body: [
+          "We move offices and commercial spaces of any size, from a single desk to a full floor. No move is too small or too big: a two-person real estate office, a retail store resetting its floor, a showroom changing locations, or a company moving across town.",
+          "The owners are the movers, so the people who plan your move are the people carrying your filing cabinets. We are licensed and insured, Florida Mover Reg. #IM4125. Desks and furniture that need to come apart get taken apart and reassembled at the new space.",
+        ],
+      },
+      {
+        heading: "After-hours and weekend office moves",
+        body: [
+          "Yes, we can move your office after hours or on a weekend, at an added rate. For a lot of businesses that cost is worth it, because the office closes Friday and opens Monday with the desks already in place.",
+          "We are available 24/7, so tell us when your business can afford to be closed and we will plan around it.",
+        ],
+      },
+      {
+        heading: "Commercial moves on the Emerald Coast",
+        body: [
+          "Most commercial moves here come down to access. Office buildings in Destin and Fort Walton Beach may require a reserved freight elevator or loading dock time. Strip centers along US-98 have busy lots. Home offices in condos and gated communities come with HOA move rules and gate lists.",
+          "We bring dollies, padding, straps and liftgate trucks, and a Sprinter van for tight spots a box truck cannot reach. Tell us the building rules at both ends and we will work inside them.",
+        ],
+      },
+      {
+        heading: "A practical office move checklist",
+        body: [
+          "Start planning four to six weeks out for most office moves, sooner for a large one. These are the steps that keep a move on schedule.",
+          "Six weeks out: confirm your move date and lease dates, then ask both buildings what they require from movers, such as elevator reservations, dock times or insurance paperwork. Book your mover and decide whether you need an after-hours or weekend move.",
+          "Four weeks out: measure the new space and make a floor plan with every desk, cabinet and printer marked. Schedule your internet, phone and IT vendors for the new location. Order new signage and update your address with clients, vendors and your Google Business Profile.",
+          "Two weeks out: assign one person on your team as the point of contact for the movers. Clear out old files and furniture you will not take. Start packing storage rooms and anything nobody uses day to day.",
+          "The week of: label every box and piece of furniture with its room or desk number from the floor plan. Back up computers and have IT disconnect anything sensitive. Each employee packs their own desk.",
+          "Move day: keep the floor plan at the new door so every piece goes straight to its spot. Do a walkthrough of the old space before you hand back the keys.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How much do office movers cost?",
+        a: "Our published rate is $195 an hour for 2 movers, plus drive time. Office moves are quoted after we know the size of the space, the access at both ends and the timing. After-hours and weekend moves are available at an added rate. Call (850) 842-1962.",
+      },
+      {
+        q: "Can you move our office after hours or on a weekend?",
+        a: "Yes. After-hours and weekend office moves are available at an added rate, so your business does not have to close during the workday. We are available 24/7, so tell us the window you have and we will plan the move around it.",
+      },
+      {
+        q: "Do you handle small office moves?",
+        a: "Yes. No move is too small or too big. A few desks and a filing cabinet get the same owner crew and the same care as a full floor.",
+      },
+      {
+        q: "How far ahead should we book an office move?",
+        a: "Four to six weeks gives you time to sort out building rules, IT and a floor plan, and more lead time helps for a large office. Short on time? Call anyway. Same-day help is possible when a crew is available.",
+      },
+      {
+        q: "Do you disconnect and set up computers?",
+        a: "We move your equipment padded and handled with care, and we take apart and reassemble desks and office furniture. Have your IT person or vendor disconnect and reconnect computers, servers and networks, and back everything up before move day.",
+      },
+      {
+        q: "Do you do commercial moves in Destin and Fort Walton Beach?",
+        a: "Yes. We are based in Santa Rosa Beach and handle commercial moves across Walton, Okaloosa and Bay counties, including Destin, Fort Walton Beach, Miramar Beach and 30A. Navarre, Gulf Breeze, Pace and Milton are served when we have availability.",
+      },
+    ],
+  },
+  "estate-cleanouts": {
+    fullDescription:
+      "An estate cleanout clears a home's contents, all of it or just part, after a death, a move into care, or before a sale. We do them in Santa Rosa Beach, along 30A, in Destin and across the Emerald Coast. We move what the family keeps, take donations wherever you prefer, and haul away the rest, and the owners do the work themselves.",
+    heroTitle: "Estate Cleanouts in Santa Rosa Beach, 30A & Destin",
+    sections: [
+      {
+        heading: "What an estate cleanout is",
+        body: [
+          "An estate cleanout is the job of emptying a home after someone has died, moved into care, or decided to sell. It can be the whole house or one part of it. Sometimes the family has already taken what they want and needs the rest gone. Sometimes it is just a garage, an attic, or a storage room nobody has opened in years. We do both.",
+          "Most cleanouts are really three jobs at once. Some pieces go to family, some go to donation, and some go away for good. We handle all three, so you are not coordinating three different crews. If a piece is headed to a relative out of state, we are licensed for interstate moves too.",
+        ],
+      },
+      {
+        heading: "How to clean out a house after a death",
+        body: [
+          "Start with papers and keepsakes, not furniture. Before anyone lifts a dresser, go through drawers, closets and boxes for documents, photos, jewelry, keys and anything with a family story attached. Those are the things that get lost when a house is cleared in a hurry.",
+          "Then give family members time to claim what they want, and mark it clearly. Tape and a name works fine. If anything might be sold, settle that before donations go out. Make sure the person handling the estate has signed off on what leaves the house.",
+          "Once those decisions are made, call us. We will move the keep pile to wherever it is going, drop donations where you choose, and clear what is left. There is no rush on our side. We would rather come back for a second day than push a family to decide before they are ready.",
+        ],
+      },
+      {
+        heading: "Where donations and everything else go",
+        body: [
+          "Donations go wherever you prefer. That might be a charity, a church, a shelter, a neighbor, or a friend who just set up a first apartment. Tell us where, and we will deliver it. Most charities have rules about what they accept and in what condition, so a quick call to them first saves a wasted trip.",
+          "What cannot be donated or kept, we haul away. See our [junk removal](/services/junk-removal) page for how that works. Walton County's Bulk Waste Collection page has described a free monthly bulk pickup and free bulk drop-off at the county landfill for eligible residents. Eligibility and schedules vary, so check with the county before you plan around it.",
+        ],
+      },
+      {
+        heading: "Working with families, realtors and designers",
+        body: [
+          "We work with whoever is making the decisions. Often that is a family member who lives out of state, and we keep them in the loop by phone. We are available 24/7, so a call from another time zone is not a problem.",
+          "We also work with realtors, designers and retailers. A realtor listing an estate home usually needs it empty before photos. A designer refreshing a home needs the old pieces out before the new ones arrive. Either way, the same owners who quote the job show up to do it.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "What is an estate cleanout?",
+        a: "An estate cleanout is emptying a home's contents, usually after a death, a move into care, or before a sale. It can cover the whole house or just part of it. We move what the family keeps, take donations wherever you prefer, and haul away what is left.",
+      },
+      {
+        q: "How much does an estate cleanout cost?",
+        a: "We quote it after we hear what is involved, so call (850) 842-1962 and describe the job.",
+      },
+      {
+        q: "Can you clear just part of the house?",
+        a: "Yes. We do whole-house and partial cleanouts. If the family has already taken what they want, we clear the rest. If it is one garage, one bedroom, or a storage room, that is a job we will take.",
+      },
+      {
+        q: "Do you pick up furniture for donation?",
+        a: "Yes. Donations go wherever you prefer: a charity, a church, a shelter, or someone you know. We load it, pad it, and deliver it. Call the place you are donating to first, because most charities have rules about what they accept.",
+      },
+      {
+        q: "Our family lives out of state. Can you still handle the cleanout?",
+        a: "Yes. We coordinate with whoever is making the decisions, by phone, and we are available 24/7. If a piece needs to go to a relative in another state, we are licensed for interstate moves.",
+      },
+      {
+        q: "Can Walton County take some of the bulk items?",
+        a: "Walton County has described a free monthly bulk pickup and free landfill drop-off for eligible residents on its Bulk Waste Collection page. Eligibility and schedules vary, so check with the county first. If the timing does not work, we can haul it away for you.",
+      },
+    ],
+  },
+  "senior-downsizing-moves": {
+    fullDescription:
+      "We handle senior and downsizing moves in Santa Rosa Beach, along 30A, in Destin and Fort Walton Beach: from a family home into a smaller house, a condo, or a care community. We work closely with you, coordinate with family wherever they live, and no job is too small. The owners are the movers, so the faces you meet are the faces on move day.",
+    heroTitle: "Senior Moves & Downsizing in Santa Rosa Beach, 30A & Destin",
+    sections: [
+      {
+        heading: "How we handle a senior move",
+        body: [
+          "We go at your pace and explain each step before we do it. A senior move is not a race. It is often leaving a home of many years, and the person moving should be the one deciding what comes along. Nothing goes in a donation pile or on the truck without your say.",
+          "Beach House Moving is owner-operated: the owners are the movers. You will get to know names like Les, Zack, Keith and Josh, not a rotating crew of strangers. The people who talk the move through with you are the people who carry the furniture and set up the new place.",
+          "To be clear about what we are: we are not certified senior move managers. We are movers who handle senior and downsizing moves with patience, and we plan them closely with you and your family.",
+        ],
+      },
+      {
+        heading: "How to downsize a home",
+        body: [
+          "Start with the new floor plan, then decide what fits. Measure the rooms in the new place and pick the furniture that belongs there first. The bed, the favorite chair and the dining table usually decide everything else.",
+          "Next, sort the rest into a few plain groups: keep, give to family, donate, sell, and let go. Begin with rooms you use least, like a guest room or garage, and leave the kitchen and bedroom for last. Offer heirlooms to family early, so those conversations happen over coffee, not on move day.",
+          "Give yourself more time than you think you need. If packing feels like too much, we offer [packing, unpacking and home organizing](/services/packing-unpacking) as part of the move.",
+        ],
+      },
+      {
+        heading: "Coordinating with family, near or far",
+        body: [
+          "We work with whoever is helping, including family who live out of state. Grown children are often the ones calling from another time zone. We are available 24/7, so we can take that call when it works for them, and we keep everyone on the same page about dates and plans.",
+          "If a piece is headed to a relative's home, we can deliver it locally around Destin and Fort Walton Beach, or move it out of state. We are licensed for interstate moves.",
+        ],
+      },
+      {
+        heading: "What happens to what does not make the move",
+        body: [
+          "The extra furniture can go to family, to donation, into storage, or away for good. We take donations wherever you prefer. If the old home needs to be cleared after the move, see [estate cleanouts](/services/estate-cleanouts), and for things nobody wants, [junk removal](/services/junk-removal).",
+          "If you are not ready to decide on a few pieces yet, ask us about [storage](/services/storage). Some decisions are easier once you are settled in the new place.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Are you a senior move manager?",
+        a: "No, and we will not claim to be. We are movers who handle senior and downsizing moves with patience. We plan the move closely with you and your family, pack, move, set up the new place, and help clear what is left behind.",
+      },
+      {
+        q: "Can you work with family who live out of state?",
+        a: "Yes. We coordinate with family wherever they live and keep everyone updated on dates and plans. We are available 24/7, so time zones are not a problem. If a piece is going to a relative in another state, we are licensed for interstate moves.",
+      },
+      {
+        q: "Is my move too small for you?",
+        a: "No job is too small. Moving a bedroom set into a care community, a few pieces into a condo, or a single heirloom to a grandchild's house are all jobs we take, with the same owners and the same care as a full house.",
+      },
+      {
+        q: "How much does a senior move cost?",
+        a: "Our published rate is $195/hr for 2 movers, plus drive time. The total depends on how much is moving, stairs and elevators at both ends, and whether we are packing too. Call (850) 842-1962 and talk it through. We will give you a straight answer.",
+      },
+      {
+        q: "Can you move someone into an assisted living or retirement community?",
+        a: "Yes. Ask the community about its move-in rules first: allowed hours, elevator reservations, and how big the room is. Tell us what they say and we will plan the move around it, then place the furniture and set the room up before we leave.",
+      },
+      {
+        q: "How do I start downsizing a home?",
+        a: "Measure the new place and choose the furniture that fits there first. Then sort the rest into keep, family, donate, sell and let go, starting with rooms you use least. Offer heirlooms to family early, and give yourself more time than you think you need.",
+      },
+    ],
+  },
+  "vacation-rental-installs": {
+    fullDescription:
+      "We furnish and refresh vacation rentals along 30A and in Santa Rosa Beach, Miramar Beach and Destin for owners, property managers and designers. We handle it all: receiving the deliveries, bringing them to the unit, assembly, placement and setup, and hauling the old furniture away, timed around your turnover.",
+    heroTitle: "Vacation Rental Furniture Installs on 30A & in Destin",
+    sections: [
+      {
+        heading: "What we handle on a rental install",
+        body: [
+          "We handle it all, from the first delivery to the last piece of cardboard. Furnishing a rental usually means orders from several stores that show up on different days. We receive those deliveries, bring them to the unit, assemble what came flat-packed, and place every piece where it belongs.",
+          "The old furniture leaves with us. A refresh is only half done if last season's sofa is still on the porch, so haul-away is part of the job, not a separate trip. For anything that needs to go on a wall, see [TV, art and shelf installation](/services/mounting-installation).",
+        ],
+      },
+      {
+        heading: "Built around turnover deadlines",
+        body: [
+          "We schedule installs to fit between check-out and check-in. On the Emerald Coast that window is often a summer Saturday, with cleaners and the next guests right behind us. Tell us the window early and we will plan the job to fit it.",
+          "There are a lot of these windows to fit. Walton County's tourist development tax data counted more than 20,000 active rental units in March 2026, and summer Saturday turnovers crowd the roads, elevators and loading zones on 30A. When a crew is available, we can sometimes take same-day work, but the safest plan is to book ahead.",
+        ],
+      },
+      {
+        heading: "For owners who live out of state",
+        body: [
+          "You do not need to be here. Many rental owners on 30A live somewhere else, and flying in to sign for a sofa does not make sense. We work from your plan, or your property manager's, and keep you posted by phone. We are available 24/7, so your time zone is not a problem.",
+          "Condos come with their own rules. We ask about service elevator reservations, HOA move hours and gate access before the truck rolls, so a crew is not sitting in a parking lot while your turnover clock runs.",
+        ],
+      },
+      {
+        heading: "For property managers and designers",
+        body: [
+          "Property managers and designers can send owners straight to us. We are one owner-operated crew that receives, delivers, assembles, places and hauls away, so nobody has to line up three vendors for one unit.",
+          "Designers furnishing a rental get the same care we bring to a full [design trade install](/services/design-trade-installation): pieces checked when they come out of the box, placed to the plan, and the packing material gone before the photographer arrives.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can you receive furniture deliveries for my vacation rental?",
+        a: "Yes. Receiving deliveries is part of what we do on a rental install. Orders from different stores can arrive on different days, and we take them in so you do not have to be there to sign for anything.",
+      },
+      {
+        q: "Do you assemble furniture?",
+        a: "Yes. Beds, tables, chairs, outdoor sets and the rest of what arrives in boxes. We assemble it, place it where it goes in the unit, and take the cardboard with us.",
+      },
+      {
+        q: "Can you finish between check-out and check-in?",
+        a: "That is what we plan for. Tell us the turnover window as early as you can, along with any HOA or elevator rules. Summer Saturday turnovers are the busiest on the coast, so earlier is better.",
+      },
+      {
+        q: "Will you haul away the old furniture?",
+        a: "Yes. Haul-away of the old pieces is part of the install, so the unit is clear for the cleaners. For bigger clear-outs, see our junk removal service.",
+      },
+      {
+        q: "Do I need to be there?",
+        a: "No. We work from your plan or your property manager's and keep you posted by phone. We are available 24/7, so owners who live out of state can reach us when it suits them.",
+      },
+      {
+        q: "How is a rental install priced?",
+        a: "We quote it after we hear what is involved, so call (850) 842-1962 and describe the job.",
       },
     ],
   },

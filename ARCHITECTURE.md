@@ -40,7 +40,7 @@
 |---|---|---|
 | `/` | Homepage — hero, trust, services, areas, gallery, live Google reviews carousel (or static testimonials fallback), quote form, FAQ, CTA | Yes |
 | `/services` | Services hub — all 11 services | Yes |
-| `/services/[slug]` | Individual service pages (10 slugs via dynamic route) | Yes |
+| `/services/[slug]` | Individual service pages (16 slugs via dynamic route) | Yes |
 | `/services/junk-removal` | Dedicated junk removal page (custom sections + JSON-LD) | Yes |
 | `/reviews` | Social proof hub — live Google reviews grid, SEO content, written testimonials, AggregateRating JSON-LD, Google review funnel | Yes |
 | `/pricing` | Moving cost guidance — factors, how-to-get-a-quote, FAQ | Yes |
@@ -57,9 +57,9 @@
 
 ### Service slugs (`/services/[slug]`)
 
-`residential-moving`, `local-moving`, `long-distance-moving`, `packing-unpacking`, `storage`, `delivery`, `junk-removal`, `military-pcs-moving`, `design-trade-installation`, `mounting-installation`, `loading-unloading-help`
+`residential-moving`, `local-moving`, `long-distance-moving`, `packing-unpacking`, `storage`, `delivery`, `junk-removal`, `military-pcs-moving`, `design-trade-installation`, `mounting-installation`, `loading-unloading-help`, `piano-moving`, `heavy-item-moving`, `office-commercial-moving`, `estate-cleanouts`, `senior-downsizing-moves`, `vacation-rental-installs`
 
-`junk-removal` renders from its own bespoke page rather than the dynamic route; the other ten come from `/services/[slug]`.
+`junk-removal` renders from its own bespoke page rather than the dynamic route; the other sixteen come from `/services/[slug]`.
 
 ### County slugs (`/service-areas/[county]`)
 
