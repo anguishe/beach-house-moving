@@ -48,9 +48,9 @@ public repo; cited below as `research/<file>:<line>`): `~/Projects/docs/bhm-opti
 - **Order:** most priority town pages are *Discovered – not indexed* (URL Inspection API 10/03), so new URLs index slowly.
   Edits to pages Google already has (`/pricing` 2.4, storage 2.9, cost guide 2.2, PCS guide 2.7) go ahead of new URLs.
   2.1 stays first because it ships the template blocks and `check-page.mjs` every later PR uses. 2.5 keeps its Nov 7 deadline.
-- **Interstate:** FMCSA SAFER showed BHM's USDOT and operating authority OUT-OF-SERVICE on 2026-10-03 (Travis: known, being
-  fixed). Keep existing interstate copy. **Never print the USDOT or MC number, and never invite a federal lookup of BHM**,
-  until SAFER shows ACTIVE. Re-check SAFER before PR 2.1 and 2.8.
+- **Interstate:** FMCSA SAFER shows BHM's USDOT and operating authority OUT-OF-SERVICE; Les says BHM chose not to renew until
+  2027. The four "licensed for interstate" lines were removed on 2026-10-03. **No interstate-licensure claim, no USDOT/MC
+  number, no federal lookup of BHM, and no description of out-of-state methods** in any Wave 2 copy. Re-check SAFER before PR 2.1.
 - **Estimates:** BHM's estimate and contract are signed on site on move day, before any work starts. PR 2.1's "get it in
   writing before any work" guidance matches that; don't say "before move day".
 - **Already done:** follow-up F1 (statutory "Fla. Mover Reg. No." sweep) shipped in PR #8. Live minimum claims that
@@ -69,7 +69,7 @@ public repo; cited below as `research/<file>:<line>`): `~/Projects/docs/bhm-opti
 - **Claims about BHM come only from README "Owner-confirmed service facts"**, quoted here:
   Same-day: "offered across all services when they have availability. Never promise it."
   Rain: "They work in the rain, but not if it risks any items. They confirm with the customer first."
-  Interstate: "Licensed and certified for interstate moves." Never print the USDOT/MC number (see Revision 2026-10-03).
+  Interstate: no licensure claim; out-of-state requests get "call us and we'll walk you through the options" (Revision 2026-10-03).
   Gulf Breeze, Pace, Milton: "Served when they have availability." Plus the published rate (`RATE_LINE`).
   **Copy that is already live on the site may be reused, not extended** (e.g. "drive time is billed on top — we tell you
   both before the job starts", "a real person answers the phone, day or night", "the owners are the movers"). Since 2026-10-03 the
@@ -1494,7 +1494,7 @@ one confirmed line each (owner-supplied only). `Person` schema for owners only i
 6. **Statutory wording:** the legit guide explains "Fla. Mover Reg. No." / "Fla. IM No.", while the site shows "FL Mover Reg. #IM4125"
    in about 38 places. Not swept in Wave 2 (sitewide, `CONTENT_REVISION`-wide); recommended as follow-up F1, ideally merged before PR 2.1.
 7. **Interstate confirmed, USDOT not printable:** the guide treats interstate generically and never invites a BHM federal lookup
-   (SAFER shows OUT-OF-SERVICE as of 2026-10-03; Travis: being fixed). Revisit once SAFER shows ACTIVE.
+   (SAFER shows OUT-OF-SERVICE; Les: not renewing until 2027). Revisit once SAFER shows ACTIVE.
 8. **PCS guide accuracy:** "reimburses a percentage" contradicts DoD (100% GCC); corrected in PR 2.7.
 9. **"No-move days" (DESIGN) vs sources:** they are work rules; titled "No-Work Days" with a confirm-with-management caveat.
 10. **Hurricane "reschedule policy" (research suggestion):** not confirmed; only "we decide with you" ships.

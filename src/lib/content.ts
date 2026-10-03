@@ -296,6 +296,8 @@ export const SERVICES = [
     metaTitle: 'Long-Distance Moving | Beach House Moving — FL Panhandle',
     metaDescription:
       'Long-distance moving from the Florida Panhandle with licensed, insured crews. Same care as a local move. Request a free quote: (850) 842-1962.',
+
+    updatedAt: '2026-10-03',
   },
   {
     slug: 'packing-unpacking',
@@ -1255,7 +1257,7 @@ export const SERVICE_INCLUDES: Record<(typeof SERVICES)[number]['slug'], readonl
     'Coordinated pickup and delivery scheduling',
     'Secure loading and transit protection',
     'Direct communication throughout your move',
-    'Licensed and insured interstate-capable crews',
+    'Licensed and insured crews (Fla. Mover Reg. No. IM4125)',
     'Door-to-door service from the Panhandle',
   ],
   'packing-unpacking': [
