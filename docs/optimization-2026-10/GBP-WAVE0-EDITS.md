@@ -91,3 +91,16 @@ panel. Then decide on C (categories) and D (service area).
 - **TODO, categories:** pick a real substitute in the picker, one at a time, days apart, watching for a verification
   prompt each time. Candidates to verify in the picker first: "Delivery service" (closest to furniture/appliance
   delivery), "Junk removal service", "Professional organizer".
+
+## Category TODO: ranked by competitor research (2026-10-02)
+Full category lists of the top 10 Panhandle movers by review count, read from public Maps place data (signed out).
+Usage out of 10: Mover / Moving service 9, Moving and storage service 8, Piano moving service 4, Moving supply store 3.
+Junk removal, Debris removal and Delivery service appear once each. BHM already has the 3 most common.
+Add one at a time, about a week apart, and watch for a verification prompt after each:
+1. [ ] **Junk removal service.** Used by the #1 listing (College Hunks Destin). Confirmed service. junk removal near me 100K–1M/mo; town terms $15–30 bids.
+2. [ ] **Delivery service.** Closest real category to furniture, appliance and design-trade delivery (no "Furniture delivery" exists). It's the referral/B2B lane.
+3. [ ] **Debris removal service.** Fits estate cleanouts; overlaps #1, so add it after.
+4. [ ] "Professional organizer" / an office-moving category, **only if** the picker shows an exact name (none seen on competitors).
+Do NOT add: Self-storage facility, Storage facility, Warehouse, Moving supply store (unless they sell supplies),
+Trucking company, Pet moving service, Transportation service, Waste management service, Handyman.
+"Service establishment" on the public listing is a Google-assigned generic type. It's not in the editor, so leave it.
