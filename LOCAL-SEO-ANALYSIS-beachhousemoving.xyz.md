@@ -1,5 +1,8 @@
 # Local SEO Analysis — beachhousemoving.xyz
 
+> **Superseded note (2026-10-03):** the site now shows the statutory wording "Fla. Mover Reg. No. IM4125" (Fla. Stat. §507.03). References below to "FL Mover Reg. #IM4125" are as of this report's date.
+
+
 **Date:** 2026-06-04 | **Scope:** Full codebase + live site verification | **Analyst:** Cursor (seo-local skill)
 
 ---

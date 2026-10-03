@@ -13,7 +13,7 @@ A premium, conversion-optimized marketing website for **Beach House Moving**, a 
 ## 🎯 Project Goal
 
 Build a multi-page marketing site that:
-- Wins trust immediately (licensed #IM4125, insured, local, 24/7)
+- Wins trust immediately (licensed, Fla. Mover Reg. No. IM4125, insured, local, 24/7)
 - Drives quote requests (primary CTA: "Get a Free Quote") and phone calls (secondary CTA)
 - Outranks competitors in local SEO for "movers Santa Rosa Beach FL" and adjacent queries
 - Loads fast, looks stunning on mobile, and converts visitors into customers

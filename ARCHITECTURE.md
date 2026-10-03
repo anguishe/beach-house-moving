@@ -46,7 +46,7 @@
 | `/pricing` | Moving cost guidance — factors, how-to-get-a-quote, FAQ | Yes |
 | `/resources` | Blog/resources hub — article cards linking to posts | Yes |
 | `/resources/[slug]` | Individual blog posts (BlogPosting + FAQPage JSON-LD) | Yes |
-| `/service-areas` | Service areas hub — Walton, Okaloosa, Bay Counties | Yes |
+| `/service-areas` | Service areas hub — Walton, Okaloosa, Bay Counties plus Santa Rosa County's main towns | Yes |
 | `/service-areas/[county]` | County landing pages (4 slugs; santa-rosa-county covers its main towns only) | Yes |
 | `/service-areas/[county]/[neighborhood]` | Neighborhood landing pages (30 slugs; those with owner-confirmed jobs also render a "Recent work in {name}" section from `Neighborhood.confirmedWork`) | Yes |
 | `/about` | Business story, values, license | Yes |
@@ -97,7 +97,7 @@ owner photo batches (see the photo-batch convention in `CLAUDE.md`).
 
 | Component | Used on |
 |---|---|
-| `HeroSection.tsx` | Homepage — headline, license badge (#IM4125), primary quote CTA, phone secondary |
+| `HeroSection.tsx` | Homepage — headline, license badge (Fla. Mover Reg. No. IM4125), primary quote CTA, phone secondary |
 | `TrustSection.tsx` | Homepage — trust badges (Licensed, Locally Owned, Free Estimates, 24/7) |
 | `ServicesSection.tsx` | Homepage, services hub |
 | `ServiceAreaSection.tsx` | Homepage, service-areas hub |

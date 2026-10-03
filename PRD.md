@@ -28,7 +28,7 @@ Beach House Moving is a new, fully licensed moving company serving the Florida P
 | Phone calls | Click-to-call events per month | 30+ by month 3 |
 | SEO visibility | Rank top 5 for "movers Santa Rosa Beach FL" | Within 6 months |
 | Performance | Google Lighthouse score | 90+ all categories |
-| Trust | First impression credibility | FL Mover Reg. #IM4125 above fold |
+| Trust | First impression credibility | Fla. Mover Reg. No. IM4125 above fold |
 
 ---
 
@@ -64,7 +64,7 @@ Beach House Moving is a new, fully licensed moving company serving the Florida P
 
 ### FR-01: Homepage
 - Hero section with headline, subheadline, **primary CTA ("Get a Free Quote")**, and phone number (secondary)
-- Trust badges: Licensed & Insured (FL Mover Reg. #IM4125), Locally Owned, Free Estimates, Available 24/7
+- Trust badges: Licensed & Insured (Fla. Mover Reg. No. IM4125), Locally Owned, Free Estimates, Available 24/7
 - Services overview (6 services with icons)
 - Service area section (Walton, Okaloosa, Bay Counties + long-distance)
 - Gallery strip
@@ -99,7 +99,7 @@ Beach House Moving is a new, fully licensed moving company serving the Florida P
 - Why locally owned matters
 - Values and commitment
 - Team/owner photo (placeholder until assets provided)
-- License/insurance badge (FL Mover Reg. #IM4125)
+- License/insurance badge (Fla. Mover Reg. No. IM4125)
 
 ### FR-07: Contact Page
 - Phone number (click-to-call)
@@ -112,7 +112,7 @@ Beach House Moving is a new, fully licensed moving company serving the Florida P
 - Logo
 - Navigation links
 - Contact information (phone, email, service area — **no street address**)
-- License/insurance statement (Florida Mover Reg. #IM4125)
+- License/insurance statement (Fla. Mover Reg. No. IM4125)
 - Social link (Facebook)
 - Copyright
 
@@ -185,7 +185,7 @@ See `DESIGN_SYSTEM.md` for full token reference.
 See `BRAND.md` for voice & tone guidelines.
 
 - All business info sourced from verified data (no fabrication)
-- FL Mover Reg. #IM4125 appears above the fold on every page
+- Fla. Mover Reg. No. IM4125 appears above the fold on every page
 - Phone number `(850) 842-1962` clickable everywhere
 - Service area counties confirmed: Walton, Okaloosa, Bay (+ long-distance)
 - Established 2025; 3-truck fleet; open 24/7

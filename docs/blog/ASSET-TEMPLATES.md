@@ -71,7 +71,7 @@ parses it with regexes. The last body block is the credentials line every live p
       },
       {
         body:
-          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+          'Licensed and insured. Fla. Mover Reg. No. IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
       },
     ],
     faq: [

@@ -174,7 +174,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: 'Is my furniture insured in transit?',
-        a: 'Yes — full liability and cargo insurance, required and verified under our FDACS Fla. Mover Reg. No. IM4125. You can verify the registration yourself on the FDACS website.',
+        a: 'Yes — full liability and cargo insurance, required and verified under FDACS-issued Fla. Mover Reg. No. IM4125. You can verify the registration yourself on the FDACS website.',
       },
       {
         q: 'Can you store my things between closings?',

@@ -86,8 +86,8 @@ export const CALL_FOR_QUOTE = `${CALL_FOR_QUOTE_PARTS.before} ${BUSINESS.phone.d
 
 /** Public license copy — SAB-safe, no street address. */
 export const LICENSE_DISPLAY = {
-  heroTrustBadge: `Licensed & Insured · FL Mover Reg. #${BUSINESS.registration.number}`,
-  footerRegistration: `Florida Mover Reg. #${BUSINESS.registration.number}`,
+  heroTrustBadge: `Licensed & Insured · Fla. Mover Reg. No. ${BUSINESS.registration.number}`,
+  footerRegistration: `Fla. Mover Reg. No. ${BUSINESS.registration.number}`,
   mobileCallBar: `Call ${BUSINESS.phone.display}`,
 } as const
 
@@ -358,7 +358,7 @@ export const SERVICES = [
     featured: false,
     metaTitle: 'Military PCS Moving — Eglin AFB & Hurlburt | BHM',
     metaDescription:
-      'PCS moves for Eglin AFB and Hurlburt Field families. Report-date scheduling, PPM documentation, storage for housing gaps. Licensed #IM4125. (850) 842-1962.',
+      'PCS moves for Eglin AFB and Hurlburt Field families: report-date scheduling, PPM paperwork, storage for housing gaps. Licensed, Fla. Mover Reg. No. IM4125.',
   },
   {
     slug: 'design-trade-installation',
@@ -1138,7 +1138,7 @@ export const TESTIMONIALS = [
 export const REVIEWS_PAGE_META = {
   title: 'Customer Reviews | Beach House Moving — Florida Panhandle',
   description:
-    `See what customers across Walton, Okaloosa & Bay Counties say about Beach House Moving. Honest, local, fully licensed movers. FL Mover Reg. #${BUSINESS.registration.number}.`,
+    `See what customers across Walton, Okaloosa & Bay Counties say about Beach House Moving. Honest, local, fully licensed movers. Fla. Mover Reg. No. ${BUSINESS.registration.number}.`,
   path: '/reviews',
   aggregateRating: {
     ratingValue: 5,
@@ -1185,7 +1185,7 @@ export const REVIEWS_PAGE = {
     title: 'Tell Google. It Helps More Neighbors Find Us.',
     body: 'We are a small local business and every review makes a real difference. If Beach House Moving took care of you, we would be grateful if you shared it.',
     buttonLabel: 'Leave a Google Review',
-    footerLine: `${BUSINESS.phone.display} · Open 24 Hours · FL Mover Reg. #${BUSINESS.registration.number}`,
+    footerLine: `${BUSINESS.phone.display} · Open 24 Hours · Fla. Mover Reg. No. ${BUSINESS.registration.number}`,
   },
 } as const
 
@@ -1205,7 +1205,7 @@ export const PAGE_META = {
   serviceAreas: {
     title: 'Service Areas | Beach House Moving — Walton, Okaloosa & Bay',
     description:
-      'Licensed movers serving Walton, Okaloosa, and Bay Counties along Florida\u2019s Emerald Coast. We come to you — free estimates at (850) 842-1962.',
+      'Licensed movers serving Walton, Okaloosa and Bay Counties plus Navarre, Gulf Breeze, Pace and Milton. We come to you — free estimates at (850) 842-1962.',
     path: '/service-areas',
   },
   about: {
@@ -1451,7 +1451,7 @@ export const ABOUT_FAQS = [
   },
   {
     q: 'Is Beach House Moving licensed and insured in Florida?',
-    a: `Yes. Beach House Moving is fully licensed and insured in the State of Florida under Florida Mover Registration #${BUSINESS.registration.number}, issued by the Florida Department of Agriculture and Consumer Services. We carry liability insurance and cargo coverage so your belongings are protected from load-in to placement at your new home. You can verify our registration on the FDACS website.`,
+    a: `Yes. Beach House Moving is fully licensed and insured in the State of Florida under Fla. Mover Reg. No. ${BUSINESS.registration.number}, issued by the Florida Department of Agriculture and Consumer Services. We carry liability insurance and cargo coverage so your belongings are protected from load-in to placement at your new home. You can verify our registration on the FDACS website.`,
   },
 ] as const
 
@@ -1519,7 +1519,7 @@ export const ABOUT_CONTENT = {
   credentials: {
     headline: 'Licensed, Insured, and Available When You Need Us',
     items: [
-      `Florida Mover Registration #${BUSINESS.registration.number}`,
+      `Fla. Mover Reg. No. ${BUSINESS.registration.number}`,
       'Fully licensed and insured in the State of Florida',
       'Open 24 hours a day, seven days a week',
       'Service area: Walton, Okaloosa, and Bay Counties',
@@ -1530,7 +1530,7 @@ export const ABOUT_CONTENT = {
     headline: 'Common Questions About Beach House Moving',
     intro: 'Direct answers about who we are, where we work, and how we operate.',
   },
-  licenseBadge: `Florida Mover Reg. #${BUSINESS.registration.number}`,
+  licenseBadge: `Fla. Mover Reg. No. ${BUSINESS.registration.number}`,
   cta: {
     quoteLabel: 'Get a Free Quote',
   },
@@ -1560,7 +1560,7 @@ export const GET_A_QUOTE_CONTENT = {
   formSubheadline:
     'Fill out the form below and we\u2019ll review your details. Prefer to talk now? Call us directly — a real person answers.',
   trustSignals: [
-    `Licensed & Insured · FL Mover Reg. #${BUSINESS.registration.number}`,
+    `Licensed & Insured · Fla. Mover Reg. No. ${BUSINESS.registration.number}`,
     'Free Estimates — Always',
     'Open 24 Hours · 7 Days a Week',
     'Serving Walton, Okaloosa & Bay Counties',
@@ -1670,7 +1670,7 @@ export const SERVICE_AREAS_HUB = {
   eyebrow: 'Where We Work',
   headline: 'We Come to You',
   bodyIntro:
-    'Four counties, one crew. Beach House Moving covers the full Emerald Coast corridor — every 30A neighborhood from Dune Allen to Inlet Beach, the Destin and Fort Walton Beach corridor through Okaloosa County, west into Santa Rosa County (Navarre, Gulf Breeze, Pace and Milton), and Bay County from Panama City Beach to Lynn Haven. We drive these roads every day, so we know which gated communities want a COI on file before the truck arrives, where a 26-foot box truck can\'t turn around, and which beach access roads jam by mid-morning in June. Find your town below, or call (850) 842-1962 and tell us where you\'re headed.',
+    'Three counties plus Santa Rosa County\u2019s main towns (Navarre, Gulf Breeze, Pace and Milton, when a crew is available), one crew. Beach House Moving covers the full Emerald Coast corridor — every 30A neighborhood from Dune Allen to Inlet Beach, the Destin and Fort Walton Beach corridor through Okaloosa County, west into Santa Rosa County (Navarre, Gulf Breeze, Pace and Milton), and Bay County from Panama City Beach to Lynn Haven. We drive these roads every day, so we know which gated communities want a COI on file before the truck arrives, where a 26-foot box truck can\'t turn around, and which beach access roads jam by mid-morning in June. Find your town below, or call (850) 842-1962 and tell us where you\'re headed.',
   intro:
     'Beach House Moving is a service-area business — we bring professional crews directly to your home or business across Walton, Okaloosa, and Bay Counties. No storefront. No hassle. Just reliable local movers who know the Panhandle.',
   mapHeadline: 'Our Service Region',
@@ -1707,7 +1707,7 @@ export const NEIGHBORHOODS = [
   // ---- WALTON COUNTY ----
   {
     slug: 'santa-rosa-beach',
-    updatedAt: '2026-09-08',
+    updatedAt: '2026-10-03',
     name: 'Santa Rosa Beach',
     county: 'Walton County',
     image: '/images/move-srb.jpg',
@@ -2463,7 +2463,7 @@ export const NEIGHBORHOODS = [
     metaTitle: 'Movers in Gulf Breeze, FL | Beach House Moving',
     metaDescription:
       'Owner-operated, licensed movers for Gulf Breeze homes and condos on the Fairpoint Peninsula. Same-day when available. Free quote — (850) 842-1962.',
-    localBody: `Gulf Breeze is a peninsula town with water on both sides: Pensacola Bay to the north and Santa Rosa Sound to the south, with the Pensacola Bay Bridge carrying traffic to and from Pensacola and Naval Live Oaks on the east end. That shapes a move here. Waterfront and elevated homes mean stair carries and longer walks from the truck, and bridge and US-98 traffic sets the clock, so we plan the timing around it. We protect floors, door frames and stair rails before the first piece moves, and we quote the drive time honestly up front because Gulf Breeze is west of our usual Okaloosa runs. Same-day help is sometimes possible when a crew is free, and we will work in the rain when it is safe for your things, checking with you first when it is not.`,
+    localBody: `Gulf Breeze is a peninsula town with water on both sides: Pensacola Bay to the north and Santa Rosa Sound to the south, with the Pensacola Bay Bridge carrying traffic to and from Pensacola and Naval Live Oaks on the east end. That shapes a move here. Waterfront and elevated homes mean stair carries and longer walks from the truck, and bridge and US-98 traffic sets the clock, so we plan the timing around it. We protect floors, door frames and stair rails before the first piece moves, and we quote the drive time honestly up front because Gulf Breeze is west of our usual Okaloosa runs. Same-day help is sometimes possible when a crew is free, and we work in the rain when it won't risk your things, confirming with you first.`,
     localFaqs: [
       {
         question: 'Do you move homes and condos in Gulf Breeze?',
@@ -2491,7 +2491,7 @@ export const NEIGHBORHOODS = [
     metaTitle: 'Movers in Pace, FL | Beach House Moving',
     metaDescription:
       'Owner-operated, licensed movers for Pace in Santa Rosa County: home, apartment and single-item moves. Same-day when available. Free quote — (850) 842-1962.',
-    localBody: `Pace is Santa Rosa County's second-largest community and a big part of the Pensacola metro, which means a lot of family homes and a steady flow of people moving in and out. Most Pace moves are the straightforward kind: real driveways and room for a truck, so the planning is about timing and protecting the house. We pad and wrap furniture, protect floors and door frames, and set everything back up room by room at the new place. Pace is west of our usual Okaloosa runs, so we quote the drive time up front instead of surprising you at the end. We also handle packing, furniture assembly and junk removal here, and same-day help is sometimes possible when a crew is free.`,
+    localBody: `Pace is Santa Rosa County's second-largest community and part of the Pensacola metro area. Whether it is a full home, an apartment or a single piece, we plan the timing and the access before move day and protect the house while we work. We pad and wrap furniture, protect floors and door frames, and set everything back up room by room at the new place. Pace is west of our usual Okaloosa runs, so we quote the drive time up front instead of surprising you at the end. We also handle packing, furniture assembly and junk removal here, and same-day help is sometimes possible when a crew is free.`,
     localFaqs: [
       {
         question: 'Do you move families in Pace?',
@@ -2519,7 +2519,7 @@ export const NEIGHBORHOODS = [
     metaTitle: 'Movers in Milton, FL | Beach House Moving',
     metaDescription:
       'Owner-operated, licensed movers for Milton, the Santa Rosa County seat: home and military moves near NAS Whiting Field. Free quote — (850) 842-1962.',
-    localBody: `Milton is the Santa Rosa County seat, sitting at the center of the county on the Blackwater River, bordered by Pace to the west and Navarre to the south, with NAS Whiting Field about seven miles north. That mix brings family moves and military moves tied to the air station, where report dates set the schedule and we plan around them. We pad and wrap the furniture, protect floors and door frames, and handle PPM paperwork with itemized invoices for military customers. Milton is the farthest west and north we run, so we quote the drive time honestly up front. Same-day help is sometimes possible when a crew is free.`,
+    localBody: `Milton is the Santa Rosa County seat, sitting at the center of the county on the Blackwater River, bordered by Pace to the west and Navarre to the south, with NAS Whiting Field about seven miles north. That mix brings family moves and military moves tied to the air station, where report dates set the schedule and we plan around them. We pad and wrap the furniture, protect floors and door frames, and handle PPM paperwork with itemized invoices for military customers. Milton is west of our usual Okaloosa runs, so we quote the drive time honestly up front. Same-day help is sometimes possible when a crew is free.`,
     localFaqs: [
       {
         question: 'Do you handle military moves near NAS Whiting Field?',

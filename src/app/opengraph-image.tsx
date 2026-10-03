@@ -91,7 +91,7 @@ export default function Image() {
               lineHeight: 1.3,
             }}
           >
-            Licensed & Insured · #IM4125
+            Licensed & Insured · Fla. Mover Reg. No. IM4125
           </div>
 
           {/* Business name */}

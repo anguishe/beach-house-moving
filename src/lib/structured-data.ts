@@ -335,7 +335,7 @@ export function countyAreaSchema(area: CountyAreaInput, origin: string) {
   const base = origin.replace(/\/$/, '')
 
   const areaServed = [
-    // Partial counties (Navarre-only Santa Rosa) list their cities, never the whole county.
+    // Partial counties (Santa Rosa: main towns only) list their cities, never the whole county.
     ...(area.partialCounty
       ? []
       : [{ '@type': 'AdministrativeArea' as const, name: area.county, addressRegion: 'FL', addressCountry: 'US' }]),
@@ -356,7 +356,7 @@ export function countyAreaSchema(area: CountyAreaInput, origin: string) {
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: `Moving Services in ${area.partialCounty ? area.cities.join(' and ') : area.county}`,
+      name: `Moving Services in ${area.partialCounty ? area.cities.join(', ') : area.county}`,
       description: area.description,
       url: absoluteUrl(base, `/service-areas/${area.slug}`),
       provider: {
@@ -411,7 +411,7 @@ export function aboutPageSchema(origin: string) {
           '@type': 'QuantitativeValue',
           value: BUSINESS.teamSize,
         },
-        description: `Owner-operated moving company on Florida's Emerald Coast. Licensed FL Mover Reg. #${BUSINESS.registration.number}, fully insured, available 24/7.`,
+        description: `Owner-operated moving company on Florida's Emerald Coast. Licensed under Fla. Mover Reg. No. ${BUSINESS.registration.number}, fully insured, available 24/7.`,
       },
       {
         '@type': 'Person',

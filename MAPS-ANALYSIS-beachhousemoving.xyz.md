@@ -1,4 +1,7 @@
 # Maps Intelligence Analysis — beachhousemoving.xyz
+
+> **Superseded note (2026-10-03):** the site now shows the statutory wording "Fla. Mover Reg. No. IM4125" (Fla. Stat. §507.03). References below to "FL Mover Reg. #IM4125" are as of this report's date.
+
 > Historical snapshot. Review-count figures below are superseded — canonical count is TESTIMONIALS.length (11 as of 2026-07-19).
 
 **Date:** 2026-06-04 | **Scope:** Full codebase + live HTTP checks | **Analyst:** Cursor (seo-maps skill, Tier 0)

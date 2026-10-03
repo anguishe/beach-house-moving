@@ -98,7 +98,7 @@ The credentials line is the trust signal — use it above the fold and in hero t
 
 ## Copy Rules
 
-1. **Lead with trust signals** — "Licensed & Insured" and **Florida Mover Reg. #IM4125** appear above the fold on every page
+1. **Lead with trust signals** — "Licensed & Insured" and **Fla. Mover Reg. No. IM4125** appear above the fold on every page
 2. **Use "you" and "your"** — customer-first language, not company-first
 3. **Be specific about geography** — mention county and city names; it builds local credibility
 4. **Avoid moving clichés** — do not write "we treat your belongings like our own" (overused). Find fresh ways to say it.
@@ -135,7 +135,7 @@ The credentials line is the trust signal — use it above the fold and in hero t
 
 ## What to Always Include on the Site
 
-- ✅ "Licensed & Insured" + **Florida Mover Reg. #IM4125** — every page, above the fold
+- ✅ "Licensed & Insured" + **Fla. Mover Reg. No. IM4125** — every page, above the fold
 - ✅ Primary CTA **"Get a Free Quote"** — coral button, above the fold sitewide
 - ✅ Phone number `(850) 842-1962` — clickable, visible (secondary to quote CTA)
 - ✅ "Locally Owned & Operated" — trust signal
