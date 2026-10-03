@@ -27,6 +27,14 @@ The first run hit a Google captcha (`/sorry/`, "unusual traffic from your comput
 
 The first 10 rows are the 8 priority targets: the piano and junk-removal targets each have two town variants. The last 6 rows are secondary targets.
 
+## Maps baseline (2026-10-03, Places API grid)
+Measured without loading google.com: see `docs/SEARCH-FINDINGS-2026-10-03.md` for the full grid. From each named town:
+movers santa rosa beach fl **4** · movers miramar beach fl **5** · piano movers santa rosa beach **1** · piano movers destin
+**9** · junk removal santa rosa beach **15** · every other row in the table above: not in the results returned. Organic
+positions still come from the attended SERP run (after 2026-10-04 13:18). Travis's incognito read on 10/03 (near Destin):
+movers santa rosa beach fl organic ~#17 (page 2), Places tab #6; moving company 30a page 1 (~#7–8); military pcs movers eglin
+afb organic #2.
+
 ## Method
 
 - A clean, **signed-out** browser: Playwright with Chrome and a fresh, empty profile on every run. Never the logged-in Chrome, which personalizes results and inflated BHM's organic positions on 9/27 (#6–7 shown vs #13–14 real).

@@ -90,15 +90,27 @@ Every Wave 1 page:
 - Review velocity: a post-job review-request routine (link plus a ready-to-text message for Les). The target is a steady
   weekly cadence, never incentives.
 
+### Wave 3 additions (2026-10-03, from the search findings and the free tool setup)
+- **GA4 Data API is live** for property 539699126 (service account has Viewer; `~/.claude/skills/seo/scripts/ga4_report.py`).
+  Baseline numbers live in the private notes (`~/Projects/docs/bhm-optimization-2026-10/`); pull them fresh each month.
+- **Maps grid:** `~/Projects/docs/tools/rank-snapshot/places_grid.py` (Places API, 48 searches, under the 100/day cap, no
+  captcha risk). Run it monthly next to the attended SERP snapshot.
+- **Bing Places publish** (Travis, support chat Mon–Fri): BHM is missing from Bing's local pack, and ChatGPT search leans
+  on Bing. Re-test ChatGPT about 2 weeks after it publishes.
+- **Reviews are the Maps lever:** 14 reviews vs 41–520 for the pack. A post-job ask routine for Les (a link plus a
+  ready-to-text message), never incentives and never scripted review content.
+- **Weekly analytics timer** (`scripts/weekly-analytics/run.sh`) is not installed yet. Report-only; needs Travis's OK.
+
 ## Out of scope / paused
-- **Storage revamp:** paused (see README TODO).
+- ~~Storage revamp: paused~~ Unblocked 2026-10-03 → Wave 2 PR 2.9.
 - Paid ads of any kind (Google Ads account 580-086-2043 is for Keyword Planner only).
 - Service × town matrix pages.
 
 ## Open questions (Les)
-1. Same-day / short-notice wording. 2. Damage claims process and valuation coverage. 3. Rain and reschedule policy.
-4. Navarre: actively wanted? 5. Crew page: first names and photos OK?
-Also still open for storage: climate control, access, minimum term, billing, insurance.
+Answered 2026-10-03 (README "Les answers"): same-day, damage and claims, coverage, storage, crew page, PPM tickets, same-day
+pricing, minimums and drive time, not-to-exceed, estimate signing. Still open: storm rescheduling and cancellation terms,
+billing increment, deposits, full-value-protection pricing, per-category storage prices, whether fuel is in the hourly rate,
+and the FMCSA reinstatement date (interstate).
 
 ## Success criteria
 - Wave 0: GBP shows ≥ 8 categories, 19 described services and the new description. Track impressions and calls in GBP

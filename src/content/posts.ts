@@ -114,6 +114,7 @@ export const POSTS: Post[] = [
     metaDescription:
       "Sold before your next place is ready? How mover-held storage works in Santa Rosa Beach: one crew loads, stores, and delivers, so you don't move twice.",
     datePublished: '2026-07-19',
+    dateModified: '2026-10-03',
     author: 'Beach House Moving',
     heroImage: '/images/mover-storage-corridor.jpg',
     heroAlt:
@@ -168,7 +169,7 @@ export const POSTS: Post[] = [
       {
         question: 'How long can you hold my things?',
         answer:
-          "Gaps from a few days to a few months are the normal range. Tell us your dates when you call and we'll confirm what works — and what it costs — before anything goes on a truck.",
+          "Gaps from a few days to a few months are the normal range, and storage has a one-month minimum. Tell us your dates when you call and we'll confirm what works — and what it costs — before anything goes on a truck.",
       },
       {
         question: 'What if my new construction date slips?',
