@@ -130,3 +130,10 @@ Trucking company, Pet moving service, Transportation service, Waste management s
   the territory, 5 of the top 10 competitors are based there, the site has a Panama City page, and BHM already shows at
   about #6.5 in Maps for "movers in panama city florida". Panama City Beach is already in the list. Service areas don't
   affect ranking (they set the stated coverage). Watch for a verification prompt after saving.
+
+## Wave 1 / PR 1 shipped 2026-10-03
+Navarre page live (PR #6, 8d90889): https://beachhousemoving.xyz/service-areas/santa-rosa-county/navarre. Live site-gate
+PASS. IndexNow re-pinged (65 URLs); both URLs queued for GSC Day 2.
+Follow-up: `scripts/ping-indexnow.mjs` reads the LIVE sitemap during the build, before the new deploy is live, so new
+URLs miss the ping. Re-ping after deploy (`VERCEL_ENV=production node --env-file=.env.local scripts/ping-indexnow.mjs`)
+until that's fixed.
