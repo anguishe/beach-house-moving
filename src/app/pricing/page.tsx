@@ -66,7 +66,7 @@ const pricingOtherRows = [
   {
     label: 'No brokering',
     detail:
-      'Your job is never sold to a third-party carrier. The crew that loads your home is our crew, licensed under FL Mover Reg. #IM4125, door to door.',
+      'Your job is never sold to a third-party carrier. The crew that loads your home is our crew, licensed under Fla. Mover Reg. No. IM4125, door to door.',
   },
 ]
 
@@ -201,7 +201,7 @@ export default async function PricingPage() {
               move, and again for the cracked dresser, the gouged stair rail, or the deposit that
               vanished with no company behind it. A licensed Florida mover is registered with FDACS,
               background-checked, and required to carry real insurance. Beach House Moving operates
-              under FL Mover Registration #IM4125 — you can verify it yourself on the FDACS
+              under Fla. Mover Reg. No. IM4125 — you can verify it yourself on the FDACS
               website. When you compare quotes, compare what stands behind them.
             </p>
             <p className="mt-4 font-body text-base leading-relaxed text-ink-muted">

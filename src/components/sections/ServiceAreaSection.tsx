@@ -110,7 +110,7 @@ export function ServiceAreaSection() {
           <Link href="/service-areas/walton-county/30a" className={inlineLink}>
             30A
           </Link>
-          , Destin, Miramar Beach, Fort Walton Beach, Niceville, Crestview, Navarre, Panama City and Panama
+          , Destin, Miramar Beach, Fort Walton Beach, Niceville, Crestview, Navarre, Gulf Breeze, Pace, Milton, Panama City and Panama
           City Beach. If you&apos;re nearby and don&apos;t see your town, call{' '}
           {BUSINESS.phone.display} and ask. If we can get there, we will.
         </p>

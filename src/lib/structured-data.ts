@@ -32,6 +32,9 @@ const SCHEMA_CITIES = [
   'Crestview',
   'Navarre',
   'Navarre Beach',
+  'Gulf Breeze',
+  'Pace',
+  'Milton',
 ] as const
 
 const SCHEMA_SERVICE_AREA_HUB = [
@@ -146,7 +149,7 @@ export function movingCompanySchema(
     '@id': `${base}/#business`,
     foundingDate: '2025',
     name: BUSINESS.name,
-    description: 'Locally owned, fully licensed moving company serving Walton, Okaloosa, and Bay Counties on Florida\'s Emerald Coast. Residential moving, packing, long-distance moves, and storage. FL Mover Reg. #IM4125. Available 24/7.',
+    description: 'Locally owned, fully licensed moving company serving Walton, Okaloosa, and Bay Counties on Florida\'s Emerald Coast. Residential moving, packing, long-distance moves, and storage. Fla. Mover Reg. No. IM4125. Available 24/7.',
     url: base,
     telephone: BUSINESS.phone.e164,
     email: BUSINESS.email,
@@ -332,7 +335,7 @@ export function countyAreaSchema(area: CountyAreaInput, origin: string) {
   const base = origin.replace(/\/$/, '')
 
   const areaServed = [
-    // Partial counties (Navarre-only Santa Rosa) list their cities, never the whole county.
+    // Partial counties (Santa Rosa: main towns only) list their cities, never the whole county.
     ...(area.partialCounty
       ? []
       : [{ '@type': 'AdministrativeArea' as const, name: area.county, addressRegion: 'FL', addressCountry: 'US' }]),
@@ -353,7 +356,7 @@ export function countyAreaSchema(area: CountyAreaInput, origin: string) {
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: `Moving Services in ${area.partialCounty ? area.cities.join(' and ') : area.county}`,
+      name: `Moving Services in ${area.partialCounty ? area.cities.join(', ') : area.county}`,
       description: area.description,
       url: absoluteUrl(base, `/service-areas/${area.slug}`),
       provider: {
@@ -394,7 +397,7 @@ export function aboutPageSchema(origin: string) {
     name: `About ${BUSINESS.name}`,
     url: `${base}/about`,
     description:
-      'Owner-operated moving company on Florida\'s Emerald Coast. Licensed FL Mover Reg. #IM4125, fully insured, available 24/7.',
+      'Owner-operated moving company on Florida\'s Emerald Coast. Licensed Fla. Mover Reg. No. IM4125, fully insured, available 24/7.',
     dateModified: '2025-12-01',
     inLanguage: 'en-US',
     isPartOf: { '@id': `${base}/#website` },
@@ -408,7 +411,7 @@ export function aboutPageSchema(origin: string) {
           '@type': 'QuantitativeValue',
           value: BUSINESS.teamSize,
         },
-        description: `Owner-operated moving company on Florida's Emerald Coast. Licensed FL Mover Reg. #${BUSINESS.registration.number}, fully insured, available 24/7.`,
+        description: `Owner-operated moving company on Florida's Emerald Coast. Licensed under Fla. Mover Reg. No. ${BUSINESS.registration.number}, fully insured, available 24/7.`,
       },
       {
         '@type': 'Person',

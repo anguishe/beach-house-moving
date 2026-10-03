@@ -2,7 +2,7 @@ import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { BUSINESS } from '@/lib/content'
 
 const items = [
-  `FL Mover Reg. #${BUSINESS.registration.number}`,
+  `Fla. Mover Reg. No. ${BUSINESS.registration.number}`,
   'Licensed & Insured',
   'Owner-Operated — No Subcontractors',
   'Available 24/7',

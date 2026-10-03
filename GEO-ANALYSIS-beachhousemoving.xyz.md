@@ -1,4 +1,7 @@
 # GEO Analysis — beachhousemoving.xyz
+
+> **Superseded note (2026-10-03):** the site now shows the statutory wording "Fla. Mover Reg. No. IM4125" (Fla. Stat. §507.03). References below to "FL Mover Reg. #IM4125" are as of this report's date.
+
 **Date:** 2026-06-04 (v3 — post SEO/GEO audits v2 commit)
 **Framework:** AI Search / Generative Engine Optimization
 **Google's position:** Optimizing for generative AI search is still SEO. AEO/GEO are rebranded labels for the same fundamentals applied to AI-search surfaces.

@@ -84,7 +84,7 @@ export const POSTS: Post[] = [
       },
       {
         body:
-          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+          'Licensed and insured. Fla. Mover Reg. No. IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
       },
     ],
     faq: [
@@ -152,11 +152,11 @@ export const POSTS: Post[] = [
       {
         heading: 'What to ask any mover about storage',
         body:
-          "Ask how your things are protected while held. Ask whether the crew that loads is the crew that delivers. Ask how scheduling works if your dates slip — because on 30A, construction dates slip. And ask for the mover's Florida registration number, then [verify it](/resources). Ours is FL Mover Reg. #IM4125, and we'd rather you check it than take our word.",
+          "Ask how your things are protected while held. Ask whether the crew that loads is the crew that delivers. Ask how scheduling works if your dates slip — because on 30A, construction dates slip. And ask for the mover's Florida registration number, then [verify it](/resources). Ours is Fla. Mover Reg. No. IM4125, and we'd rather you check it than take our word.",
       },
       {
         body:
-          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+          'Licensed and insured. Fla. Mover Reg. No. IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
       },
     ],
     faq: [
@@ -731,7 +731,7 @@ export const POSTS: Post[] = [
       },
       {
         body:
-          "We're licensed and insured in Florida under Mover Registration #IM4125, and we're owner-operated — the people in these photos are the people who own the company. Inlet Beach, right next door to [Rosemary Beach](/service-areas/walton-county/rosemary-beach), is the east end of our home turf, along with the rest of Walton County, Okaloosa County, and Bay County. The day after this job we were on 30A doing the opposite kind of work: [an install day, carrying furniture into a house instead of out of one](/resources/field-notes-30a-install-day-design-dwell).",
+          "We're licensed and insured in Florida under Fla. Mover Reg. No. IM4125, and we're owner-operated — the people in these photos are the people who own the company. Inlet Beach, right next door to [Rosemary Beach](/service-areas/walton-county/rosemary-beach), is the east end of our home turf, along with the rest of Walton County, Okaloosa County, and Bay County. The day after this job we were on 30A doing the opposite kind of work: [an install day, carrying furniture into a house instead of out of one](/resources/field-notes-30a-install-day-design-dwell).",
       },
     ],
     faq: [
@@ -855,7 +855,7 @@ export const POSTS: Post[] = [
       },
       {
         body:
-          'Licensed and insured in Florida under Mover Registration #IM4125, serving 30A, Santa Rosa Beach, Miramar Beach, Destin, Panama City Beach, and the rest of Walton, Okaloosa, and Bay Counties.',
+          'Licensed and insured in Florida under Fla. Mover Reg. No. IM4125, serving 30A, Santa Rosa Beach, Miramar Beach, Destin, Panama City Beach, and the rest of Walton, Okaloosa, and Bay Counties.',
       },
     ],
     faq: [
@@ -947,14 +947,14 @@ export const POSTS: Post[] = [
       },
       {
         body:
-          'Licensed and insured in Florida under Mover Registration #IM4125, serving 30A, Santa Rosa Beach, Miramar Beach, Destin, Panama City Beach, and the rest of Walton, Okaloosa, and Bay Counties.',
+          'Licensed and insured in Florida under Fla. Mover Reg. No. IM4125, serving 30A, Santa Rosa Beach, Miramar Beach, Destin, Panama City Beach, and the rest of Walton, Okaloosa, and Bay Counties.',
       },
     ],
     faq: [
       {
         question: 'Do you do commercial deliveries on 30A?',
         answer:
-          'Yes. We handle commercial deliveries and fit-outs across 30A and Santa Rosa Beach — stocking new locations, receiving palletized freight, and moving inventory a standard courier will not handle. The crew is owner-operated and licensed and insured under FL Mover Registration #IM4125.',
+          'Yes. We handle commercial deliveries and fit-outs across 30A and Santa Rosa Beach — stocking new locations, receiving palletized freight, and moving inventory a standard courier will not handle. The crew is owner-operated and licensed and insured under Fla. Mover Reg. No. IM4125.',
       },
       {
         question: 'How do you move wine glasses and fragile glassware?',
@@ -1041,7 +1041,7 @@ export const POSTS: Post[] = [
       },
       {
         body:
-          'Licensed and insured in Florida under Mover Registration #IM4125, serving Destin, Santa Rosa Beach, 30A, Miramar Beach, Panama City Beach, and the rest of Walton, Okaloosa, and Bay Counties.',
+          'Licensed and insured in Florida under Fla. Mover Reg. No. IM4125, serving Destin, Santa Rosa Beach, 30A, Miramar Beach, Panama City Beach, and the rest of Walton, Okaloosa, and Bay Counties.',
       },
     ],
     faq: [
@@ -1068,7 +1068,7 @@ export const POSTS: Post[] = [
       {
         question: 'Which areas do you cover for appliance delivery?',
         answer:
-          'Destin, Santa Rosa Beach, 30A, Miramar Beach, Fort Walton Beach, Niceville, and Panama City Beach — all of Walton, Okaloosa, and Bay Counties. We are locally owned, owner-operated, and licensed and insured under FL Mover Registration #IM4125.',
+          'Destin, Santa Rosa Beach, 30A, Miramar Beach, Fort Walton Beach, Niceville, and Panama City Beach — all of Walton, Okaloosa, and Bay Counties. We are locally owned, owner-operated, and licensed and insured under Fla. Mover Reg. No. IM4125.',
       },
     ],
   },
@@ -1352,7 +1352,7 @@ export const POSTS: Post[] = [
       },
       {
         body:
-          'Licensed and insured. FL Mover Reg. #IM4125. Serving Walton, Okaloosa, and Bay Counties from Santa Rosa Beach.',
+          'Licensed and insured. Fla. Mover Reg. No. IM4125. Serving Walton, Okaloosa, and Bay Counties from Santa Rosa Beach.',
       },
     ],
     faq: [
@@ -1510,7 +1510,7 @@ export const POSTS: Post[] = [
       },
       {
         body:
-          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+          'Licensed and insured. Fla. Mover Reg. No. IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
       },
       {
         body:
@@ -1650,7 +1650,7 @@ export const POSTS: Post[] = [
       },
       {
         body:
-          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+          'Licensed and insured. Fla. Mover Reg. No. IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
       },
       {
         body:
@@ -1769,7 +1769,7 @@ export const POSTS: Post[] = [
       },
       {
         body:
-          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+          'Licensed and insured. Fla. Mover Reg. No. IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
       },
       {
         body:
@@ -1801,7 +1801,7 @@ export const POSTS: Post[] = [
       {
         question: 'Which areas do you cover?',
         answer:
-          'Santa Rosa Beach is our home base, and we work across 30A and the rest of Walton, Okaloosa, and Bay Counties. We are licensed and insured under FL Mover Reg. #IM4125.',
+          'Santa Rosa Beach is our home base, and we work across 30A and the rest of Walton, Okaloosa, and Bay Counties. We are licensed and insured under Fla. Mover Reg. No. IM4125.',
       },
     ],
   },
@@ -1877,7 +1877,7 @@ export const POSTS: Post[] = [
       },
       {
         body:
-          'Licensed and insured. FL Mover Reg. #IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
+          'Licensed and insured. Fla. Mover Reg. No. IM4125. Locally owned and operated in Santa Rosa Beach, serving Walton, Okaloosa, and Bay Counties.',
       },
       {
         body:
@@ -1909,7 +1909,7 @@ export const POSTS: Post[] = [
       {
         question: 'Do you serve Santa Rosa Beach and 30A?',
         answer:
-          'Yes. Santa Rosa Beach is our home base, and we work across 30A and the rest of Walton, Okaloosa, and Bay Counties. We are licensed and insured under FL Mover Reg. #IM4125.',
+          'Yes. Santa Rosa Beach is our home base, and we work across 30A and the rest of Walton, Okaloosa, and Bay Counties. We are licensed and insured under Fla. Mover Reg. No. IM4125.',
       },
     ],
   },

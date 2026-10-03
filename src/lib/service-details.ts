@@ -149,7 +149,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       {
         heading: 'Your move is never brokered out',
         body: [
-          "A lot of long-distance moving is brokered — the company you hired sells your job to a carrier you've never met. We don't do that. Beach House Moving is the company on the phone, the crew that loads your home, and the name on the truck that delivers it. We carry full liability and cargo insurance under Florida Mover Registration #IM4125.",
+          "A lot of long-distance moving is brokered — the company you hired sells your job to a carrier you've never met. We don't do that. Beach House Moving is the company on the phone, the crew that loads your home, and the name on the truck that delivers it. We carry full liability and cargo insurance under Fla. Mover Reg. No. IM4125.",
         ],
       },
       {
@@ -174,7 +174,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: 'Is my furniture insured in transit?',
-        a: 'Yes — full liability and cargo insurance, required and verified under our FDACS Florida Mover Registration #IM4125. You can verify the registration yourself on the FDACS website.',
+        a: 'Yes — full liability and cargo insurance, required and verified under FDACS-issued Fla. Mover Reg. No. IM4125. You can verify the registration yourself on the FDACS website.',
       },
       {
         q: 'Can you store my things between closings?',
@@ -288,7 +288,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: 'Is stored property insured?',
-        a: 'We carry full liability and cargo insurance under FL Mover Registration #IM4125 — your household is covered with us from pickup through delivery.',
+        a: 'We carry full liability and cargo insurance under Fla. Mover Reg. No. IM4125 — your household is covered with us from pickup through delivery.',
       },
       {
         q: 'Do you work with military families between housing?',
@@ -357,7 +357,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
   },
   'military-pcs-moving': {
     fullDescription:
-      "PCS orders don't negotiate, so we don't make you. Beach House Moving plans military moves around the report date — short notice, odd hours, weekends — for families moving on or off base at Eglin AFB and Hurlburt Field, and anywhere across Walton, Okaloosa, and Bay Counties. Owner-operated, licensed (FL Mover Reg. #IM4125), insured, and available 24/7.",
+      "PCS orders don't negotiate, so we don't make you. Beach House Moving plans military moves around the report date — short notice, odd hours, weekends — for families moving on or off base at Eglin AFB and Hurlburt Field, and anywhere across Walton, Okaloosa, and Bay Counties. Owner-operated, licensed (Fla. Mover Reg. No. IM4125), insured, and available 24/7.",
     heroTitle: 'Military PCS Movers — Eglin AFB & Hurlburt Field',
     sections: [
       {
@@ -399,7 +399,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: 'Are you licensed for this?',
-        a: 'Florida Mover Registration #IM4125, issued by FDACS — background checks, verified insurance, Florida Statute 507 compliance. Verify it yourself on the FDACS site.',
+        a: 'Fla. Mover Reg. No. IM4125, issued by FDACS — background checks, verified insurance, Florida Statute 507 compliance. Verify it yourself on the FDACS site.',
       },
       {
         q: 'Do you serve Hurlburt Field as well as Eglin?',
@@ -524,7 +524,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: 'Are you licensed and insured for work on my own rental truck?',
-        a: 'Yes — same license and coverage as every job we take. Florida Mover Registration #IM4125, licensed and insured, and the crew is owner-operated rather than day labor pulled off an app.',
+        a: 'Yes — same license and coverage as every job we take. Fla. Mover Reg. No. IM4125, licensed and insured, and the crew is owner-operated rather than day labor pulled off an app.',
       },
       {
         q: 'How much does help with my rental truck cost?',
@@ -747,7 +747,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
         heading: "Office moves of any size",
         body: [
           "We move offices and commercial spaces of any size, from a single desk to a full floor. No move is too small or too big: a two-person real estate office, a retail store resetting its floor, a showroom changing locations, or a company moving across town.",
-          "The owners are the movers, so the people who plan your move are the people carrying your filing cabinets. We are licensed and insured, Florida Mover Reg. #IM4125. Desks and furniture that need to come apart get taken apart and reassembled at the new space.",
+          "The owners are the movers, so the people who plan your move are the people carrying your filing cabinets. We are licensed and insured, Fla. Mover Reg. No. IM4125. Desks and furniture that need to come apart get taken apart and reassembled at the new space.",
         ],
       },
       {
