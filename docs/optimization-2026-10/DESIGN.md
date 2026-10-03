@@ -54,7 +54,7 @@ New service pages use the existing `/services/[slug]` template (`SERVICES` in co
 | `/services/mounting-installation` | expand | furniture assembly near me 1K–10K | Add a furniture assembly section. No new URL. |
 | `/services/loading-unloading-help` | retarget | labor only movers 1K–10K; moving labor; u haul loading help | Title and H1 lead with "Moving labor / labor-only movers". |
 | `/services/packing-unpacking` | expand | unpacking service; home organizer near me 1K–10K | Add a home-organizing section ("owners quote it; starts at the listed moving rate"). |
-| Navarre page | new, **blocked on Les Q4** | movers navarre fl 100–1K ($48.62 bid) | Navarre is in Santa Rosa County, so it needs a new county in `SERVICE_AREAS` (a 4th homepage card). Architecture change: update ARCHITECTURE.md. |
+| Navarre page | new, **unblocked (Les: in radius, rank there)** | movers navarre fl 100–1K ($48.62 bid) | Navarre is in Santa Rosa County, so it needs a new county in `SERVICE_AREAS` (a 4th homepage card). Architecture change: update ARCHITECTURE.md. |
 
 Every Wave 1 page:
 - H1 and title lead with the search phrase; title ≤ 60 characters including the brand.
@@ -75,8 +75,8 @@ Every Wave 1 page:
 | "Is my Florida mover legit?" | resource post | Fla. Stat. ch. 507 (§507.03, .04, .05, .06, .11), the FDACS lookup, the federal 110% rule (interstate only). Show IM4125 in the lookup. |
 | Damage and claims promise | section on `/pricing`, `/about` or its own page | **Blocked on Les Q2.** Answers the #1 competitor complaint. |
 | "How we keep hourly honest" | section on `/pricing` | Published rate, what the clock covers, drive time. Confirmed rate only. |
-| Short-notice and same-day moves | section or page | **Blocked on Les Q1.** Bids $30–40. Site already says available 24/7. |
-| Rain and hurricane-season policy | guide | **The policy part is blocked on Les Q3.** Hurricane facts are sourced (NHC dates, Walton zones). |
+| Short-notice and same-day moves | section or page | Confirmed: same-day across all services when available. Bids $30–40. Site already says available 24/7. |
+| Rain and hurricane-season policy | guide | Confirmed: they work in rain unless it risks items, and confirm with the customer. Hurricane facts are sourced (NHC dates, Walton zones). |
 | PPM/DITY with a civilian mover | expand the PCS field guide | DoD PPM fact sheet (Mar 2026), weight tickets, TMO contacts. ppm/dity move 100–1K. |
 | 30A / Sandestin no-move-days calendar | resource post | Rosemary Beach's 21 posted dates plus HOA hour rules, "as posted publicly; confirm with management". Refreshed yearly. |
 | Movers-cost guide refresh | edit existing post | how much do movers cost 10K–100K. Fix the Santa Rosa, CA confusion with explicit "Santa Rosa Beach, Florida" wording. |

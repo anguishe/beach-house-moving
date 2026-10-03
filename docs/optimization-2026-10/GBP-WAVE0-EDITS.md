@@ -78,3 +78,16 @@ and D are still on HOLD.
 
 Next check (≥ 24 h): confirm services and the description show as published, with no "Verify" banner in the manager
 panel. Then decide on C (categories) and D (service area).
+
+## Run log: 2026-10-02 (late), Travis approved D, plus one category
+- The **business description is live** (it already shows in the profile).
+- **D: service area, done.** Removed "Miramar, FL, USA". That entry is Miramar in Broward County (Miami area), not the
+  Emerald Coast: the profile's map thumbnail spanned all of Florida down to Miami. Kept "Miramar Beach, FL". Now 19 of
+  20 areas, Navarre included. Google: "pending, usually up to 10 minutes". No verification prompt.
+- **C: categories.** Travis approved "Furniture delivery". **Google has no such category** (checked in the picker by
+  Claude and Travis). Typing "Furniture…" offers maker, store, wholesaler, accessories, repair shop, manufacturer and
+  rental service, none of which fit. The edit was cancelled unsaved, so the categories are unchanged (Moving service, Piano
+  moving service, Moving and storage service).
+- **TODO, categories:** pick a real substitute in the picker, one at a time, days apart, watching for a verification
+  prompt each time. Candidates to verify in the picker first: "Delivery service" (closest to furniture/appliance
+  delivery), "Junk removal service", "Professional organizer".

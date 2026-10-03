@@ -30,6 +30,9 @@ These are the only claims new copy may make about these services. Anything not l
 | Senior / downsizing | Yes. They work closely with customers and coordinate with family. No job too small. |
 | Furniture assembly | Yes. No specific brands. |
 | Interstate moving | Licensed and certified for interstate moves; good to move cross-country (Travis, 2026-10-02). No USDOT/MC number on file, so don't print one. |
+| Navarre | In BHM's radius. Les wants to rank there (Travis relayed, 2026-10-02). |
+| Rain | They work in the rain, but not if it risks any items. They confirm with the customer first (Les via Travis, 2026-10-02). |
+| Same-day | Same-day service is offered across all services when they have availability (Les via Travis, 2026-10-02). Never promise it. |
 | Partners / referral sources | Realtors, designers, appliance repair, appliance sales, wholesalers, retailers. Named in posts: Design & Dwell, Tracery Interiors, The Appliance Spot. Name a partner on a page only where an existing post already does. |
 
 Not confirmed, so never state them: prices beyond the published rate, specific weight limits, named assisted-living
