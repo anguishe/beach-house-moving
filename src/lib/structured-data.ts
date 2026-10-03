@@ -23,6 +23,15 @@ const SCHEMA_COUNTIES = [
 
 const SCHEMA_CITIES = [
   'Santa Rosa Beach',
+  'Grayton Beach',
+  'Blue Mountain Beach',
+  'Seaside',
+  'WaterColor',
+  'Alys Beach',
+  'Rosemary Beach',
+  'Inlet Beach',
+  'Sandestin',
+  'Freeport',
   'Destin',
   'Miramar Beach',
   'Fort Walton Beach',
@@ -137,6 +146,8 @@ export function movingCompanySchema(
       '@type': 'AdministrativeArea' as const,
       name: county,
     })),
+    // 30A is a corridor of beach communities, not a city.
+    { '@type': 'Place' as const, name: '30A' },
     ...SCHEMA_CITIES.map((city) => ({
       '@type': 'City' as const,
       name: city,
