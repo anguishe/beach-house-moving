@@ -25,8 +25,8 @@
 │   ├── /services/mounting-installation
 │   └── /services/loading-unloading-help
 ├── /service-areas
-│   ├── /service-areas/[county]  (walton-county, okaloosa-county, bay-county, santa-rosa-county — Navarre only)
-│   └── /service-areas/[county]/[neighborhood]  (27 neighborhood pages)
+│   ├── /service-areas/[county]  (walton-county, okaloosa-county, bay-county, santa-rosa-county — main towns only)
+│   └── /service-areas/[county]/[neighborhood]  (30 neighborhood pages)
 ├── /resources
 │   └── /resources/[slug]  (14 posts from src/content/posts.ts)
 ├── /about
@@ -47,8 +47,8 @@
 | `/resources` | Blog/resources hub — article cards linking to posts | Yes |
 | `/resources/[slug]` | Individual blog posts (BlogPosting + FAQPage JSON-LD) | Yes |
 | `/service-areas` | Service areas hub — Walton, Okaloosa, Bay Counties | Yes |
-| `/service-areas/[county]` | County landing pages (4 slugs; santa-rosa-county is scoped to Navarre) | Yes |
-| `/service-areas/[county]/[neighborhood]` | Neighborhood landing pages (27 slugs; those with owner-confirmed jobs also render a "Recent work in {name}" section from `Neighborhood.confirmedWork`) | Yes |
+| `/service-areas/[county]` | County landing pages (4 slugs; santa-rosa-county covers its main towns only) | Yes |
+| `/service-areas/[county]/[neighborhood]` | Neighborhood landing pages (30 slugs; those with owner-confirmed jobs also render a "Recent work in {name}" section from `Neighborhood.confirmedWork`) | Yes |
 | `/about` | Business story, values, license | Yes |
 | `/contact` | Phone, email, service area, map embed, contact info | Yes |
 | `/get-a-quote` | Dedicated quote form page | Yes |
@@ -63,11 +63,11 @@
 
 ### County slugs (`/service-areas/[county]`)
 
-`walton-county`, `okaloosa-county`, `bay-county`, `santa-rosa-county` (Navarre only — do not imply all of Santa Rosa County)
+`walton-county`, `okaloosa-county`, `bay-county`, `santa-rosa-county` (main towns: Navarre, Gulf Breeze, Pace, Milton — schema lists cities, not the county)
 
 ### Neighborhood slugs (`/service-areas/[county]/[neighborhood]`)
 
-27 programmatic pages across Walton (16), Okaloosa (7), Bay (3), and Santa Rosa (1: Navarre) counties — see `NEIGHBORHOODS` in `content.ts`.
+30 programmatic pages across Walton (16), Okaloosa (7), Bay (3), and Santa Rosa (4) counties — see `NEIGHBORHOODS` in `content.ts`.
 
 ### Resource post slugs (`/resources/[slug]`)
 

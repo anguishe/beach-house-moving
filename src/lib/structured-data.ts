@@ -32,6 +32,9 @@ const SCHEMA_CITIES = [
   'Crestview',
   'Navarre',
   'Navarre Beach',
+  'Gulf Breeze',
+  'Pace',
+  'Milton',
 ] as const
 
 const SCHEMA_SERVICE_AREA_HUB = [
