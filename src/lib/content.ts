@@ -550,7 +550,7 @@ export const FAQS = [
   },
   {
     q: 'Is Beach House Moving licensed and insured?',
-    a: 'Yes. Beach House Moving is fully licensed and insured in the State of Florida under Florida Mover Registration #IM4125, issued by the Florida Department of Agriculture and Consumer Services (FDACS). Florida law requires all for-hire movers to carry this registration, which verifies that we meet the state\'s standards for operating a moving company. You can verify our registration directly at the FDACS website. We also carry liability insurance and cargo coverage, so your belongings are protected from the moment we arrive until the last item is placed at your new home. When you hire Beach House Moving, you are hiring a legitimate, accountable business — not an unlicensed crew with no recourse if something goes wrong. Call (850) 842-1962 with any questions about our credentials.',
+    a: 'Yes. Beach House Moving is fully licensed and insured in the State of Florida under Fla. Mover Reg. No. IM4125, issued by the Florida Department of Agriculture and Consumer Services (FDACS). Florida law requires all for-hire movers to carry this registration, which verifies that we meet the state\'s standards for operating a moving company. You can verify our registration directly at the FDACS website. We also carry liability insurance and cargo coverage, so your belongings are protected from the moment we arrive until the last item is placed at your new home. When you hire Beach House Moving, you are hiring a legitimate, accountable business — not an unlicensed crew with no recourse if something goes wrong. Call (850) 842-1962 with any questions about our credentials.',
   },
   {
     q: 'How much does a move cost?',
@@ -1160,7 +1160,7 @@ export const REVIEWS_PAGE = {
   reviewsSection: {
     heading: 'Google Reviews',
     intro:
-      'Beach House Moving is a 4-person, owner-operated crew licensed in Florida (Mover Reg. #IM4125) and serving Walton, Okaloosa, and Bay Counties around the clock. The owners show up on every job — not a dispatch center, not a franchise crew you have never met. Our 3-truck fleet — two box trucks with lift gates and a Sprinter van — is built for the Emerald Coast: gated 30A communities, beach condos with elevator rules, and military PCS timelines near Eglin AFB and Hurlburt Field. When neighbors leave a review, they are describing a real move with real people who answered the phone at 2 a.m. because that is how we operate.',
+      'Beach House Moving is a 4-person, owner-operated crew licensed in Florida (Fla. Mover Reg. No. IM4125) and serving Walton, Okaloosa, and Bay Counties around the clock. The owners show up on every job — not a dispatch center, not a franchise crew you have never met. Our 3-truck fleet — two box trucks with lift gates and a Sprinter van — is built for the Emerald Coast: gated 30A communities, beach condos with elevator rules, and military PCS timelines near Eglin AFB and Hurlburt Field. When neighbors leave a review, they are describing a real move with real people who answered the phone at 2 a.m. because that is how we operate.',
   },
   whyReviewsMatter: {
     heading: 'Why Reviews Matter on the Emerald Coast',
@@ -1194,7 +1194,7 @@ export const REVIEWS_PAGE = {
 export const PAGE_META = {
   home: {
     title: 'Santa Rosa Beach Movers, 30A & Storage | Beach House Moving',
-    description: 'Owner-operated Santa Rosa Beach moving company — licensed & insured (FL Reg. #IM4125), serving 30A, Destin & the Emerald Coast. Free quote: (850) 842-1962.',
+    description: 'Owner-operated Santa Rosa Beach movers — licensed & insured (Fla. Mover Reg. No. IM4125), serving 30A, Destin & the Emerald Coast. Free quote: (850) 842-1962.',
     path: '/',
   },
   services: {
@@ -1212,7 +1212,7 @@ export const PAGE_META = {
   about: {
     title: 'About Beach House Moving | Florida Panhandle Movers',
     description:
-      'The owners are the movers — locally owned & fully licensed (FL Reg. #IM4125) across Walton, Okaloosa & Bay Counties. Free quote: (850) 842-1962.',
+      'The owners are the movers — locally owned & fully licensed (Fla. Mover Reg. No. IM4125) across Walton, Okaloosa & Bay Counties. Free quote: (850) 842-1962.',
     path: '/about',
   },
   contact: {
@@ -1336,7 +1336,7 @@ export const SERVICE_INCLUDES: Record<(typeof SERVICES)[number]['slug'], readonl
     "Offices, shops and commercial spaces of any size",
     "After-hours and weekend moves at an added rate",
     "Desk and furniture disassembly and reassembly",
-    "Licensed and insured, FL Mover Reg. #IM4125",
+    "Licensed and insured, Fla. Mover Reg. No. IM4125",
   ],
   "estate-cleanouts": [
     "Whole-house or partial cleanouts",
@@ -1729,7 +1729,7 @@ export const NEIGHBORHOODS = [
       },
       {
         question: `Do Santa Rosa Beach HOAs require anything before a move?`,
-        answer: `Several do — a certificate of insurance on file, a reserved move window, or a gate code that rotates seasonally. We're licensed and insured (FL Mover Reg. #IM4125) and handle the COI paperwork so the gate isn't a surprise on move morning.`,
+        answer: `Several do — a certificate of insurance on file, a reserved move window, or a gate code that rotates seasonally. We're licensed and insured (Fla. Mover Reg. No. IM4125) and handle the COI paperwork so the gate isn't a surprise on move morning.`,
       },
     ],
   },
