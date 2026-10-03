@@ -4,7 +4,7 @@ import { Phone } from 'lucide-react'
 
 import { TrackedPhoneLink } from '@/components/analytics/TrackedPhoneLink'
 import { MotionReveal } from '@/components/ui/MotionReveal'
-import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS } from '@/lib/content'
+import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS, areaLabel } from '@/lib/content'
 
 // High-intent geo pages we deep-link from the homepage to feed them link equity.
 const KEY_NEIGHBORHOOD_SLUGS = ['santa-rosa-beach', 'miramar-beach', 'sandestin', 'freeport', 'destin', 'fort-walton-beach', 'navarre']
@@ -36,7 +36,7 @@ export function ServiceAreaSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-[repeat(auto-fill,minmax(340px,1fr))] gap-6">
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(min(100%,280px),1fr))] gap-6">
           {SERVICE_AREAS.map((area, index) => (
             <MotionReveal
               key={area.slug}
@@ -50,20 +50,20 @@ export function ServiceAreaSection() {
                 <div className="relative w-full overflow-hidden bg-brand-navy pb-[58%]">
                   <Image
                     src={area.image}
-                    alt={`Beach House Moving serving ${area.county}`}
+                    alt={`Beach House Moving serving ${areaLabel(area)}`}
                     fill
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                     className="object-contain object-center"
                   />
                   <div className="absolute bottom-3 left-3 rounded-full bg-brand-teal px-3 py-1.5 font-body text-[11px] font-bold uppercase tracking-wide text-white">
-                    {area.county}
+                    {areaLabel(area)}
                   </div>
                 </div>
 
                 <div className="p-6">
                   <h3 className="mb-2 font-heading text-[1.3rem] font-bold leading-snug text-brand-navy">
-                    {area.county}
+                    {areaLabel(area)}
                   </h3>
                   <p className="mb-4 font-body text-sm leading-relaxed text-ink-muted">
                     {area.description}

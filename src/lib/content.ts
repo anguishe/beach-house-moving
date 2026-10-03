@@ -6,7 +6,7 @@
 // ============================================================
 
 // Bump when a deploy changes rendered copy/links on templated pages.
-export const CONTENT_REVISION = '2026-09-25'
+export const CONTENT_REVISION = '2026-10-03'
 
 // Feature flags.
 // SHOW_TESTIMONIALS: true = show static Google reviews from TESTIMONIALS[].
@@ -219,6 +219,10 @@ export const SERVICE_AREAS = [
   {
     county: 'Santa Rosa County',
     slug: 'santa-rosa-county',
+    // Navarre only: never present this as all of Santa Rosa County (labels, schema).
+    displayName: 'Navarre (Santa Rosa County)',
+    partialCounty: true,
+    updatedAt: '2026-10-03',
     featuredNeighborhoodSlugs: ['navarre'] as readonly string[],
     cities: ['Navarre', 'Navarre Beach'],
     image: '/images/beach-house-moving-fleet-truck-van.jpg',
@@ -245,7 +249,20 @@ export const SERVICE_AREAS = [
 // Widening of a SERVICE_AREAS record exposing optional updatedAt (YYYY-MM-DD)
 // for sitemap <lastmod>. Set on a record when its county page content changes;
 // sitemap falls back to CONTENT_REVISION otherwise.
-export type ServiceArea = (typeof SERVICE_AREAS)[number] & { updatedAt?: string }
+export type ServiceArea = (typeof SERVICE_AREAS)[number] & {
+  updatedAt?: string
+  /** Visible label when BHM serves only part of the county (e.g. Navarre). */
+  displayName?: string
+  /** True when BHM serves only part of the county: schema lists cities, not the county. */
+  partialCounty?: boolean
+}
+
+/** Visible county label: the scoped displayName when set, else the county name. */
+export const areaLabel = (area: { county: string }): string =>
+  (area as ServiceArea).displayName ?? area.county
+
+export const isPartialCounty = (county: string): boolean =>
+  (SERVICE_AREAS as readonly ServiceArea[]).some((a) => a.county === county && a.partialCounty === true)
 
 export const SERVICES = [
   {
@@ -2289,7 +2306,7 @@ export const NEIGHBORHOODS = [
     county: 'Santa Rosa County',
     image: '/images/beach-house-moving-luxury-home-fleet-truck-and-van.jpg',
     intro:
-      'Navarre runs along US-98 between Gulf Breeze and Mary Esther, with Navarre Beach across Santa Rosa Sound on Santa Rosa Island. Hurlburt families, beach condos, and established mainland neighborhoods make up most of the work, and we bring the same owner-operated crew we run everywhere else.',
+      'Navarre runs along US-98 between Gulf Breeze and Mary Esther, with Navarre Beach across Santa Rosa Sound on Santa Rosa Island. We handle Hurlburt PCS moves, Navarre Beach homes and condos, and mainland family moves with the same owner-operated crew we run everywhere else.',
     landmarks: ['Navarre Beach', 'Navarre Beach Fishing Pier', 'Navarre Beach Bridge', 'US-98', 'Holley by the Sea', 'Hurlburt Field'],
     metaTitle: 'Movers in Navarre, FL | Beach House Moving',
     metaDescription:
@@ -2298,11 +2315,11 @@ export const NEIGHBORHOODS = [
     localFaqs: [
       {
         question: 'Do you move to and from Navarre Beach?',
-        answer: 'Yes. Navarre Beach homes and condos are regular work: exterior stairs, elevator reservations and bridge traffic are all part of the plan before move day.',
+        answer: 'Yes. We plan Navarre Beach homes and condos around exterior stairs, elevator reservations and bridge traffic before move day.',
       },
       {
         question: 'Can you handle a Hurlburt Field PCS move to Navarre?',
-        answer: 'Yes. Navarre is one of the most common off-base choices near Hurlburt, and we build the move around your report date, including PPM paperwork with itemized invoices.',
+        answer: 'Yes. We build the move around your Hurlburt report date, including PPM paperwork with itemized invoices.',
       },
       {
         question: 'Do you offer same-day moves in Navarre?',

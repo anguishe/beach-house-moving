@@ -9,7 +9,7 @@ import { PageHero } from '@/components/layout/PageHero'
 import { PageShell } from '@/components/layout/PageShell'
 import { ServiceAreaMap } from '@/components/layout/ServiceAreaMap'
 import { JsonLd } from '@/components/seo/JsonLd'
-import { BUSINESS, NEIGHBORHOODS, PAGE_META, SERVICE_AREAS, SERVICE_AREAS_HUB } from '@/lib/content'
+import { BUSINESS, NEIGHBORHOODS, PAGE_META, SERVICE_AREAS, SERVICE_AREAS_HUB, areaLabel } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { breadcrumbSchema, serviceAreasItemListSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
@@ -55,7 +55,7 @@ export default async function ServiceAreasPage() {
             ]}
           />
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {SERVICE_AREAS.map((area) => (
               <Link
                 key={area.slug}
@@ -65,19 +65,19 @@ export default async function ServiceAreasPage() {
                 <div className="relative aspect-[16/10] bg-brand-navy">
                   <Image
                     src={area.image}
-                    alt={`Beach House Moving serving ${area.county}`}
+                    alt={`Beach House Moving serving ${areaLabel(area)}`}
                     fill
                     loading="lazy"
                     sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
                     className="object-contain"
                   />
                   <span className="absolute bottom-3 left-3 rounded-full bg-brand-teal px-3 py-1 font-body text-xs font-bold uppercase tracking-wide text-white">
-                    {area.county}
+                    {areaLabel(area)}
                   </span>
                 </div>
                 <div className="p-6">
                   <h2 className="font-heading text-xl font-bold text-brand-navy">
-                    {area.county}
+                    {areaLabel(area)}
                   </h2>
                   <p className="mt-2 font-body text-sm leading-relaxed text-ink-muted">
                     {area.description}
@@ -143,7 +143,7 @@ export default async function ServiceAreasPage() {
               return (
                 <div key={area.slug} className="mb-8">
                   <h3 className="mb-3 font-heading text-lg font-semibold text-brand-navy">
-                    {area.county}
+                    {areaLabel(area)}
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {areaNeighborhoods.map((nb) => (

@@ -43,6 +43,8 @@ const SCHEMA_SERVICE_AREA_HUB = [
 
 type CountyAreaInput = {
   county: string
+  displayName?: string
+  partialCounty?: boolean
   slug: string
   cities: readonly string[]
   description: string
@@ -330,12 +332,10 @@ export function countyAreaSchema(area: CountyAreaInput, origin: string) {
   const base = origin.replace(/\/$/, '')
 
   const areaServed = [
-    {
-      '@type': 'AdministrativeArea' as const,
-      name: area.county,
-      addressRegion: 'FL',
-      addressCountry: 'US',
-    },
+    // Partial counties (Navarre-only Santa Rosa) list their cities, never the whole county.
+    ...(area.partialCounty
+      ? []
+      : [{ '@type': 'AdministrativeArea' as const, name: area.county, addressRegion: 'FL', addressCountry: 'US' }]),
     ...area.cities.map((city) => ({
       '@type': 'City' as const,
       name: city,
@@ -353,7 +353,7 @@ export function countyAreaSchema(area: CountyAreaInput, origin: string) {
     {
       '@context': 'https://schema.org',
       '@type': 'Service',
-      name: `Moving Services in ${area.county}`,
+      name: `Moving Services in ${area.partialCounty ? area.cities.join(' and ') : area.county}`,
       description: area.description,
       url: absoluteUrl(base, `/service-areas/${area.slug}`),
       provider: {

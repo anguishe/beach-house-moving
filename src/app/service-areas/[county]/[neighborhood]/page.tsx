@@ -9,7 +9,7 @@ import { Breadcrumbs } from '@/components/layout/Breadcrumbs'
 import { PageShell } from '@/components/layout/PageShell'
 import { JsonLd } from '@/components/seo/JsonLd'
 import type { Neighborhood } from '@/lib/content'
-import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES, TRUST_BADGES } from '@/lib/content'
+import { BUSINESS, NEIGHBORHOODS, SERVICE_AREAS, SERVICES, TRUST_BADGES, isPartialCounty } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { faqPageSchema, webPageSchema } from '@/lib/structured-data'
 import { getSiteOrigin } from '@/lib/site-url'
@@ -166,12 +166,9 @@ export default async function NeighborhoodPage({ params }: PageProps) {
         addressRegion: 'FL',
         addressCountry: 'US',
       },
-      {
-        '@type': 'AdministrativeArea',
-        name: nb.county,
-        addressRegion: 'FL',
-        addressCountry: 'US',
-      },
+      ...(isPartialCounty(nb.county)
+        ? []
+        : [{ '@type': 'AdministrativeArea', name: nb.county, addressRegion: 'FL', addressCountry: 'US' }]),
     ],
     geo: {
       '@type': 'GeoCoordinates',
