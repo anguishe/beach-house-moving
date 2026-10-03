@@ -427,7 +427,7 @@ export const POSTS: Post[] = [
     metaDescription:
       "PCS to Eglin AFB or Hurlburt Field: a local mover's guide to neighborhoods, BAH rates, on-base vs off-base, and coordinating your military relocation.",
     datePublished: '2026-04-22',
-    dateModified: '2026-10-02',
+    dateModified: '2026-10-03',
     author: 'Beach House Moving',
     heroImage: '/images/move-niceville.jpg',
     heroAlt:
@@ -474,7 +474,7 @@ export const POSTS: Post[] = [
       {
         heading: 'Neighborhoods Worth Knowing',
         paragraph:
-          'Niceville is family-oriented with Okaloosa County schools that rank among the strongest in Florida. Bluewater Bay and the neighborhoods along Partin Drive north of John Sims Parkway are common for Eglin families who want quiet streets and a twenty-minute gate commute. Crestview is more affordable and growing quickly — new construction along Stillwell Boulevard and Redstone Avenue gives families space at lower rent, with about a thirty-minute drive to Eglin main gate. Navarre in Santa Rosa County is technically off-post for Eglin purposes but popular for families who want Gulf access through Navarre Beach; the commute is longer but the beach is twenty minutes from your driveway.',
+          'Niceville is family-oriented with Okaloosa County schools that rank among the strongest in Florida. Bluewater Bay and the neighborhoods along Partin Drive north of John Sims Parkway are common for Eglin families who want quiet streets and a twenty-minute gate commute. Crestview is more affordable and growing quickly — new construction along Stillwell Boulevard and Redstone Avenue gives families space at lower rent, with about a thirty-minute drive to Eglin main gate. [Navarre](/service-areas/santa-rosa-county/navarre) in Santa Rosa County is technically off-post for Eglin purposes but popular for families who want Gulf access through Navarre Beach; the commute is longer but the beach is twenty minutes from your driveway.',
       },
       {
         paragraph:
