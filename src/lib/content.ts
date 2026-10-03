@@ -1394,6 +1394,11 @@ export const JUNK_REMOVAL_PAGE = {
     headline: 'No haul too big or too small',
     intro:
       'An honest list of what our crew removes — from a single bulky item to a full-property cleanout.',
+    estateLink: {
+      lead: 'Clearing out a whole house after a loss or a downsize?',
+      label: 'See our estate cleanouts',
+      href: '/services/estate-cleanouts',
+    },
   },
   howItWorks: {
     eyebrow: 'How It Works',
@@ -1643,7 +1648,7 @@ export const SERVICES_HUB = {
   eyebrow: 'What We Do',
   headline: 'Full-Service Moving, Start to Finish',
   bodyIntro:
-    'Eight services, four owners, no subcontractors. Every job on this page is performed by Josh, Zack, Les, or Keith — the same four names on the license. We handle full residential moves across Walton, Okaloosa, and Bay Counties, local and long-distance, plus the work most crews turn down: appliance and specialty delivery, packing and unpacking, storage runs, junk removal, and PCS moves in and out of Eglin and Hurlburt. Pick the service that fits, or call (850) 842-1962 and describe the job. We\'ll tell you straight what it takes and what it costs.',
+    'Four owners, no subcontractors. Every job on this page is performed by Josh, Zack, Les, or Keith — the same four names on the license. We handle full residential moves across Walton, Okaloosa, and Bay Counties, local and long-distance, plus the work most crews turn down: appliance and specialty delivery, packing and unpacking, storage runs, junk removal, and PCS moves in and out of Eglin and Hurlburt. Pick the service that fits, or call (850) 842-1962 and describe the job. We\'ll tell you straight what it takes and what it costs.',
   faqs: [
     {
       q: 'Do you subcontract any of your services?',

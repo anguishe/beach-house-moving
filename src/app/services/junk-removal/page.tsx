@@ -127,6 +127,16 @@ export default async function JunkRemovalPage() {
             <p className="mt-3 max-w-2xl font-body text-base leading-relaxed text-ink-muted">
               {JUNK_REMOVAL_PAGE.whatWeHaul.intro}
             </p>
+            <p className="mt-2 max-w-2xl font-body text-base leading-relaxed text-ink-muted">
+              {JUNK_REMOVAL_PAGE.whatWeHaul.estateLink.lead}{' '}
+              <Link
+                href={JUNK_REMOVAL_PAGE.whatWeHaul.estateLink.href}
+                className="font-medium text-brand-teal underline underline-offset-4 hover:text-brand-teal-dark"
+              >
+                {JUNK_REMOVAL_PAGE.whatWeHaul.estateLink.label}
+              </Link>
+              .
+            </p>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
               {JUNK_REMOVAL_PAGE.haulItems.map((item) => {
                 const Icon = haulIconMap[item.icon]

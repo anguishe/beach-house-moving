@@ -1,14 +1,14 @@
 /** Related service slugs for cross-links on service detail pages. */
 export const SERVICE_RELATED: Record<string, readonly string[]> = {
-  'residential-moving': ['packing-unpacking', 'storage'],
+  'residential-moving': ['packing-unpacking', 'storage', 'senior-downsizing-moves'],
   'local-moving': ['packing-unpacking', 'delivery'],
   'long-distance-moving': ['storage', 'packing-unpacking'],
   'packing-unpacking': ['residential-moving', 'local-moving'],
   storage: ['long-distance-moving', 'military-pcs-moving'],
-  delivery: ['local-moving', 'junk-removal'],
+  delivery: ['local-moving', 'junk-removal', 'heavy-item-moving', 'piano-moving'],
   'military-pcs-moving': ['long-distance-moving', 'storage'],
-  'junk-removal': ['delivery', 'local-moving'],
-  'design-trade-installation': ['mounting-installation', 'delivery'],
+  'junk-removal': ['delivery', 'local-moving', 'estate-cleanouts'],
+  'design-trade-installation': ['mounting-installation', 'delivery', 'vacation-rental-installs'],
   'mounting-installation': ['design-trade-installation', 'delivery'],
   'loading-unloading-help': ['local-moving', 'packing-unpacking'],
   "piano-moving": ["heavy-item-moving", "delivery"],
@@ -631,7 +631,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       {
         heading: "How we move a piano",
         body: [
-          "A piano moves wrapped, padded and strapped to a piano board, with a crew sized to the access at both ends. An upright gets blanket-wrapped and strapped upright to the board. A grand has its legs and pedal lyre taken off, then rides on its side on the board, which is the standard way grands travel.",
+          "A piano moves wrapped, padded and strapped to a piano board, with a crew sized to the access at both ends. An upright gets blanket-wrapped and strapped upright to the board. Grands normally travel with the legs and pedal lyre off, on their side on the board; that is the standard way, and we confirm the plan for your piano when we quote.",
           "Floors, door frames and stair rails get protection before the piano moves. In the truck it is strapped in place so nothing shifts on US-98. At the new place we set it where you want it, put a grand back on its legs, and take the padding with us.",
         ],
       },
@@ -653,7 +653,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     faqs: [
       {
         q: "How much does it cost to move a piano?",
-        a: "Our published rate is $195 an hour for 2 movers, plus drive time. Pianos are quoted after you tell us the type (upright, baby grand or grand), the stairs, and the access at both ends, because those set the crew and the time. Call (850) 842-1962 and we will give you a straight answer.",
+        a: "Pianos are quoted after you tell us the type (upright, baby grand or grand), the stairs, and the access at both ends, because those set the crew and the time. Call (850) 842-1962 and we will give you a straight answer.",
       },
       {
         q: "Can you move a piano up or down stairs?",
@@ -661,7 +661,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: "Do you move grand and baby grand pianos?",
-        a: "Yes, we move all pianos. Grands and baby grands have their legs and pedal lyre removed, then travel wrapped and strapped on their side on a piano board. We put them back on their legs at the new place.",
+        a: "Yes, we move all pianos. Grands and baby grands normally travel wrapped and strapped on their side on a piano board, with the legs and pedal lyre off, and go back on their legs at the new place. We confirm the plan for your piano when we quote.",
       },
       {
         q: "Can I move a piano myself?",
@@ -730,7 +730,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: "How much does it cost to move a heavy item?",
-        a: "Our published rate is $195 an hour for 2 movers, plus drive time. Heavy items are quoted after you tell us what the item is, the stairs, and the access at both ends, since those set the crew and the time. Call (850) 842-1962.",
+        a: "Heavy items are quoted after you tell us what the item is, the stairs, and the access at both ends, since those set the crew and the time. Call (850) 842-1962.",
       },
       {
         q: "Is there a weight limit on what you will move?",
@@ -812,7 +812,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
         heading: "What an estate cleanout is",
         body: [
           "An estate cleanout is the job of emptying a home after someone has died, moved into care, or decided to sell. It can be the whole house or one part of it. Sometimes the family has already taken what they want and needs the rest gone. Sometimes it is just a garage, an attic, or a storage room nobody has opened in years. We do both.",
-          "Most cleanouts are really three jobs at once. Some pieces go to family, some go to donation, and some go away for good. We handle all three in the same visit, so the house is not emptied in stages over a month of weekends. If a piece is headed to a relative out of state, we are licensed for interstate moves too.",
+          "Most cleanouts are really three jobs at once. Some pieces go to family, some go to donation, and some go away for good. We handle all three, so you are not coordinating three different crews. If a piece is headed to a relative out of state, we are licensed for interstate moves too.",
         ],
       },
       {
@@ -827,7 +827,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
         heading: "Where donations and everything else go",
         body: [
           "Donations go wherever you prefer. That might be a charity, a church, a shelter, a neighbor, or a friend who just set up a first apartment. Tell us where, and we will deliver it. Most charities have rules about what they accept and in what condition, so a quick call to them first saves a wasted trip.",
-          "What cannot be donated or kept, we haul away. See our [junk removal](/services/junk-removal) page for how that works. For residents, Walton County offers a free monthly bulk pickup, and the county landfill takes residents' bulk waste at no charge. That can help if your timeline allows it. Check your county's current rules before you plan around it.",
+          "What cannot be donated or kept, we haul away. See our [junk removal](/services/junk-removal) page for how that works. Walton County's Bulk Waste Collection page has described a free monthly bulk pickup and free bulk drop-off at the county landfill for eligible residents. Eligibility and schedules vary, so check with the county before you plan around it.",
         ],
       },
       {
@@ -861,7 +861,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: "Can Walton County take some of the bulk items?",
-        a: "Walton County offers residents a free monthly bulk pickup, and its landfill takes residents' bulk waste at no charge. Rules and schedules change, so check your county's current rules first. If the timing does not work, we can haul it away for you.",
+        a: "Walton County has described a free monthly bulk pickup and free landfill drop-off for eligible residents on its Bulk Waste Collection page. Eligibility and schedules vary, so check with the county first. If the timing does not work, we can haul it away for you.",
       },
     ],
   },
@@ -904,7 +904,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
     faqs: [
       {
         q: "Are you a senior move manager?",
-        a: "No, and we will not claim to be. We are movers who handle senior and downsizing moves with patience. We plan the move closely with you and your family, pack, move, set up the new place, and help clear what is left behind. If a senior move manager is already helping your family, we are glad to work alongside them.",
+        a: "No, and we will not claim to be. We are movers who handle senior and downsizing moves with patience. We plan the move closely with you and your family, pack, move, set up the new place, and help clear what is left behind.",
       },
       {
         q: "Can you work with family who live out of state?",
@@ -944,7 +944,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
         heading: "Built around turnover deadlines",
         body: [
           "We schedule installs to fit between check-out and check-in. On the Emerald Coast that window is often a summer Saturday, with cleaners and the next guests right behind us. Tell us the window early and we will plan the job to fit it.",
-          "There are a lot of these windows to fit. Walton County has more than 20,000 active rental units paying tourist development tax (Walton County Clerk, March 2026), and summer Saturdays book up first. When a crew is available, we can sometimes take same-day work, but the safest plan is to book ahead.",
+          "There are a lot of these windows to fit. Walton County's tourist development tax data counted more than 20,000 active rental units in March 2026, and summer Saturday turnovers crowd the roads, elevators and loading zones on 30A. When a crew is available, we can sometimes take same-day work, but the safest plan is to book ahead.",
         ],
       },
       {
@@ -973,7 +973,7 @@ export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
       },
       {
         q: "Can you finish between check-out and check-in?",
-        a: "That is what we plan for. Tell us the turnover window as early as you can, along with any HOA or elevator rules. Summer Saturdays book first, so earlier is better.",
+        a: "That is what we plan for. Tell us the turnover window as early as you can, along with any HOA or elevator rules. Summer Saturday turnovers are the busiest on the coast, so earlier is better.",
       },
       {
         q: "Will you haul away the old furniture?",

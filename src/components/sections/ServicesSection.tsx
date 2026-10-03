@@ -38,7 +38,7 @@ const serviceImageMap: Record<string, { src: string; alt: string }> = {
   'mounting-installation': IMAGES.nicevilleEstateSaleArtHanging,
   'loading-unloading-help': IMAGES.ridgewalkUhaulUnload,
   "piano-moving": IMAGES.crewBrandedAntiqueMove,
-  "heavy-item-moving": IMAGES.crewGymEquipmentLiftgate,
+  "heavy-item-moving": IMAGES.golfCart,
   "office-commercial-moving": IMAGES.loadedBoxTruck,
   "estate-cleanouts": IMAGES.estateSalePrepHandTruck,
   "senior-downsizing-moves": IMAGES.dresserPlacement,
@@ -89,7 +89,7 @@ export function ServicesSection() {
             return (
               <MotionReveal
                 key={service.slug}
-                index={index}
+                index={index % 3}
                 className="overflow-hidden rounded-[14px] border border-brand-navy/6 bg-white shadow-brand transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1 hover:shadow-brand-hover"
               >
                 <Link
