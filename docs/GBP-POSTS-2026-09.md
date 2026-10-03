@@ -74,13 +74,14 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ### Post 4 — Thu 2026-09-18
 **Photo:** `beach-house-moving-niceville-estate-sale-art-hanging-square.jpg`
-**Button:** Learn more → `https://beachhousemoving.xyz/services/mounting-installation`
+**Button:** Learn more → `https://beachhousemoving.xyz/services/junk-removal`
+**Link swap 2026-10-02:** was `/services/mounting-installation` (indexed; post 8 still links it). Junk removal is not indexed. Copy adds "hauling off what doesn't" so the button matches.
 
 > Les hanging art in Niceville for a Lily Pads Interiors estate sale.
 >
 > Art over a bed is a two-person job even when the piece is light — the reach is long and there's nothing under you to stand on. Framed pieces are the easiest thing on any job to damage and the hardest to hide once you have.
 >
-> We supply the hanging hardware when a piece didn't come with the right kind. Estate sale staging, art hanging, and moving what sells — Niceville, Fort Walton Beach, Crestview, and the rest of Okaloosa County. Tap Call on our profile.
+> We supply the hanging hardware when a piece didn't come with the right kind. Estate sale staging, art hanging, moving what sells and hauling off what doesn't — Niceville, Fort Walton Beach, Crestview, and the rest of Okaloosa County. Tap Call on our profile.
 
 ---
 
@@ -98,13 +99,14 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 
 ### Post 6 — Thu 2026-09-25
 **Photo:** `beach-house-moving-santa-rosa-beach-drapery-hanging-ladder-square.jpg`
-**Button:** Learn more → `https://beachhousemoving.xyz/resources/field-notes-design-trade-install-week-emerald-coast`
+**Button:** Learn more → `https://beachhousemoving.xyz/service-areas/walton-county/30a`
+**Link swap 2026-10-02:** was the design-trade field note (indexed; post 10 linked it too). `/30a` is not indexed.
 
 > The unglamorous half of a finished room.
 >
 > A primary bedroom with a made bed and a finished floor gives you nowhere to set a ladder that isn't on the bed or on the rug. So the ladder gets padded feet, somebody holds it, and the bed gets covered before anything goes up over it. None of that is complicated — it's just the difference between a clean job and a conversation about a mark on a duvet.
 >
-> Santa Rosa Beach. Tap Call on our profile.
+> Santa Rosa Beach, on 30A. Tap Call on our profile.
 
 ---
 
@@ -147,16 +149,20 @@ Post 10 is the wrap-up — after it lands, the next batch is due.
 ---
 
 ### Post 10 — Thu 2026-10-09
+**Status:** REWRITTEN 2026-10-02 as the storage post. Needs Travis OK before it goes out.
 **Photo:** `beach-house-moving-miramar-beach-burnt-pine-dining-room-install-square.jpg` (reuse)
-**Button:** Learn more → `https://beachhousemoving.xyz/resources/field-notes-design-trade-install-week-emerald-coast`
+**Button:** Learn more → `https://beachhousemoving.xyz/services/storage`
+**Why:** storage queries get ~807 GBP impressions and 0 clicks because searchers expect self-storage units; `/services/storage` isn't indexed. The old wrap-up linked the same field note as post 6. Every claim below is already on `/services/storage`.
 
-> Three towns, three design firms, one week.
+> Moving storage: we pick it up, store it, and bring it back.
 >
-> Drapery in Santa Rosa Beach for Tracery Interiors, art in Niceville for Lily Pads Interiors, and a furniture install in Burnt Pine, Miramar Beach.
+> This isn't a storage unit you rent and fill yourself. We load your household, hold it, and deliver it to the new place when it's ready, wrapped and padded the whole way.
 >
-> We wrote up what a design trade install day actually involves — the order pieces come off the truck, what we ask for before we show up, and where our scope stops.
+> It covers the gap between two homes: closing dates that don't line up, a renovation that ran long, a house staged to sell, a PCS family waiting on housing. One crew and one phone call on both ends, not a mover, a unit, and a second mover.
 >
-> Read it on the site, or tap Call on our profile.
+> Tell us your dates. Tap Call on our profile.
+
+**Owner check:** no climate-control or minimum-term claim on purpose. Les confirms both before they go in copy or on the page.
 
 ---
 
@@ -197,7 +203,8 @@ and `docs/blog/incoming-2026-09-28/optimized/gbp`, which is the CLAUDE.md "new m
 ### Post 11 — Mon 2026-10-13
 **Status:** APPROVED 2026-09-28 (Travis, in chat)
 **Photo:** `beach-house-moving-destin-regatta-bay-box-truck-paver-driveway-gbp-4x3.jpg`
-**Button:** Learn more → `https://beachhousemoving.xyz/resources/field-notes-regatta-bay-to-grand-harbor-destin-move`
+**Button:** Learn more → `https://beachhousemoving.xyz/service-areas/okaloosa-county/destin`
+**Link swap 2026-10-02:** was the Regatta Bay field note. The Destin page is the money page and isn't indexed; the field note gets linked from `/resources` when it publishes 10/6. The copy already ends on "Moving across Destin".
 
 > Regatta Bay to Grand Harbor — a Destin-to-Destin move.
 >
